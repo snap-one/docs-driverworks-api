@@ -1,0 +1,30 @@
+name: Build Slate docs and deploy to Github Pages
+
+on:
+  push:
+    branches:
+    - master
+    paths:
+    - '**.md'
+    - '**.erb'
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-18.04
+    name: Checkout, build and deploy to github-pages
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Build and cache Dockerfile
+      uses: whoan/docker-build-with-cache-action@v3
+      with:
+        username: wwalshc4
+        password: "${{ secrets.WWALSHC4_DOCKER_PASSWORD }}"
+        image_name: wwalshc4/slatebuild
+    - name: Build slate docs
+      uses: docker://wwalshc4/slatebuild:latest
+    - name: Deploy to GitHub Pages
+      uses: maxheld83/ghpages@v0.2.1
+      env:
+        BUILD_DIR: build/
+        GH_PAT: ${{ secrets.GH_PAT }}
