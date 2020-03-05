@@ -7,7 +7,7 @@ Function called from DriverWorks driver to send a Control4 CommandMessage to the
 
 ### Signature
 
-`C4:SendToDevice(idDevice, strCommand, tParams, logCommand))`
+`C4:SendToDevice(idDevice, strCommand, tParams, AllowEmptyValues logCommand))`
 
 
 | Parameter | Description |
@@ -15,7 +15,8 @@ Function called from DriverWorks driver to send a Control4 CommandMessage to the
 | num | Device ID of the driver you wish to send the command to. |
 | str | Command to be sent |
 | table | Lua table of parameters for the command. |
-| bool | allowEmptyValues (T/F) Optional. Defaults to False. TRUE will allow for an empty string to be sent as a parameter value.  | | bool | logCommand Defaults to True.  False prevents this API’s content from being logged. |
+| bool | allowEmptyValues (T/F) Optional. Defaults to False. TRUE will allow for an empty string to be sent as a parameter value.  | 
+| bool | logCommand Defaults to True.  False prevents this API’s content from being logged. |
 
 ### Usage Note
 The logCommand parameter may be useful if sensitive data is being passed through the API and it is desirable for that data to not appear in logs.
