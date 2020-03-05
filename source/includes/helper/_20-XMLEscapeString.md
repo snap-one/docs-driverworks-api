@@ -1,6 +1,6 @@
 ## XmlEscapeString
 
-"Escapes" the passed in string rendering any XML characters (only &, \<, and \>) in the string as characters thatare valid in an XML value. This API should not be invoked during OnDriverInit.
+"Escapes" the passed in string rendering any XML characters (only &, \<, and \>) in the string as characters that are valid in an XML value. This API should not be invoked during OnDriverInit.
 
 ###### Available from 1.6.0.
 
