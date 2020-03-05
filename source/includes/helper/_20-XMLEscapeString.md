@@ -7,7 +7,7 @@
 
 ### Signature
 
-`C4:XMLEscapeString(strRawInput)`
+`C4:XmlEscapeString(strRawInput)`
 
 
 | Parameter | Description |
@@ -26,4 +26,4 @@
 
 Builds an XML string with a string that could have invalid XML characters in it:
 
-`strXmlListItem = "<text>" .. C4:XMLEscapeString .. "</text>"`
+`strXmlListItem = "<text>" .. C4:XmlEscapeString .. "</text>"`
