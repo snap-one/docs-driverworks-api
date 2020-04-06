@@ -14,7 +14,7 @@ Called when a driver is deleted from a project, updated within a project or Dire
 | --- | --- |
 | str | This optional parameter indicates the scenario in which the driver is initializing. Scenarios include: |
 |  |  `DIT_UPDATING`: Called as a result of the driver being updated. |
-|  |  `DIT_LOADED`: Called manually after the driver has already been loaded.. |
+|  |  `DIT_LOADED`: Called manually after the driver has already been loaded. |
 
 The DIT parameters are available in O.S. 3.2.0 and later.
 
