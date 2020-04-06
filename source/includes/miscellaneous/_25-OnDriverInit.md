@@ -1,20 +1,20 @@
-## OnDriverDestroyed
+## OnDriverLateInit
 
-Called when a driver is deleted from a project, updated within a project or Director is shut down. All of the driver's timers will be killed within the OnDriverDestroyed function.
-
-###### Available from 1.6.0
+Function invoked when a driver is loaded or being updated. This API is provided for the driver developer to initialize all of the driver objects that require initialization. 
+###### Available from 2.0.0
 
 
 ### Signature
 
-`C4:OnDriverDestroyed `
+`C4:OnDriverInit() `
 
 
 | Parameter | Description |
 | --- | --- |
 | str | This optional parameter indicates the scenario in which the driver is initializing. Scenarios include: |
+|  |  `DIT_ADDING`: Called as a result of the driver being added to a project. |
+|  |  `DIT_STARTUP`: Called as a result of Director starting or a new project being loaded. |
 |  |  `DIT_UPDATING`: Called as a result of the driver being updated. |
-|  |  `DIT_LOADED`: Called manually after the driver has already been loaded.. |
 
 The DIT parameters are available in O.S. 3.2.0 and later.
 
@@ -46,3 +46,30 @@ OnDriverInit and OnDriverLateInit valid values for this parameter are as follows
 OnDriverDestroyed valid values are as follows:
 •	`DIT_LOADED`: When the driver is being removed or director is being shut down.
 •	`DIT_UPDATING`: When a driver is being updated.
+
+
+### Example
+
+```
+function OnDriverInit(driverInitType)
+         
+    -- Fire On Property Changed to set the initial Headers and other
+    -- Property global sets, they'll change if Property is changed.
+    for k,v in pairs(Properties) do
+       OnPropertyChanged(k)
+    end
+
+    C4:AddVariable("LIGHT_LEVEL", "0", "INT")
+    C4:AddVariable("FIRMWARE_VERSION", "", "STRING")
+    C4:AddVariable("EMERGENCY_MODE", "", "BOOL")
+
+    if (driverInitType == "DIT_ADDING") then
+        -- Initialization needed only when the driver is added
+        -- to a project
+    elseif (driverInitType == "DIT_STARTUP") then
+        -- Initialization needed only during initial startup
+    elseif (driverInitType == "DIT_UPDATING") then
+        -- Initialization needed only after a driver update
+    end
+end
+```
