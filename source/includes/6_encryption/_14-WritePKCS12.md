@@ -25,7 +25,7 @@ The Lua PKCS #12 interface enables drivers to manage certificates and private ke
 
 Success returns `true`.
 
-Failure: Returns multiple values consisting of false, string
+Failure: Returns multiple values consisting of false and string.
 
 | Value | Description | 
 | --- | --- |
