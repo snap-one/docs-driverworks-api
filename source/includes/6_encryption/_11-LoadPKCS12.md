@@ -38,14 +38,12 @@ Failure returns multiple values consisting of: false, string
 
 ### Example
 
-```
-local filename = "Foo.p12"
-local password = "PaSsWoRd"
-
-result, cert, key = C4:LoadPKCS12(filename, password)
-   if (result) then
-   print("Success!")
- else
-   print("Something horrible has happened: ", cert)
-end
-```
+	local filename = "Foo.p12"
+	local password = "PaSsWoRd"
+	
+	result, cert, key = C4:LoadPKCS12(filename, password)
+	   if (result) then
+	   print("Success!")
+	 else
+	   print("Something horrible has happened: ", cert)
+	end
