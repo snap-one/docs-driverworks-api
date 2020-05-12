@@ -17,5 +17,4 @@ RUN bundle install
 
 COPY . .
 
-RUN python3 ./buildERB.py
-CMD ["bundle", "exec", "middleman", "build", "--clean", "--verbose"]
+CMD ["/bin/bash", "./build.sh"]
