@@ -9,6 +9,7 @@ COPY Gemfile Gemfile.lock ./
 
 RUN apt-get update -qq
 RUN apt-get install -y nodejs
+RUN apt-get install -y python3
 
 RUN gem update --system
 RUN gem install bundler -v 2.0.1
@@ -16,4 +17,5 @@ RUN bundle install
 
 COPY . .
 
+CMD ["python3", "./buildERB.py"]
 CMD ["bundle", "exec", "middleman", "build", "--clean", "--verbose"]
