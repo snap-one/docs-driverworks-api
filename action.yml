@@ -1,6 +1,0 @@
-# action.yml
-name: 'Build Slate'
-description: 'Build Slate static docs with middleman'
-runs:
-  using: 'docker'
-  image: 'Dockerfile'
