@@ -15,11 +15,6 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v2
-    - name: Check out slate repo
-      uses: actions/checkout@master
-      with:
-        repository: control4/docs-slate
-        token: ${{ secrets.GH_PAT }}
     - name: Build and cache Dockerfile
       uses: whoan/docker-build-with-cache-action@v3
       with:
