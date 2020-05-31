@@ -9,6 +9,7 @@ Function called from DriverWorks driver to Fire a static or Dynamic Event on the
 
 `C4:FireEvent(strEvent)`
 
+![image](7_event_3-FireEvent-01.png)
 
 | Parameter | Description |
 | --- | --- |
