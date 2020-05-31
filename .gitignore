@@ -27,3 +27,5 @@ doc/
 ubuntu-*-console.log
 
 .plist
+_index.md.erb
+index.html.md.erb
