@@ -1,4 +1,4 @@
-## OnDriverLateInit
+## OnDriverInit
 
 Function invoked when a driver is loaded or being updated. This API is provided for the driver developer to initialize all of the driver objects that require initialization. 
 
