@@ -40,13 +40,15 @@ There are multiple instances of when a driver is loaded. Driver initialization o
 There may be instances when a driver needs to know under what condition or event caused the Initialization or Destroyed functions to be called. OS Release 3.2.0 introduced a new string parameter to these functions to identify the reason for the call. This parameter, driverInitType (DIT) provides this information.
 
 OnDriverInit and OnDriverLateInit valid values for this parameter are as follows:
-•	`DIT_ADDING`: When a driver is being added.
-•	`DIT_STARTUP`: When a project is being loaded.
-•	`DIT_UPDATING`: When a driver is being updated.
+
+- `DIT_ADDING`: When a driver is being added.
+- `DIT_STARTUP`: When a project is being loaded.
+- `DIT_UPDATING`: When a driver is being updated.
 
 OnDriverDestroyed valid values are as follows:
-•	`DIT_LOADED`: When the driver is being removed or director is being shut down.
-•	`DIT_UPDATING`: When a driver is being updated.
+
+- `DIT_LOADED`: When the driver is being removed or director is being shut down.
+- `DIT_UPDATING`: When a driver is being updated.
 
 
 ### Example
