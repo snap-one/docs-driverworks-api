@@ -2,12 +2,13 @@
 
 Creates and starts timer. This API should not be invoked during OnDriverInit.
 
+
 ###### Available from 1.6.0.
 
 
 ### Signature
 
-`C4:SetTimer(nDelay, fCallback, bRepeat) `	
+`C4:SendToProxy(1,”ADD_GROUP_ITEM”,tParams) `	
 
 
 | Parameter | Description |

@@ -21,7 +21,7 @@ Table that contains the discovery information.
 ### Example
 
 ```
-info = c4:GetDiscoveryInfo(6001)
+info = C4:GetDiscoveryInfo(6001)
 print(info["uuid"])
 ```
 

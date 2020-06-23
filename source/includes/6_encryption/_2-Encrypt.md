@@ -63,4 +63,5 @@ A successful operation will return `nil` for *err*.  If an error occurs, then *r
 | str | result: Encrypted data |
 | str | err : Description of any error that occurred |
 
+
 [1]:	#getsupportedciphers
