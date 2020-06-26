@@ -15,16 +15,25 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v2
-    - name: Build and cache Dockerfile
-      uses: whoan/docker-build-with-cache-action@v3
       with:
-        username: wwalshc4
-        password: "${{ secrets.WWALSHC4_DOCKER_PASSWORD }}"
-        image_name: wwalshc4/slatebuild
-    - name: Build slate docs
-      uses: docker://wwalshc4/slatebuild:latest
+        path: docs
+    - name: Checkout C4 Slate
+      uses: actions/checkout@v2
+      with:
+        path: slate
+        repository: control4/docs-slate
+        token: ${{ secrets.GH_PAT }}
+    - name: Cache Ruby Bundler
+      uses: actions/cache@v2
+      with:
+        path: slate/vendor/bundle
+        key: ${{ runner.os }}-rubygems-${{ hashFiles('**/Gemfile.lock') }}
+    - name: Copy docs to slate
+      run: cp -r ./docs/source/* ./slate/source/
+    - name: Run Slate build script
+      run: ./slate/build.sh
     - name: Deploy to GitHub Pages
       uses: maxheld83/ghpages@v0.2.1
       env:
-        BUILD_DIR: build/
+        BUILD_DIR: slate/build/
         GH_PAT: ${{ secrets.GH_PAT }}
