@@ -16,9 +16,11 @@ Function called from a DriverWorks driver to create a Control4 variable for the 
 | bool | ReadOnly: Optional, defaults to FALSE |
 | bool | Hidden: Optional, defaults to FALSE.  A flag indicating whether the variable is hidden. 
 
-### Usage Note
+### Usage Notes
 
-Valid variable types are: BOOL, DATE, DEVICE, FLOAT, INT, LEVEL, LIST, MEDIA, NUMBER, ROOM, STATE, STRING, TIME, ULONG, XML
+There is no limit to the string length for a variable created using AddVariable.
+
+Valid variable types are: BOOL, DATE, DEVICE, FLOAT, INT, LEVEL, LIST, MEDIA, NUMBER, ROOM, STATE, STRING, TIME, ULONG, XML.
 
 
 ### Returns
@@ -40,41 +42,33 @@ Variables should always be added in the same order. Control4 Composer programmin
 
 When adding a variable by name (i.e.,identifier parameter is a string), the ID of the variable is computed. The default value of the first variable added by name is 1001, then 1002 for the second variable, and so forth. If the computed ID matches that of an existing variable, then the next available unique ID in the sequence is selected. For example, consider the following code
 
-```
-local result, id = C4:AddVariable(1002, "Foo", "STRING")
-print(result, id)
- 
-result, id = C4:AddVariable("Biz", "Baz", "STRING")
-print(result, id)
- 
-result, id = C4:AddVariable("Yaz", "Yap", "STRING")
-print(result, id)
-```
+	local result, id = C4:AddVariable(1002, "Foo", "STRING")
+	print(result, id)
+	 
+	result, id = C4:AddVariable("Biz", "Baz", "STRING")
+	print(result, id)
+	 
+	result, id = C4:AddVariable("Yaz", "Yap", "STRING")
+	print(result, id)
 
-```
-Executing this code prints the following:
-```
+	Executing this code prints the following:
 
-```
-true    1002
-true    1001
-true    1003
-```
+	true    1002
+	true    1001
+	true    1003
 
 Note that when adding the third variable ("yaz"), the computed ID is 1003. This occurs because on line 1 we added a variable with ID 1002. As a result, the next available ID is 1003.
 
 When adding a variable by number (i.e., identifier is a number), the name of the variable is computed to be a string representation of the specified ID. Note that the computed name must be unique among all existing variables. The following code illustrates this problem:
 
-```
-local result, id = C4:AddVariable("1001", "Foo", "STRING")
-print(result, id)
-
-result, id = C4:AddVariable(1001, "Bar", "STRING")
-print(result, id)
-﻿
-Executing this code prints the following:
-true,    1001
-false
-```
+	local result, id = C4:AddVariable("1001", "Foo", "STRING")
+	print(result, id)
+	
+	result, id = C4:AddVariable(1001, "Bar", "STRING")
+	print(result, id)
+	﻿
+	Executing this code prints the following:
+	true,    1001
+	false
 
 The second call to C4:AddVariable fails because on line 1 we added a variable with name "1001".
