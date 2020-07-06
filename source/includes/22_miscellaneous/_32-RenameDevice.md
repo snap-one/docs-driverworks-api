@@ -26,7 +26,7 @@ or
 
 ### Usage Note
 
-Note that ComposerPro shows the Proxy Device and not the protocol drivers id.  In most cases, the Lua Driver’s deviceId is the protocol ID and is probably not the id to be changed. When this API is executed it will refresh the project. This API works if called in ONDriverLateInit. It will not work in onDriverInit.
+Note that ComposerPro shows the Proxy Device and not the protocol drivers id.  In most cases, the Lua Driver’s deviceId is the protocol ID and is probably not the id to be changed. When this API is executed it will refresh the project. This API works if called in OnDriverLateInit. It will not work in onDriverInit.
 
 
 ### Example
