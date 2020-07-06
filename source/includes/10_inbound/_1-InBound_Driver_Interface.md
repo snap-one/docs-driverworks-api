@@ -12,7 +12,7 @@ In this example, the API contains a value of 231. This is the proxy ID value of 
 
 To the right is an example of the required UIRequest InBound Driver Function found in the driver receiving the SendUIRequest. In this example, when the request is received it takes the values in the tParams table and, if they are not a specified value of 640 or 480, multiplies them by 10. It then formats the values into XML and returns them through retValue to the driver that initiated the SendUIRequest.
 
-```xml
+```lua
 function UIRequest(sRequest, tParams)
     tParams = tParams 
     local param_x = tonumber(tParams["PARAM_X"]) or 640

@@ -24,7 +24,7 @@ Causes Director to start sending the specified IR Code out the specified binding
 
 ### Usage Note
 
-Failure to call the SendIRStop function will cause the IR code to be sent continually, which (in the case of
+Failure to call the [SendIRStop][1] function will cause the IR code to be sent continually, which (in the case of
 volume ramps) could be catastrophic to equipment. The IR code to send must be declared as an `<ircode\>` in the
 `<irsection\>` of the driver file.
 
@@ -34,3 +34,5 @@ volume ramps) could be catastrophic to equipment. The IR code to send must be de
 This example starts sending the specified IR Code out the specified IR Binding:
 
 `C4:SendIRStart(1, 22)`	
+
+[1]:	https://control4.github.io/docs-driverworks-api/#sendirstop
