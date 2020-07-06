@@ -1,7 +1,6 @@
 ## RecordHistory
 
-Helper Function that writes history events to the History Agent database. For more information regarding the
-History Agent, please see the Proxy and Protocol Guide: Security System Controller documentation delivered in this SDK.
+Helper Function that writes history events to the History Agent database. 
 
 ###### Available from 1.6.0.
 

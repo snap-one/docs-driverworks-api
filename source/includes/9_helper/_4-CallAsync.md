@@ -19,16 +19,14 @@ OnDriverInit.
 
 ### Example
 
-```
+```xml
 print("Calling CallAsync()...")
  C4:CallAsync(function()
        print("Callback was executed.")
 	
 print("Called CallAsync().")
-```
 
-Example Output:
-```
+-- Example Output:
 Calling CallAsync()...
 Called CallAsync().
 Callback was executed.

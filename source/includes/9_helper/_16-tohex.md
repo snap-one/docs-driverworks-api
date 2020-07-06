@@ -1,6 +1,6 @@
 ## tohex
 
-Function called from DriverWorks driver to convert a text string of hex into a string with hex values in it. Typically used when a protocol sends commands that are hex values. Note that for convenience, the print function can be called without prefacing with C4:. This API can be invoked during OnDriverInit.
+Function called from DriverWorks driver to convert a text string of hex into a string with hex values in it. Typically used when a protocol sends commands that are hex values. Note that for convenience, the print function can be called without prefacing with C4: This API can be invoked during OnDriverInit.
 
 ###### Available from 1.6.0.
 
