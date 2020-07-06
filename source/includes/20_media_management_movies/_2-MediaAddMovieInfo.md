@@ -40,4 +40,6 @@ This API should not be invoked during OnDriverInit.
 
 ### Example
 
+```lua
 `mediaId1 = C4:MediaAddMovieInfo("http://127.0.0.1/movies/shrek1", "shrek1", shrekMovie)`
+```
