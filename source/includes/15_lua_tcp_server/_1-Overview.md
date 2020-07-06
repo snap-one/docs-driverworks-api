@@ -1,8 +1,8 @@
 ## CreateTCPServer
 
-This class does not in any way manage or keep track of connected clients.  If you explicitly Close() the TCP server or it goes out of scope and gets cleaned up by lua's garbage collector, it does not affect any of the accepted client connections. You can keep track of connected clients by saving them into a map in the OnAccept callback, and setting up a OnDisconnect callback for the connected client connection that removes that client from that map.
+This class does not in any way manage or keep track of connected clients.  If you explicitly [Close][1]() the TCP server or it goes out of scope and gets cleaned up by lua's garbage collector, it does not affect any of the accepted client connections. You can keep track of connected clients by saving them into a map in the OnAccept callback, and setting up a OnDisconnect callback for the connected client connection that removes that client from that map.
 
-Generally, the class cleans up any resources associated with it.  For example, when the object is no longer referenced, it will clean it up.  However, there are a few exceptions:  When the class is performing an asynchronous operation, e.g. a listen request, it will remain alive until the appropriate event callback function is called.  For instance, if you call the [Listen][1]() method, the class will remain alive until it either called the [OnListen][2] (and [OnResolve][3]) callback function, or the [OnError][4] callback function, even if your lua code does not have any reference to the class during that time period.  However, once the OnListen callback was called, the class gets cleaned up unless at that point your lua code somehow references this instance. This API should not be invoked 
+Generally, the class cleans up any resources associated with it.  For example, when the object is no longer referenced, it will clean it up.  However, there are a few exceptions:  When the class is performing an asynchronous operation, e.g. a listen request, it will remain alive until the appropriate event callback function is called.  For instance, if you call the [Listen][2]() method, the class will remain alive until it either called the [OnListen][3] (and [OnResolve][4]) callback function, or the [OnError][5] callback function, even if your lua code does not have any reference to the class during that time period.  However, once the OnListen callback was called, the class gets cleaned up unless at that point your lua code somehow references this instance. This API should not be invoked 
 during OnDriverInit.
 
 ###### Available in 1.6.0
@@ -50,7 +50,7 @@ This is an example of a chat server that accepts a configurable number of client
 	              if (self.socket ~= nil) then
 	                     self.socket:Close()
 	                     self.socket = nil
-	                    
+	
 	                     -- Make a copy of all clients and reset the map.
 	                     -- This ensures that calls to self:broadcast() and self:notifyOthers()
 	                     -- during the shutdown process get ignored.  All we want the clients to
@@ -58,7 +58,7 @@ This is an example of a chat server that accepts a configurable number of client
 	                     local clients = self.clients
 	                     self.clients = {}
 	                     self.clientsCnt = 0
-	                    
+	
 	                     for cli,info in pairs(clients) do
 	                           print("Disconnecting " .. cli:GetRemoteAddress().ip .. ":" .. cli:GetRemoteAddress().port .. ": name: " .. tostring(info.name))
 	                           cli:Write("Server is shutting down!\r\n"):Close(true)
@@ -70,8 +70,7 @@ This is an example of a chat server that accepts a configurable number of client
 	              self.socket = C4:CreateTCPServer()
 	                     :OnResolve(
 	                           function(srv, endpoints)
-	                                  
-	                
+	
 	                                  print("Server " .. tostring(srv) .. " resolved listening address")
 	                                  for i = 1, #endpoints do
 	                                         print("Available endpoints: [" .. i .. "] ip=" .. endpoints[i].ip .. ":" .. endpoints[i].port)
@@ -161,7 +160,7 @@ This is an example of a chat server that accepts a configurable number of client
 	                                                       else
 	                                                              print("Server " .. tostring(srv) .. " Client " .. tostring(client) .. " Disconnected with error " .. errCode .. " (" .. errMsg .. ")")
 	                                                       end
-	                                                      
+	
 	                                                       if (info.name ~= nil) then
 	                                                              self:notifyOthers(cli, info.name .. " disconnected!\r\n")
 	                                                       end
@@ -188,7 +187,7 @@ This is an example of a chat server that accepts a configurable number of client
 	              end
 	       end
 	}
-	 
+	
 	-- Start the server with a limit of 5 concurrent connections, listen on all interfaces on a randomly available port.  The server will shut down after 10 minutes.
 	server:start(5, "*", 0, function(success, info)
 	       if (success) then
@@ -203,7 +202,8 @@ This is an example of a chat server that accepts a configurable number of client
 	       end
 	end)
 
-[1]:	https://control4.github.io/docs-driverworks-api/#listen
-[2]:	https://control4.github.io/docs-driverworks-api/#onlisten
-[3]:	https://control4.github.io/docs-driverworks-api/#onresolve
-[4]:	https://control4.github.io/docs-driverworks-api/#onerror
+[1]:	https://control4.github.io/docs-driverworks-api/#close
+[2]:	https://control4.github.io/docs-driverworks-api/#listen
+[3]:	https://control4.github.io/docs-driverworks-api/#onlisten
+[4]:	https://control4.github.io/docs-driverworks-api/#onresolve
+[5]:	https://control4.github.io/docs-driverworks-api/#onerror
