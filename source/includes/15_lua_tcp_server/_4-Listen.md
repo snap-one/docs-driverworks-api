@@ -1,6 +1,6 @@
 ## Listen
 
-This method starts a listen request to listen on a particular host/service.  Once the host/service has been resolved and an endpoint has been chosen, the OnListen callback function will be called. This indicates that the server is now ready to accept incoming connections.  If errors occur, the OnError callback function will be called instead. This API should not be invoked during OnDriverInit.
+This method starts a listen request to listen on a particular host/service.  Once the host/service has been resolved and an endpoint has been chosen, the [OnListen][1] callback function will be called. This indicates that the server is now ready to accept incoming connections.  If errors occur, the [OnError][2] callback function will be called instead. This API should not be invoked during OnDriverInit.
 
 ###### Available in 1.6.0
 
@@ -22,3 +22,6 @@ This method starts a listen request to listen on a particular host/service.  On
 ### Returns
 
 This method returns a reference to itself, or nil in case of an error.
+
+[1]:	https://control4.github.io/docs-driverworks-api/#onlisten
+[2]:	https://control4.github.io/docs-driverworks-api/#onerror
