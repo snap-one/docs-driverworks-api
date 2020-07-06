@@ -27,15 +27,23 @@ Returns the project as an .XML string. This string can then be parsed to retriev
 Filters can be applied to GetProjectItems(). Each filter is a separate string parameter to the function. The list of filters include:
 
 `ALL`
+
 `LOCATIONS`
+
 `PROXIES`
+
 `DEVICES`
+
 `AGENTS`
+
 `LIMIT_DEVICE_DATA`
+
 `JUST_CAPABILITIES`
+
 `NO_ROOT_TAGS`
  
 For example to get just the general information about the project i.e. location, dealer info, etc.. call:
+
 `local proj = C4:GetProjectItems("LOCATIONS", "LIMIT_DEVICE_DATA","NO_ROOT_TAGS")`
 
 
