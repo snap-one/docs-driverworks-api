@@ -47,7 +47,7 @@ GetDevices returns a table with an entry for each device found. The key of the e
 
 To the right is an example where you would like to get a list of all the remotes in the project. Passing driver names, you would use GetDevices in the following manner:
 
-```
+```lua
 -- Example 1
 
 tFilter = {
@@ -59,7 +59,8 @@ tResult = C4:GetDevices(tFilter)
 ```
 
 The table that is returned by the GetDevices command (that was stored in tReturn) is to the right :
-```
+
+```lua
  -- Example 1 Return
    
     [27] = {
@@ -200,6 +201,7 @@ The tReturn table would look like this:
 ```
 
 Based on this return table, we can see that the project has one light., located in the Foyer, which happens to have a location ID of 9. Additionally, we can see the two proxy sub-tables that are returned with the driver filename.
+
 
 
 
