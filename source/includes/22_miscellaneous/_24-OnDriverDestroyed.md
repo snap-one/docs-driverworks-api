@@ -21,17 +21,15 @@ The DIT parameters are available in O.S. 3.2.0 and later.
 
 ### Example
 
-```
--- Release things this driver had allocated...
-function OnDriverDestroyed()
-    if (driverInitType == "DIT_UPDATING") then
-        -- Invoked prior to a driver being updated
-    elseif (driverInitType == "DIT_ LOADED") then
-        -- Invoked prior to the driver being unloaded or
-        -- removed from a project.
-    end
-end
-```
+	-- Release things this driver had allocated...
+	function OnDriverDestroyed()
+	    if (driverInitType == "DIT_UPDATING") then
+	        -- Invoked prior to a driver being updated
+	    elseif (driverInitType == "DIT_ LOADED") then
+	        -- Invoked prior to the driver being unloaded or
+	        -- removed from a project.
+	    end
+	end
 
 
 ### Usage Note
@@ -54,10 +52,15 @@ There are multiple instances of when a driver is loaded. Driver initialization o
 There may be instances when a driver needs to know under what condition or event caused the Initialization or Destroyed functions to be called. OS Release 3.2.0 introduced a new string parameter to these functions to identify the reason for the call. This parameter, driverInitType (DIT) provides this information.
 
 OnDriverInit and OnDriverLateInit valid values for this parameter are as follows:
+
 •	`DIT_ADDING`: When a driver is being added.
+
 •	`DIT_STARTUP`: When a project is being loaded.
+
 •	`DIT_UPDATING`: When a driver is being updated.
 
 OnDriverDestroyed valid values are as follows:
+
 •	`DIT_LOADED`: When the driver is being removed or director is being shut down.
+
 •	`DIT_UPDATING`: When a driver is being updated.
