@@ -25,12 +25,9 @@ Function called by a DriverWorks driver to add a dynamic binding (a binding adde
 ### Example
 Dynamically create 4 Zone Contact Bindings for a Security Driver:
 
-```
-C4:AddDynamicBinding(101, "CONTROL", true, "Zone 1", "CONTACT_SENSOR", false, false)
-C4:AddDynamicBinding(102, "CONTROL", true, "Zone 2", "CONTACT_SENSOR", false, false)
-C4:AddDynamicBinding(103, "CONTROL", true, "Zone 3", "CONTACT_SENSOR", false, false)
-
-```
+	C4:AddDynamicBinding(101, "CONTROL", true, "Zone 1", "CONTACT_SENSOR", false, false)
+	C4:AddDynamicBinding(102, "CONTROL", true, "Zone 2", "CONTACT_SENSOR", false, false)
+	C4:AddDynamicBinding(103, "CONTROL", true, "Zone 3", "CONTACT_SENSOR", false, false)
 
 
 ### Usage Note
@@ -43,32 +40,28 @@ If dynamic bindings have been connected in Composer, if they are properly restor
 
 To the right is an example of how to create and save bindings for three security contacts:
 
-```
-if (nil == PersistData) then
-  PersistData = {}
-end
-
-PersistData["zonebindings"] = {}
-PersistData["zonebindings"][101] = "Zone 1"
-
-C4:AddDynamicBinding(101, "CONTROL", true, "Zone 1", "CONTACT_SENSOR", false, false)
-PersistData["zonebindings"][102] = "Zone 2"
-
-C4:AddDynamicBinding(102, "CONTROL", true, "Zone 2", "CONTACT_SENSOR", false, false)
-PersistData["zonebindings"][103] = "Zone 3"
-C4:AddDynamicBinding(103, "CONTROL", true, "Zone 3", "CONTACT_SENSOR", false, false)
-
-```
+	if (nil == PersistData) then
+	  PersistData = {}
+	end
+	
+	PersistData["zonebindings"] = {}
+	PersistData["zonebindings"][101] = "Zone 1"
+	
+	C4:AddDynamicBinding(101, "CONTROL", true, "Zone 1", "CONTACT_SENSOR", false, false)
+	PersistData["zonebindings"][102] = "Zone 2"
+	
+	C4:AddDynamicBinding(102, "CONTROL", true, "Zone 2", "CONTACT_SENSOR", false, false)
+	PersistData["zonebindings"][103] = "Zone 3"
+	C4:AddDynamicBinding(103, "CONTROL", true, "Zone 3", "CONTACT_SENSOR", false, false)
+	
 
 The next is an example of how to restore saved bindings. This code should be in the main body of the script section of the driver, not within any declared function:
 
-```
-if (PersistData ~= nil) then
-  for key,value in pairs(PersistData["zonebindings"]) do 
-    C4:AddDynamicBinding(key, "CONTROL", true, value, "CONTACT_SENSOR", false, false)
-  end
-end
-```
+	if (PersistData ~= nil) then
+	  for key,value in pairs(PersistData["zonebindings"]) do 
+	    C4:AddDynamicBinding(key, "CONTROL", true, value, "CONTACT_SENSOR", false, false)
+	  end
+	end
 
 
 A sample driver using AddDyamicBinding can be found in the Samples folder of the SDK.

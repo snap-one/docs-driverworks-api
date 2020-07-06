@@ -12,7 +12,7 @@ Function called in a DriverWorks driver to decode the specified string from a Ba
 
 | Parameters | Description |
 | --- | --- |
-| str | String to be decoded from Base64 encoding |
+| str | String to be decoded from [Base64 encoding][1] |
 
 
 ### Returns
@@ -20,3 +20,5 @@ Function called in a DriverWorks driver to decode the specified string from a Ba
 | Value | Description |
 | --- | --- |
 | str | Decoded from Base64 encoding. |
+
+[1]:	https://control4.github.io/docs-driverworks-api/#base64encode
