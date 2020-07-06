@@ -8,8 +8,8 @@ Retrieves a value from the Registry.
 
 ### Signature
 
-`C4:RegistryGetValue(key)'
-`
+\`C4:RegistryGetValue(key)'
+
 
 |Parameters | Description|
 | --- | --- |
