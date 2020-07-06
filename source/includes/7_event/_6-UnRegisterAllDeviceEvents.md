@@ -1,7 +1,7 @@
 
 ## UnRegisterAllDeviceEvents
 
-This API unregisters all prior event registrations created by the RegisterDeviceEvent API. 
+This API unregisters all prior event registrations created by the [RegisterDeviceEvent][1] API. 
 
 ###### Available in  2.9.0
 
@@ -19,3 +19,5 @@ This API unregisters all prior event registrations created by the RegisterDevice
 ### Returns
 
 `None`
+
+[1]:	https://control4.github.io/docs-driverworks-api/#registerdeviceevent
