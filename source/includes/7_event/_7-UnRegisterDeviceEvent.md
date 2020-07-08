@@ -1,6 +1,6 @@
-## UnRegisterDeviceEvent
+## UnregisterDeviceEvent
 
-This API unregisters prior event registration created by the RegisterDeviceEvent API. The device ID passed is the ID of the device that is firing the registered event. This is followed by the event ID.
+This API unregisters prior event registration created by the [RegisterDeviceEvent][1] API. The device ID passed is the ID of the device that is firing the registered event. This is followed by the event ID.
 
 ###### Available in  2.9.0
 
@@ -19,3 +19,5 @@ This API unregisters prior event registration created by the RegisterDeviceEvent
 ### Returns
 
 `None`
+
+[1]:	https://control4.github.io/docs-driverworks-api/#registerdeviceevent

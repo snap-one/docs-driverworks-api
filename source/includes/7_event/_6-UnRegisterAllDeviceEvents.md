@@ -1,5 +1,5 @@
 
-## UnRegisterAllDeviceEvents
+## UnregisterAllDeviceEvents
 
 This API unregisters all prior event registrations created by the [RegisterDeviceEvent][1] API. 
 
@@ -8,7 +8,7 @@ This API unregisters all prior event registrations created by the [RegisterDevic
 
 ### Signature
 
-`C4:UnRegisterAllDeviceEvents()`
+`C4:UnregisterAllDeviceEvents()`
 
 
 ### Parameter
