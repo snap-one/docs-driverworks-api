@@ -9,9 +9,9 @@ Leveraging this functionality in a driver requires the following:
 1. Configuration: New Driver XML implementation to support attachment notifications and attachment source locations
 2. Execution: New API implementation for each source location needed.
 
-Configuration
-Required Driver XML
-In order for a driver to support attachments within the notifications sent by the Notification Agent, the following XML element must be included and set to True:
+### Configuration
+
+Required Driver XML: In order for a driver to support attachments within the notifications sent by the Notification Agent, the following XML element must be included and set to True:
 
 `<notification_attachment_provider>True</notification_attachment_provider>`
 
@@ -19,7 +19,7 @@ Once set to True, the Notification Agent in ComposerPro now includes a new attac
 
 There are three types of .jpeg attachments that can be included in the Push Notification: Memory, File or Snapshot (URL). Note that any combination of the three may be implemented in the driver XML. This is largely dependent upon the device's capabilities. When the following XML is added to the driver these options are available through the Add button:
 
-```
+```xml
 <notification_attachments>
               <attachment>
                     <id>1001</id>

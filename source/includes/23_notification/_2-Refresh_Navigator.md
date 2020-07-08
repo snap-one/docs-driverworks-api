@@ -23,10 +23,12 @@ Your driver will need to implement the “OnSystemEvent” method.
 
 ### Example
 
-```
-function OnSystemEvent(data)
-  print("System Event occurred - data: " .. data)
-end
-```
+	function OnSystemEvent(data)
+	  print("System Event occurred - data: " .. data)
+	end
 
 The “data” passed to the callback function is event specific and can be provided on an event by event basis as needed.  In most cases, it can be ignored.
+
+See [Registering for System Events][1] for additional information.
+
+[1]:	https://control4.github.io/docs-driverworks-api/#registering-for-system-events
