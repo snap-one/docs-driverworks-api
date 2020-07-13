@@ -1,6 +1,6 @@
 ## Registering for System Events
 
-The management of registering for notifications which occur when system events are fired is made possible through several APIs. The following is an example of how to be notified when the “Refresh Navigator” call is made. When bindings, device names, or device media has changed, a “Refresh Navigator” call is is fired. This event is an alert for the Navigators that any cached data about the project or media may now be invalid.
+The management of registering for notifications which occur when system events are fired is made possible through several APIs and callback functions. The following is an example of how to be notified when the “Refresh Navigator” call is made. When bindings, device names, or device media has changed, a “Refresh Navigator” call is is fired. This event is an alert for the Navigators that any cached data about the project or media may now be invalid.
 
 Specifically the event for “Refresh Navigator” is the “OnPIP” event.  To get this event,  we make use of the following generic event registration calls:
 
@@ -17,30 +17,6 @@ Creates a registration for a notification when a system event fires.
 `C4:RegisterSystemEvent(C4SystemEvents["OnPIP"], 0)`
 
 
-UnRegisterSystemEvent
-`C4:UnregisterSystemEvent(eventId, deviceId)`
-Un-registers  a notification when a system event fires.
-
-| Parameter | Description |
-| --- | --- |
-| eventID (num) - ID value of the event. See list below. |
-| deviceID (num) - ID value of the device. |
- 
-### Example
-`C4:UnregisterSystemEvent()`
-
-
-UnRegisterAllSystemEvents
-`C4:UnregisterAllSystemEvents()`
-Un-registers from all notification of all system events.
-
-Parameters
-`None`
-
-### Example
-`C4:UnRegisterSystemEvent()`
- 
-
 The C4SystemEvents variable is the array of all event name to ID’s. Use deviceId 0 to register for device specific events for all devices. Some events are system wide and will be sent regardless of the device id that was registered, others use the device id to filter who gets what events.
 
 Your driver will need to implement the “OnSystemEvent” method. See the example to the right:
@@ -51,7 +27,6 @@ function OnSystemEvent(data)
    print("System Event occurred - data: " .. data)
 end
 ```
-
 
 The “data” passed to the callback function is event specific and can be provided on an event by event basis as needed.  In most cases, it can be ignored.
 

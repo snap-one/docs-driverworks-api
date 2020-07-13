@@ -49,14 +49,19 @@ After clicking the Add button and opening the driver, which is a security camera
 
 The following APIs have been delivered in OS 3 to support the return of the .jpeg files. 
 
-GetNotificationAttachmentURL
+[GetNotificationAttachmentURL][1]
 
-GetNotificationAttachmentFile
+[GetNotificationAttachmentFile][2]
 
-GetNotificationAttachmentBytes
+[GetNotificationAttachmentBytes][3]
 
 Each API has been engineered to deliver the file based on the location of where the file is stored. They are called when the Notification is triggered. Currently, there are three options for file storage: URL, File or Memory
 
-Finally, the FinishedWithNotificationAttachement API has been included in the event that your driver needs to do any sort of clean-up with the stored .jpeg file.
+Finally, the [FinishedWithNotificationAttachement][4] API has been included in the event that your driver needs to do any sort of clean-up with the stored .jpeg file.
 
 To assist with implementation, please see the notification driver.c4z file in the Samples folder of this SDK.
+
+[1]:	https://control4.github.io/docs-driverworks-api/#getnotificationattachmenturl
+[2]:	https://control4.github.io/docs-driverworks-api/#getnotificationattachmentfile
+[3]:	https://control4.github.io/docs-driverworks-api/#getnotificationattachmentbytes
+[4]:	https://control4.github.io/docs-driverworks-api/#finishedwithnotificationattachment

@@ -5,9 +5,9 @@ The following is an example of how to be notified when the “Refresh Navigator�
 
 Specifically the event for “Refresh Navigator” is the “OnPIP” event.  To get this event,  we make use of the generic event registration calls:
 
-`C4:RegisterSystemEvent(eventId, deviceId)`
-`C4:UnregisterSystemEvent(eventId, deviceId)`
-`C4:UnregisterAllSystemEvents()`
+[RegisterSystemEvent][1]
+[UnregisterSystemEvent][2]
+[UnregisterAllSystemEvents][3]
 
 
 ### Example
@@ -23,12 +23,17 @@ Your driver will need to implement the “OnSystemEvent” method.
 
 ### Example
 
-	function OnSystemEvent(data)
-	  print("System Event occurred - data: " .. data)
-	end
+```lua
+function OnSystemEvent(data)
+  print("System Event occurred - data: " .. data)
+end
+```
 
 The “data” passed to the callback function is event specific and can be provided on an event by event basis as needed.  In most cases, it can be ignored.
 
-See [Registering for System Events][1] for additional information.
+See [Registering for System Events][4] for additional information.
 
 [1]:	https://control4.github.io/docs-driverworks-api/#registering-for-system-events
+[2]:	https://control4.github.io/docs-driverworks-api/#registering-for-system-events
+[3]:	https://control4.github.io/docs-driverworks-api/#registering-for-system-events
+[4]:	https://control4.github.io/docs-driverworks-api/#registering-for-system-events
