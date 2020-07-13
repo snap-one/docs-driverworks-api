@@ -43,7 +43,7 @@ GetProjectProperty takes a single string parameter from a list of property names
 
 ### Example
 
-```
+```lua
 Use Properties in a comparison:
 if (Properties[“CalculateWindShear”] == “true”) then
     	CalculateWindShear()

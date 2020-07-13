@@ -12,7 +12,7 @@ The Lua Table ‘Properties’ contains the current value of this driver’s pro
 
 ### Example
 
-```
+```lua
 Use Properties in a comparison:
 if (Properties[“CalculateWindShear”] == “true”) then
     	CalculateWindShear()
