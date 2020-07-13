@@ -7,7 +7,7 @@ Beginning with OS 3, device drivers have the ability to include .jpeg files with
 Leveraging this functionality in a driver requires the following:
 
 1. Configuration: New Driver XML implementation to support attachment notifications and attachment source locations
-2. Execution: New API implementation for each source location needed.
+2. Execution: API implementation for each source location needed.
 
 ### Configuration
 
@@ -47,49 +47,16 @@ After clicking the Add button and opening the driver, which is a security camera
 
 ### Execution
 
-The following APIs have been delivered in OS 3 to support the return of the .jpeg files. Each API has been engineered to deliver the file based on the location of where the file is stored. They are called when the Notification is triggered. Currently, there are three options for file storage: URL, File or Memory
+The following APIs have been delivered in OS 3 to support the return of the .jpeg files. 
 
-URL
-If the .jpeg file from the device is stored on the web or in a cloud, the GetNotificationAttachmentURL API should be included in your driver to return the URL of the file.
+GetNotificationAttachmentURL
 
-```
-function GetNotificationAttachmentURL()
-	return "http://10.12.80.4:80/snap1vga"
-end
-```
+GetNotificationAttachmentFile
 
-File
-If the .jpeg file is placed on the Control4 controller by the driver, the GetNotificationAttachmentFile API should be included in your driver to return the file.
+GetNotificationAttachmentBytes
 
-```
-function GetNotificationAttachmentFile()
-	return "image.jpg"
-end
-```
+Each API has been engineered to deliver the file based on the location of where the file is stored. They are called when the Notification is triggered. Currently, there are three options for file storage: URL, File or Memory
 
-
-### Memory
-
-If the .jpeg file is stored in the memory of the device, the GetNotificationAttachmentBytes API should be included in your driver to return the file. Note that this API has the potential to block data if the driver takes too long to execute the function. If it takes more than one second, a log entry will be created in the director log warning that the driver took too long. This is also logged in the driver debug log file. The log entry for this is: 
-
-“The driver: \<driver name\>(\<device id\>) took more than 1 second to get the notification extractnotifcation bytes.” 
-
-```
-function GetNotificationAttachmentBytes()
-	local imageData = ??? -- Get image from somewhere
-
-    return C4:Base64Encode(imageData)
-end
-```
-
-Note that in the example above, the image is Base64 encoded. This is a requirement. 
-
-Finally, an API has been included in the event that your driver needs to do any sort of clean-up with the stored .jpeg file. It also provides a notification when the original notification has been sent. This is an optional API and only recommended if cleanup is needed. For example, if it is desirable to remove a temporary image file from your system. 
-
-```
-function FinishedWithNotificationAttachment()
-  -- do any cleanup required here.
-end
-```
+Finally, the FinishedWithNotificationAttachement API has been included in the event that your driver needs to do any sort of clean-up with the stored .jpeg file.
 
 To assist with implementation, please see the notification driver.c4z file in the Samples folder of this SDK.
