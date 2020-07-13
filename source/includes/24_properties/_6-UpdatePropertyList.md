@@ -24,6 +24,6 @@ Function called from DriverWorks driver to update driver properties. This API sh
 `None`
 
 
-### Examples
+### Example
 
 `C4:UpdatePropertyList("Test Dynamic List No Default", "Item 7,Item 8,Item 9", "Item 8")`

@@ -32,7 +32,7 @@ This API adds an event which occurs daily at sunrise. Sunrise time is based data
 
 ### Example
 
-```
+```lua
 function AddDailySunriseEntry()
 	local name = "AddDailySunriseEntry Scheduled Event"
 

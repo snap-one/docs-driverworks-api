@@ -25,24 +25,26 @@ The value of the property that has changed can be found with: `Properties[strNam
 An example function used to process property value changes.
 
 
+```lua
 function OnPropertyChanged(strProperty)
-  propertyValue = Properties[strProperty]()
+  propertyValue = Properties[strProperty]
   print("strProperty = "  .. strProperty .. " changed to: " .. propertyValue)
   if (strProperty == "Security State") then
-if propertyValue == "Disarmed" then
-  -- do stuff
-elseif propertyValue == "Armed Stay" then
-  -- do stuff
-elseif propertyValue == "Armed Away" then
-  -- do stuff
-elseif propertyValue == "Alarm Activated" then
-  -- do stuff
-end
-  elseif (string.find(strProperty,"Zone") = nil) then
--- do stuff 
+    if propertyValue == "Disarmed" then
+      -- do stuff
+    elseif propertyValue == "Armed Stay" then
+      -- do stuff
+    elseif propertyValue == "Armed Away" then
+      -- do stuff
+    elseif propertyValue == "Alarm Activated" then
+      -- do stuff
+    end
+  elseif (string.find(strProperty,"Zone") ~= nil) then
+    -- do stuff 
   else
-print("No action performed for " .. strProperty .. " which has been set to: " .. Properties[strProperty]())
+    print("No action performed for " .. strProperty .. " which has been set to: " .. Properties[strProperty])
   end
 end
+```
 
 [1]:	https://control4.github.io/docs-driverworks-api/#updateproperty

@@ -24,7 +24,7 @@ Function that returns the all proxy devices by proxy name. For example, if passe
 
 ### Example
 
-```
+```lua
 local proxydevs = C4:GetDevicesByC4iName("light.c4i")
 if (proxydevs ~= nil) then
   print("Proxy Devices:")

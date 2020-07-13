@@ -32,7 +32,7 @@ This API adds an event which occurs set number of months. For example, an event 
 
 ### Examples
 
-```
+```lua
 function AddEveryXMonthsEntry()
 	local name = "AddEveryXMonthsEntry Scheduled Event"
 	local num_months = 3

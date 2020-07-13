@@ -34,7 +34,7 @@ This API adds an event which occurs daily at sunset and can be randomized by a r
 
 ### Example
 
-```
+```lua
 function AddDailySunsetRandomOffsetEntry()
 	local name = "AddDailySunsetRandomOffsetEntry Scheduled Event"
 	local random_range_minutes = 13

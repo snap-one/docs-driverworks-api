@@ -35,7 +35,7 @@ This API adds a repetitive event which occurs at the designated (Nth) day of eve
 
 ### Examples
 
-```
+```lua
 function AddNthWeekdayOfMonthRepeatEntry()
 	local name = "AddNthWeekdayOfMonthRepeatEntry Scheduled Event"
 	local period = "SECOND"

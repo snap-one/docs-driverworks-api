@@ -34,7 +34,7 @@ This API adds an event which occurs on the same day(s) of the week over a define
 
 ### Examples
 
-```
+```lua
 function AddSetDaysEveryXWeeksEntry()
 	local name = "AddSetDaysEveryXWeeksEntry Scheduled Event"
 	local days_of_week = {"MONDAY", "WEDNESDAY", "FRIDAY"}

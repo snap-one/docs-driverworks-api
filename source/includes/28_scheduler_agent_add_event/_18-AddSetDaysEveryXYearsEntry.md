@@ -34,7 +34,7 @@ This API adds an event which occurs set number of years. For example, an event t
 
 ### Examples
 
-```
+```lua
 function AddEveryXYearsEntry()
 	local name = "AddEveryXYearsEntry Scheduled Event"
 	local num_years = 3

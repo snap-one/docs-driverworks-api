@@ -31,7 +31,7 @@ This API adds an event which occurs once.
 
 ### Example
 
-```
+```lua
 function AddSingleDayEntry()
 	local name = "AddSingleDayEntry Scheduled Event"
 

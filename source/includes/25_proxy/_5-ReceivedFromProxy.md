@@ -24,7 +24,7 @@ Function called by Director when a proxy bound to the specified binding sends a 
 
 ### Examples
 
-```
+```lua
 function ReceivedFromProxy(idBinding, strCommand, tParams)
  print("ReceivedFromProxy [" .. idBinding .. "]: " .. strCommand)
  if (tParams ~= nil) then
@@ -35,9 +35,9 @@ function ReceivedFromProxy(idBinding, strCommand, tParams)
 end
 ```
 
-Map the idBinding to a variable for proxy; evaluate the command coming in – if its a simple command, get the command equivalent out of the CMDS table, otherwise call a function to process the command. 
+Map the idBinding to a variable for proxy. Evaluate the command coming in.  If its a simple command, get the command equivalent out of the CMDS table, otherwise call a function to process the command. 
 
-```
+```lua
 function ReceivedFromProxy(idBinding, strCommand, tParams)
    proxy = "Undefined"
    if idBinding == 5001 then

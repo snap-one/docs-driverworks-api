@@ -30,7 +30,7 @@ value | The added Event ID value.
 
 ### Example
 
-```
+```lua
 function AddEndOfMonthEntry()
 	local name = "AddEndOfMonthEntry Scheduled Event"
 

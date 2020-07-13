@@ -1,6 +1,6 @@
 ## Introduction
 
-The Controller Registry APIs enable drivers to set, retrieve, and delete values that are stored in the Registry. The Registry consists of a database table stored in: /opt/control4/etc/registry.db.
+The Controller Registry APIs enables drivers to set, retrieve, and delete values that are stored in the Registry. The Registry consists of a database table stored in: /opt/control4/etc/registry.db.
 
 The Registry associates a value with a well-known key. The registry is intended to store values that are global in nature. The Registry would be a good place for storing configuration data that pertains to all instances of a particular driver. Drivers SHOULD NOT use the registry to store state, or other data that are transient in nature.
 

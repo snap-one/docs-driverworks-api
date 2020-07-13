@@ -32,7 +32,7 @@ This API adds an event which occurs at the end of every month.
 
 ### Example
 
-```
+```lua
 function AddEndOfMonthRepeatEntry()
 	local name = "AddEndOfMonthRepeatEntry Scheduled Event"
 

@@ -33,7 +33,7 @@ This API adds an event which occurs daily at sunset and can be offset by a range
 
 ### Example
 
-```
+```lua
 function AddDailySunriseOffsetEntry()
 	local name = "AddDailySunriseOffsetEntry Scheduled Event"
 	local offset_range_minutes = 12

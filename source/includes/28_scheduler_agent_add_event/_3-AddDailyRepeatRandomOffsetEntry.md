@@ -33,7 +33,7 @@ This API adds an event which occurs repetitively and can be offset by a range of
 
 ### Example
 
-```
+```lua
 function AddDailyRepeatRandomOffsetEntry()
 	local name = "AddDailyRepeatRandomOffsetEntry Scheduled Event"
 	local random_range_minutes = 12

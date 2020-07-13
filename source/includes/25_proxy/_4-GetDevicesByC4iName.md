@@ -24,7 +24,7 @@ Function that returns specific devices by .c4i (driver) name. For example, if pa
 
 ### Example
 
-```
+```lua
 local devs = C4:GetDevicesByC4iName("rf_internet.c4i")
 	if (devs ~= nil) then
 	   print("Devices:")

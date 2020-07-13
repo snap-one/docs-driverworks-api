@@ -31,7 +31,7 @@ This API adds an event which occurs repetitively.
 
 ### Example
 
-```
+```lua
 function AddDailyRepeatEntry()
 	local name = "AddDailyRepeatEntry Scheduled Event"
 

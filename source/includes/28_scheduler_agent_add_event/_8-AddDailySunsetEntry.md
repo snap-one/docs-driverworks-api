@@ -32,7 +32,7 @@ This API adds an event which occurs daily at sunset. Sunset time is based data p
 
 ### Example
 
-```
+```lua
 function AddDailySunsetEntry()
 	local name = "AddDailySunsetEntry Scheduled Event"
 

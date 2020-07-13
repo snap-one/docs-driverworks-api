@@ -24,7 +24,7 @@ Function that returns all associated proxies for a device. Return values are in 
 
 ### Example
 
-```
+```lua
 C4:GetProxyDevicesById(C4:GetDeviceID())
 print("dev1 is " .. dev1)
 print("dev2 is " .. dev2)

@@ -33,7 +33,7 @@ This API adds an event which occurs repetitively, on a set number of days.
 
 ### Example
 
-```
+```lua
 function AddDailyRepeatXDaysEntry()
 	local name = "AddDailyRepeatXDaysEntry Scheduled Event"
 	local every_num_days = 20

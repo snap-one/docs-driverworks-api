@@ -33,7 +33,7 @@ This API adds an event which occurs at the designated (Nth) day of every week in
 
 ### Examples
 
-```
+```lua
 function AddNthWeekdayOfMonthEntry()
 	local name = "AddNthWeekdayOfMonthEntry Scheduled Event"
 	local period = "SECOND"

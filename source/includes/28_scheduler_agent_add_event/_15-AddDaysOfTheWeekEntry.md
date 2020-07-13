@@ -35,7 +35,7 @@ This API adds an event which occurs on defined days of the week.
 
 ### Examples
 
-```
+```lua
 function AddDaysOfTheWeekEntry()
 	local name = "AddDaysOfTheWeekEntry Scheduled Event"
 	local days_of_the_week = {"MONDAY", "WEDNESDAY", "FRIDAY"}
