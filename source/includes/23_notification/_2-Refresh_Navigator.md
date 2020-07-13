@@ -33,7 +33,7 @@ The “data” passed to the callback function is event specific and can be prov
 
 See [Registering for System Events][4] for additional information.
 
-[1]:	https://control4.github.io/docs-driverworks-api/#registering-for-system-events
-[2]:	https://control4.github.io/docs-driverworks-api/#registering-for-system-events
-[3]:	https://control4.github.io/docs-driverworks-api/#registering-for-system-events
+[1]:	https://control4.github.io/docs-driverworks-api/#registersystemevent
+[2]:	https://control4.github.io/docs-driverworks-api/#unregistersystemevent
+[3]:	https://control4.github.io/docs-driverworks-api/#unregisterallsystemevents
 [4]:	https://control4.github.io/docs-driverworks-api/#registering-for-system-events

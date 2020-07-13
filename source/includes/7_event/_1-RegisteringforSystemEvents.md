@@ -19,16 +19,8 @@ Creates a registration for a notification when a system event fires.
 
 The C4SystemEvents variable is the array of all event name to ID’s. Use deviceId 0 to register for device specific events for all devices. Some events are system wide and will be sent regardless of the device id that was registered, others use the device id to filter who gets what events.
 
-Your driver will need to implement the “OnSystemEvent” method. See the example to the right:
+Additionally, your driver will need to implement the [OnSystemEvent ][1]method. See the example to the right:
 
-
-```lua
-function OnSystemEvent(data)
-   print("System Event occurred - data: " .. data)
-end
-```
-
-The “data” passed to the callback function is event specific and can be provided on an event by event basis as needed.  In most cases, it can be ignored.
 
 **Useful System Event ID Values**
 
@@ -68,16 +60,10 @@ The “data” passed to the callback function is event specific and can be prov
 
 90 ((DE\_DIRECTOR\_IP\_ADDRESS\_CHANGED, OnDirectorIPAddressChanged))
 
-Note that the OnProjectChanged event was deprecated in 2.10.X due to the architectural change of using a database for persistence. There was several problems with OnProjectChanged that necessitated this change:
-
-OnProjectChanged was tightly-coupled to the XML persistence model. It's no longer feasible to fire this event considering the new Persistence APIs available to drivers.
-
-OnProjectChanged had become an event and was getting fired for anything & everything. Director performance & scalability was impacted from the overuse of this event.
-
-OnProjectChanged was getting fired even when nothing had actually changed.
-	 
-There are specific events available for things such as device add, remove, and rename. These are:
+Note that the OnProjectChanged event was deprecated in 2.10.X due to the architectural change of using a database for persistence.  There are specific events available for things such as device add, remove, and rename. These are:
 
 * OnItemAdded
 * OnItemRemoved
 * OnItemNameChanged
+
+[1]:	https://control4.github.io/docs-driverworks-api/#onsystemevent
