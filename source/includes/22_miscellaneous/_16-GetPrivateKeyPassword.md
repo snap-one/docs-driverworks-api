@@ -41,10 +41,10 @@ A “class” of connections that enable declaring secure (SSL) connections in a
 ```
 
 
-The code snippet to the right declares an SSL connection bound to port 5810 (Sysman). This particular connection doesn't require the use of any special properties. Here is another example that illustrates the five new properties that were added for SSL.
+The code snippet to the right declares an SSL connection bound to port 5810 (Sysman). This particular connection doesn't require the use of any special properties. 
 
+Here is another example that illustrates the five new properties that were added for SSL.
 
-	 
 ```xml
 <port>
   <name>CertTest</name>
