@@ -12,7 +12,11 @@ The GetDevices API provides the ability to return a table of devices based on dr
 
 ### Parameters
 
-tFilter:  (optional) The tFilter is a table of key/value pairs that specify the filters used within the search. The search can be filtered by .c4i or .c4z driver names and/or device id values.  To filter by driver names, add an entry in the table called C4iNames. The value is a string consisting of a comma delimited list of .c4i or .c4z names such as: `control4_sr250.c4i, control4_sr150.c4i`.  An example of a table would be: 
+tFilter:  (optional) The tFilter is a table of key/value pairs that specify the filters used within the search. The search can be filtered by .c4i or .c4z driver names and/or device id values.  To filter by driver names, add an entry in the table called C4iNames. The value is a string consisting of a comma delimited list of .c4i or .c4z names such as:
+
+ `control4_sr250.c4i, control4_sr150.c4i`.  
+
+An example of a table would be: 
 
 `tFilter = {C4iNames = "control4_sr260.c4i,control4_sr250.c4i,control4_sr150.c4i"}`
 
@@ -102,7 +106,7 @@ The table that is returned by the GetDevices command (that was stored in tReturn
 }
 ```
 
-In this  example, note the value of [27](). This is the index into the table that, in this example, contains a list of key/value pairs of device information for the remote with device id of 27. Based on our return table, we can see the project has six remotes and we can also see which room those remotes are located as well as the location ID value and their respective device name.
+In this  example, note the value of 27. This is the index into the table that, in this example, contains a list of key/value pairs of device information for the remote with device id of 27. Based on our return table, we can see the project has six remotes and we can also see which room those remotes are located as well as the location ID value and their respective device name.
 
 ### Example 2
 
