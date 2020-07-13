@@ -43,26 +43,6 @@ A “class” of connections that enable declaring secure (SSL) connections in a
 
 The code snippet to the right declares an SSL connection bound to port 5810 (Sysman). This particular connection doesn't require the use of any special properties. 
 
-Here is another example that illustrates the five new properties that were added for SSL.
-
-```xml
-<port>
-  <name>CertTest</name>
-  <number>6666</number>
-  <auto_connect>True</auto_connect>
-  <monitor_connection>True</monitor_connection>
-  <keep_connection>True</keep_connection>
-  <keep_alive>True</keep_alive>
-  <delimiter>4f4b0a</delimiter>
-  <certificate>./protected.pem</certificate>
-  <private_key protected="True">./protected.pem</private_key>
-  <cacert>./cacert.pem</cacert>
-  <verify_mode>peer</verify_mode>
-  <method>sslv3</method>
-</port>
-```
-
-
 The properties are defined as:
 
 `certificate` - Path to the certificate to use for the connection. The path is relative to driver’s C4Z location.
