@@ -21,15 +21,18 @@ The DIT parameters are available in O.S. 3.2.0 and later.
 
 ### Example
 
-	-- Release things this driver had allocated...
-	function OnDriverDestroyed()
-	    if (driverInitType == "DIT_UPDATING") then
-	        -- Invoked prior to a driver being updated
-	    elseif (driverInitType == "DIT_ LOADED") then
-	        -- Invoked prior to the driver being unloaded or
-	        -- removed from a project.
-	    end
-	end
+```lua
+-- Release things this driver had allocated...
+
+function OnDriverDestroyed()
+    if (driverInitType == "DIT_UPDATING") then
+        -- Invoked prior to a driver being updated
+    elseif (driverInitType == "DIT_ LOADED") then
+        -- Invoked prior to the driver being unloaded or
+        -- removed from a project.
+    end
+end
+```
 
 
 ### Usage Note

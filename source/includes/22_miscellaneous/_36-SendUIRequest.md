@@ -57,7 +57,7 @@ function UIRequest(sRequest, tParams)
 end
 ```
 
-The XML below is the returned value.
+The XML below the example is the returned value.
 
 ```lua
 --Returned Value
