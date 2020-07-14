@@ -2,7 +2,7 @@
 
 To the right is an example of subscribing to the currently selected device and the navigator variables of the room.
 
-```
+```lua
 Variable_Current_Selected_Device = VARIABLE_ID_START,
 Variable_Current_Audio_Device,
 Variable_Current_Video_Device,
@@ -45,7 +45,7 @@ Variable_Scene_Is_Discrete_Volume,
 
 ### Example
 
-```
+```lua
 roomId = C4:RoomGetId()
 -- be notified when the currently selected device is changed
 C4:RegisterVariableListener(roomId, 1000)
@@ -66,7 +66,7 @@ end
 	C4:SendToDevice(roomId, "EXIT_NAVIGATION", tParams) 
 ```
 
-```
+```lua
 -- Example Output
 
 Variable changed...
