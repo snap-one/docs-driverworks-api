@@ -28,7 +28,7 @@ Serial data received may contain NULL characters. NULL (‘\0’) is a valid cha
 
 ### Example
 
-```
+```lua
 function ReceivedFromSerial(idBinding, strData)
    print("Received something from serial on binding " .. idBinding)
    hexdump(strData)

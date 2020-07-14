@@ -1,6 +1,6 @@
 ## NetConnect
 
-Function used to tell the system to make a connection (static or dynamic). Connections are created using the CreateNetworkConnection API. Further, port-specific configuration can be configured for a connection through the NetPortOptions API. This API should not be invoked during OnDriverInit.
+Function used to tell the system to make a connection (static or dynamic). Connections are created using the [CreateNetworkConnection][1] API. Further, port-specific configuration can be configured for a connection through the [NetPortOptions][2] API. This API should not be invoked during OnDriverInit.
 
 ###### Available from 1.6.0
 
@@ -25,3 +25,6 @@ Function used to tell the system to make a connection (static or dynamic). Conne
 ### Examples
 
 ` C4:NetConnect(6001, 80, UDP)`
+
+[1]:	https://control4.github.io/docs-driverworks-api/#createnetworkconnection
+[2]:	https://control4.github.io/docs-driverworks-api/#netportoptions

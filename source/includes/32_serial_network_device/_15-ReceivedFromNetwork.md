@@ -29,7 +29,7 @@ Network data received may contain NULL characters. NULL (‘\0’) is a valid ch
 
 ### Example
 
-```
+```lua
 function ReceivedFromNetwork(idBinding, nPort, strData)
   -- Save up things coming back on HTTP port, process when done 	
 	sending to us...

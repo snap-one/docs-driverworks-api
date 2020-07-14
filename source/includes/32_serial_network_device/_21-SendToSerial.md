@@ -28,7 +28,7 @@ Serial data to be sent can contain NULL characters. NULL (‘\0’) is a valid c
 
 ### Example
 
-```
+```lua
 function emit(strCommand)
    print("Emit: " .. strCommand)
    C4:SendToSerial("1", strCommand .. "\r")
