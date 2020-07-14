@@ -28,7 +28,7 @@ First get the proxy device id to check on. In this case, the 0 means this device
 
 `C4:GetBoundConsumerDevices(0,5001)`
 
-```
+```lua
 if (devs ~= nil) then
 for id,name in pairs(devs) do
 --should be only on g_recProxyId = id
@@ -39,7 +39,7 @@ id = C4:GetBoundProviderDevice(g_recProxyId, 1011)
 print("Id is " .. id)
 ```
 
-```
+```lua
 Output:
 Id is 44
 ```

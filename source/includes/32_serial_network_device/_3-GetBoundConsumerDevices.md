@@ -31,7 +31,7 @@ First get the proxy device id to check  on.  In this case, the 0 means this devi
 `C4:GetBoundConsumerDevices(0, 5001)`
 
 
-```
+```lua
 if (devs ~= nil) then
  for id,name in pairs(devs) do
    --should be only one
@@ -44,7 +44,7 @@ Now that we have the device id of the receiver proxy device, check to see what i
 
 `C4:GetBoundConsumerDevices(g_recProxyId, 2000)`
 
-```
+```lua
 if (devs ~= nil) then
  for id,name in pairs(devs) do
    print ("id " .. id .. " name " .. name)
@@ -53,7 +53,7 @@ end
 
 ```
 
-```
+```lua
 Output:
 id 19 name Television
 id 67 name Television2
