@@ -15,7 +15,7 @@ Deletes an Event based on the Event ID value passed. A driver can only delete ev
 | Value| Description |
 | table | ID/Name key value pairs. The entries returned are only entries created by the driver. For example: |
 
-```
+```lua
 {
  1  entry1name
  2  entry2name

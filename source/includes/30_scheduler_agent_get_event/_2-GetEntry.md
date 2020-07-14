@@ -33,7 +33,7 @@ The entry returned can only be an entry created by the driver.
 
 ### Example
 
-```
+```xml
 Sample XML – Varies depending on the settings of the event
 <entry>
     <eventid>10</eventid>
