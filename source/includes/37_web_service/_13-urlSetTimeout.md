@@ -26,7 +26,7 @@ Starting with the release of OS 2.9.0, urlSetTimeout is optional as a driver no 
 
 Control4 Web Service APIs, specifically those beginning with C4:url, send the following default Headers with the HTTP(s) request:
 
-```
+```html
 Host: <DNS name or IP of server>,
 Accept: "/",
 Accept-Encoding: "deflate, gzip"
