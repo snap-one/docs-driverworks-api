@@ -15,7 +15,7 @@ C4:url() utilizes a more flexible callback-based object interface. A call to thi
 
 To the right is a basic example of how this interface can be used:
 
-```
+```lua
 local t = C4:url()
  :OnDone(
   function(transfer, responses, errCode, errMsg)

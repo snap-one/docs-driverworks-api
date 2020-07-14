@@ -16,7 +16,7 @@ Sets a callback function that will be called each time all of the headers of a r
 
 ### Usage Note
 
-The transfer argument is the C4LuaUrl object that was created by the call to C4:url().
+The transfer argument is the C4LuaUrl object that was created by the call to [C4:url()][1].
 
 
 ### Returns
@@ -32,18 +32,18 @@ The response table contains the following keys:
 
 The same response table will be passed to the callbacks set by the following:
 
-`OnBody()`
+[OnBody()][2]
 
-`OnBodyChunk()`
+[OnBodyChunk()][3]
 
-`OnDone()`
+[OnDone()][4]
 
 Any modifications to this table will persist but not affect the transfer in any way.
 
 
 ### Example
 
-```
+```lua
 OnHeaders(
 	function(transfer, response)
 		-- transfer is the object returned by C4:url()
@@ -54,3 +54,8 @@ OnHeaders(
 		-- return true -- to abort the transfer
     end
 ```
+
+[1]:	https://control4.github.io/docs-driverworks-api/#url-interface
+[2]:	https://control4.github.io/docs-driverworks-api/#onbody
+[3]:	https://control4.github.io/docs-driverworks-api/#onbodychunk
+[4]:	https://control4.github.io/docs-driverworks-api/#ondone

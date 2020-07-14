@@ -16,7 +16,7 @@ Sets a callback function that will be called each time a response body has finis
 
 ### Usage Note
 
- The transfer argument is the C4LuaUrl object that was created by the call to C4:url().
+ The transfer argument is the C4LuaUrl object that was created by the call to [C4:url()][1].
 
 
 ### Returns
@@ -31,4 +31,7 @@ The response table contains the following keys:
 | headers | table | A table of all received headers and their value(s) |
 | body | str | The entire response body as a string. This key is absent if a callback was set with OnBodyChunk(). |
 
-The same response table will be passed to the callback set by OnDone().  Any modifications to this table will persist, but not affect the transfer in any way.
+The same response table will be passed to the callback set by [OnDone()][2].  Any modifications to this table will persist, but not affect the transfer in any way.
+
+[1]:	https://control4.github.io/docs-driverworks-api/#url-interface
+[2]:	https://control4.github.io/docs-driverworks-api/#ondone

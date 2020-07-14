@@ -15,11 +15,11 @@ Creates and starts timer. This API should not be invoked during OnDriverInit.
 | --- | --- |
 | num | Numeric value in milliseconds which is the desired timer delay. This value must be greater than 0. |
 | func | The function to be called when the timer fires.  The function signature for non-repeating timers is: function(timer) |
-| bool | Optional parameter that, if provided and set to true, the timer will fire repeatedly until canceled. |
+| bool | bRepeat Optional parameter that, if provided and set to true, the timer will fire repeatedly until canceled. |
 
-The function signature for repeating timers is: function(oTimer, nSkips). timer is the same C4LuaTimer object that is returned from this function. skips (repeating timers only) indicates how many times director skipped calling the function. This can happen if the timer is set up to fire rapidly, but director was too busy to serve the timer in a timely manner. For instance, if the timer was set up for 250ms and director was busy for 600ms before serving the timer, skips would be set to 2, indicating that it missed serving the timer twice since the last time it was served or since it was first started.
-bRepeat - boolean - Optional parameter that, if provided and set to true, the timer will fire repeatedly until canceled.
+The function signature for repeating timers is: function(oTimer, nSkips). timer is the same C4LuaTimer object that is returned from this function. skips (repeating timers only) indicates how many times director skipped calling the function. This can happen if the timer is set up to fire rapidly, but director was too busy to serve the timer in a timely manner. 
 
+For instance, if the timer was set up for 250ms and director was busy for 600ms before serving the timer, skips would be set to 2, indicating that it missed serving the timer twice since the last time it was served or since it was first started.
 
 
 ### Returns
@@ -36,9 +36,9 @@ These timers do not trigger a call into the global OnTimerExpired function. To a
 
 ### Examples
 
-Creating a Repeating Timer:
+The first example to the right shows creating a Repeating Timer:
 
-```
+```lua
 Repeating timer example (once a second):
      local cnt = 0
      local rt = C4:SetTimer(1000, function(timer, skips)
@@ -54,9 +54,9 @@ Repeating timer example (once a second):
      --rt:Cancel()
 ```
 
-Creating a Simple Timer:
+The second example shows creating a Simple Timer:
 
-```
+```lua
 -- Simple timer (once a second)
      local t = C4:SetTimer(1000, function(timer)
          -- timer is the same as what C4:SetTimer() returned
@@ -66,9 +66,9 @@ Creating a Simple Timer:
      --t:Cancel()
 ```
 
-This function replaces the need to write awkward constructs involving the OnTimerExpired entry point and tracking timer handles such as:
+This function replaces the need to write awkward constructs involving the OnTimerExpired entry point and tracking timer handles such as shown in the final code sample:
 
-```
+```lua
 g_cnt = 0
 g_timer = C4:AddTimer(1, "SECONDS", true)
 

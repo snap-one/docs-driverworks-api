@@ -16,13 +16,19 @@ Sets a callback function that will be called when the entire transfer succeeded 
 
 ### Usage Note
 
-The transfer argument is the C4LuaUrl object that was created by the call to C4:url(). The responses argument receives a table (array) of the response tables in the order that they were received.  These response tables are the same ones that were passed to the callback functions set by OnHeaders(), OnBody(), and OnBodyChunk().
+The transfer argument is the C4LuaUrl object that was created by the call to [C4:url()][1]. The responses argument receives a table (array) of the response tables in the order that they were received.  These response tables are the same ones that were passed to the callback functions set by [OnHeaders()][2], [OnBody()][3], and [OnBodyChunk()][4].
 
 If the transfer succeeded, the errCode argument will be 0 and errMsg will be nil.  If the transfer was aborted by one of the callback functions the errCode argument will be -1.  Otherwise, errCode will hold a number with an error code and the errMsg argument will contain a string with details.
 
-Once the transfer has completed (or failed), the C4LuaUrl object cannot be re-used.  A new instance will need to be created by a call to C4:url().
+Once the transfer has completed (or failed), the C4LuaUrl object cannot be re-used.  A new instance will need to be created by a call to [C4:url()][5].
 
 
 ### Returns
 
 A reference to itself.
+
+[1]:	https://control4.github.io/docs-driverworks-api/#url-interface
+[2]:	https://control4.github.io/docs-driverworks-api/#onheaders
+[3]:	https://control4.github.io/docs-driverworks-api/#onbody
+[4]:	https://control4.github.io/docs-driverworks-api/#onbodychunk
+[5]:	https://control4.github.io/docs-driverworks-api/#url-interface
