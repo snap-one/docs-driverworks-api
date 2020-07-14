@@ -26,7 +26,7 @@ This function gets called when Server Socket connection status has changed.
 
 This function prints the current status as it changes to the Lua Output window.
 
-```
+```lua
 function OnServerConnectionStatusChanged(nHandle, nPort, strStatus)
   if (strStatus == "ONLINE") then
     print("Server Connection Established: " .. nHandle)

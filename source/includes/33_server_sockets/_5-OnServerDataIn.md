@@ -29,7 +29,7 @@ This function gets called when data is coming in on an open Server Socket.
 
 This example prints the incoming data from an open Server Socket (assumes the data is ASCII printable)
 
-```
+```lua
 function OnServerDataIn(nHandle, strData, strclientAddress, strPort)
   print("Received Data on Handle: " .. nHandle .. ": " .. strData .. ":"  strclientAddress  ": "  strPort))
 end

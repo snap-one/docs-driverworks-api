@@ -11,7 +11,7 @@ Close a previously open Server Socket connection. This API should not be invoked
 
 | Parameter | Description |
 | --- | --- |
-| num | Server Socket handle received in OnServerConnectionStatusChanged. |
+| num | Server Socket handle received in [OnServerConnectionStatusChanged][1]. |
 
 
 ### Returns
@@ -24,3 +24,5 @@ Close a previously open Server Socket connection. This API should not be invoked
 This function closes the server socket previously received.
 
 `C4:ServerCloseClient(nHandle)`
+
+[1]:	https://control4.github.io/docs-driverworks-api/#onserverconnectionstatuschanged
