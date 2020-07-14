@@ -1,6 +1,6 @@
 ## GetNetworkBindingsByDevice
 
-Function that returns network binding information for a device. Related: See GetBindingsByDevice
+Function that returns network binding information for a device. 
 
 ###### Available from 3.0.0
 
@@ -29,7 +29,7 @@ Network Binding information for the device.
 
 Returns:
 
-```
+```lua
 deviceid: 20
 type: 1
 autobind: false

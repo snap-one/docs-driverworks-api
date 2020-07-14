@@ -37,11 +37,11 @@ Network Binding information for the device.
 
 ### Examples
 
-Example return tables for each connection type:
+The examples shown to the right return tables for each connection type:
 
 Home Controller using a **UUID** connection. Note the state of 1 which indicates an active connection:
 
-```
+```lua
 UUID
 firmware:  
 address:  127.0.0.1
@@ -56,7 +56,7 @@ port:  5116
 
 Control4 8-Channel Relay using an **IP** connection. Note the state of 0 which indicates as inactive connection:
 
-```
+```lua
 IP
 address:  
 type:  2
@@ -70,7 +70,7 @@ bindingid:  6001
 
 Control4 Configurable Keypad using a **Zigbee** connection:
 
-```
+```lua
 Zigbee
 firmware:  4.1.22
 address:  000fff000077f532
@@ -89,7 +89,7 @@ HOSTNAME - A **HOSTNAME** connection type returns a valid URL such as:
 
 A driver that uses an **SSL** connection:
 
-```
+```lua
 SSL
 address:  192.168.1.123
 type:  5
@@ -109,7 +109,7 @@ UNIX DOMAIN SOCKET - A Unix Domain Socket connection type returns connection inf
 
  **Z-Wave** Dimmer: 
 
-```
+```lua
 Z-Wave
 device_lights:  green
 network_status:  online
