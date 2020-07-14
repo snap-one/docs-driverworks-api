@@ -11,7 +11,7 @@ Returns the MAC Address associated with a device that has already been identifie
 
 ### Signature
 
-`C4:GetDeviceDisplayName ()`
+`C4:GetDeviceMAC ()`
 
 
 | Parameter | Description |
@@ -26,12 +26,12 @@ Single MAC address.
 
 ### Example
 
-```
+```lua
 local mac = C4:GetDeviceMAC(6001)
 print(mac)
 ```
 
-```
+```lua
  The output would appear as:
 
  28:39:5E:45:1F:F7
