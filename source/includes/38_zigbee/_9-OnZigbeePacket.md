@@ -27,18 +27,19 @@ This function sends a raw Zigbee packet to a Zigbee Binding. This functionality 
 ### Usage Note
 
 The following parameters are ignored when using the Control 4 (Embernet) Zigbee stack: 
+
 - nProfileID
 - nClusterID
 - nGroupID
 - nSouceEndpoint
-- nDestinationEndpoint. 
+- nDestinationEndpoint
 
 Packet data is still sent in the strPacket parameter. If using ZigBee Pro, all data (including strPacket) must conform to ZigBee Pro format. 
 
 
 ### Example
 
-```
+```lua
 g_SequenceNumber=g_sequenceNumber + 1
 strPacket = "0" .. Chartype .. string.format(%04x",g_SequenceNumber) .. 	c4.dm.lv 100"
 ```

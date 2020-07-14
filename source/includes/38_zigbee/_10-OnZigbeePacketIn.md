@@ -28,18 +28,19 @@ Receives an unsolicited zigbee packet from the device or a response to a command
 ### Usage Note
 
 The following parameters are ignored when using the Control 4 (Embernet) Zigbee stack: 
+
 - nProfileID
 - nClusterID
 - nGroupID
 - nSouceEndpoint
-- nDestinationEndpoint. 
+- nDestinationEndpoint
 
 Packet data is still sent in the strPacket parameter. If using ZigBee Pro, all data (including strPacket) must conform to ZigBee Pro format. 
 
 
 ### Example
 
-```
+```lua
 
 function OnZigbeePacketIn (strPacket, idProfileID, idClusterID,
   idGroupID, sourceEndpoint,destinationEndpoint)

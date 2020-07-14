@@ -7,8 +7,8 @@ This function gets called when the Online status of a Zigbee node changes.
 
 ### Signature
 
-`OnZigbeeOnlineStatusChanged (strStatus, strVersion, strSkew)'
-`
+\`OnZigbeeOnlineStatusChanged (strStatus, strVersion, strSkew)'
+\`
 
 | Parameter | Description |
 | --- | --- |
@@ -19,7 +19,7 @@ This function gets called when the Online status of a Zigbee node changes.
 
 ### Example
 
-```
+```lua
 function OnZigbeeOnlineStatusChanged (strStatus, strVersion, strSkew)
   print("Zigbee Status Changed: " .. strStatus)
   gZigbeeStatus = strStatus
