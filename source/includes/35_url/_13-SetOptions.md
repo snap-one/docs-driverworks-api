@@ -1,6 +1,6 @@
 ## SetOptions
 
-This API is similar to the SetOption() method, but allows the driver to pass in a table of options and their values. Note that this method can only be called before a transfer was started.
+This API is similar to the [SetOption()][1] method, but allows the driver to pass in a table of options and their values. Note that this method can only be called before a transfer was started.
 
 ###### Available from 2.10.5
 
@@ -48,3 +48,5 @@ If set to true, clears any "session" cookies (cookies with no expiration time) f
 ### Returns
 
 A reference to itself.
+
+[1]:	https://control4.github.io/docs-driverworks-api/#setoption
