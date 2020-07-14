@@ -37,9 +37,9 @@ Each cookie table has the following fields defined:
 
 ### Usage Note
 
-Control4 Web Service APIs, specifically those beginning with C4:url , send the following default Headers with the HTTP(s) request:
+Control4 Web Service APIs, specifically those beginning with [C4:url][1], send the following default Headers with the HTTP(s) request:
 
-```
+```html
 Host: <DNS name or IP of server>,
 Accept: "/",
 Accept-Encoding: "deflate, gzip"
@@ -53,7 +53,7 @@ Note that a user-agent string is not included in the default Headers. However, i
 
 ### Example
 
-```
+```lua
 for name,cookie in pairs(C4:urlGetCookiesForDomain("example.com")) do
     print("cookie[" .. cookie.domain .. "][" .. name .. "]: path: " .. cookie.path .. " value: " .. cookie.value)
 end
@@ -61,3 +61,5 @@ end
 ```
 
 
+
+[1]:	https://control4.github.io/docs-driverworks-api/#url-interface

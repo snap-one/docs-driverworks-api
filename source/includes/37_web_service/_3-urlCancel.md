@@ -1,6 +1,6 @@
 ## urlCancel  
 
-Function to cancel an ongoing transfer. Note that if a transfer is canceled, neither the ReceivedAsync() entry point nor the callback function specified in the C4:url call will be called.  Also, the ticketId is only valid from the point the C4:url function is called until either the ReceivedAsync() entry point or the callback function was called. A call to C4:urlCancel() will also invalidate that ticketed. This API should not be invoked during OnDriverInit
+Function to cancel an ongoing transfer. Note that if a transfer is canceled, neither the ReceivedAsync() entry point nor the callback function specified in the [C4:url][1] call will be called.  Also, the ticketId is only valid from the point the C4:url function is called until either the [ReceivedAsync()][2] entry point or the callback function was called. A call to C4:urlCancel() will also invalidate that ticketed. This API should not be invoked during OnDriverInit
 
 ###### Available from 2.7.0.
 
@@ -24,9 +24,9 @@ Function to cancel an ongoing transfer. Note that if a transfer is canceled, nei
 
 ### Usage Note
 
-Control4 Web Service APIs, specifically those beginning with C4:url,  send the following default Headers with the HTTP(s) request:
+Control4 Web Service APIs, specifically those beginning with [C4:url][3],  send the following default Headers with the HTTP(s) request:
 
-```
+```html
 Host: <DNS name or IP of server>,
 Accept: "/",
 Accept-Encoding: "deflate, gzip"
@@ -38,7 +38,7 @@ Connection: "close", is suggested and
 
 To the right is an example that does a C4:urlGet() and waits only a maximum of one second for a response before canceling:
 
-```
+```lua
 local transferTicketId, timer
 transferTicketId = C4:urlGet("http://www.example.com", {}, true, function(ticketId, strData, responseCode, tHeaders, strError)
         if (timer ~= nil) then
@@ -69,3 +69,7 @@ end)
 
 ```
 
+
+[1]:	https://control4.github.io/docs-driverworks-api/#url-interface
+[2]:	https://control4.github.io/docs-driverworks-api/#receivedasync
+[3]:	https://control4.github.io/docs-driverworks-api/#url-interface

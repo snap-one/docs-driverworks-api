@@ -40,7 +40,7 @@ If the variable ID is identified by number, then this matches the value specifie
 
 Variables should always be added in the same order. Control4 Composer programming is based on VariableID’s, which are allocated in order during AddVariable calls. In other words, if you add a set of variables then later delete them and re-add different variables or in a different order, Composer programming will be incorrect.
 
-When adding a variable by name (i.e.,identifier parameter is a string), the ID of the variable is computed. The default value of the first variable added by name is 1001, then 1002 for the second variable, and so forth. If the computed ID matches that of an existing variable, then the next available unique ID in the sequence is selected. For example, consider the following code
+When adding a variable by name (i.e.,identifier parameter is a string), the ID of the variable is computed. The default value of the first variable added by name is 1001, then 1002 for the second variable, and so forth. If the computed ID matches that of an existing variable, then the next available unique ID in the sequence is selected. For example, consider the following code to the right:
 
 ```lua
 local result, id = C4:AddVariable(1002, "Foo", "STRING")

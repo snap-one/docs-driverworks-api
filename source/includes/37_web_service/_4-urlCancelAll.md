@@ -1,4 +1,4 @@
-## urlCancelAll 
+## urlCancelAll
 
 This method cancels all ongoing transfers and returns an array with the ticket ids of the transfers that were canceled. This API should not be invoked during OnDriverInit.
 
@@ -9,7 +9,7 @@ This method cancels all ongoing transfers and returns an array with the ticket i
 `C4:urlCancelAll()`	
 
 
-### Parameters 
+### Parameters
 
 `None`
 
@@ -22,14 +22,12 @@ This method cancels all ongoing transfers and returns an array with the ticket i
 
 ### Usage Note
 
-Control4 Web Service APIs, specifically those beginning with C4:url , send the following default Headers with the HTTP(s) request:
+Control4 Web Service APIs, specifically those beginning with [C4:url][1], send the following default Headers with the HTTP(s) request:
 
-```
-Host: <DNS name or IP of server>,
-Accept: "/",
-Accept-Encoding: "deflate, gzip"
-Connection: "close", is suggested and 
-```
+	Host: <DNS name or IP of server>,
+	Accept: "/",
+	Accept-Encoding: "deflate, gzip"
+	Connection: "close", is suggested and 
 
 It is recommend that these Headers NOT be overwritten. 
 
@@ -37,3 +35,5 @@ Note that a user-agent string is not included in the default Headers. However, i
 
 
 
+
+[1]:	https://control4.github.io/docs-driverworks-api/#url-interface

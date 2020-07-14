@@ -25,9 +25,9 @@ This function is to set server related security information that may be needed i
 
 ## Usage Note
 
-Control4 Web Service APIs, specifically those beginning with C4:url, send the following default Headers with the HTTP(s) request:
+Control4 Web Service APIs, specifically those beginning with [C4:url][1], send the following default Headers with the HTTP(s) request:
 
-```
+```html
 Host: <DNS name or IP of server>,
 Accept: "/",
 Accept-Encoding: "deflate, gzip"
@@ -41,3 +41,5 @@ It is recommend that these Headers NOT be overwritten. Note that a user-agent st
 
 `C4:urlSetProxy("www.mywebsite.com", 8080, "me", "mypassword")`
 
+
+[1]:	https://control4.github.io/docs-driverworks-api/#url-interface

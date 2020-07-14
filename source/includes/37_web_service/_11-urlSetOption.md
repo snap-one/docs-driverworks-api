@@ -17,7 +17,7 @@ This function changes the option specified in the option argument to the value p
 
 Note that if the concurrent transfers  value is being changed to anything other than 1, the "pipelining" option will automatically get disabled.
 
-Note that If the pipelining boolean is being changed to true, the `max_host_connections` option will automatically be set. Changing this option will not have any effect until there are no active transfers running. Also, it will not apply to new transfers created until then. Once all transfers are completed, this setting will apply to any transfers created from that point on.  can use the C4:urlCancelAll() method to cancel all transfers prior to setting this option, or you can use the C4:urlGetTickets() method to determine whether any transfers are currently pending.
+Note that If the pipelining boolean is being changed to true, the `max_host_connections` option will automatically be set. Changing this option will not have any effect until there are no active transfers running. Also, it will not apply to new transfers created until then. Once all transfers are completed, this setting will apply to any transfers created from that point on.  You can use the [C4:urlCancelAll()][1] method to cancel all transfers prior to setting this option, or you can use the [C4:urlGetTickets()][2] method to determine whether any transfers are currently pending.
 
 
 ### Returns
@@ -31,3 +31,6 @@ Note that If the pipelining boolean is being changed to true, the `max_host_conn
 
 `C4:urlSetOption("pipelining", true)`
 
+
+[1]:	https://control4.github.io/docs-driverworks-api/#urlcancelall
+[2]:	https://control4.github.io/docs-driverworks-api/#urlgettickets

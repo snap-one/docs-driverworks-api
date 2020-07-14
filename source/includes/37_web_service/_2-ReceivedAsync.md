@@ -1,6 +1,6 @@
 ## ReceivedAsync
 
-This function is used in conjunction with urlGet and urlPost. It handles the data contained in the data ticket. As soon as data is returned from getUrl, Director will call this in the Lua code. This API should not be invoked during OnDriverInit.
+This function is used in conjunction with [urlGet][1] and [urlPost][2]. It handles the data contained in the data ticket. As soon as data is returned from getUrl, Director will call this in the Lua code. This API should not be invoked during OnDriverInit.
 
 ###### Available from 1.6.0.
 
@@ -27,7 +27,7 @@ This function is used in conjunction with urlGet and urlPost. It handles the dat
 
 ### Example
 
-```
+```lua
 function ReceivedAsync(ticketId, strData)
   callType = g_ticketToTypeMap[ticketId]
   --print("ra - ct = " .. callType .. " id is " .. ticketId .. " data is<< " .. strData .. " >>")
@@ -48,3 +48,6 @@ function ReceivedAsync(ticketId, strData)
   end
 end
 ```
+
+[1]:	https://control4.github.io/docs-driverworks-api/#get
+[2]:	https://control4.github.io/docs-driverworks-api/#post
