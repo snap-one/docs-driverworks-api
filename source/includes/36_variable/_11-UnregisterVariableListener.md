@@ -30,7 +30,7 @@ User Variables belong to the Variable Agent, with a DeviceID of 100001.T
 
 This stops the system from reporting variable value changes for the specified device and variables:
 
-```
+```lua
 C4:UnregisterVariableListener(84, 1000)
 C4:UnregisterVariableListener(84, 1003)
 C4:RegisterVariableListener(100001, 209

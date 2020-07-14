@@ -7,7 +7,7 @@ The Lua Table ‘Variables’ contains the current value of this driver’s vari
 
 ### Examples
 
-```
+```lua
 Use Variables in a comparison:
 if (Variables["Power State"] == "OFF") then
     C4:SendToSerial(idSerialBinding, "__ON__")
@@ -17,7 +17,7 @@ end
 
 Print out all Variables:
 
-```
+```lua
 for VariableName, VariableValue in pairs(Variables) do 
     print(VariableName, VariableValue) 
 end

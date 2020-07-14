@@ -63,7 +63,7 @@ Note that when adding the third variable ("yaz"), the computed ID is 1003. This
 
 When adding a variable by number (i.e., identifier is a number), the name of the variable is computed to be a string representation of the specified ID. Note that the computed name must be unique among all existing variables. The following code illustrates this problem:
 
-```
+```lua
 local result, id = C4:AddVariable("1001", "Foo", "STRING")
 print(result, id)
 

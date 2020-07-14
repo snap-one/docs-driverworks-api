@@ -32,7 +32,7 @@ User Variables belong to the Variable Agent, with a DeviceID of 100001.
 
 Gets and prints the value of the HVAC mode and temperature variables of a Control4 Thermostat registered in the project as Device ID 84:
 
-```
+```lua
 print(C4:GetDeviceVariable(84, 1000))
 print(C4:GetDeviceVariable(84, 1003))
 ```

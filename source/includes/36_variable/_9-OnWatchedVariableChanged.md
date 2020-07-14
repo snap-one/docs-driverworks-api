@@ -30,7 +30,7 @@ Watched variables are variables that belong to other devices in the system, not 
 
 This example function prints the value of the device ID, variable ID, and variable value when any watched variable changes: 
 
-```
+```lua
 function OnWatchedVariableChanged(idDevice, idVariable, strValue)
   print("Variable changed...")
   print("  device: " .. idDevice)
