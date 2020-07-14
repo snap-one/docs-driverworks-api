@@ -1,6 +1,6 @@
 ## NetPortOptions
 
-Function to configure a connection's Port settings.  The use of this API is contingent upon the use of the CreateNetworkConnection and NetConnect APIs. Connections are created using the CreateNetworkConnection API and Connections are made using the NetConnect API. This API should not be invoked during OnDriverInit.
+Function to configure a connection's Port settings.  The use of this API is contingent upon the use of the [CreateNetworkConnection][1] and [NetConnect][2] APIs. Connections are created using the CreateNetworkConnection API and Connections are made using the NetConnect API. This API should not be invoked during OnDriverInit.
 
 ###### Available from 2.8.0
 
@@ -48,7 +48,7 @@ Function to configure a connection's Port settings.  The use of this API is cont
 
 To the right is a sample tPortParams table using default values:
 
-```
+```lua
 local tPortParams =  {
    AUTO_CONNECT = false,
    MONITOR_CONNECTION = true,
@@ -75,3 +75,6 @@ UDP Connection: The use of the mirror udp port parameter defaults to false. Sett
 ### Returns
 
 `None`
+
+[1]:	https://control4.github.io/docs-driverworks-api/#createnetworkconnection
+[2]:	https://control4.github.io/docs-driverworks-api/#createnetworkconnection

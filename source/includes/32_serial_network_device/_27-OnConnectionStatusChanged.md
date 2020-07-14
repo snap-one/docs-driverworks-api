@@ -19,7 +19,7 @@ Function based on this return from the system used to process communication.
 
 ### Example
 
-```
+```lua
 function OnConnectionStatusChanged(idBinding, nPort, strStatus)
   if (idBinding == 6001) then
     if (strStatus == "ONLINE") then

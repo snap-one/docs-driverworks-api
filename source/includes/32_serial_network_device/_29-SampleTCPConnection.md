@@ -3,7 +3,7 @@
 To the right is a sample of a Driver's Connection XML. It shows the XML entries required for a static TCP type connection:
 
 
-```
+```xml
 <connection>
     <id>6001</id>
     <connectionname>TCP</connectionname>
@@ -43,7 +43,7 @@ This is followed by all of the port specific information for the connection. Thi
 
 If a dynamic connection is desired, the port information needs to reside within a table (tPortParams) inside the driver. The following is a sample of a the same connection as above, however it is created dynamically:
 
-```
+```lua
 local tPortParams = {
    SUPPRESS_CONNECTION_EVENTS = true,
    AUTO_CONNECT = true,
@@ -66,4 +66,6 @@ This connection's port parameters are sent using the NetPortOptions API:
 
 `C4:NetPortOptions(6001, 6700, "TCP", tPortParams)`
 
-Finally, the connection is made using the NetConnect API The use of the NectConnect API is required for the new connection to be made.
+Finally, the connection is made using the [NetConnect][1] API The use of the NetConnect API is required for the new connection to be made.
+
+[1]:	https://control4.github.io/docs-driverworks-api/#netconnect
