@@ -17,7 +17,7 @@ Cancels a transfer that has been started by a call to the [Get()][1], [Post()][2
 
 ### Returns
 
-A reference to itself.
+Returns a reference to itself.
 
 [1]:	https://control4.github.io/docs-driverworks-api/#get
 [2]:	https://control4.github.io/docs-driverworks-api/#post
