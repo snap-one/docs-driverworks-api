@@ -8,7 +8,7 @@ Creates and starts timer. This API should not be invoked during OnDriverInit.
 
 ### Signature
 
-`C4:SendToProxy(1,”ADD_GROUP_ITEM”,tParams) `	
+`C4:SetTimer(nDelay, fCallback, bRepeat)`
 
 
 | Parameter | Description |
