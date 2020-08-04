@@ -21,12 +21,12 @@ Function that returns the version of Director currently running. This API can be
 | --- | --- |
 | buildtime | HH:MM:SS |
 | builddate | mm  dd yyyy |
-| version |  1.7.0.222 |
+| version | 1.7.0.222 |
 | buildtype | DEBUG |
 
 
 ### Example
-```
+```lua
 
 local tVers = C4:GetVersionInfo()
 local strVers = tVers["version"]
