@@ -1,4 +1,3 @@
-## Copyright
 
 The information contained in this document is the intellectual property of Control4 Corporation (“Control4”) and use without a valid license from Control4 is strictly prohibited. The holder of this document shall keep all information contained herein confidential and shall protect this information in whole or in part from disclosure to any and all third parties except as specifically authorized in writing by Control4.
 
