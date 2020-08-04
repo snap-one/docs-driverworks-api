@@ -22,7 +22,7 @@ Function called from DriverWorks driver to send messages to the following log fi
 
 ### Examples
 
-```
+```lua
 function Log:Alert(strDebugText)
    self:Print(0, strDebugText)
 end

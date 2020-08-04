@@ -14,6 +14,8 @@ Function called from DriverWorks driver to send messages to the following log fi
 
 Here is an example  using a variable called "lightLevel" to send an error log when a light level exceeds the value of 100:
 
-	If (lightLevel > 100) then
-	    C4:ErrorLog(“ERROR: light level out of range”)
-	end
+```lua
+If (lightLevel > 100) then
+   C4:ErrorLog(“ERROR: light level out of range”)
+end
+```
