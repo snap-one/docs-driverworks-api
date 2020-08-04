@@ -60,7 +60,7 @@ Generate a CSR using RSA requirements with the optional X.509 parameter:
 `local csr = C4:GenerateCSR_RSA("SHA256", 1024, "/C=US/ST=Utah/L=Draper/O=Control4/OU=Controller Certificates/CN=foo.bar.com", {subjectKeyIdentifier = "hash", subjectAltName = "DNS:acs.qacafe.com, DNS:www.acs.qacafe.com"})`
 
 
-The resulting CSR tot he right is generated:
+The resulting CSR to the right is generated:
 
 
 ```lua
