@@ -39,7 +39,8 @@ These timers do not trigger a call into the global OnTimerExpired function. To a
 The first example to the right shows creating a Repeating Timer:
 
 ```lua
-Repeating timer example (once a second):
+-- Repeating timer example (once a second):
+
      local cnt = 0
      local rt = C4:SetTimer(1000, function(timer, skips)
          -- timer is the same as what C4:SetTimer() returned
@@ -58,6 +59,7 @@ The second example shows creating a Simple Timer:
 
 ```lua
 -- Simple timer (once a second)
+
      local t = C4:SetTimer(1000, function(timer)
          -- timer is the same as what C4:SetTimer() returned
          print("Timer fired")

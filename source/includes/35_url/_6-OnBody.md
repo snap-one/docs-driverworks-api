@@ -1,6 +1,6 @@
 ## OnBody
 
-Sets a callback function that will be called each time a response body has finished transferring. This function is called after the callback functions set by OnHeaders() and OnBodyChunk() but before the callback function set by OnDone().Note that this method can only be called before a transfer was started. 
+Sets a callback function that will be called each time a response body has finished transferring. This function is called after the callback functions set by [OnHeaders()][1] and [OnBodyChunk()][2] but before the callback function set by [OnDone()][3]. Note that this method can only be called before a transfer was started. 
 
 ###### Available from 2.10.5
 
@@ -16,7 +16,7 @@ Sets a callback function that will be called each time a response body has finis
 
 ### Usage Note
 
- The transfer argument is the C4LuaUrl object that was created by the call to [C4:url()][1].
+ The transfer argument is the C4LuaUrl object that was created by the call to [C4:url()][4].
 
 
 ### Returns
@@ -31,7 +31,10 @@ The response table contains the following keys:
 | headers | table | A table of all received headers and their value(s) |
 | body | str | The entire response body as a string. This key is absent if a callback was set with OnBodyChunk(). |
 
-The same response table will be passed to the callback set by [OnDone()][2].  Any modifications to this table will persist, but not affect the transfer in any way.
+The same response table will be passed to the callback set by [OnDone()][5].  Any modifications to this table will persist, but not affect the transfer in any way.
 
-[1]:	https://control4.github.io/docs-driverworks-api/#url-interface
-[2]:	https://control4.github.io/docs-driverworks-api/#ondone
+[1]:	https://control4.github.io/docs-driverworks-api/#onheaders
+[2]:	https://control4.github.io/docs-driverworks-api/#onbodychunk
+[3]:	https://control4.github.io/docs-driverworks-api/#ondone
+[4]:	https://control4.github.io/docs-driverworks-api/#url-interface
+[5]:	https://control4.github.io/docs-driverworks-api/#ondone
