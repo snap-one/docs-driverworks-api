@@ -32,7 +32,7 @@ If the functions fails, nothing is returned.
 
 ### Example
 
-```
+```lua
 local t, epoch, microsecs = C4:ParseIso8601DateTime("2014-01-01T12:01:00.750+01:00")
 print(os.date("%x %X", os.time(t)) .. " and " .. microsecs .. " microseconds")
 print("Seconds since epoch (utc) = " .. epoch)
