@@ -31,18 +31,20 @@ Generate a CSR using ECC requirements:
 
 The resulting CSR is generated:
 
-	 -----BEGIN CERTIFICATE REQUEST-----
-	MIIB0TCCAXcCAQAweDELMAkGA1UEBhMCVVMxDTALBgNVBAgMBFV0YWgxDzANBgNV
-	`BAcMBkRyYXBlcjERMA8GA1UECgwIQ29udHJvbDQxIDAeBgNVBAsMF0NvbnRyb2xs`
-	`ZXIgQ2VydGlmaWNhdGVzMRQwEgYDVQQDDAtmb28uYmFyLmNvbTCB9TCBrgYHKoZI`
-	zj0CATCBogIBATAsBgcqhkjOPQEBAiEA////////////////////////////////
-	/////v///C8wBgQBAAQBBwRBBHm+Zn753LusVaBilc6HCwcCm/zbLc4o2VnygVsW
-	`+BeYSDradyajxGVdpPv8DhEIqP0XtEimhVQZnEfQj/sQ1LgCIQD/////////////`
-	`///////+uq7c5q9IoDu/0l6M0DZBQQIBAQNCAAQXXbHNU5r5vYzZRYhPZGKFcSBe`
-	I+D0y0pvyw+tUo8eGO9QjHqmw6A0vm5OyRR3C9qDH8msuDO1ZgieUkCfnfYSoAAw
-	CgYIKoZIzj0EAwIDSAAwRQIgMvJKuHT2E+um/iXdUNhJK61jSI1ygcjR77lCZM2E
-	`aRkCIQCcZLJvubYxdGxB0q7ApSBujF/L6/UtL/gjuolLE6JUaw==`
-	  -----END CERTIFICATE REQUEST----- 
+```lua
+ -----BEGIN CERTIFICATE REQUEST-----
+MIIB0TCCAXcCAQAweDELMAkGA1UEBhMCVVMxDTALBgNVBAgMBFV0YWgxDzANBgNV
+`BAcMBkRyYXBlcjERMA8GA1UECgwIQ29udHJvbDQxIDAeBgNVBAsMF0NvbnRyb2xs`
+`ZXIgQ2VydGlmaWNhdGVzMRQwEgYDVQQDDAtmb28uYmFyLmNvbTCB9TCBrgYHKoZI`
+zj0CATCBogIBATAsBgcqhkjOPQEBAiEA////////////////////////////////
+/////v///C8wBgQBAAQBBwRBBHm+Zn753LusVaBilc6HCwcCm/zbLc4o2VnygVsW
+`+BeYSDradyajxGVdpPv8DhEIqP0XtEimhVQZnEfQj/sQ1LgCIQD/////////////`
+`///////+uq7c5q9IoDu/0l6M0DZBQQIBAQNCAAQXXbHNU5r5vYzZRYhPZGKFcSBe`
+I+D0y0pvyw+tUo8eGO9QjHqmw6A0vm5OyRR3C9qDH8msuDO1ZgieUkCfnfYSoAAw
+CgYIKoZIzj0EAwIDSAAwRQIgMvJKuHT2E+um/iXdUNhJK61jSI1ygcjR77lCZM2E
+`aRkCIQCcZLJvubYxdGxB0q7ApSBujF/L6/UtL/gjuolLE6JUaw==`
+  -----END CERTIFICATE REQUEST----- 
+```
 
 Generate a CSR using ECC requirements with the optional X.509 parameter:
 
@@ -50,19 +52,21 @@ Generate a CSR using ECC requirements with the optional X.509 parameter:
 
 The resulting CSR is generated:
 
-	-----BEGIN CERTIFICATE REQUEST-----
-	MIICIzCCAcgCAQAweDELMAkGA1UEBhMCVVMxDTALBgNVBAgMBFV0YWgxDzANBgNV`
-	BAcMBkRyYXBlcjERMA8GA1UECgwIQ29udHJvbDQxIDAeBgNVBAsMF0NvbnRyb2xs
-	ZXIgQ2VydGlmaWNhdGVzMRQwEgYDVQQDDAtmb28uYmFyLmNvbTCB9TCBrgYHKoZI`
-	zj0CATCBogIBATAsBgcqhkjOPQEBAiEA////////////////////////////////
-	/////v///C8wBgQBAAQBBwRBBHm+Zn753LusVaBilc6HCwcCm/zbLc4o2VnygVsW
-	+BeYSDradyajxGVdpPv8DhEIqP0XtEimhVQZnEfQj/sQ1LgCIQD/////////////
-	///////+uq7c5q9IoDu/0l6M0DZBQQIBAQNCAASu8/6lwqmnPbMLCvXIIU38ZmAo
-	LjjaMLNhzAgAnWYz/lzg3h8FXcuC/W6jv83inkfgu/4Zutp/GxAQLBqA+lkeoFEw
-	TwYJKoZIhvcNAQkOMUIwQDALBgNVHQ4EBGhhc2gwMQYDVR0RBCpETlM6YWNzLnFh
-	Y2FmZS5jb20sIEROUzp3d3cuYWNzLnFhY2FmZS5jb20wCgYIKoZIzj0EAwIDSQAw
-	RgIhAI78Y9z3cIlRinJVmyx7I+7uA37HEfofzdSktra4Lm5nAiEAxTep97UadRb1
-	phLqvILbPqe2Lsm8JyCg/yEn5JlfncA=
-	 -----END CERTIFICATE REQUEST-----
+```lua
+-----BEGIN CERTIFICATE REQUEST-----
+MIICIzCCAcgCAQAweDELMAkGA1UEBhMCVVMxDTALBgNVBAgMBFV0YWgxDzANBgNV`
+BAcMBkRyYXBlcjERMA8GA1UECgwIQ29udHJvbDQxIDAeBgNVBAsMF0NvbnRyb2xs
+ZXIgQ2VydGlmaWNhdGVzMRQwEgYDVQQDDAtmb28uYmFyLmNvbTCB9TCBrgYHKoZI`
+zj0CATCBogIBATAsBgcqhkjOPQEBAiEA////////////////////////////////
+/////v///C8wBgQBAAQBBwRBBHm+Zn753LusVaBilc6HCwcCm/zbLc4o2VnygVsW
++BeYSDradyajxGVdpPv8DhEIqP0XtEimhVQZnEfQj/sQ1LgCIQD/////////////
+///////+uq7c5q9IoDu/0l6M0DZBQQIBAQNCAASu8/6lwqmnPbMLCvXIIU38ZmAo
+LjjaMLNhzAgAnWYz/lzg3h8FXcuC/W6jv83inkfgu/4Zutp/GxAQLBqA+lkeoFEw
+TwYJKoZIhvcNAQkOMUIwQDALBgNVHQ4EBGhhc2gwMQYDVR0RBCpETlM6YWNzLnFh
+Y2FmZS5jb20sIEROUzp3d3cuYWNzLnFhY2FmZS5jb20wCgYIKoZIzj0EAwIDSQAw
+RgIhAI78Y9z3cIlRinJVmyx7I+7uA37HEfofzdSktra4Lm5nAiEAxTep97UadRb1
+phLqvILbPqe2Lsm8JyCg/yEn5JlfncA=
+ -----END CERTIFICATE REQUEST-----
+```
 
 [1]:	https://control4.github.io/docs-driverworks-api/#getsupporteddigests
