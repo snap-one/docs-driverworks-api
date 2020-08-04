@@ -24,6 +24,11 @@ Function to get a string translated into the current locale from a “C” (Engl
 
 ### Example
 
-`print("Translation of stop is " .. C4:GetText("stop"))`
-Output: `Translation of stop is stop`
+```lua
+print ("Translation of stop is " .. C4:GetText("stop"))
+
+Output: 
+
+Translation of stop is stop
+```
 

@@ -22,7 +22,7 @@ String of local.
 
 ### Example
 
-```
+```lua
 print("Current locale is " .. C4:GetLocale())
  Output: Current locale is C
 
