@@ -8,7 +8,7 @@ As mentioned above, device drivers can now contain code to create, modify and de
 
 ### Example
 
-```
+```lua
 function AddSingleDayEntry()
  local name = "AddSingleDayEntry Scheduled Event"
  local start_time = {

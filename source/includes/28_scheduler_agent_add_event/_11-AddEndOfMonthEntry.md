@@ -23,9 +23,9 @@ This API adds an event which occurs at the end of the month defined in the start
 
 ### Returns
 
-Value | Description
-\---- | ----
-value | The added Event ID value.
+| Value | Description |
+| --- | --- |
+| value | The added Event ID value. |
 
 
 ### Example
