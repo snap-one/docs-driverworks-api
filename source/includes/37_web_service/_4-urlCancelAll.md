@@ -24,12 +24,14 @@ This method cancels all ongoing transfers and returns an array with the ticket i
 
 Control4 Web Service APIs, specifically those beginning with [C4:url][1], send the following default Headers with the HTTP(s) request:
 
-	Host: <DNS name or IP of server>,
-	Accept: "/",
-	Accept-Encoding: "deflate, gzip"
-	Connection: "close", is suggested and 
+```lua
+Host: <DNS name or IP of server>,
+Accept: "/",
+Accept-Encoding: "deflate, gzip"
+Connection: "close"
+```
 
-It is recommend that these Headers NOT be overwritten. 
+It is recommended that these Headers NOT be overwritten. 
 
 Note that a user-agent string is not included in the default Headers. However, including one within a driver is suggested as it makes diagnostics easier for servers.
 
