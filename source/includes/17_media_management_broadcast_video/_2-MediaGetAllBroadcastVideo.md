@@ -24,7 +24,7 @@ Parameters
 
 ### Example
 
-```
+```lua
 local stations = C4:MediaGetAllBroadcastVideo()
   for mediId,loc in pairs(stations) do
     print("id " .. mediId .. " location " .. loc)

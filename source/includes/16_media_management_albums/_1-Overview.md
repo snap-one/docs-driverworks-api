@@ -3,7 +3,7 @@
 
 The examples used in the Albums section of this document will reference the following albums:
 
-```
+```lua
 mediaId1 = C4:MediaAddAlbumInfo("http://127.0.0.1/music/Album1", "Funky Music", Album1)
 
 songLocation1="http://127.0.0.1/music/song1.mp3"

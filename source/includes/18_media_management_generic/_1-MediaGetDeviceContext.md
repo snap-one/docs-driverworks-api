@@ -23,7 +23,7 @@ Parameters
 
 
 ### Example
-```
+```lua
 
 local contextId = C4:MediaGetDeviceContext()
 print("context is: " .. contextId)

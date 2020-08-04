@@ -31,7 +31,7 @@ Usage Note:A modify call does not change the media’s ID number where a delete 
 
 ### Example
 
-```
+```lua
 C4:MediaModifyAlbumInfo(mediaId1,"http://127.0.0.1/music/Album1M
 "Modified","Some New Name", Album1)
 ```

@@ -24,7 +24,7 @@ Parameters
 
 ### Example
 
-```
+```lua
 Example
 allAlbums = C4:MediaGetAllAlbums()
 for key,value in pairs(allAlbums) do

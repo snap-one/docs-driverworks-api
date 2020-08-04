@@ -30,7 +30,7 @@ This function is used to get information about an existing broadcast audio media
 
 ### Example
 
-```
+```lua
 myStationInfo = C4:MediaGetBroadcastVideoInfo(mediaId1)
 print(myStationInfo[“name”])
 ```
