@@ -28,7 +28,7 @@ Control4 Web Service APIs, specifically those beginning with [C4:url][1], send t
 Host: <DNS name or IP of server>,
 Accept: "/",
 Accept-Encoding: "deflate, gzip"
-Connection: "close", is suggested and 
+Connection: "close"
 ```
 
 It is recommend that these Headers NOT be overwritten. 
