@@ -134,7 +134,9 @@ For example, if you would like to get a list of all lights in the project, you c
 
 The table that is returned by the GetDevices command looks like this:
 
-```
+```lua
+-- Example 2
+
 {
     [11] = {
         deviceName = "Keypad Dimmer Light",
@@ -177,7 +179,7 @@ If the device utilizes multiple proxies, each of those proxies will be represent
 
 Consider an example where you would like to get a list of all of the keypad dimmers in the project.  These dimmer devices rely on two proxies: a proxy for the dimmer portion of the device `light_v2 proxy` as well as a proxy for the keypad capabilities `keypad_proxy`. To do this, you can pass the proxy id value used by the dimmers in the tFilter parameter:
 
-```
+```lua
 tFilter = {
 	c4iNames = "combo_dimmer.c4i"}
 
@@ -204,7 +206,7 @@ The tReturn table would look like this:
 }
 ```
 
-Based on this return table, we can see that the project has one light., located in the Foyer, which happens to have a location ID of 9. Additionally, we can see the two proxy sub-tables that are returned with the driver filename.
+Based on this return table, we can see to the right that the project has one light, located in the Foyer, which happens to have a location ID of 9. Additionally, we can see the two proxy sub-tables that are returned with the driver filename.
 
 
 
