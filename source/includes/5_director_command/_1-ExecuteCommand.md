@@ -27,7 +27,7 @@ Prior to Operating System 2.10, overuse of C4:InvalidateState()was an issue as p
 
 Print all commands received for this protocol driver, including all parameters:
 
-```
+```lua
 function ExecuteCommand (strCommand, tParams)
  print("ExecuteCommand: " .. strCommand)
  if (tParams \~= nil) then
@@ -40,7 +40,7 @@ end
 
 This sample function evaluates the commands received from Director and calls the correct function. It also looks for LUA\_ACTION commands, which are sent from Composer’s Actions tab and processes them:
 
-```
+```lua
 function ExecuteCommand(strCommand, tParams)
 print("ExecuteCommand function called with : " .. strCommand)
   if (tParams == nil) then
