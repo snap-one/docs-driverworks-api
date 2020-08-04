@@ -5,18 +5,23 @@ To enable a receiver to be capable of being the onscreen device, add the followi
 
 ### Example
 
-	<connection>
-	    <id>7500</id>
-	    <facing>6</facing>
-	    <connectionname>OnscreenNavigator</connectionname>
-	    <type>7</type>
-	    <consumer>False</consumer>
-	    <audiosource>False</audiosource>
-	    <videosource>False</videosource>
-	    <linelevel>False</linelevel>
-	   <classes>
-	    <class>
-	      <classname>ONSCREEN_SELECTION</classname>
-	    </class>
-	  </classes>
-	</connection>
+```lua
+<connection>
+    <id>7500</id>
+    <facing>6</facing>
+    <connectionname>OnscreenNavigator</connectionname>
+    <type>7</type>
+    <consumer>False</consumer>
+    <audiosource>False</audiosource>
+    <videosource>False</videosource>
+    <linelevel>False</linelevel>
+   <classes>
+    <class>
+      <classname>ONSCREEN_SELECTION</classname>
+    </class>
+  </classes>
+</connection>
+```
+
+
+
