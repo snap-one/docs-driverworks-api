@@ -37,7 +37,7 @@ This API should not be invoked during OnDriverInit.
 
 ### Example
 
-```
+```lua
 myMovieInfo = C4:MediaGetMovieInfo(mediaId1)
 print(myMovieInfo[“title”])
 ```

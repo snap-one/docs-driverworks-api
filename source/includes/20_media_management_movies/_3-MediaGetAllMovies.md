@@ -24,7 +24,7 @@ Parameters
 
 ### Example
 
-```
+```lua
 allMovies = C4:MediaGetAllMovies()
 for key,value in pairs(allMovies) do
    print("mediaId is "..key.. " location is "..value)

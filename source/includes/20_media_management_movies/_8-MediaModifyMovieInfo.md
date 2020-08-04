@@ -45,5 +45,5 @@ A modify call does not change the media’s ID number where a delete or add call
 ### Example
 
 ```lua
-`C4:MediaModifyMovieInfo(mediaId1, "http://127.0.0.1/movies/shrek1Modified", "shrek1", shrekMovie)`
+C4:MediaModifyMovieInfo(mediaId1, "http://127.0.0.1/movies/shrek1Modified", "shrek1", shrekMovie)
 ```
