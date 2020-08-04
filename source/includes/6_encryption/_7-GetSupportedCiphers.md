@@ -1,20 +1,5 @@
 ## GetSupportedCiphers
 
-```lua
-local supportedCiphers = C4:GetSupportedCiphers ()
-for k,v in pairs (supportedCiphers ['AES-256-CBC']) do
-	print (k, v)
-end
-```
-
-> Output:
-
-```lua
-BlockSize	16
-KeyLength	32
-IVLength	16
-```
-
 Returns the list of ciphers supported by the [Encrypt][1] and [Decrypt][2] functions.
 
 ###### Available in 1.6.0.
@@ -40,6 +25,24 @@ Valid key/value pairs for *ciphers* element value:
 | num | BlockSize: The size (in bytes) of each block for this cipher |
 | num | KeyLength: The maximum size (in bytes) of the key for this cipher (shorter keys will be padded) |
 | num | IVLength: The maximum size (in bytes) of the IV for this cipher (shorter IVs will be padded) |
+
+
+### Example
+
+```lua
+local supportedCiphers = C4:GetSupportedCiphers ()
+for k,v in pairs (supportedCiphers ['AES-256-CBC']) do
+	print (k, v)
+end
+
+> Output:
+
+BlockSize	16
+KeyLength	32
+IVLength	16
+```
+
+
 
 [1]:	#encrypt
 [2]:	#decrypt

@@ -12,7 +12,7 @@ This API will generate a certificate signing request (CSR) which, when sent to a
 
 | Parameter | Description |
 | --- | --- |
-| digest | The algorithm used by the certificate. For example, SHA256. See the C4:GetSupportedDigests()API for information on retrieving digests. |
+| digest | The algorithm used by the certificate. For example, SHA256. See the [C4:GetSupportedDigests][1]()API for information on retrieving digests. |
 | curve | The elliptical curve encoding format for the certificate. |
 | subject | The person, organization or device required by the certificate. For example: 
 `"/C=US/ST=Utah/L=SLC/O=Foo/OU=Controller Certificates/CN=foo.bar.com` |
@@ -65,3 +65,5 @@ The resulting CSR is generated:
 	RgIhAI78Y9z3cIlRinJVmyx7I+7uA37HEfofzdSktra4Lm5nAiEAxTep97UadRb1
 	phLqvILbPqe2Lsm8JyCg/yEn5JlfncA=
 	 -----END CERTIFICATE REQUEST-----
+
+[1]:	https://control4.github.io/docs-driverworks-api/#getsupporteddigests

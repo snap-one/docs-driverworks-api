@@ -62,39 +62,41 @@ Failure: Returns the following multiple results:
 
 ### Examples
 
-	options = {}
-	options["key_encoding"] = "PEM"
-	options["return_encoding"] = "BASE64"
-	key = [[-----BEGIN RSA PRIVATE KEY-----
-	MIICXAIBAAKBgQC8cDObD4DjL3TnUR7JxObq+pwb4XX6UYjXuM1zzl/4gvQ8KzA4
-	CDl8S5FQeaPe4vdrLHEJudxSJc7JWehMwcS+jP6xO1pRA68SBphq9I5G/itBw5zx
-	RSGi26NDTiu7XczTRTPGRyBRNxBiln4hWg3ordY5gn0PYe30Fem9vTyZ1QIDAQAB
-	AoGAPTNfv1uwq5iNKleRXUyjBuwv6Wo3a/4xKIbvy03ao5a8hhIszfX13aWZY36u
-	N0SVwOwlJliD8vYui/y0UsGYCRCKrBFh5iBlL4bd4bOg/3uD9EXqiZQiT/BeYAD5
-	TYozqtsBU8DhZytdX3OcmLlKwhX+fzKMC2/UWPkEQ2TlSX0CQQDd/DgdI6WbCn3f
-	sIJo6yEA98ZivayuoePfRP8CHaIAOVO6KOa1wYwR/nmrUmPSFZDUpvwB7mvel4WN
-	3VqNO9sXAkEA2VAKopLmgdL+KNZdpg2BB3eVMMDefhXC04tBmUpWX6qaFEVsw+gl
-	DYnDel3gv43iq3xqszaKEJy+1T+bR9tV8wJAc4ecvK2ctsATGqQGewxENPi/KwyE
-	Hq7qpXyHK1a4xV0QkkZPLDD68TJ7qApNIT1QDxyI84heY46AV4Doa7DHKQJBAMj0
-	l6EXL0nGj3m8IgW4XyVElBXthNIb1XpCQHs8nvsAjFNKj/Xp6rnGN5okzfzVfFMQ
-	TqtDOBF8oYwZscKVNbkCQFolrfE1I7DMTuQNHmF6kMXr/0gjhDTbUOOP3kzCSK14
-	iSpRAwom9R5BWUMFoRCn0j0TWFsTIBNSuOcMrw5n6NU=
-	-----END RSA PRIVATE KEY-----]]
-	signature=C4:Sign("RSA", "SHA256", key, "Walla Walla Washington", options)
-	print(signature)
-	
-	﻿
-	options = {}
-	options["key_encoding"] = "BASE64"
-	options["return_encoding"] = "HEX"
-	key = "VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu"
-	signature = C4:Sign("HMAC", "SHA256", key, "Walla Walla Washington", options)
-	print(signature)
-	
-	﻿
-	options = {}
-	options["key_encoding"] = "BASE64"
-	options["return_encoding"] = "HEX"
-	key = "VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu"
-	signature = C4:Sign("HMAC", "SHA256", key, "Walla Walla Washington", options)
-	print(signature)
+```lua
+options = {}
+options["key_encoding"] = "PEM"
+options["return_encoding"] = "BASE64"
+key = [[-----BEGIN RSA PRIVATE KEY-----
+MIICXAIBAAKBgQC8cDObD4DjL3TnUR7JxObq+pwb4XX6UYjXuM1zzl/4gvQ8KzA4
+CDl8S5FQeaPe4vdrLHEJudxSJc7JWehMwcS+jP6xO1pRA68SBphq9I5G/itBw5zx
+RSGi26NDTiu7XczTRTPGRyBRNxBiln4hWg3ordY5gn0PYe30Fem9vTyZ1QIDAQAB
+AoGAPTNfv1uwq5iNKleRXUyjBuwv6Wo3a/4xKIbvy03ao5a8hhIszfX13aWZY36u
+N0SVwOwlJliD8vYui/y0UsGYCRCKrBFh5iBlL4bd4bOg/3uD9EXqiZQiT/BeYAD5
+TYozqtsBU8DhZytdX3OcmLlKwhX+fzKMC2/UWPkEQ2TlSX0CQQDd/DgdI6WbCn3f
+sIJo6yEA98ZivayuoePfRP8CHaIAOVO6KOa1wYwR/nmrUmPSFZDUpvwB7mvel4WN
+3VqNO9sXAkEA2VAKopLmgdL+KNZdpg2BB3eVMMDefhXC04tBmUpWX6qaFEVsw+gl
+DYnDel3gv43iq3xqszaKEJy+1T+bR9tV8wJAc4ecvK2ctsATGqQGewxENPi/KwyE
+Hq7qpXyHK1a4xV0QkkZPLDD68TJ7qApNIT1QDxyI84heY46AV4Doa7DHKQJBAMj0
+l6EXL0nGj3m8IgW4XyVElBXthNIb1XpCQHs8nvsAjFNKj/Xp6rnGN5okzfzVfFMQ
+TqtDOBF8oYwZscKVNbkCQFolrfE1I7DMTuQNHmF6kMXr/0gjhDTbUOOP3kzCSK14
+iSpRAwom9R5BWUMFoRCn0j0TWFsTIBNSuOcMrw5n6NU=
+-----END RSA PRIVATE KEY-----]]
+signature=C4:Sign("RSA", "SHA256", key, "Walla Walla Washington", options)
+print(signature)
+
+﻿
+options = {}
+options["key_encoding"] = "BASE64"
+options["return_encoding"] = "HEX"
+key = "VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu"
+signature = C4:Sign("HMAC", "SHA256", key, "Walla Walla Washington", options)
+print(signature)
+
+﻿
+options = {}
+options["key_encoding"] = "BASE64"
+options["return_encoding"] = "HEX"
+key = "VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu"
+signature = C4:Sign("HMAC", "SHA256", key, "Walla Walla Washington", options)
+print(signature)
+```

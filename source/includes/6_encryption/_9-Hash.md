@@ -1,22 +1,5 @@
 ## Hash
 
-```lua
-local digest = 'SHA256'
-local data = 'Hello World, this is London calling'
-local options = {
-	return_encoding = 'HEX',
-	data_encoding = 'NONE',
-}
-local digest_output, err = C4:Hash (digest, data, options)
-print (type (digest_output), digest_output)
-```
-
-> Output:
-
-```lua
-string	3fa83003c1c41282cac40d71b680d85f981f1517e5ac4941bd871955aeecbfec
-```
-
 Hashes a given string with the specified digest.
 
 ###### Available in 1.6.0.
@@ -49,5 +32,23 @@ A successful operation will return `nil` for *err*.  If an error occurs, then *r
 | --- | --- |
 | str | result: Encrypted data |
 | str | err : Description of any error that occurred |
+
+
+### Example
+
+```lua
+local digest = 'SHA256'
+local data = 'Hello World, this is London calling'
+local options = {
+	return_encoding = 'HEX',
+	data_encoding = 'NONE',
+}
+local digest_output, err = C4:Hash (digest, data, options)
+print (type (digest_output), digest_output)
+
+> Output:
+
+string	3fa83003c1c41282cac40d71b680d85f981f1517e5ac4941bd871955aeecbfec
+```
 
 [1]:	#getsupporteddigests
