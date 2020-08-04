@@ -15,7 +15,7 @@ Driver writers must ensure that their drivers will not fail in these circumstanc
 
 ### Example
 
-```
+```lua
 
 function tonumber_loc(str, base)
   local s = str:gsub(",", ".") -- Assume US Locale decimal separator

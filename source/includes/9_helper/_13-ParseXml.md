@@ -25,7 +25,7 @@ OnDriverInit.
 
 ### Example
 
-```
+```lua
      function ParseProxyCommandArgs(tParams)
        local args = {}
        local parsedArgs = C4:ParseXml(tParams["ARGS"])

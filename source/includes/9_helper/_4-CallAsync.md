@@ -19,7 +19,7 @@ OnDriverInit.
 
 ### Example
 
-```xml
+```lua
 print("Calling CallAsync()...")
  C4:CallAsync(function()
        print("Callback was executed.")
