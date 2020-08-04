@@ -37,6 +37,6 @@ Toggles the Light registered with the system as device 41:
 
 ```lua
 C4:SendToDevice(41,"TOGGLE",{})
-Ramps the Light registered with the system as device 41 to 60% over 3 seconds:
+-- Ramps the Light registered with the system as device 41 to 60% over 3 seconds:
 C4:SendToDevice(41,"RAMP_TO_LEVEL", {LEVEL = 60, TIME = 3000})
 ```
