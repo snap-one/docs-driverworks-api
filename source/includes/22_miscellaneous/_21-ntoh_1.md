@@ -27,7 +27,7 @@ Function called from DriverWorks driver to get a capability from the driver’s 
 
 If this device supports discrete volume control, send discrete volume, otherwise, send a Volume Up or Volume Down command:
 
-```
+```lua
 if (C4:GetCapability("has_discrete_volume_control") == "False") then
   if (VolumeValue > CurVolumeValue) then
     SendVolumeUp()
