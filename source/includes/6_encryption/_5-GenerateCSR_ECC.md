@@ -29,7 +29,7 @@ Generate a CSR using ECC requirements:
 
 `local csr = C4:GenerateCSR_ECC("SHA256", "secp256k1", "/C=US/ST=Utah/L=Draper/O=Control4/OU=Controller Certificates/CN=foo.bar.com")`
 
-The resulting CSR is generated:
+The resulting CSR to the right is generated:
 
 ```lua
  -----BEGIN CERTIFICATE REQUEST-----
@@ -53,6 +53,8 @@ Generate a CSR using ECC requirements with the optional X.509 parameter:
 The resulting CSR is generated:
 
 ```lua
+--- X.509 Example
+
 -----BEGIN CERTIFICATE REQUEST-----
 MIICIzCCAcgCAQAweDELMAkGA1UEBhMCVVMxDTALBgNVBAgMBFV0YWgxDzANBgNV`
 BAcMBkRyYXBlcjERMA8GA1UECgwIQ29udHJvbDQxIDAeBgNVBAsMF0NvbnRyb2xs
