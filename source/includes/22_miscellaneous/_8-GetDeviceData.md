@@ -32,9 +32,9 @@ If multiple instances of identical XML tags exist in the \<devicedata\> section 
 
 ### Examples
 
-For example purposes, consider the following, sample XML taken from a Pool Controller's  \<devicedata\>\</devicedata\>. This Pool Controller has a DeviceID of 8 in the project:
+For example purposes, consider the following sample XML to the right.  It is taken from a Pool Controller's  \<devicedata\>\</devicedata\>. This Pool Controller has a DeviceID of 8 in the project:
 
-```
+```xml
 <devicedata>
 	<copyright>Copyright 2016 Control4 Corporation.  All rights reserved.</copyright>
 	<creator>Control4</creator>
@@ -97,6 +97,7 @@ If we wanted to return all of the pool Controller's capabilities, C4:GetDeviceDa
 To the right is the return value: 
 
 ```
+-- Return Value
 
 <pool_pumpmodes>Off,On</pool_pumpmodes>
 <spa_pumpmodes>Off,On</spa_pumpmodes>

@@ -7,8 +7,8 @@ This API should not be invoked during OnDriverInit.
 
 ### Signature
 
-`C4:MediaGetSongsforAlbum() 
-`
+\`C4:MediaGetSongsforAlbum() 
+\`
 
 | Parameters | Description |
 | --- | --- |
@@ -24,7 +24,7 @@ This API should not be invoked during OnDriverInit.
 
 ### Example
 
-```
+```lua
 
 AllSongs= C4:MediaGetSongsForAlbum(mediaIdAlbum)
 for key,value in pairs(AllSongs) do
