@@ -29,7 +29,7 @@ OnVariableChanged is NOT called on a driver when it changes its own variable’s
 
 This simple function prints to the Lua Output window in Composer when any variable on that device changes and includes the variable name and value.
 
-```
+```lua
 function OnVariableChanged(strName)
   print("Variable value changed - variable named: " .. strName)
   print(" ... new value is: " .. Variables[strName])

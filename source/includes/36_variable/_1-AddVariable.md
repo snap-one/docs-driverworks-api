@@ -20,7 +20,25 @@ Function called from a DriverWorks driver to create a Control4 variable for the 
 
 There is no limit to the string length for a variable created using AddVariable.
 
-Valid variable types are: BOOL, DATE, DEVICE, FLOAT, INT, LEVEL, LIST, MEDIA, NUMBER, ROOM, STATE, STRING, TIME, ULONG, XML.
+Valid variable types are: 
+
+- BOOL
+- DATE
+- DEVICE
+- FLOAT
+- INT
+- LEVEL
+- LIST
+- MEDIA
+- NUMBER
+- ROOM
+- STATE 
+- STRING
+- TIME
+- ULONG
+- XML
+
+
 
 
 ### Returns
