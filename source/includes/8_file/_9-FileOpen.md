@@ -27,7 +27,7 @@ of -1 is returned if an error.  This API can be invoked during OnDriverInit.
 
 ### Example
 
-```
+```lua
 fh = C4:FileOpen(“somefile.ext”)
 if (fh == -1) then
 	-- the file failed to open

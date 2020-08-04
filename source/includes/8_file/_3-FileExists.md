@@ -27,7 +27,7 @@ Used to see if a file exists on the file system.  This function takes a file na
 
 ### Example
 
-```
+```lua
     bexist = C4:FileExists("1.txt")
     if (bexist) then
 	-- the file is already present on the file system

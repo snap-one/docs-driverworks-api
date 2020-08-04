@@ -34,7 +34,7 @@ Use the `c4:FileOpen()` call to obtain a valid file handle
 
 ### Example
 
-```
+```lua
 fh = C4:FileOpen("test.txt")
 	if (fh == -1) then
   	-- the file failed to open

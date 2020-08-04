@@ -30,7 +30,7 @@ Used to write data to a file.  This function returns the number of bytes writte
 
 ### Example
 
-```
+```lua
 foo = "\000\001\002\003\004\005\006\007\008\009"
 bytesWritten = C4:FileWrite(fh, string.len(foo), foo)
 ```

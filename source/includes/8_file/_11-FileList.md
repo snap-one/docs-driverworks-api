@@ -17,7 +17,7 @@ OnDriverInit.
 
 Deleting all files:
 
-```
+```lua
   fileNames = C4:FileList()
   if (fileNames) then
      for index,value in pairs(fileNames) do

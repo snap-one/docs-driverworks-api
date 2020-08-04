@@ -27,7 +27,7 @@ Used to retrieve a table of all the opened file handles in your sandbox or nil i
 
 Closing all opened handles:
 
-```
+```lua
   fileHandles = C4:FileGetOpenedHandles()
   if (fileHandles) then
      for index,value in pairs(fileHandles) do
