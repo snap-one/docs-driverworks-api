@@ -20,25 +20,31 @@ Table that contains the discovery information.
 
 ### Example
 
-	info = C4:GetDiscoveryInfo(6001)
-	print(info["uuid"])
+```lua
+info = C4:GetDiscoveryInfo(6001)
+
+print(info["uuid"])
+```
+
+
 
 Usage Note: Return table values are based on the discovery mechanism of the device. Values included in the return table can include:
 
-	uuid // SDDP DDDP UPNP
-	host // SDDP
-	ip // SDDP DDDP UPNP
-	type // SDDP DDDP UPNP
-	driver // SDDP     
-	manufacturer // SDDP UPNP
-	model // SDDP DDDP UPNP
-	primary_proxy // SDDP
-	proxies_ // SDDP
-	make_ // DDDP
-	sdk_class_ // DDDP
-	name_ // UPNP
-	description_ // UPNP
-	location_ // UPNP
+- uuid // SDDP DDDP UPNP
+- host // SDDP
+- ip // SDDP DDDP UPNP
+- type // SDDP DDDP UPNP
+- driver // SDDP     
+- manufacturer // SDDP UPNP
+- model // SDDP DDDP UPNP
+- primary_proxy // SDDP
+- proxies_ // SDDP
+- make_ // DDDP
+- sdk_class_ // DDDP
+- name_ // UPNP
+- description_ // UPNP
+- location_ // UPNP
+
 
 
 Note that C4:GetDiscoveryInfo() is not available at the time that OnDriverLateInit() is executed when Director is starting. Director doesn't startup it's discovery mechanism until well after late initialize, so providing discovery info at that point is not possible. It is recommended recommendation here is to listen for the [OnSDDPDeviceStatus (#78)][1] system event. This event includes the UUID by which the device was identified, and a boolean indicating whether the device is online. It's either that or set a timer and poll until GetDiscoveryInfo returns what you're looking for.
