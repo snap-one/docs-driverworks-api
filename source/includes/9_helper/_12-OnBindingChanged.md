@@ -7,7 +7,7 @@ Function called by Director when a binding changes state (bound or unbound).
 
 ### Signature
 
-`OnBindingChanged(idBinding, strClass, bIsBound)`
+`OnBindingChanged(idBinding, strClass, bIsBound, otherDeviceID, otherBindingID)`
 
 
 | Parameter | Description |
@@ -16,6 +16,7 @@ Function called by Director when a binding changes state (bound or unbound).
 | str | Class of binding that has changed. A single binding can have multiple classes: COMPONENT, STEREO, etc. This indicates which has been bound or unbound. |
 | bIsBound | Whether the binding has been bound or unbound. |
 | otherDeviceID | This Device ID value represents the Device ID for the device that makes up the other half of this binding. |
+| otherBindingID | This Binding ID value represents the Binding ID for the device represented by the otherDeviceID value in the parameter above. |
 
 
 ### Returns
