@@ -7,7 +7,7 @@ Function called by Director when a binding changes state (bound or unbound).
 
 ### Signature
 
-`OnBindingChanged(idBinding, strClass, bIsBound, otherDeviceID, otherBindingID)`
+`OnBindingChanged (idBinding, strClass, bIsBound, otherDeviceID, otherBindingID)`
 
 
 | Parameter | Description |
