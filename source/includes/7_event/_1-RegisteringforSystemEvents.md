@@ -16,6 +16,7 @@ Creates a registration for a notification when a system event fires.
 | deviceID (num) | ID value of the device. |
 
 ### Example
+
 `C4:RegisterSystemEvent(C4SystemEvents["OnPIP"], 0)`
 
 
@@ -26,41 +27,26 @@ Additionally, your driver will need to implement the [OnSystemEvent ][2]method.
 
 **Useful System Event ID Values**
 
-00 through 05: Internal System Events
-
-06 ((DE\_PIP, OnPIP))
-
-07 through 16:  Internal System Events
-
-17 ((DE\_NETWORK\_BINDING\_ADDED, OnNetworkBindingAdded))
-
-18 ((DE\_NETWORK\_BINDING\_REMOVED, OnNetworkBindingRemoved)
-
-19 ((DE\_NETWORK\_BINDING\_REGISTERED, OnNetworkBindingRegistered))
-
-20 ((DE\_NETWORK\_BINDING\_UNREGISTERED, OnNetworkBindingUnregistered))
-
-21 through 47: Internal System Events
-
-48 ((DE\_DEVICE\_ONLINE, OnDeviceOnline))
-
-49 ((DE\_DEVICE\_OFFLINE, OnDeviceOffline))
-
-50 and 51: Internal System Events
-
-52 ((DE\_ZIPCODE\_CHANGED, OnZipcodeChanged))
-
-53 ((DE\_LATITUDE\_CHANGED, OnLatitudeChanged))
-
-54 ((DE\_LONGITUDE\_CHANGED, OnLongitudeChanged)
-
-55 through 57: Internal System Events
-
-58 ((DE\_LOCALE\_CHANGED, OnLocaleChanged))
-
-59 through 86: Internal System Event
-
-90 ((DE\_DIRECTOR\_IP\_ADDRESS\_CHANGED, OnDirectorIPAddressChanged))
+| Value | Description |
+| --- | --- |
+| 00 through 05 | Internal System Events |
+| 06 | DE_PIP, OnPIP |
+| 07 through 16 | Internal System Events |
+| 17 | DE_NETWORK_BINDING_ADDED, OnNetworkBindingAdded |
+| 18 | DE_NETWORK_BINDING_REMOVED, OnNetworkBindingRemoved |
+| 19 | DE_NETWORK_BINDING_REGISTERED, OnNetworkBindingRegistered |
+| 20 | DE_NETWORK_BINDING_UNREGISTERED, OnNetworkBindingUnregistered |
+| 21 through 47 | Internal System Events |
+| 48 | DE_DEVICE_ONLINE, OnDeviceOnline |
+| 49 | DE_DEVICE_OFFLINE, OnDeviceOffline |
+| 50 and 51 | Internal System Events |
+| 52 | DE_ZIPCODE_CHANGED, OnZipcodeChanged |
+| 53 | DE_LATITUDE_CHANGED, OnLatitudeChanged |
+| 54 DE_LONGITUDE_CHANGED, OnLongitudeChanged |
+| 55 through 57 | Internal System Events |
+| 58 DE_LOCALE_CHANGED, OnLocaleChanged |
+| 59 through 86 | Internal System Event |
+| 90 DE_DIRECTOR_IP_ADDRESS_CHANGED, OnDirectorIPAddressChanged |
 
 Note that the OnProjectChanged event was deprecated in 2.10.X due to the architectural change of using a database for persistence.  There are specific events available for things such as device add, remove, and rename. These are:
 
