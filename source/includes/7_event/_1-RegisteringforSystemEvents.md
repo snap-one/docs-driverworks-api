@@ -42,11 +42,11 @@ Additionally, your driver will need to implement the [OnSystemEvent ][2]method.
 | 50 and 51 | Internal System Events |
 | 52 | DE_ZIPCODE_CHANGED, OnZipcodeChanged |
 | 53 | DE_LATITUDE_CHANGED, OnLatitudeChanged |
-| 54 DE_LONGITUDE_CHANGED, OnLongitudeChanged |
+| 54 | DE_LONGITUDE_CHANGED, OnLongitudeChanged |
 | 55 through 57 | Internal System Events |
-| 58 DE_LOCALE_CHANGED, OnLocaleChanged |
-| 59 through 86 | Internal System Event |
-| 90 DE_DIRECTOR_IP_ADDRESS_CHANGED, OnDirectorIPAddressChanged |
+| 58 | DE_LOCALE_CHANGED, OnLocaleChanged |
+| 59 | through 86 | Internal System Event |
+| 90 | DE_DIRECTOR_IP_ADDRESS_CHANGED, OnDirectorIPAddressChanged |
 
 Note that the OnProjectChanged event was deprecated in 2.10.X due to the architectural change of using a database for persistence.  There are specific events available for things such as device add, remove, and rename. These are:
 
