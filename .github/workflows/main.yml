@@ -1,4 +1,4 @@
-name: Build Slate docs and deploy to Github Pages
+name: Build and deploy
 
 on:
   push:
