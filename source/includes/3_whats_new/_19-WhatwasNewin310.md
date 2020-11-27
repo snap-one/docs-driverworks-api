@@ -8,7 +8,7 @@ ToStringLocaleC - A new helper function which converts a number to a string usin
 
 **Interfaces that were Modified**
 
-### Zigbee Interface 
+### Zigbee Interface
 
 Future Changes to Zigbee Server-Side Cluster Management
 
