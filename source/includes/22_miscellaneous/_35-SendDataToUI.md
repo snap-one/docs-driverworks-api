@@ -7,6 +7,8 @@ Function to send data to subscribed navigators. This API should not be invoked d
 
 ### Signature
 
+This API has a dual signature. It can be used to send an XML string or a command with parameters.
+
 `C4:SendDataToUI (xml)`
 
 
@@ -14,6 +16,13 @@ Function to send data to subscribed navigators. This API should not be invoked d
 | --- | --- |
 | str |  xml string to send |
 
+`C4:SendDataToUI (strCommand, tParams)`
+
+
+| Parameter | Description |
+| --- | --- |
+| strCommand |  Command to be sent to subscribed navigators. |
+| tParams | Lua table of parameters for the command. |
 
 ### Returns
 
@@ -27,4 +36,10 @@ The xml must be properly formatted and escaped for the function to succeed. Only
 
 ### Example
 
+Sending XML string:
+
 `C4:SendDataToUI("<myxml>xml data to be sent to navs</myxml>")`
+
+Sending command with parameters:
+
+`C4:SendDataToUI("DRIVER_COMMAND", { PARAM1 = "Data1", PARAM2 = "Data1" })`
