@@ -26,7 +26,7 @@ For instance, if the timer was set up for 250ms and director was busy for 600ms 
 
 C4LuaTimer object with the following method(s):
 
-`oTimer.Cancel()` - This function cancels the timer.
+`oTimer:Cancel()` - This function cancels the timer.
 
 
 ### Usage Note
