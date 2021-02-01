@@ -34,7 +34,7 @@ GetProjectProperty takes a single string parameter from a list of property names
 - TextSize
 - TextAlignment
 - TopLEDOn
-- TopeLEDOff
+- TopLEDOff
 - BottomLEDOn
 - BottomLEDOff
 - ToggleLEDOn

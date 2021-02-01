@@ -7,7 +7,7 @@ Function which sends an HTTP request to a network binding / port. This API shoul
 
 ### Signature
 
-`C4:SendToDevice(idDevice, strCommand, tParams, logCommand))`
+`C4:SendToNetwork(idBinding, nPort, strData)`
 
 
 | Parameter | Description |
