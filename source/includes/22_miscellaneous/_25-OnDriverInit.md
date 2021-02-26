@@ -7,7 +7,7 @@ Function invoked when a driver is loaded or being updated. This API is provided 
 
 ### Signature
 
-`C4:OnDriverInit() `
+`OnDriverInit(strDIT) `
 
 
 | Parameter | Description |
