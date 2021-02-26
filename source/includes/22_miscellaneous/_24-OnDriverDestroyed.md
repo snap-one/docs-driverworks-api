@@ -7,7 +7,7 @@ Called when a driver is deleted from a project, updated within a project or Dire
 
 ### Signature
 
-`C4:OnDriverDestroyed `
+`OnDriverDestroyed(strDIT) `
 
 
 | Parameter | Description |
