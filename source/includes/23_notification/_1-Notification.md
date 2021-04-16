@@ -37,6 +37,7 @@ There are three types of .jpeg attachments that can be included in the Push Noti
                      <id>1003</id>
                      <type>IMAGE_JPEG</type>
                      <description>Snapshot (URL)</description>
+					 <source>URL</source>
               </attachment>
  </notification_attachments>
 ```
