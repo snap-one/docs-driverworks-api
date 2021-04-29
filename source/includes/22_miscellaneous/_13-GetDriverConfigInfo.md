@@ -7,7 +7,7 @@ Function that returns the XML contents of a driver's config.xml file. This API s
 
 ### Signature
 
-`C4:GetDriverConfiginfo()`
+`C4:GetDriverConfigInfo()`
 
 
 | Parameter | Description |
