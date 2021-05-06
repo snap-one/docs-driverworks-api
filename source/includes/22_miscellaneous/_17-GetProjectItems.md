@@ -1,4 +1,4 @@
-## GetProjectitems
+## GetProjectItems
 
 Returns the project as an .XML string. This string can then be parsed to retrieve variable IDs. This API should not be invoked during OnDriverInit.
 
@@ -51,7 +51,7 @@ For example to get just the general information about the project i.e. location,
 
 ### Example
 
-`Print (C4:GetProjectItems(projectname))`
+`print (C4:GetProjectItems(projectname))`
 
 
 
