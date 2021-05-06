@@ -12,7 +12,7 @@ If no parameter is passed, this API returns the entire project as an .XML string
 
 | Parameter | Description |
 | --- | --- |
-| str | Filter. Optional, Filters can be applied to GetProjectItems(). Each filter is a separate string parameter to the function. The list of filters include: `ALL`, `LOCATIONS, PROXIES, DEVICES, AGENTS, LIMIT_DEVICE_DATA, JUST_CAPABILITIES, NO_ROOT_TAGS`|
+| str | Filter. Optional, Filters can be applied to GetProjectItems(). Each filter is a separate string parameter to the function. The list of filters include: ALL, LOCATIONS, PROXIES, DEVICES, AGENTS, LIMIT_DEVICE_DATA, JUST_CAPABILITIES and NO_ROOT_TAGS|
 
 
 ### Returns
