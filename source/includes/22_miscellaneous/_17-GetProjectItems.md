@@ -22,6 +22,11 @@ Returns the project as an .XML string. This string can then be parsed to retriev
 | str | Project in XML format. |
 
 
+### Example
+
+`print(C4:GetProjectItems())
+`
+
 ### Usage Note
 
 Filters can be applied to GetProjectItems(). Each filter is a separate string parameter to the function. The list of filters include:
