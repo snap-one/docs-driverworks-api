@@ -12,44 +12,26 @@ If no parameter is passed, this API returns the entire project as an .XML string
 
 | Parameter | Description |
 | --- | --- |
-| str | Filter: Optional. see usage note below. |
+| str | Filter. Optional, Filters can be applied to GetProjectItems(). Each filter is a separate string parameter to the function. The list of filters include: |
+| |`ALL`,  `LOCATIONS, PROXIES, DEVICES, AGENTS, LIMIT_DEVICE_DATA, JUST_CAPABILITIES, NO_ROOT_TAGS`|
+
 
 
 ### Returns
 
 | Value | Description |
 | --- | --- |
-| str | Project in XML format. |
+| str | Project data in XML format. |
 
 
-### Example
+### Examples
 
-`print(C4:GetProjectItems())
+To return the entire project in XML: 
+
+ `print(C4:GetProjectItems())
 `
 
-### Usage Note
-
-Filters can be applied to GetProjectItems(). Each filter is a separate string parameter to the function. The list of filters include:
-
-`ALL`
-
-`LOCATIONS`
-
-`PROXIES`
-
-`DEVICES`
-
-`AGENTS`
-
-`LIMIT_DEVICE_DATA`
-
-`JUST_CAPABILITIES`
-
-`NO_ROOT_TAGS`
-
- 
-For example, to return general information about the project i.e. location, dealer info, etc:
-
+To return general information about the project i.e. location, dealer info, etc:
 
 `print(C4:GetProjectItems("LOCATIONS", "LIMIT_DEVICE_DATA","NO_ROOT_TAGS"))`
 
