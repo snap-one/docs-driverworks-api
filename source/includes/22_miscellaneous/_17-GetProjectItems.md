@@ -1,6 +1,6 @@
 ## GetProjectItems
 
-Returns the project as an .XML string. This string can then be parsed to retrieve variable IDs. This API should not be invoked during OnDriverInit.
+If no parameter is passed, this API returns the entire project as an .XML string. This string can then be parsed to retrieve variable IDs. The API supports several parameters (filters) that will return specific XML. This API should not be invoked during OnDriverInit.
 
 ###### Available from 1.6.0
 
@@ -12,7 +12,7 @@ Returns the project as an .XML string. This string can then be parsed to retriev
 
 | Parameter | Description |
 | --- | --- |
-| str | Project name |
+| str | Filter: Optional. see usage note below. |
 
 
 ### Returns
@@ -48,15 +48,12 @@ Filters can be applied to GetProjectItems(). Each filter is a separate string pa
 `NO_ROOT_TAGS`
 
  
-For example to get just the general information about the project i.e. location, dealer info, etc.. call:
+For example, to get just the general information about the project i.e. location, dealer info, etc:
 
 
 `print(C4:GetProjectItems("LOCATIONS", "LIMIT_DEVICE_DATA","NO_ROOT_TAGS"))`
 
 
-### Example
-
-`print (C4:GetProjectItems(projectname))`
 
 
 
