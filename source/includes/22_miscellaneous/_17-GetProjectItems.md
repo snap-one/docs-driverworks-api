@@ -48,7 +48,7 @@ Filters can be applied to GetProjectItems(). Each filter is a separate string pa
 `NO_ROOT_TAGS`
 
  
-For example, to get just the general information about the project i.e. location, dealer info, etc:
+For example, to return general information about the project i.e. location, dealer info, etc:
 
 
 `print(C4:GetProjectItems("LOCATIONS", "LIMIT_DEVICE_DATA","NO_ROOT_TAGS"))`
