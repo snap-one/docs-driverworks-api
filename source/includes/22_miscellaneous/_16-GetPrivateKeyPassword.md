@@ -79,4 +79,4 @@ If this property is omitted, then Director defaults to use no verification (“n
 If this property is omitted, then Director defaults to using sslv23 (which is the OpenSSL default).
 
 
-Please note that the `<certificate>, <private_key>` and `<cacert>` expected in those XML tags for certificates and key information may all be contained in the same file.  It's not required to split the various certificates and keys out into separate files to work properly.  In the case that they are all contained in a single file, put that file's filename value in each of the XML tags.
+Please note that the `<certificate>, <private_key>` and `<cacert>` expected in those XML tags for certificates and key information may all be contained in the same file.  It is  not required to split the various certificates and keys out into separate files to work properly.  In the case that they are all contained in a single file, put that file's filename value in each of the XML tags.
