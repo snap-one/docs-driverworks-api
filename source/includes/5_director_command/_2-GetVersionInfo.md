@@ -1,4 +1,4 @@
-## GerVersionInfo
+## GetVersionInfo
 
 Function that returns the version of Director currently running. This API can be invoked during OnDriverInit.
 
