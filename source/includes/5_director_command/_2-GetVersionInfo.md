@@ -1,6 +1,6 @@
 ## GetVersionInfo
 
-Function that returns the version of Director currently running. This API can be invoked during OnDriverInit.
+Function that returns the version of Director that is currently running. This API can be invoked during OnDriverInit.
 
 ###### Available in 1.60.
 
