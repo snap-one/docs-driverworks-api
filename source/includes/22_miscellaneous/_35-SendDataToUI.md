@@ -31,7 +31,7 @@ This API has a dual signature. It can be used to send an XML string or a command
 
 ### Usage Note
 
-The xml must be properly formatted and escaped for the function to succeed. Only navigators that have set up subscriptions to receive data from this device will receive sent data.
+The xml must be properly formatted and escaped for the function to succeed. Only navigators that have set up subscriptions to receive data from this device will receive the sent data.
 
 
 ### Example
