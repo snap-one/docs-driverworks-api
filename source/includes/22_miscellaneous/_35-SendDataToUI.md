@@ -43,3 +43,6 @@ Sending XML string:
 Sending command with parameters:
 
 `C4:SendDataToUI("DRIVER_COMMAND", { PARAM1 = "Data1", PARAM2 = "Data1" })`
+
+
+\<!-- datatoui --\>
