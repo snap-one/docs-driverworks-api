@@ -44,7 +44,7 @@ Function to configure a connection's Port settings.  The use of this API is cont
 
 - VERIFY METHOD - Specifies the method to use for establishing the connection. A detailed description of the various methods can be found at https://www.openssl.org Valid values include: sslv2, sslv23, sslv3, tlsv1 &  tlsv1\_1\_. Note that if this property is omitted, then Director defaults to using sslv23 (which is the OpenSSL default).
 
-- suppressconnectionevents - true or false to suppress connections. For more information see: Suppressing System Events
+- suppressconnectionevents - true or false to suppress connections. For more information see: [Suppressing System Events][3]
 
 To the right is a sample tPortParams table using default values:
 
@@ -78,3 +78,4 @@ UDP Connection: The use of the mirror udp port parameter defaults to false. Sett
 
 [1]:	https://control4.github.io/docs-driverworks-api/#createnetworkconnection
 [2]:	https://control4.github.io/docs-driverworks-api/#createnetworkconnection
+[3]:	https://control4.github.io/docs-driverworks-api/#suppressing-system-events
