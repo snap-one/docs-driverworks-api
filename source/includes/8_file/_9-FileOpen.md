@@ -25,6 +25,7 @@ of -1 is returned if an error.  This API can be invoked during OnDriverInit.
 
 ### Example
 
+_See example to the right._
 
 ```lua
 fh = C4:FileOpen(“somefile.ext”)
