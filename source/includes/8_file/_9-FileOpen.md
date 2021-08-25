@@ -44,7 +44,7 @@ Opening the file as illustrated above opens the file for read, binary, and appen
 
 However, this also means that attempts to read the file will not return any data because the current read position is at end-of-file. 
 
-The example given above can be corrected by using the C4:FileSetPos() function to reset the position to the beginning of the file before reading. See the example to the right.
+The example given above can be corrected by using the [C4:FileSetPos()][1] function to reset the position to the beginning of the file before reading. See the example to the right.
 
 ```lua
 C4:FileSetDir(parentdir)
@@ -56,3 +56,5 @@ if (fh ~= -1) then
     C4:FileClose(fh)
 end
 ```
+
+[1]:	https://control4.github.io/docs-driverworks-api/#filesetpos
