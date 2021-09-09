@@ -16,7 +16,7 @@ There are 2 supported options: `max_host_connections`, and 'pipelining'.
 
 | Parameter | Description |
 | --- | --- |
-| num | Number of concurrent transfers allowed per host. NOTE: This must be a number from 1-5.  Any numbers outside of this range will not be honored, and the current value will be kept. |
+| num | Number of concurrent transfers allowed per host. Defaults to 1. NOTE: This must be a number from 1-5.  5 is the maximum number of connections allowed. Any numbers outside of this range will not be honored, and the current value will be kept. |
 
 pipelining parameter:
 
