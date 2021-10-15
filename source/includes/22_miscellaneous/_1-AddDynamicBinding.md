@@ -47,15 +47,15 @@ To the right is an example of how to create and save bindings for three security
   PersistData = {`}
 end
 
-PersistData["zonebindi`ngs"``]`` = {}
-PersistData["zonebindings"]``[101] = "Zone 1"
+PersistData["zonebindings"] = {}
+PersistData["zonebindings"][101] = "Zone 1"
 
-C4:AddDynamicBinding(101, ``"``CONTROL", true, "Zone 1", "CONTACT_SENSOR", false, false)
-PersistData["zonebindings"]``[102] = "Zone 2"
+C4:AddDynamicBinding(101, "CONTROL", true, "Zone 1", "CONTACT_SENSOR", false, false)
+PersistData["zonebindings"][102] = "Zone 2"
 
-C4:AddDynamicBinding(102, ``"``CONTROL", true, "Zone 2", "CONTACT_SENSOR", false, false)
-PersistData["zonebindings"]``[103] = "Zone 3"
-C4:AddDynamicBinding(103, "``CONTROL", true, "Zone 3", "CONTACT_SENSOR", false, false)
+C4:AddDynamicBinding(102, "CONTROL", true, "Zone 2", "CONTACT_SENSOR", false, false)
+PersistData["zonebindings"][103] = "Zone 3"
+C4:AddDynamicBinding(103, "CONTROL", true, "Zone 3", "CONTACT_SENSOR", false, false)
 ```
 
 
