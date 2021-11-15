@@ -7,7 +7,7 @@ Returns the un-encoded string containing the firmware update data of the specifi
 
 ### Signature
 
-`C4:(strName)`
+`C4:(GetBlobByName)`
 
 
 | Parameter | Description |
