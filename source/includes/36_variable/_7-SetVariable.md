@@ -13,7 +13,7 @@ Function called from a DriverWorks driver to set the value of the current driver
 | Parameter | Description |
 | --- | --- |
 | str/num | A string or number that uniquely identifies the variable to be set.
-| str | Value to set variable |
+| num | Numerical value specifying the Variable Type: 1 = true, 0 = false. |
 
 
 ### Usage Note
