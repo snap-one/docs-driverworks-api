@@ -12,7 +12,7 @@ Function called from a DriverWorks driver to create a Control4 variable for the 
 | --- | --- |
 | str/num | A string or number that uniquely identifies the variable to be added. If a number it must be greater than zero. |
 | str | Initial value of Control4 variable |
-| num | Numerical value specifying the Variable Type: 1 = true, 0 = false. |
+| num | Numerical value specifying the Variable Type: 0 = true, 1 = false. |
 | bool | ReadOnly: Optional, defaults to FALSE |
 | bool | Hidden: Optional, defaults to FALSE.  A flag indicating whether the variable is hidden. 
 
