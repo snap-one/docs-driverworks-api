@@ -13,7 +13,7 @@ Function called from a DriverWorks driver to create a Control4 variable for the 
 | Parameter | Description |
 | --- | --- |
 | identifier | A string or number that uniquely identifies the variable to be added. If a number it must be greater than zero. |
-| strValue | String. If strVartype equals “BOOL” then “1” = true, “0” = false. Note, the 0 and 1 need to be passed as strings. |
+| strValue | String. If strVartype equals “BOOL” then “1” = true, “0” = false. Note, that valid values are 0 and 1 and need to be passed as strings. |
 | strVarType | String. See variable types below. |
 | bReadOnly | Boolean. ReadOnly: Optional, defaults to FALSE |
 | bHidden | Boolean. Hidden: Optional, defaults to FALSE.  A flag indicating whether the variable is hidden. 
@@ -21,25 +21,24 @@ Function called from a DriverWorks driver to create a Control4 variable for the 
 
 ### Usage Notes
 
-There is no limit to the string length for a variable created using AddVariable.
+There is no limit to the string length for a variable created using AddVariable. This can be done inside a driver programmatically or within Composer Pro.
 
 Valid variable types are: 
 
-- BOOL
-- DATE
-- DEVICE
-- FLOAT
-- INT
-- LEVEL
-- LIST
-- MEDIA
-- NUMBER
-- ROOM
+- BOOL: If strVartype equals “BOOL” then “1” = true, “0” = false. Note, that valid values are 0 and 1 and need to be passed as strings.
+- DEVICE: Device ID. 
+- FLOAT: Floating point number.
+- INT: Whole number.
+- MEDIA: Supports selectable Media through ComposerPro. 
+- NUMBER: Number
+- ROOM:  Room ID for a specific room or another driver’s room variable.
+- STRING: Sets to a string value.
 - STATE 
-- STRING
 - TIME
 - ULONG
 - XML
+- LEVEL
+- LIST
 
 
 ### Returns
