@@ -12,13 +12,13 @@ Function called from a DriverWorks driver to set the value of the current driver
 
 | Parameter | Description |
 | --- | --- |
-| str/num | A string or number that uniquely identifies the variable to be set.
-| num | Numerical value specifying the Variable Type: 0 = true, 1 = false. |
+| identifier | A string or number that uniquely identifies the variable to be added. If the identifier value is a string, then the variable is located by name. If the value is a number, then the variable is located by ID. In addition, the value of a numeric identifier must be greater than zero. |
+| strValue | The value passed here is variable type dependent. |
 
 
 ### Usage Note
 
-If the value is a string, then the variable is located by name. If the value is a number, then the variable is located by ID. In addition, the value of a numeric identifier must be greater than zero. 
+If the identifier value is a string, then the variable is located by name. If the value is a number, then the variable is located by ID. In addition, the value of a numeric identifier must be greater than zero. 
 
 
 ### Returns

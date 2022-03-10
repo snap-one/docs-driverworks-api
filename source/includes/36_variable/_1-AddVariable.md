@@ -4,17 +4,20 @@ Function called from a DriverWorks driver to create a Control4 variable for the 
 
 ###### Available from 1.6.0.
 
+
 ### Signature
 
 `C4:AddVariable(identifier, strValue, strVarType, [bReadOnly], [bHidden]) `
 
+
 | Parameter | Description |
 | --- | --- |
-| str/num | A string or number that uniquely identifies the variable to be added. If a number it must be greater than zero. |
-| str | Initial value of Control4 variable |
-| num | Numerical value specifying the Variable Type: 0 = true, 1 = false. |
-| bool | ReadOnly: Optional, defaults to FALSE |
-| bool | Hidden: Optional, defaults to FALSE.  A flag indicating whether the variable is hidden. 
+| identifier | A string or number that uniquely identifies the variable to be added. If a number it must be greater than zero. |
+| strValue | String. If strVartype equals “BOOL” then “1” = true, “0” = false. Note, the 0 and 1 need to be passed as strings. |
+| strVarType | String. See variable types below. |
+| bReadOnly | Boolean. ReadOnly: Optional, defaults to FALSE |
+| bHidden | Boolean. Hidden: Optional, defaults to FALSE.  A flag indicating whether the variable is hidden. 
+
 
 ### Usage Notes
 
@@ -39,8 +42,6 @@ Valid variable types are:
 - XML
 
 
-
-
 ### Returns
 
 | Value | Description |
@@ -48,6 +49,7 @@ Valid variable types are:
 | True | Indicates that the variable was added successfully. |
 | ID | ID of the variable that was added. |
 | False | Indicates that the variable could not be added. Failure generally occurs when either the name or ID is not unique.
+
 
 ### Usage Note
 
@@ -77,9 +79,11 @@ true    1001
 true    1003
 ```
 
+
 Note that when adding the third variable ("yaz"), the computed ID is 1003. This occurs because on line 1 we added a variable with ID 1002. As a result, the next available ID is 1003.
 
 When adding a variable by number (i.e., identifier is a number), the name of the variable is computed to be a string representation of the specified ID. Note that the computed name must be unique among all existing variables. The following code illustrates this problem:
+
 
 ```lua
 local result, id = C4:AddVariable("1001", "Foo", "STRING")
