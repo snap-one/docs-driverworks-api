@@ -27,13 +27,16 @@ Valid variable types are:
 
 - BOOL: If strVartype equals “BOOL” then “1” = true, “0” = false. Note, that valid values are 0 and 1 and need to be passed as strings.
 - DEVICE: Device ID. 
-- FLOAT: Floating point number.
-- INT: Whole number.
-- MEDIA: Supports selectable Media through ComposerPro. 
-- NUMBER: Number
+- FLOAT: Sets to a floating point number.
+- INT: Sets to a whole number.
+- MEDIA: Supports selectable Media through ComposerPro. Note that the media data returned by the API is in XML format.
+- NUMBER: Sets to a Number.
 - ROOM:  Room ID for a specific room or another driver’s room variable.
 - STRING: Sets to a string value.
-- STATE 
+
+While the following variable type can be successfully passed within the API, functionality will be supported in a future release.
+
+- STATE
 - TIME
 - ULONG
 - XML
