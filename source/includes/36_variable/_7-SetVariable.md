@@ -13,7 +13,7 @@ Function called from a DriverWorks driver to set the value of the current driver
 | Parameter | Description |
 | --- | --- |
 | identifier | A string or number that uniquely identifies the variable to be added. If the identifier value is a string, then the variable is located by name. If the value is a number, then the variable is located by ID. In addition, the value of a numeric identifier must be greater than zero. |
-| strValue | The value passed here is variable type dependent. | 
+| strValue | The value passed here is variable type dependent. See supported variable types in the [AddVariable][1] API. | 
 
 
 ### Returns
@@ -28,3 +28,5 @@ Sets the value of the device variable named “Driver Variable” to 90:
 `C4:SetVariable("Driver Variable", 90)`
 
 
+
+[1]:	https://control4.github.io/docs-driverworks-api/#addvariable
