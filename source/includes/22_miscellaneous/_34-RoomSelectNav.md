@@ -22,4 +22,4 @@ Function to force the selection of onscreen for the selected room. This API shou
 
 ### Example
 
-`C4:RoomSelectnav(C4:RoomgetId())`
+`C4:RoomSelectnav(C4:RoomGetId())`
