@@ -1,4 +1,4 @@
-## RoomGetID
+## RoomGetId
 
 Function to get the ID value of the room containing the driver. This API should not be invoked during OnDriverInit.
 
@@ -7,7 +7,7 @@ Function to get the ID value of the room containing the driver. This API should 
 
 ### Signature
 
-`C4:RoomGetID()`
+`C4:RoomGetId()`
 
 
 ### Parameters
