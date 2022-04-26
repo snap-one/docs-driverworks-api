@@ -10,7 +10,7 @@ on:
 
 jobs:
   build-and-deploy:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     name: Checkout, build and deploy to github-pages
     steps:
     - name: Checkout
@@ -33,7 +33,7 @@ jobs:
     - name: Run Slate build script
       run: ./slate/build.sh
     - name: Deploy to GitHub Pages
-      uses: maxheld83/ghpages@v0.2.1
-      env:
-        BUILD_DIR: slate/build
-        GH_PAT: ${{ secrets.GH_PAT }}
+      uses: JamesIves/github-pages-deploy-action@v4.3.0
+      with:
+        branch: gh-pages
+        folder: slate/build
