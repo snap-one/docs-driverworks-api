@@ -1,13 +1,13 @@
 ## GetProjectHierarchy
 
-This API returns a table. The table is a representation of the project. The table consists of key/value pairs where the key is the ID of the location. The value is a table with entries of all of the location’s children if any. It also contains the locations name and type. 
+This API returns a table. The table is a representation of the project. The table consists of key/value pairs where the key is the ID of the location. The value is a table with entries of all of the location’s children if any. It also contains the locations name and type.
 
 ###### Available from 2.10.0
 
 
 ### Signature
 
-`GetProjectHierarchy()`
+`C4:GetProjectHierarchy()`
 
 
 | Parameter | Description |
