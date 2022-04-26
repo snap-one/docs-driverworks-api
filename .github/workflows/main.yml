@@ -14,17 +14,17 @@ jobs:
     name: Checkout, build and deploy to github-pages
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
       with:
         path: docs
     - name: Checkout C4 Slate
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
       with:
         path: slate
         repository: control4/docs-slate
         token: ${{ secrets.GH_PAT }}
     - name: Cache Ruby Bundler
-      uses: actions/cache@v2
+      uses: actions/cache@v3
       with:
         path: slate/vendor/bundle
         key: ${{ runner.os }}-rubygems-${{ hashFiles('**/Gemfile.lock') }}
@@ -33,7 +33,7 @@ jobs:
     - name: Run Slate build script
       run: ./slate/build.sh
     - name: Deploy to GitHub Pages
-      uses: JamesIves/github-pages-deploy-action@v4.3.0
+      uses: JamesIves/github-pages-deploy-action@v4.3.3
       with:
         branch: gh-pages
         folder: slate/build
