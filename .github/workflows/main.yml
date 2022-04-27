@@ -32,8 +32,10 @@ jobs:
       run: cp -r ./docs/source/* ./slate/source/
     - name: Run Slate build script
       run: ./slate/build.sh
+    - name: Change current directory?
+      run: cd slate
     - name: Deploy to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@releases/v4-init
       with:
         branch: gh-pages
-        folder: ./slate/build
+        folder: /build
