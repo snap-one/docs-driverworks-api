@@ -33,7 +33,7 @@ jobs:
     - name: Run Slate build script
       run: ./slate/build.sh
     - name: Deploy to GitHub Pages
-      uses: JamesIves/github-pages-deploy-action@v4.3.3
+      uses: JamesIves/github-pages-deploy-action@releases/v4-init
       with:
         branch: gh-pages
-        folder: slate/build
+        folder: build
