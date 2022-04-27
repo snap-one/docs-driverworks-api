@@ -36,4 +36,4 @@ jobs:
       uses: JamesIves/github-pages-deploy-action@releases/v4-init
       with:
         branch: gh-pages
-        folder: build
+        folder: ./slate/build
