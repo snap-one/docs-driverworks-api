@@ -10,7 +10,6 @@ Retrieves a value from the Registry.
 
 `C4:RegistryGetValue(key)'
 `
-
 |Parameters | Description|
 | --- | --- |
 | num | The key applicable to the value being retrieved. |
