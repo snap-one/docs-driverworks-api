@@ -26,8 +26,8 @@ jobs:
       with:
         path: slate/vendor/bundle
         key: ${{ runner.os }}-rubygems-${{ hashFiles('**/Gemfile.lock') }}
-    - name: Copy slate to docs
-      run: cp -r ./slate ./
+    - name: Copy slate into root
+      run: cp -r ./slate/* ./
     - name: Run Slate build script
       run: ./build.sh
     - name: Deploy to GitHub Pages
