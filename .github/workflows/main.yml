@@ -13,14 +13,14 @@ jobs:
     runs-on: ubuntu-latest
     name: Checkout, build and deploy to github-pages
     steps:
+    - name: Checkout
+      uses: actions/checkout@v3
     - name: Checkout C4 Slate
       uses: actions/checkout@v3
       with:
         path: slate
         repository: control4/docs-slate
         token: ${{ secrets.GH_PAT }}
-    - name: Checkout
-      uses: actions/checkout@v3
     - name: Cache Ruby Bundler
       uses: actions/cache@v3
       with:
