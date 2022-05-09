@@ -13,29 +13,25 @@ jobs:
     runs-on: ubuntu-latest
     name: Checkout, build and deploy to github-pages
     steps:
-    - name: Checkout
-      uses: actions/checkout@v3
-      with:
-        path: docs
     - name: Checkout C4 Slate
       uses: actions/checkout@v3
       with:
         path: slate
         repository: control4/docs-slate
         token: ${{ secrets.GH_PAT }}
+    - name: Checkout
+      uses: actions/checkout@v3
     - name: Cache Ruby Bundler
       uses: actions/cache@v3
       with:
         path: slate/vendor/bundle
         key: ${{ runner.os }}-rubygems-${{ hashFiles('**/Gemfile.lock') }}
-    - name: Copy docs to slate
-      run: cp -r ./docs/source/* ./slate/source/
+    - name: Copy slate to docs
+      run: cp -r ./slate ./
     - name: Run Slate build script
-      run: ./slate/build.sh
-    - name: Change current directory?
-      run: cd slate
+      run: ./build.sh
     - name: Deploy to GitHub Pages
-      uses: JamesIves/github-pages-deploy-action@releases/v4-init
+      uses: JamesIves/github-pages-deploy-action@v4
       with:
         branch: gh-pages
         folder: /build
