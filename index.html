@@ -4539,7 +4539,7 @@ OnDriverInit.</p>
 <h2 id='tonumberloc'>tonumberloc</h2>
 
 <p>The Lua tonumber() function included in the Lua Library is locale specific. This can cause issues where the
-Control4 system is set to a locale where the decimal separator is different from what is returned by the target device.  For example, if the target device sends the Control4 driver a string of  23.4 (23 decimal 4) but the locale expects this to be 23,4 (23 comma 4) then tonumber(&quot;23.4&quot;) will fail.  This problem often occurs in drivers where the UI uses decimal values and can occur with any proxy. </p>
+Control4 system is set to a locale where the decimal separator is different from what is returned by the target device.  For example, if the target device sends the Control4 driver a string of  23.4 (23 decimal 4) but the locale expects this to be 23,4 (23 comma 4) then tonumber(&quot;23.4&quot;) will fail.  This problem often occurs in drivers where the UI uses decimal values and can occur with any proxy.</p>
 
 <p>Driver writers must ensure that their drivers will not fail in these circumstances. To assist with this, Control4 has provided a function: tonumberloc(). This function is included in the driver templates beginning OS release 2.8.0 and its use ensures this problem does not occur.  Driver writers are advised to usetonumberloc()  in place of tonumber() in their code.</p>
 
@@ -4547,15 +4547,22 @@ Control4 system is set to a locale where the decimal separator is different from
 <p><code>tonumber_loc()</code></p>
 <h3 id='example'>Example</h3><div class="highlight"><pre class="highlight lua tab-lua"><code>
 <span class="k">function</span> <span class="nf">tonumber_loc</span><span class="p">(</span><span class="n">str</span><span class="p">,</span> <span class="n">base</span><span class="p">)</span>
-<span class="err"> </span> <span class="kd">local</span> <span class="n">s</span> <span class="o">=</span> <span class="n">str</span><span class="p">:</span><span class="nb">gsub</span><span class="p">(</span><span class="sr">&quot;,&quot;</span><span class="p">,</span> <span class="sr">&quot;.&quot;</span><span class="p">)</span> <span class="c1">-- Assume US Locale decimal separator</span>
-<span class="err"> </span> <span class="kd">local</span> <span class="n">num</span> <span class="o">=</span> <span class="nb">tonumber</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">base</span><span class="p">)</span>
-<span class="err"> </span> <span class="k">if</span> <span class="p">(</span><span class="n">num</span> <span class="o">==</span> <span class="kc">nil</span><span class="p">)</span> <span class="k">then</span>
-<span class="err">   </span> <span class="n">s</span> <span class="o">=</span> <span class="n">str</span><span class="p">:</span><span class="nb">gsub</span><span class="p">(</span><span class="sr">&quot;%.&quot;</span><span class="p">,</span> <span class="sr">&quot;,&quot;</span><span class="p">)</span> <span class="c1">-- Non-US Locale decimal separator</span>
-<span class="err">   </span> <span class="n">num</span> <span class="o">=</span> <span class="nb">tonumber</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">base</span><span class="p">)</span>
-<span class="err"> </span> <span class="k">end</span>
-<span class="err"> </span> <span class="k">return</span> <span class="n">num</span>
-<span class="k">end</span>
-</code></pre></div>
+        <span class="kd">local</span> <span class="n">s</span>
+        <span class="kd">local</span> <span class="n">num</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">str</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;string&quot;</span> <span class="k">then</span>
+                <span class="n">s</span> <span class="o">=</span> <span class="n">str</span><span class="p">:</span><span class="nb">gsub</span><span class="p">(</span><span class="sr">&quot;,&quot;</span><span class="p">,</span> <span class="sr">&quot;.&quot;</span><span class="p">)</span> <span class="c1">-- Assume US Locale decimal separator</span>
+                <span class="n">num</span> <span class="o">=</span> <span class="nb">tonumber</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">base</span><span class="p">)</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">num</span> <span class="o">==</span> <span class="kc">nil</span><span class="p">)</span> <span class="k">then</span>
+                        <span class="n">s</span> <span class="o">=</span> <span class="n">str</span><span class="p">:</span><span class="nb">gsub</span><span class="p">(</span><span class="sr">&quot;%.&quot;</span><span class="p">,</span> <span class="sr">&quot;,&quot;</span><span class="p">)</span> <span class="c1">-- Non-US Locale decimal separator</span>
+                        <span class="n">num</span> <span class="o">=</span> <span class="nb">tonumber</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">base</span><span class="p">)</span>
+                <span class="k">end</span>
+        <span class="k">else</span>
+                <span class="n">num</span> <span class="o">=</span> <span class="nb">tonumber</span><span class="p">(</span><span class="n">str</span><span class="p">,</span> <span class="n">base</span><span class="p">)</span>
+        <span class="k">end</span>
+        <span class="k">return</span> <span class="n">num</span>
+<span class="k">end</span></p>
+
+<p></code></pre></div>
 <h2 id='tostringlocalec'>ToStringLocaleC</h2>
 <p>String helper function to convert a number to a string using the ‘C’ locale regardless of the locale setting of the Control4 Operating System. Some countries use commas instead of decimal points for floating point numbers.
 Lua ‘tostring’ command and string concatenation (..) with a number variable will convert the decimal value from a decimal point to a comma in some countries (locales). There may be instances where you do not want this conversion to take place and want the floating-point number to always be represented using a decimal point as opposed to a comma. In these cases, the C4:ToStringLocaleC(num) command can be used to convert the number to a string using decimal points.</p>
