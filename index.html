@@ -8230,8 +8230,8 @@ Protocol Drivers that have one or more proxies have an additional key-value pair
 <p><code>private_key</code> - Path to the private key to use for the connection. The path is relative to the driver’s C4Z location.
 If the “protected” attribute is “True”, then Director will invoke the following callback to retrieve the password from the driver:</p>
 
-<div class="highlight"><pre class="highlight lua tab-lua"><code><span class="k">function</span> <span class="nf">GetPrivateKeyPssword</span><span class="p">(</span><span class="n">Binding</span><span class="p">,</span> <span class="n">Port</span><span class="p">)</span>
-<span class="err">   </span><span class="k">return</span> <span class="err">“</span><span class="n">TheKey</span><span class="err">”</span>
+<div class="highlight"><pre class="highlight lua tab-lua"><code><span class="k">function</span> <span class="nf">GetPrivateKeyPassword</span><span class="p">(</span><span class="n">Binding</span><span class="p">,</span> <span class="n">Port</span><span class="p">)</span>
+<span class="err">   </span><span class="k">return</span> <span class="s1">'TheKey'</span>
 <span class="k">end</span>
 </code></pre></div>
 
