@@ -8231,7 +8231,11 @@ Protocol Drivers that have one or more proxies have an additional key-value pair
 If the “protected” attribute is “True”, then Director will invoke the following callback to retrieve the password from the driver:</p>
 
 <div class="highlight"><pre class="highlight lua tab-lua"><code><span class="k">function</span> <span class="nf">GetPrivateKeyPassword</span><span class="p">(</span><span class="n">Binding</span><span class="p">,</span> <span class="n">Port</span><span class="p">)</span>
+<span class="o">&lt;&lt;&lt;&lt;&lt;&lt;&lt;</span> <span class="n">HEAD</span>
+<span class="err">   </span><span class="k">return</span> <span class="err">“</span><span class="n">TheKey</span><span class="err">”</span>
+<span class="o">=======</span>
 <span class="err">   </span><span class="k">return</span> <span class="s1">'TheKey'</span>
+<span class="o">&gt;&gt;&gt;&gt;&gt;&gt;&gt;</span> <span class="n">a0ddf822610a11ce484bd20ac2c5f7f6faa1b285</span>
 <span class="k">end</span>
 </code></pre></div>
 
