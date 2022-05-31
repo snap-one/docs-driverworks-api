@@ -52,7 +52,7 @@ If the “protected” attribute is “True”, then Director will invoke the fo
 
 	
 ```lua
-function GetPrivateKeyPssword(Binding, Port)
+function GetPrivateKeyPassword(Binding, Port)
    return “TheKey”
 end
 ```
