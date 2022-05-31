@@ -53,7 +53,11 @@ If the “protected” attribute is “True”, then Director will invoke the fo
 	
 ```lua
 function GetPrivateKeyPassword(Binding, Port)
+<<<<<<< HEAD
    return “TheKey”
+=======
+   return 'TheKey'
+>>>>>>> a0ddf822610a11ce484bd20ac2c5f7f6faa1b285
 end
 ```
 
