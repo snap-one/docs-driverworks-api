@@ -1,7 +1,6 @@
 ## UnZip
-Function for extracting files from a .zip archive. This API enables Lua drivers to extract one, or more, files from a .zip archive. See [https://en.wikipedia.org/wiki/ZIP\_(file\_format)][1]
+Function for extracting files from a .zip archive. This API enables Lua drivers to extract one, or more, files from a .zip archive. 
  
-
 _This API was introduced in O.S. Release 3.3.0._
 
 
@@ -137,5 +136,3 @@ The output can be interpreted as follows:
 • The fileset array is empty because no files were extracted.
 • The errors table contains a single entry containing the zip file itself. The associated error message indicates that the specified file does not exist.
 ```
-
-[1]:	See%20https://en.wikipedia.org/wiki/ZIP_(file_format)
