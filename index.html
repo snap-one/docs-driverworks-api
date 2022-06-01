@@ -248,6 +248,44 @@
               </ul>
           </li>
           <li>
+            <a href="#c4ssh-interface" class="toc-h1 toc-link" data-title="C4SSH Interface">C4SSH Interface</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#createsshclient" class="toc-h2 toc-link" data-title="CreateSSHClient">CreateSSHClient</a>
+                  </li>
+                  <li>
+                    <a href="#connect" class="toc-h2 toc-link" data-title="Connect">Connect</a>
+                  </li>
+                  <li>
+                    <a href="#send" class="toc-h2 toc-link" data-title="Send">Send</a>
+                  </li>
+                  <li>
+                    <a href="#disconnect" class="toc-h2 toc-link" data-title="Disconnect">Disconnect</a>
+                  </li>
+                  <li>
+                    <a href="#setconnecttimeout" class="toc-h2 toc-link" data-title="SetConnectTimeout">SetConnectTimeout</a>
+                  </li>
+                  <li>
+                    <a href="#setonconnected" class="toc-h2 toc-link" data-title="SetOnConnected">SetOnConnected</a>
+                  </li>
+                  <li>
+                    <a href="#setondata" class="toc-h2 toc-link" data-title="SetOnData">SetOnData</a>
+                  </li>
+                  <li>
+                    <a href="#setondisconnected" class="toc-h2 toc-link" data-title="SetOnDisconnected">SetOnDisconnected</a>
+                  </li>
+                  <li>
+                    <a href="#onconnected" class="toc-h2 toc-link" data-title="OnConnected">OnConnected</a>
+                  </li>
+                  <li>
+                    <a href="#ondata" class="toc-h2 toc-link" data-title="OnData">OnData</a>
+                  </li>
+                  <li>
+                    <a href="#ondisconnected" class="toc-h2 toc-link" data-title="OnDisconnected">OnDisconnected</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#controller-registry-interface" class="toc-h1 toc-link" data-title="Controller Registry Interface">Controller Registry Interface</a>
               <ul class="toc-list-h2">
                   <li>
@@ -1599,6 +1637,463 @@ The GetProjectProperty API uses a single string parameter from a list of propert
 <li>EnableRemoteDebugging</li>
 <li>OnEndDebugSession</li>
 </ul>
+<p><h1 id='c4ssh-interface'>C4SSH Interface</h1><h2 id='createsshclient'>CreateSSHClient</h2>
+<p>The C4SSH API enables Lua drivers to establish an SSH client connection to a remote device and execute a series of commands. A driver creates an instance of a C4SSH object by calling the C4:CreateSSHClient function.</p></p>
+
+<p><em>This interface was released in conjunction with O.S. 3.3.0</em></p>
+
+<h3 id='signature'>Signature</h3>
+
+<p><code>C4:CreateSShClient ()</code></p>
+
+<h3 id='parameters'>Parameters</h3>
+
+<p>None</p>
+
+<h3 id='returns'>Returns</h3>
+
+<p>An instance of a C4SSH object that can be used to establish an SSH client connection to a remote device. The C4SSH object enables a Lua driver to establish an SSH client connection to a device, and then to interact with that device by executing a series of commands. The C4SSH object API provides the following methods: </p>
+
+<ul>
+<li>Connect</li>
+<li>Send</li>
+<li>Disconnect</li>
+<li>SetConnectTimeout</li>
+<li>SetOnConnected</li>
+<li>SetOnData</li>
+<li>SetOnDisconnected</li>
+</ul>
+
+<p>These methods are defined below:</p>
+
+<h2 id='connect'>Connect</h2>
+
+<p>The Connect method attempts to establish a connection to a remote device. There are three methods that set callback functions which enable a driver to receive various notifications about the connection. These are:</p>
+
+<p>SetOnConnected: Provides notification when a connection is established.
+SetOnData: Provides notification when data is read from the connection.
+SetOnDisconnected: Provides notification when the connection is disconnected, or has otherwise failed.</p>
+
+<p>Additionally, a driver may control how long the C4SSH object waits before determining that the connection has failed. This is accomplished with: SetConnectTimeout which specifies the amount of time to wait when attempting to connect to an endpoint.</p>
+
+<h3 id='signature-2'>Signature</h3>
+
+<p><code>Connect(endpoint, username, password, string)</code></p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Endpoint</td>
+<td>string. The endpoint to which the SSH connection is to be established. This can be either a host name or an IP address. If the caller specifies a host name, the C4SSH object will attempt to resolve the IP address of the endpoint before connecting.</td>
+</tr>
+<tr>
+<td>Username</td>
+<td>string. The username with which to log in to the remote device.</td>
+</tr>
+<tr>
+<td>Password</td>
+<td>string. The password to use when logging in to the remote device. This value can be empty if no password is required.</td>
+</tr>
+<tr>
+<td>Port</td>
+<td>Integer. The port to use when establishing a connection to the remote device. If omitted, then the default port of 22 is used.</td>
+</tr>
+</tbody></table>
+
+<h3 id='returns-2'>Returns</h3>
+
+<p>The Connect method may return multiple values. On success, Connect returns the following:</p>
+
+<ul>
+<li>The instance of the C4SSH object on which Connect was invoked.</li>
+</ul>
+
+<p>On failure, Connect returns the following:</p>
+
+<ul>
+<li>nil</li>
+<li>A string describing the failure</li>
+</ul>
+
+<h4 id='see-also'>See Also:</h4>
+
+<ul>
+<li>SetOnConnected</li>
+<li>SetOnData</li>
+<li>SetOnDisconnected</li>
+<li>SetConnectTimeout</li>
+<li>OnConnected</li>
+<li>OnData</li>
+<li>OnDisconnected</li>
+</ul>
+
+<h2 id='send'>Send</h2>
+
+<p>Sends a command to a remote device. A driver may set a callback function to receive notification when data has been read from the connection by calling the SetOnData method.</p>
+
+<h3 id='signature-3'>Signature</h3>
+
+<p><code>Send(command)</code></p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Command</td>
+<td>string. The command to be sent to the remote device.</td>
+</tr>
+</tbody></table>
+
+<h3 id='returns-3'>Returns</h3>
+
+<p>The Send method may return multiple values. On success, Send returns the following:</p>
+
+<ul>
+<li>The instance of the C4SSH object on which the Send method was invoked.</li>
+</ul>
+
+<p>On Failure, Send returns the following:</p>
+
+<ul>
+<li>nil</li>
+<li>A string describing the failure</li>
+</ul>
+
+<h3 id='usage-note'>Usage Note</h3>
+
+<p>Due to the asynchronous nature of the C4SSH API, a driver must wait for a connection to be established before calling Send. A driver can be notified that a connection has been established successfully by calling SetOnConnected to register an OnConnected callback function.</p>
+
+<h4 id='see-also-2'>See Also:</h4>
+
+<ul>
+<li>SetOnData</li>
+<li>OnData</li>
+</ul>
+
+<h2 id='disconnect'>Disconnect</h2>
+
+<p>Closes the connection. A driver may set a callback function to receive notification when the connection has been disconnected by calling the SetOnDisconnected method.</p>
+
+<h3 id='signature-4'>Signature</h3>
+
+<p><code>Disconnect()</code></p>
+
+<h3 id='parameters-2'>Parameters</h3>
+
+<p>None</p>
+
+<h3 id='returns-4'>Returns</h3>
+
+<p>The Disconnect method returns a single value which is the instance of the C4SSH object on which the Disconnect method was invoked.</p>
+
+<h4 id='set-also'>Set Also</h4>
+
+<ul>
+<li>SetOnDisconnected</li>
+<li>OnDisconnected</li>
+</ul>
+
+<h2 id='setconnecttimeout'>SetConnectTimeout</h2>
+
+<p>Sets the amount of time the C4SSH object waits before determining that an attempt to establish a connection to an endpoint has failed. The C4SSH object notifies a driver that a connection has timed out by invoking the OnDisconnected callback function. A driver may set the OnDisconnected callback function by calling SetOnDisconnected.</p>
+
+<h3 id='signature-5'>Signature</h3>
+
+<p><code>SetConnectTimeout(Timeout)</code></p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Timeout</td>
+<td>integer.The number of seconds to wait before determining that an attempt to establish a connection has failed. The default is 30 seconds.</td>
+</tr>
+</tbody></table>
+
+<h3 id='returns-5'>Returns</h3>
+
+<p>The SetConnectTimeout method may return multiple values. On Success, SetConnectTimeout returns the following:</p>
+
+<ul>
+<li>The instance of the C4SSH object on which SetConnectTimeout was invoked.</li>
+</ul>
+
+<p>On failure, SetConnectTimeout returns the following:</p>
+
+<ul>
+<li>nil</li>
+<li>A string describing the failure.</li>
+</ul>
+
+<h4 id='see-also-3'>See Also</h4>
+
+<ul>
+<li>Connect</li>
+<li>SetOnDisconnected</li>
+<li>OnDisconnected</li>
+</ul>
+
+<h2 id='setonconnected'>SetOnConnected</h2>
+
+<p>Sets the callback function that is invoked when a client connection has been established. See OnConnected for specific details about the function signature of this callback.</p>
+
+<h3 id='signature-6'>Signature</h3>
+
+<p><code>SetOnConnected(Callback)</code></p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Callback</td>
+<td>function. A callback function to be invoked when a connection has been established.</td>
+</tr>
+</tbody></table>
+
+<h3 id='returns-6'>Returns</h3>
+
+<p>The SetOnConnected method returns a single value which is the instance of the C4SSH object on which SetOnConnected was invoked.</p>
+
+<h4 id='see-also-4'>See Also</h4>
+
+<ul>
+<li>OnConnected</li>
+</ul>
+
+<h2 id='setondata'>SetOnData</h2>
+
+<p>Sets the callback function that is invoked when data has been read from a connection. See OnData for specific details about the function signature of this callback.</p>
+
+<h3 id='signature-7'>Signature</h3>
+
+<p><code>SetOnData(Callback)</code></p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Callback</td>
+<td>function.A callback function to be invoked when data has been read from a connection.</td>
+</tr>
+</tbody></table>
+
+<h3 id='returns-7'>Returns</h3>
+
+<p>The SetOnData method returns a single value which is the instance of the C4SSH object on which the SetOnData method was invoked.</p>
+
+<h4 id='see-also-5'>See Also</h4>
+
+<ul>
+<li>OnData</li>
+</ul>
+
+<h2 id='setondisconnected'>SetOnDisconnected</h2>
+
+<p>Sets the callback function that is invoked when a connection is disconnected or has otherwise failed. Note that the C4SSH object invokes the OnDisconnected callback to notify a driver when an error has forced the closure of a connection. See OnDisconnected for specific details about the function signature of this callback.</p>
+
+<h3 id='signature-8'>Signature</h3>
+
+<p><code>SetOnDisconnected(Callback)</code></p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Callback</td>
+<td>function. A callback function to be invoked when a connection is disconnected or has otherwise failed.</td>
+</tr>
+</tbody></table>
+
+<h3 id='returns-8'>Returns</h3>
+
+<p>The SetOnDisconnected method returns a single value which is the instance of the C4SSH object on which SetOnDisconnected was invoked.</p>
+
+<h4 id='see-also-6'>See Also</h4>
+
+<ul>
+<li>OnDisconnected</li>
+</ul>
+
+<p><strong>C4SSH Callbacks</strong></p>
+
+<p>The C4SSH object provides the following callback functions that enable a driver to receive various notifications about the connection. These include the following:</p>
+
+<ul>
+<li>OnConnected</li>
+<li>OnData</li>
+<li>OnDisconnected</li>
+</ul>
+
+<h2 id='onconnected'>OnConnected</h2>
+
+<p>The OnConnected callback is invoked to notify a driver that a connection has been established.</p>
+
+<h3 id='signature-9'>Signature</h3>
+
+<p><code>OnConnected(client)</code></p>
+
+<h3 id='parameters-3'>Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>client</td>
+<td><code>[C4SSH]</code>: The instance of the C4SSH object that connected successfully.</td>
+</tr>
+</tbody></table>
+
+<h4 id='see-also-7'>See Also</h4>
+
+<ul>
+<li>SetOnConnected</li>
+</ul>
+
+<h3 id='example'>Example</h3><div class="highlight"><pre class="highlight javascript"><code><span class="kd">function</span> <span class="nx">OnData</span><span class="p">(</span><span class="nx">client</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span>
+    <span class="nx">print</span><span class="p">(</span><span class="nx">client</span><span class="p">,</span> <span class="dl">"</span><span class="s2">OnData</span><span class="dl">"</span><span class="p">)</span>
+    <span class="nx">print</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span>
+    <span class="nx">client</span><span class="p">:</span><span class="nx">Disconnect</span><span class="p">()</span>
+<span class="nx">end</span>
+
+<span class="kd">function</span> <span class="nx">OnConnected</span><span class="p">(</span><span class="nx">client</span><span class="p">)</span>
+    <span class="nx">print</span><span class="p">(</span><span class="nx">client</span><span class="p">,</span> <span class="dl">"</span><span class="s2">OnConnected</span><span class="dl">"</span><span class="p">)</span>
+    <span class="nx">client</span><span class="p">:</span><span class="nx">Send</span><span class="p">(</span><span class="dl">"</span><span class="s2">ls</span><span class="dl">"</span><span class="p">)</span>
+<span class="nx">end</span>
+
+<span class="kd">function</span> <span class="nx">OnDisconnected</span><span class="p">(</span><span class="nx">client</span><span class="p">,</span> <span class="nx">error</span><span class="p">)</span>
+    <span class="nx">print</span><span class="p">(</span><span class="nx">client</span><span class="p">,</span> <span class="dl">"</span><span class="s2">OnDisconnected</span><span class="dl">"</span><span class="p">,</span> <span class="nx">error</span><span class="p">)</span>
+<span class="nx">end</span>
+
+<span class="nx">sshclient</span> <span class="o">=</span> <span class="nx">C4</span><span class="p">:</span><span class="nx">CreateSSHClient</span><span class="p">()</span>
+
+<span class="nx">sshclient</span><span class="p">:</span><span class="nx">SetOnDisconnected</span><span class="p">(</span><span class="nx">OnDisconnected</span><span class="p">)</span>
+<span class="nx">sshclient</span><span class="p">:</span><span class="nx">SetOnConnected</span><span class="p">(</span><span class="nx">OnConnected</span><span class="p">)</span>
+<span class="nx">sshclient</span><span class="p">:</span><span class="nx">SetOnData</span><span class="p">(</span><span class="nx">OnData</span><span class="p">)</span>
+
+<span class="nx">sshclient</span><span class="p">:</span><span class="nx">Connect</span><span class="p">(</span><span class="dl">"</span><span class="s2">192.168.1.42</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">username</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">password</span><span class="dl">"</span><span class="p">)</span>
+</code></pre></div><h2 id='ondata'>OnData</h2>
+<p>The OnData callback is invoked to notify a driver when data has been read from a connection.</p>
+<h3 id='signature-10'>Signature</h3>
+
+<p><code>OnData(Client, Data)</code></p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>client</td>
+<td><code>[C4SSH]</code>: The instance of the C4SSH object that received the data.</td>
+</tr>
+<tr>
+<td>Data</td>
+<td>string. A string containing the data that was read from the connection.</td>
+</tr>
+</tbody></table>
+
+<h4 id='see-also-8'>See Also</h4>
+
+<ul>
+<li>SetOnData</li>
+</ul>
+
+<h3 id='example-2'>Example</h3><div class="highlight"><pre class="highlight javascript"><code><span class="kd">function</span> <span class="nx">OnData</span><span class="p">(</span><span class="nx">client</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span>
+    <span class="nx">print</span><span class="p">(</span><span class="nx">client</span><span class="p">,</span> <span class="dl">"</span><span class="s2">OnData</span><span class="dl">"</span><span class="p">)</span>
+    <span class="nx">print</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span>
+    <span class="nx">client</span><span class="p">:</span><span class="nx">Disconnect</span><span class="p">()</span>
+<span class="nx">end</span>
+
+<span class="kd">function</span> <span class="nx">OnConnected</span><span class="p">(</span><span class="nx">client</span><span class="p">)</span>
+    <span class="nx">print</span><span class="p">(</span><span class="nx">client</span><span class="p">,</span> <span class="dl">"</span><span class="s2">OnConnected</span><span class="dl">"</span><span class="p">)</span>
+    <span class="nx">client</span><span class="p">:</span><span class="nx">Send</span><span class="p">(</span><span class="dl">"</span><span class="s2">ls</span><span class="dl">"</span><span class="p">)</span>
+<span class="nx">end</span>
+
+<span class="kd">function</span> <span class="nx">OnDisconnected</span><span class="p">(</span><span class="nx">client</span><span class="p">,</span> <span class="nx">error</span><span class="p">)</span>
+    <span class="nx">print</span><span class="p">(</span><span class="nx">client</span><span class="p">,</span> <span class="dl">"</span><span class="s2">OnDisconnected</span><span class="dl">"</span><span class="p">,</span> <span class="nx">error</span><span class="p">)</span>
+<span class="nx">end</span>
+
+<span class="nx">sshclient</span> <span class="o">=</span> <span class="nx">C4</span><span class="p">:</span><span class="nx">CreateSSHClient</span><span class="p">()</span>
+
+<span class="nx">sshclient</span><span class="p">:</span><span class="nx">SetOnDisconnected</span><span class="p">(</span><span class="nx">OnDisconnected</span><span class="p">)</span>
+<span class="nx">sshclient</span><span class="p">:</span><span class="nx">SetOnConnected</span><span class="p">(</span><span class="nx">OnConnected</span><span class="p">)</span>
+<span class="nx">sshclient</span><span class="p">:</span><span class="nx">SetOnData</span><span class="p">(</span><span class="nx">OnData</span><span class="p">)</span>
+
+<span class="nx">sshclient</span><span class="p">:</span><span class="nx">Connect</span><span class="p">(</span><span class="dl">"</span><span class="s2">192.168.1.42</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">username</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">password</span><span class="dl">"</span><span class="p">)</span>
+</code></pre></div><h2 id='ondisconnected'>OnDisconnected</h2>
+<p>The OnDisconnected callback is invoked to notify a driver that a connection has been disconnected. If an error forced the closure of the connection, then the Error argument provides a string describing the error.</p>
+<h3 id='signature-11'>Signature</h3>
+
+<p><code>OnDisconnected(client Error)</code></p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>client</td>
+<td><code>[C4SSH]</code>: The instance of the C4SSH object that was disconnected.</td>
+</tr>
+<tr>
+<td>Error</td>
+<td>string. A string describing the failure if an error forced the closure of the connection. If no error occurred, then the value of the Error argument is nil.</td>
+</tr>
+</tbody></table>
+
+<h4 id='see-also-9'>See Also</h4>
+
+<ul>
+<li>SetOnDisconnected</li>
+</ul>
+
+<p><h3 id='example-3'>Example</h3><div class="highlight"><pre class="highlight javascript"><code><span class="kd">function</span> <span class="nx">OnData</span><span class="p">(</span><span class="nx">client</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span>
+    <span class="nx">print</span><span class="p">(</span><span class="nx">client</span><span class="p">,</span> <span class="dl">&quot;</span><span class="s2">OnData</span><span class="dl">&quot;</span><span class="p">)</span>
+    <span class="nx">print</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span>
+    <span class="nx">client</span><span class="p">:</span><span class="nx">Disconnect</span><span class="p">()</span>
+<span class="nx">end</span></p>
+
+<p><span class="kd">function</span> <span class="nx">OnConnected</span><span class="p">(</span><span class="nx">client</span><span class="p">)</span>
+    <span class="nx">print</span><span class="p">(</span><span class="nx">client</span><span class="p">,</span> <span class="dl">&quot;</span><span class="s2">OnConnected</span><span class="dl">&quot;</span><span class="p">)</span>
+    <span class="nx">client</span><span class="p">:</span><span class="nx">Send</span><span class="p">(</span><span class="dl">&quot;</span><span class="s2">ls</span><span class="dl">&quot;</span><span class="p">)</span>
+<span class="nx">end</span></p>
+
+<p><span class="kd">function</span> <span class="nx">OnDisconnected</span><span class="p">(</span><span class="nx">client</span><span class="p">,</span> <span class="nx">error</span><span class="p">)</span>
+    <span class="nx">print</span><span class="p">(</span><span class="nx">client</span><span class="p">,</span> <span class="dl">&quot;</span><span class="s2">OnDisconnected</span><span class="dl">&quot;</span><span class="p">,</span> <span class="nx">error</span><span class="p">)</span>
+<span class="nx">end</span></p>
+
+<p><span class="nx">sshclient</span> <span class="o">=</span> <span class="nx">C4</span><span class="p">:</span><span class="nx">CreateSSHClient</span><span class="p">()</span></p>
+
+<p><span class="nx">sshclient</span><span class="p">:</span><span class="nx">SetOnDisconnected</span><span class="p">(</span><span class="nx">OnDisconnected</span><span class="p">)</span>
+<span class="nx">sshclient</span><span class="p">:</span><span class="nx">SetOnConnected</span><span class="p">(</span><span class="nx">OnConnected</span><span class="p">)</span>
+<span class="nx">sshclient</span><span class="p">:</span><span class="nx">SetOnData</span><span class="p">(</span><span class="nx">OnData</span><span class="p">)</span></p>
+
+<p><span class="nx">sshclient</span><span class="p">:</span><span class="nx">Connect</span><span class="p">(</span><span class="dl">&quot;</span><span class="s2">192.168.1.42</span><span class="dl">&quot;</span><span class="p">,</span> <span class="dl">&quot;</span><span class="s2">username</span><span class="dl">&quot;</span><span class="p">,</span> <span class="dl">&quot;</span><span class="s2">password</span><span class="dl">&quot;</span><span class="p">)</span>
+</code></pre></div></p>
 <h1 id='controller-registry-interface'>Controller Registry Interface</h1>
 
 <h2 id='registrydeletevalue'>RegistryDeleteValue</h2>
