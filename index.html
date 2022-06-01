@@ -228,6 +228,9 @@
             <a href="#what-39-s-new" class="toc-h1 toc-link" data-title="What's New">What's New</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#what-s-new-in-the-3-3-0-beta" class="toc-h2 toc-link" data-title="What’s New in the 3.3.0 beta">What’s New in the 3.3.0 beta</a>
+                  </li>
+                  <li>
                     <a href="#what-s-new-in-3-2-3" class="toc-h2 toc-link" data-title="What’s New in 3.2.3">What’s New in 3.2.3</a>
                   </li>
                   <li>
@@ -1563,6 +1566,40 @@ Salt Lake City, UT 84020 USA</p>
 
 <p>Effective communication between your driver and Control4 System is paramount to a successful end user experience. The API Reference Guide details each of the Interfaces supported through the DriverWorksSDK. These Interfaces include numerous APIs that can be leveraged by your driver to  facilitate communication between the driver and the Control4 O.S.</p>
 <h1 id='what-39-s-new'>What&#39;s New</h1>
+
+<h2 id='what-s-new-in-the-3-3-0-beta'>What’s New in the 3.3.0 beta</h2>
+
+<p><strong>C4SSH Interface</strong></p>
+
+<p>The DriverWorks API has been expanded with the addition of the new C4SSH API. This API enables Lua drivers to establish an SSH client connection to a remote device and execute a series of commands. A driver creates an instance of a C4SSH object by calling the<a href="https://control4.github.io/docs-driverworks-api-3.3.0-beta/#createsshclient"> C4:CreateSSHClient</a> function.</p>
+
+<p><strong>File Interface</strong></p>
+
+<p>As part of Control4’s plan to tighten driver security, the io.popen() call has bee removed. In doing this, driver developers need to use C4:File commands to accomplish what they previously did with io.popen (). The following APIs have been added or modified in support of this effort:</p>
+
+<p>A new API: <a href="https://control4.github.io/docs-driverworks-api-3.3.0-beta/#filecreatedir">FileCreateDir</a> has been added. This function has been added to create a new directory. </p>
+
+<p>The <a href="https://control4.github.io/docs-driverworks-api-3.3.0-beta/#filedelete">FileDelete</a> function has been modified in conjunction with O.S. release 3.3.0.  </p>
+
+<p>A new API: <a href="https://control4.github.io/docs-driverworks-api-3.3.0-beta/#filemove">FileMove</a> has been added. This function moves files within certain restrictions.  </p>
+
+<p>The <a href="https://control4.github.io/docs-driverworks-api-3.3.0-beta/#filesetdir">FileSetDir</a> has been modified In conjunction with O.S. release 3.3.0. This function is being restricted to allowed locations whereas previously it had full root access.</p>
+
+<p>Additionally, a new API: <a href="https://control4.github.io/docs-driverworks-api-3.3.0-beta/#unzip">UnZip</a> has been added. This API enables Lua drivers to extract one, or more, files from a .zip archive.</p>
+
+<p><strong>Helper Interface</strong></p>
+
+<p>A new API: <a href="https://control4.github.io/docs-driverworks-api-3.3.0-beta/#getcodeitems">GetCodeItems</a> has been added. This function returns Code Items for a specified device and event.</p>
+
+<p>A new API: <a href="https://control4.github.io/docs-driverworks-api-3.3.0-beta/#getallcodeitems">GetAllCodeItems</a> has been added. This function returns all Code Items within the project.</p>
+
+<p>A new API: <a href="https://control4.github.io/docs-driverworks-api-3.3.0-beta/#getbootid">GetBootID</a> has been added. This function returns a string that contains an ID which is unique for the current kernel instance.  When the controller is re-booted, the ID will change.</p>
+
+<p>A new API: <a href="https://control4.github.io/docs-driverworks-api-3.3.0-beta/#uuid">UUID</a> has been added. This function generates a UUID (Universally Unique IDentifier). This function has also been added to tighten driver security and support the removal of the the io.popen() call.</p>
+
+<p><strong>Miscellaneous Interface</strong></p>
+
+<p>A new API: <a href="https://control4.github.io/docs-driverworks-api-3.3.0-beta/#getdriverfilename">GetDriverFileName</a> has been added. This function returns a string of the driver filename.</p>
 
 <h2 id='what-s-new-in-3-2-3'>What’s New in 3.2.3</h2>
 
