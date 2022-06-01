@@ -494,6 +494,15 @@
                     <a href="#evaluateexpression" class="toc-h2 toc-link" data-title="EvaluateExpression">EvaluateExpression</a>
                   </li>
                   <li>
+                    <a href="#getallcodeitems" class="toc-h2 toc-link" data-title="GetAllCodeItems">GetAllCodeItems</a>
+                  </li>
+                  <li>
+                    <a href="#getbootid" class="toc-h2 toc-link" data-title="GetBootID">GetBootID</a>
+                  </li>
+                  <li>
+                    <a href="#getcodeitems" class="toc-h2 toc-link" data-title="GetCodeItems">GetCodeItems</a>
+                  </li>
+                  <li>
                     <a href="#getc4idir" class="toc-h2 toc-link" data-title="GetC4iDir">GetC4iDir</a>
                   </li>
                   <li>
@@ -537,6 +546,9 @@
                   </li>
                   <li>
                     <a href="#unbind" class="toc-h2 toc-link" data-title="unbind">unbind</a>
+                  </li>
+                  <li>
+                    <a href="#uuid" class="toc-h2 toc-link" data-title="UUID">UUID</a>
                   </li>
                   <li>
                     <a href="#xmlescapestring" class="toc-h2 toc-link" data-title="XmlEscapeString">XmlEscapeString</a>
@@ -5059,6 +5071,277 @@ OnDriverInit.</p>
 
 <p>In the example above, the expression could be written as “result = (50 &gt;= 0)” and would evaluate to result being equal to “true”.</p>
 
+<h2 id='getallcodeitems'>GetAllCodeItems</h2>
+<p>This function returns all Code Items within the project.</p>
+
+<p><em>This API was introduced in O.S. Release 3.3.0</em></p>
+<h3 id='signature'>Signature</h3>
+<p><code>C4:GetAllCodeItems()</code></p>
+<h3 id='parameters'>Parameters</h3>
+<p><code>None</code></p>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Table</td>
+<td>LUA table  with all of the code items that exist in the active project. Table contents will vary based on the code items stored in the system.</td>
+</tr>
+</tbody></table>
+<h3 id='example'>Example</h3>
+<p>GetAllCodeItems returns a table with the device ID, the code item, and the event ID for each of the device ID/event ID pairs in the system.  The table contains the following key-value pairs:</p>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>deviceid</td>
+<td>The device ID a code item is for.</td>
+</tr>
+<tr>
+<td>codeitem</td>
+<td>A table that contains the code item information.</td>
+</tr>
+<tr>
+<td>eventid</td>
+<td>The event ID a code item is for.</td>
+</tr>
+</tbody></table>
+
+<p>The table returned by the GetAllCodeItems API (that was stored in codeItems) might look like the table to the right.</p>
+<div class="highlight"><pre class="highlight lua tab-lua"><code><span class="p">{</span>
+    <span class="p">[</span><span class="s2">"event_mgr"</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="p">[</span><span class="s2">"deviceid"</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="p">[</span><span class="s2">"codeitem"</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="p">[</span><span class="s2">"enabled"</span><span class="p">]</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span>
+                <span class="p">[</span><span class="s2">"cmdcond"</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="p">[</span><span class="s2">"xml"</span><span class="p">]</span> <span class="o">=</span> 
+                <span class="p">}</span> <span class="p">,</span>
+                <span class="p">[</span><span class="s2">"creator"</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+                <span class="p">[</span><span class="s2">"device"</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+                <span class="p">[</span><span class="s2">"type"</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="p">[</span><span class="s2">"display"</span><span class="p">]</span> <span class="o">=</span> <span class="p">,</span>
+                <span class="p">[</span><span class="s2">"subitems"</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+                        <span class="p">[</span><span class="s2">"enabled"</span><span class="p">]</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span>
+                        <span class="p">[</span><span class="s2">"cmdcond"</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+                            <span class="p">[</span><span class="s2">"xml"</span><span class="p">]</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">devicecommand</span> <span class="n">owneridtype</span><span class="o">=</span><span class="s2">""</span> <span class="n">owneriditem</span><span class="o">=</span><span class="s2">"-1"</span><span class="o">&gt;&lt;</span><span class="n">command</span><span class="o">&gt;</span><span class="n">ON</span><span class="o">&lt;/</span><span class="n">command</span><span class="o">&gt;&lt;</span><span class="n">params</span><span class="o">/&gt;&lt;/</span><span class="n">devicecommand</span><span class="o">&gt;</span>
+                        <span class="p">}</span> <span class="p">,</span>
+                        <span class="p">[</span><span class="s2">"creator"</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+                        <span class="p">[</span><span class="s2">"device"</span><span class="p">]</span> <span class="o">=</span> <span class="mi">19</span><span class="p">,</span>
+                        <span class="p">[</span><span class="s2">"type"</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+                        <span class="p">[</span><span class="s2">"display"</span><span class="p">]</span> <span class="o">=</span> <span class="n">Turn</span> <span class="n">on</span> <span class="n">the</span> <span class="n">NAME</span><span class="p">,</span>
+                        <span class="p">[</span><span class="s2">"subitems"</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span> <span class="p">,</span>
+                        <span class="p">[</span><span class="s2">"creatorstate"</span><span class="p">]</span> <span class="o">=</span> <span class="p">,</span>
+                        <span class="p">[</span><span class="s2">"id"</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+                    <span class="p">}</span> 
+                <span class="p">}</span> <span class="p">,</span>
+                <span class="p">[</span><span class="s2">"creatorstate"</span><span class="p">]</span> <span class="o">=</span> <span class="p">,</span>
+                <span class="p">[</span><span class="s2">"id"</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="p">}</span> <span class="p">,</span>
+            <span class="p">[</span><span class="s2">"eventid"</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="p">}</span> <span class="p">,</span>
+        <span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="p">[</span><span class="s2">"deviceid"</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100100</span><span class="p">,</span>
+            <span class="p">[</span><span class="s2">"codeitem"</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="p">[</span><span class="s2">"enabled"</span><span class="p">]</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span>
+                <span class="p">[</span><span class="s2">"cmdcond"</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="p">[</span><span class="s2">"xml"</span><span class="p">]</span> <span class="o">=</span> 
+                <span class="p">}</span> <span class="p">,</span>
+                <span class="p">[</span><span class="s2">"creator"</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+                <span class="p">[</span><span class="s2">"device"</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+                <span class="p">[</span><span class="s2">"type"</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="p">[</span><span class="s2">"display"</span><span class="p">]</span> <span class="o">=</span> <span class="p">,</span>
+                <span class="p">[</span><span class="s2">"subitems"</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span> <span class="p">,</span>
+                <span class="p">[</span><span class="s2">"creatorstate"</span><span class="p">]</span> <span class="o">=</span> <span class="p">,</span>
+                <span class="p">[</span><span class="s2">"id"</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="p">}</span> <span class="p">,</span>
+            <span class="p">[</span><span class="s2">"eventid"</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+</code></pre></div>
+<h2 id='getbootid'>GetBootID</h2>
+<p>This function returns a string that contains an ID which is unique for the current kernel instance.  When the controller is
+re-booted, the ID will change.  The returned value is the same value as the one stored on Linux at:</p>
+
+<p><code>/proc/sys/kernel/random/boot_id</code> </p>
+
+<p><em>This API was introduced in O.S. Release 3.3.0</em></p>
+<h3 id='signature'>Signature</h3>
+<p><code>C4:GetBootID()</code></p>
+<h3 id='parameters'>Parameters</h3>
+<p><code>None</code></p>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>string</td>
+<td>Current kernel instance.</td>
+</tr>
+</tbody></table>
+<h3 id='example'>Example</h3>
+<p>GetBootID returns a string with the current boot ID for the kernel.  An example of the value that can be returned is:</p>
+
+<p><code>1525a67e-b7bd-4a68-8919-dd65e7f3861a</code></p>
+
+<h2 id='getcodeitems'>GetCodeItems</h2>
+<p>This function returns Code Items for a specified device and event.</p>
+
+<p><em>This API was introduced in O.S. Release 3.3.0</em></p>
+<h3 id='signature'>Signature</h3>
+<p><code>C4:GetCodeItems ()</code></p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>num</td>
+<td>device ID value</td>
+</tr>
+<tr>
+<td>num</td>
+<td>event ID value</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Table</td>
+<td>LUA table with the code items for the passed device ID and event ID. This will vary depending on parameters provided and the code items stored in the system.</td>
+</tr>
+</tbody></table>
+<h3 id='example'>Example</h3>
+<p>GetCodeItems returns a table with an entry for the device ID and event ID that were provided.  The table contains the following key-value pairs :</p>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>enabled</td>
+<td>true/false. Is this code item enabled?</td>
+</tr>
+<tr>
+<td>cmdcond</td>
+<td>A condition that needs to be met for this code item to be called.</td>
+</tr>
+<tr>
+<td>creator</td>
+<td>The ID of the entity that created this code item.</td>
+</tr>
+<tr>
+<td>device</td>
+<td>The device ID for the code item.</td>
+</tr>
+<tr>
+<td>type</td>
+<td>See &quot;Code Item Types&quot; section below</td>
+</tr>
+<tr>
+<td>display</td>
+<td>Description of the code item</td>
+</tr>
+<tr>
+<td>subitems</td>
+<td>Additional code items related to this one.</td>
+</tr>
+</tbody></table>
+
+<p><strong>Code Item Types</strong></p>
+
+<table><thead>
+<tr>
+<th>Description</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Container</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Command</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Condition</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Loop</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Else</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Comment</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Operator</td>
+<td>6</td>
+</tr>
+</tbody></table>
+
+<p>The table that is returned by the GetCodeItems command (that was stored in codeItems) would look like the table to the right.</p>
+<div class="highlight"><pre class="highlight lua tab-lua"><code><span class="p">{</span>
+    <span class="p">[</span><span class="s2">"codeitems"</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="p">[</span><span class="s2">"enabled"</span><span class="p">]</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="p">[</span><span class="s2">"cmdcond"</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="p">[</span><span class="s2">"xml"</span><span class="p">]</span> <span class="o">=</span>
+            <span class="p">}</span> <span class="p">,</span>
+            <span class="p">[</span><span class="s2">"creator"</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="p">[</span><span class="s2">"device"</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="p">[</span><span class="s2">"type"</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="p">[</span><span class="s2">"display"</span><span class="p">]</span> <span class="o">=</span> <span class="p">,</span>
+            <span class="p">[</span><span class="s2">"subitems"</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="p">[</span><span class="s2">"enabled"</span><span class="p">]</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span>
+                    <span class="p">[</span><span class="s2">"cmdcond"</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+                        <span class="p">[</span><span class="s2">"xml"</span><span class="p">]</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">devicecommand</span> <span class="n">owneridtype</span><span class="o">=</span><span class="s2">""</span> <span class="n">owneriditem</span><span class="o">=</span><span class="s2">"-1"</span><span class="o">&gt;&lt;</span><span class="n">command</span><span class="o">&gt;</span><span class="n">ON</span><span class="o">&lt;/</span><span class="n">command</span><span class="o">&gt;&lt;</span><span class="n">params</span><span class="o">/&gt;&lt;/</span><span class="n">devicecommand</span><span class="o">&gt;</span>
+                    <span class="p">}</span> <span class="p">,</span>
+                    <span class="p">[</span><span class="s2">"creator"</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+                    <span class="p">[</span><span class="s2">"device"</span><span class="p">]</span> <span class="o">=</span> <span class="mi">19</span><span class="p">,</span>
+                    <span class="p">[</span><span class="s2">"type"</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+                    <span class="p">[</span><span class="s2">"display"</span><span class="p">]</span> <span class="o">=</span> <span class="n">Turn</span> <span class="n">on</span> <span class="n">the</span> <span class="n">NAME</span><span class="p">,</span>
+                    <span class="p">[</span><span class="s2">"subitems"</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span> <span class="p">,</span>
+                    <span class="p">[</span><span class="s2">"creatorstate"</span><span class="p">]</span> <span class="o">=</span> <span class="p">,</span>
+                    <span class="p">[</span><span class="s2">"id"</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="p">}</span>
+            <span class="p">}</span> <span class="p">,</span>
+            <span class="p">[</span><span class="s2">"creatorstate"</span><span class="p">]</span> <span class="o">=</span> <span class="p">,</span>
+            <span class="p">[</span><span class="s2">"id"</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+</code></pre></div>
 <h2 id='getc4idir'>GetC4iDir</h2>
 <p>Function that will return the directory path on the controller where driver.c4i files reside.</p>
 <h6 id='available-from-2-10-0'>Available from 2.10.0</h6><h3 id='signature'>Signature</h3>
@@ -5463,6 +5746,112 @@ For example, if you have a thermostat that supports an “Auto Temperature” th
 <h3 id='example'>Example</h3>
 
 <p><code>C4:Unbind(81,1)</code></p>
+
+<h2 id='uuid'>UUID</h2>
+
+<p>This API generates a UUID (Universally Unique IDentifier) as described in <a href="https://www.ietf.org/rfc/rfc4122.txt">RFC 4122</a>. The type of UUID that is generated depends on the arguments passed into the function.</p>
+
+<p><h6 id='available-from-3-3-0'>Available from 3.3.0</h6><h3 id='signature'>Signature</h3>
+<p><code>C4:UUID(Type,[Value1,Value2,Value3])</code></p></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Type</td>
+<td>Specifies the type of UUID to be generated: NIL, String, Name or Random. See below for further information.</td>
+</tr>
+<tr>
+<td>Value1, Value2, Value3</td>
+<td>Values passed to the remaining arguments depend on the type of UUID to be generated. Please see the list below for additional information about required arguments.</td>
+</tr>
+</tbody></table>
+
+<p><em>The following section identifies the different types of UUIDs that are supported:</em></p>
+
+<p><strong>NIL</strong></p>
+
+<p>Required Argument: <code>(”NIL”)</code>
+A NIL UUID is one in which all bits are zero. It is represented as a string containing all zeros: <code>00000000-0000-0000-0000-000000000000</code></p>
+
+<p><strong>String</strong></p>
+
+<p>Required Argument: <code>(”STRING”)</code>
+A string containing the data to be formatted as a UUID. The String UUID type takes an input string and formats its contents as a UUID. The format of the string must match the following regular expression:</p>
+
+<p><code>^({)?([0-9a-fA-F]{8})(?-)?([0-9a-fA-F]{4})(?(DASH)-)([0-9a-fA-F]{4})(?(DASH)-)([0-9a-fA-F]{4})(?(DASH)-)([0-9a-fA-F]{12})(?(1)})$</code></p>
+
+<p>More generally, the following formats are accepted, where h is a valid hexadecimal character:</p>
+
+<p><code>hhhhhhhh-hhhh-hhhh-hhhh-hhhhhhhhhhhh</code></p>
+
+<p><code>{hhhhhhhh-hhhh-hhhh-hhhh-hhhhhhhhhhhh}</code></p>
+
+<p><code>hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh</code></p>
+
+<p><code>{hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh}</code></p>
+
+<p><strong>Name</strong></p>
+
+<p>Required Argument: <code>(”NAME”)</code></p>
+
+<p>Hash: The hashing algorithm to use when generating the UUID. Valid values including the following:</p>
+
+<table><thead>
+<tr>
+<th>Algorithm</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>MD5</td>
+<td>Produces a version 3 UUID (UUID3)</td>
+</tr>
+<tr>
+<td>SHA1</td>
+<td>Produces a version 5 UUID (UUID5)</td>
+</tr>
+</tbody></table>
+
+<p>Namespace: A string containing the namespace to be used when generating the UUID. The value must be one of the following as described in Appendix C of RFC 4122:</p>
+
+<table><thead>
+<tr>
+<th>Namespace</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>DNS</td>
+<td>The value of the Name argument (below) is a fully-qualified domain name.</td>
+</tr>
+<tr>
+<td>URL</td>
+<td>The value of the Name argument (below) is a URL.</td>
+</tr>
+<tr>
+<td>OID</td>
+<td>The value of the Name argument (below) is an ISO OID (Object IDentifier).</td>
+</tr>
+<tr>
+<td>X500DN</td>
+<td>The value of the Name argument is an X.500 DN.</td>
+</tr>
+</tbody></table>
+
+<p>Name: A string containing the content from which the UUID is derived.</p>
+
+<p><strong>Random</strong></p>
+
+<p>Required Argument: <code>(”RANDOM”)</code>
+Generates a random version 4 UUID (UUID4). The generator utilizes entropy provided by the operating system. For example: (i.e., /dev/urandom).</p>
+
+<h3 id='returns'>Returns</h3>
+
+<p>The function may return multiple values. On success, the function returns a string containing the newly generated UUID. On failure, the function returns nil and a string describing the failure.</p>
 
 <h2 id='xmlescapestring'>XmlEscapeString</h2>
 
