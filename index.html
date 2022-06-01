@@ -414,6 +414,9 @@
                     <a href="#fileclose" class="toc-h2 toc-link" data-title="FileClose">FileClose</a>
                   </li>
                   <li>
+                    <a href="#filecreatedir" class="toc-h2 toc-link" data-title="FileCreateDir">FileCreateDir</a>
+                  </li>
+                  <li>
                     <a href="#filedelete" class="toc-h2 toc-link" data-title="FileDelete">FileDelete</a>
                   </li>
                   <li>
@@ -444,7 +447,13 @@
                     <a href="#filelist" class="toc-h2 toc-link" data-title="FileList">FileList</a>
                   </li>
                   <li>
+                    <a href="#filemove" class="toc-h2 toc-link" data-title="FileMove">FileMove</a>
+                  </li>
+                  <li>
                     <a href="#fileread" class="toc-h2 toc-link" data-title="FileRead">FileRead</a>
+                  </li>
+                  <li>
+                    <a href="#filesetdir" class="toc-h2 toc-link" data-title="FileSetDir">FileSetDir</a>
                   </li>
                   <li>
                     <a href="#filesetpos" class="toc-h2 toc-link" data-title="FileSetPos">FileSetPos</a>
@@ -454,6 +463,9 @@
                   </li>
                   <li>
                     <a href="#filewritestring" class="toc-h2 toc-link" data-title="FileWriteString">FileWriteString</a>
+                  </li>
+                  <li>
+                    <a href="#unzip" class="toc-h2 toc-link" data-title="UnZip">UnZip</a>
                   </li>
               </ul>
           </li>
@@ -3973,40 +3985,129 @@ iSpRAwom9R5BWUMFoRCn0j0TWFsTIBNSuOcMrw5n6NU=
 </tr>
 </tbody></table>
 
-<h2 id='filedelete'>FileDelete</h2>
+<h2 id='filecreatedir'>FileCreateDir</h2>
 
-<p>Used to delete a file on the file system.  This call will fail if there is a opened handle to the file. This function takes a file name to delete and returns a bool if the delete succeeded. This API can be invoked during OnDriverInit.</p>
+<p>Function to create a new directory. As part of Control4’s plan to tighten driver security, the io.popen() call has bee removed. In doing this, driver developers need to use C4:File commands to accomplish what they previously did with io.popen (). This API provides the ability to create anew directory as previously done with io.popen. </p>
 
-<p><h6 id='available-from-1-6-0'>Available from 1.6.0.</h6><h3 id='signature'>Signature</h3>
-<p><code>C4:FileDelete()</code></p></p>
+<p><em>This API was introduced in O.S. Release 3.3.0</em></p>
+
+<h3 id='signature'>Signature</h3>
+
+<p><code>C4:FileCreateDir()</code></p>
 
 <table><thead>
 <tr>
-<th>Parameter</th>
+<th>Parameters</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>string</td>
-<td>File name</td>
+<td>PATH_ALIAS: Path alias to an allowed location where a directory may be created.</td>
+</tr>
+<tr>
+<td>string</td>
+<td>DirCreate: A path relative to PATH_ALIAS and the directory name for the directory to create.</td>
 </tr>
 </tbody></table>
 
-<h3 id='returns'>Returns</h3>
+<table><thead>
+<tr>
+<th>Path Alias</th>
+<th>Path</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>SANDBOX</td>
+<td>/lua/sandbox/15  (location for driver with device id 15)</td>
+</tr>
+<tr>
+<td>LOGGING</td>
+<td>/var/log/debug</td>
+</tr>
+<tr>
+<td>MEDIA</td>
+<td>/media</td>
+</tr>
+<tr>
+<td>C4Z</td>
+<td>/opt/control4/var/drivers/c4z/&lt;driver_name&gt;</td>
+</tr>
+</tbody></table>
+
+<p>Note that path aliases are required and cannot be replaced with the actual path. </p>
+
+<h3 id='example'>Example</h3>
+
+<p>Assuming that the device id of the driver is 15, the following command will create directory &quot;data&quot; in /lua/sandbox/15/.</p>
+
+<p><code>C4:FileCreateDir(&quot;SANDBOX&quot;, &quot;data&quot;)</code></p>
+
+<p>Assuming the device id of the driver is 15, the following command will create directory &quot;backup&quot; in /lua/sandbox/15/data/.</p>
+
+<p><code>C4:FileCreateDir(&quot;SANDBOX&quot;, &quot;data/backup&quot;)</code></p>
+
+<h2 id='filedelete'>FileDelete</h2>
+
+<p>This function has been modified in conjuction with O.S. release 3.3.0.  As part of Control4’s plan to tighten driver security, the io.popen() call ihas been removed. In doing this, driver developers need to use C4:File commands to accomplish what they previously did with io.popen (). Two new parameters have been added to specify an allowed Alias and a sub path and file name to a file to delete. </p>
+
+<h3 id='signature'>Signature</h3>
+
+<p><code>C4:FileDelete()</code></p>
 
 <table><thead>
 <tr>
-<th>Value</th>
+<th>Parameters</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>bool</td>
-<td>True/False</td>
+<td>string</td>
+<td>filename</td>
+</tr>
+<tr>
+<td>string</td>
+<td>PATH_ALIAS: Path representation/alias to an allowed location as to where a file may deleted.</td>
+</tr>
+<tr>
+<td>string</td>
+<td>SubPath: A path relative to PATH_ALIAS and the file name for the file to delete.</td>
 </tr>
 </tbody></table>
 
+<table><thead>
+<tr>
+<th>Path Alias</th>
+<th>Path</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>SANDBOX</td>
+<td>/lua/sandbox/15  (location for driver with device id 15)</td>
+</tr>
+<tr>
+<td>LOGGING</td>
+<td>/var/log/debug</td>
+</tr>
+<tr>
+<td>MEDIA</td>
+<td>/media</td>
+</tr>
+<tr>
+<td>C4Z</td>
+<td>/opt/control4/var/drivers/c4z/&lt;driver_name&gt;</td>
+</tr>
+</tbody></table>
+
+<p>Note that path aliases are required and cannot be replaced with the actual path. </p>
+
 <h3 id='example'>Example</h3>
+
+<p>Assuming that the device id of the driver is 15, the following command will delete /lua/sandbox/15/data/datafile.dat. </p>
+
+<p><code>C4:FileDelete(SANDBOX, &quot;data/datafile.dat&quot;)</code></p>
+
+<h3 id='example-2'>Example</h3>
 
 <p><code>C4:FileDelete(&quot;1.txt&quot;)</code></p>
 
@@ -4242,9 +4343,76 @@ OnDriverInit.</p>
 <span class="err">    </span> <span class="k">end</span>
 <span class="err"> </span> <span class="k">end</span>
 </code></pre></div>
+<h2 id='filemove'>FileMove</h2>
+<p>Function for or moving files within certain restrictions.  As part of Control4’s plan to tighten driver security, the io.popen() call has been removed. In doing this, driver developers need to use C4:File commands to accomplish what they previously did with io.popen () This API provides the ability to move files as previously done with io.popen. </p></p>
+
+<p><em>This API was introduced in O.S. Release 3.3.0</em></p>
+
+<h3 id='signature'>Signature</h3>
+
+<p><code>C4:FileMove()</code></p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>string</td>
+<td>PATH_ALIAS_FROM: is a path representation/alias to an allowed location as to where a file may be moved from.</td>
+</tr>
+<tr>
+<td>string</td>
+<td>PATH_ALIAS_TO: A path representation/alias to an allowed location as to where it will be moved to. The following table is a list of allowed aliases.</td>
+</tr>
+<tr>
+<td>string</td>
+<td>From: A path relative to PATH_ALIAS_FROM  and the file name to be moved.</td>
+</tr>
+<tr>
+<td>string</td>
+<td>To: A path relative to PATH_ALIAS_TO and the file name for the destination of the file. If the file name is the same then the file name does not need to be included.</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Path Alias</th>
+<th>Path</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>SANDBOX</td>
+<td>/lua/sandbox/15  (location for driver with device id 15)</td>
+</tr>
+<tr>
+<td>LOGGING</td>
+<td>/var/log/debug</td>
+</tr>
+<tr>
+<td>MEDIA</td>
+<td>/media</td>
+</tr>
+<tr>
+<td>C4Z</td>
+<td>/opt/control4/var/drivers/c4z/&lt;driver_name&gt;</td>
+</tr>
+</tbody></table>
+
+<p>Note that path aliases are required and cannot be replaced with the actual path. </p>
+
+<h3 id='example'>Example</h3>
+
+<p>Assuming that the device id of the driver is 15, the following command will move /lua/sandbox/15/tmp/tmpFile.dat to /lua/sandbox/15/data/dataFile.dat</p>
+
+<p>C4:FileMove(&quot;SANDBOX&quot;, &quot;/tmp/tmpFile.dat&quot;, &quot;SANDBOX&quot;, &quot;/data/dataFile.dat&quot;)</p>
+
 <h2 id='fileread'>FileRead</h2>
+
 <p>Used to read data from a file.  Returns an empty string if no bytes are read. This function takes a file handle and number of bytes to be read. If an end of file is reached with this read operation, a string of what data was read is returned and any subsequent calls to FileRead will return an empty string. Use the <a href="https://control4.github.io/docs-driverworks-api/#fileisvalid">FileIsValid</a> call to see if and end of file condition has been reached. This API can be invoked during OnDriverInit.</p>
-<h6 id='available-from-1-6-0'>Available from 1.6.0.</h6><h3 id='signature'>Signature</h3>
+
+<p><h6 id='available-from-1-6-0'>Available from 1.6.0.</h6><h3 id='signature'>Signature</h3>
 <p><code>C4:FileRead</code></p></p>
 
 <table><thead>
@@ -4280,6 +4448,48 @@ OnDriverInit.</p>
 <h3 id='example'>Example</h3>
 
 <p><code>fileData = C4:FileRead(fh, 10)</code></p>
+
+<h2 id='filesetdir'>FileSetDir</h2>
+
+<p>In conjunction with O.S. release 3.3.0, this function is being restricted to allowed locations whereas previously it had full root access. As part of Control4’s plan to tighten driver security, the io.popen() call has been removed. In doing this, driver developers need to use C4:File commands to accomplish what they previously did with io.popen (). Prior to O.S. release 3.3.0, C4:FileSetDir had root access which would allow driver developers to modify anything on the file system. </p>
+
+<h3 id='signature'>Signature</h3>
+
+<p><code>C4:FileSetDir()</code></p>
+
+<h3 id='examples'>Examples</h3>
+
+<p>C4:FileSetDir(full_path) - Provided for backwards compatibility using allowed paths only.</p>
+
+<p>C4:FileSetDir(PATH_ALIAS) - Specifying alias only.</p>
+
+<p>C4:FileSetDir(PATH_ALIAS, sub_dir) - Specifying alias with a subdirectory of PATH_ALIAS</p>
+
+<p>PATH_ALIAS: The path aliases are defined in the table below. When specifying a PATH_ALIAS, the alias will be replaced by the &quot;Path&quot; as described in the table.</p>
+
+<table><thead>
+<tr>
+<th>Path Alias</th>
+<th>Path</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>SANDBOX</td>
+<td>/lua/sandbox/15  (location for driver with device id 15)</td>
+</tr>
+<tr>
+<td>LOGGING</td>
+<td>/var/log/debug</td>
+</tr>
+<tr>
+<td>MEDIA</td>
+<td>/media</td>
+</tr>
+<tr>
+<td>C4Z</td>
+<td>/opt/control4/var/drivers/c4z/&lt;driver_name&gt;</td>
+</tr>
+</tbody></table>
 
 <h2 id='filesetpos'>FileSetPos</h2>
 
@@ -4392,18 +4602,159 @@ OnDriverInit.</p>
 
 <p>Use the <code>C4:FileOpen()</code> call to obtain a valid file handle.</p>
 
-<p><h3 id='example'>Example</h3><div class="highlight"><pre class="highlight lua tab-lua"><code><span class="n">fh</span> <span class="o">=</span> <span class="n">C4</span><span class="p">:</span><span class="n">FileOpen</span><span class="p">(</span><span class="s2">&quot;test.txt&quot;</span><span class="p">)</span>
+<h3 id='example'>Example</h3><div class="highlight"><pre class="highlight lua tab-lua"><code><span class="n">fh</span> <span class="o">=</span> <span class="n">C4</span><span class="p">:</span><span class="n">FileOpen</span><span class="p">(</span><span class="s2">"test.txt"</span><span class="p">)</span>
 <span class="k">if</span> <span class="p">(</span><span class="n">fh</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="k">then</span>
 <span class="err"> </span>  <span class="c1">-- the file failed to open</span>
  <span class="k">return</span>
- <span class="k">end</span></p>
+ <span class="k">end</span>
 
-<p><span class="n">numWritten</span> <span class="o">=</span> <span class="n">C4</span><span class="p">:</span><span class="n">FileWriteString</span><span class="p">(</span><span class="n">fh</span><span class="p">,</span> <span class="s2">&quot;test1234&quot;</span><span class="p">)</span>
- <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Bytes written &quot;</span> <span class="o">..</span> <span class="n">numWritten</span><span class="p">)</span></p>
+<span class="n">numWritten</span> <span class="o">=</span> <span class="n">C4</span><span class="p">:</span><span class="n">FileWriteString</span><span class="p">(</span><span class="n">fh</span><span class="p">,</span> <span class="s2">"test1234"</span><span class="p">)</span>
+ <span class="nb">print</span><span class="p">(</span><span class="s2">"Bytes written "</span> <span class="o">..</span> <span class="n">numWritten</span><span class="p">)</span>
 
-<p><span class="n">C4</span><span class="p">:</span><span class="n">FileClose</span><span class="p">(</span><span class="n">fh</span><span class="p">)</span>
+<span class="n">C4</span><span class="p">:</span><span class="n">FileClose</span><span class="p">(</span><span class="n">fh</span><span class="p">)</span>
 <span class="n">Output</span><span class="p">:</span> <span class="n">Bytes</span> <span class="n">written</span>
-</code></pre></div></p>
+</code></pre></div>
+<h2 id='unzip'>UnZip</h2>
+<p>Function for extracting files from a .zip archive. This API enables Lua drivers to extract one, or more, files from a .zip archive. See <a href="See%20https://en.wikipedia.org/wiki/ZIP_(file_format)">https://en.wikipedia.org/wiki/ZIP_(file_format)</a></p>
+
+<p><em>This API was introduced in O.S. Release 3.3.0.</em></p>
+<h3 id='signature'>Signature</h3>
+
+<p><code>C4:UnZip()</code></p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>string</td>
+<td>zipfile: A string containing the file path to the ZIP archive to be extracted.</td>
+</tr>
+<tr>
+<td>string</td>
+<td>filespec: A string containing a file specification that identifies the file, or files, to be extracted. For example, the file specification &quot;<em>&quot; matches all files in the archive. The file specification &quot;</em>.lua&quot; indicates that only Lua files are extracted.</td>
+</tr>
+<tr>
+<td>string</td>
+<td>destination: A string containing the path (directory) into which the archive is extracted. Directories within the archive are created relative to the specified destination.</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>boolean</td>
+<td>status: Boolean indicating whether all files were successfully extracted. true: All files were successfully extracted and no errors occurred. false: One, or more, errors occurred during extraction.</td>
+</tr>
+<tr>
+<td>array</td>
+<td>fileset: An array containing a list of files that were successfully extracted. The path for each file is relative to the archive.</td>
+</tr>
+<tr>
+<td>table</td>
+<td>errors: A two-dimensional table containing a list of files that failed to be extracted. Each file is associated with a string describing the error that occurred.</td>
+</tr>
+</tbody></table>
+
+<h3 id='examples'>Examples</h3>
+
+<p>The examples to the right illustrate the usage of the C4:Unzip function. Note that each sample utilizes a generic Lua function called printTable that dumps the contents of a specified table. This is done to illustrate how to interpret the return values of the function. There are numerous examples of printTable online.</p>
+
+<div class="highlight"><pre class="highlight xml tab-xml"><code>Example 1
+
+result, fileset, errors = C4:Unzip("/opt/control4/var/drivers/c4z/TuneIn.c4z", "*", "/opt/control4/var/drivers/c4z/TuneIn")
+print(result)
+printTable(fileset)
+printTable(errors)
+
+Executing this sample produces the following output.
+
+true
+table: 0xa42c380 {
+[1] =&gt; "driver.xml"
+[2] =&gt; "driver.lua"
+.
+.
+.
+[287] =&gt; "www/icons/device/experience_80.png"
+[288] =&gt; "www/icons/device/experience_90.png"
+}
+table: 0xa186b60 {
+}
+
+The output can be interpreted as follows:
+The result is true, indicating that all files were extracted successfully.
+The fileset array contains 288 files (truncated for display purposes) that were extracted successfully. Note that the path to each file is relative to the archive.
+The errors table is empty because no errors occurred.
+</code></pre></div>
+
+<p>Example 2
+```xml
+result, fileset, errors = C4:Unzip(&quot;/opt/control4/var/drivers/c4z/TuneIn.c4z&quot;, &quot;*.lua&quot;, &quot;/opt/control4/var/drivers/c4z/TuneIn&quot;)
+print(result)
+printTable(fileset)
+printTable(errors)</p>
+
+<p>Executing this sample produces the following output.</p>
+
+<p>true
+table: 0xb68c5e0 {
+<a href="See%20https://en.wikipedia.org/wiki/ZIP_(file_format)">1</a> =&gt; &quot;driver.lua&quot;
+}
+table: 0xb5cc640 {
+}</p>
+
+<p>The output can be interpreted as follows.
+The result is true, indicating that all files were extracted successfully.
+The fileset array contains a single entry because only one file matched the file specification: &quot;*.lua&quot;.
+The errors table is empty because no errors occurred.
+```</p>
+
+<div class="highlight"><pre class="highlight xml tab-xml"><code>Example 3
+
+result, fileset, errors = C4:Unzip("/opt/control4/var/drivers/c4z/TuneIn.c4z", "*.gif", "/opt/control4/var/drivers/c4z/TuneIn")
+print(result)
+printTable(fileset)
+printTable(errors)
+
+Executing this sample produces the following output.
+</code></pre></div><div class="highlight"><pre class="highlight xml tab-xml"><code>false
+table: 0xb5cc600 {
+}
+table: 0xb68ab00 {
+[www/composer/ico_16_tunein.gif] =&gt; "Could not open file "/opt/control4/var/drivers/c4z/TuneIn/www/composer/ico_16_tunein.gif": Not a directory"
+[www/composer/ico_32_tunein.gif] =&gt; "Could not open file "/opt/control4/var/drivers/c4z/TuneIn/www/composer/ico_32_tunein.gif": Not a directory"
+}
+</code></pre></div><div class="highlight"><pre class="highlight xml tab-xml"><code>The output can be interpreted as follows.
+The result is false, indicating that one, ore more, errors occurred during extraction.
+The fileset array is empty because no files were extracted.
+The errors table contains two entries, one for each file matching the file specification: "*.gif". Each file is associated with a string describing the error that occurred.
+</code></pre></div><div class="highlight"><pre class="highlight xml tab-xml"><code>Example 4
+</code></pre></div><div class="highlight"><pre class="highlight xml tab-xml"><code>result, fileset, errors = C4:Unzip("/opt/control4/var/drivers/c4z/Bogus.c4z", "*", "/opt/control4/var/drivers/c4z/Bogus")
+print(result)
+printTable(fileset)
+printTable(errors)
+
+Executing this sample produces the following output.
+
+false
+table: 0xb1285e0 {
+}
+table: 0xb652200 {
+[/opt/control4/var/drivers/c4z/Bogus.c4z] =&gt; "The specified zip file does not exist"
+}
+
+The output can be interpreted as follows:
+• The result is false, indicating that one, ore more, errors occurred during extraction.
+• The fileset array is empty because no files were extracted.
+• The errors table contains a single entry containing the zip file itself. The associated error message indicates that the specified file does not exist.
+</code></pre></div>
 <h1 id='helper-interface'>Helper Interface</h1>
 
 <h2 id='adddevice'>AddDevice</h2>
