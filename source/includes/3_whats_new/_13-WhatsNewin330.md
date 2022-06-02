@@ -1,5 +1,5 @@
 
-## What’s New in the 3.3.0 beta
+## What’s New in 3.3.0 
 
 
 **C4SSH Interface**
