@@ -1,7 +1,6 @@
 ## GetPrivateKeyPassword
 
-This callback API supports password protection for SSL Certificates that are embedded within a device driver. Implementing GetPrivateKeyPassword within a driver permits a password to be returned for a binding which requires an SSL Certificate. When implemented correctly, this API will return the string value of the SSL Certificate password. Use of this API is recommended in conjunction with encrypted drivers. This API can be invoked during OnDriverInit.
-
+This function allows Director to request the private key password from a driver. Implementing GetPrivateKeyPassword within a driver permits a password to be returned for a connection which requires client certificate. When implemented correctly (see Usage Notes below), this function should return the string value of the SSL Certificate password. When using a protected certificate it is highly recommend that the driver be encrypted as there is no protection from this function being called by an end user. 
 
 ###### Available from 1.6.0
 
@@ -19,50 +18,48 @@ This callback API supports password protection for SSL Certificates that are emb
 | str | String value of the SSL Certificate password |
 
 
-### Usage Note
+### Usage Notes
 
-Additional Information Regarding TLS/SSL Certificates:
-
-A “class” of connections that enable declaring secure (SSL) connections in a driver file is defined below. As part of this, the “port” section supports some additional properties that enable various features of SSL. Here is an example taken from the HC-800 driver file.
+**SSL Connection Setup:**
+An example “class” of connections that enable the declaration of an SSL connection within a driver file is defined to the right. The code example declares an SSL connection bound to port 2112.
 
 ```xml
-<classname>SSL</classname>
-   <ports>
-      <port>
-         <name>Sysman</name>
-         <number>5810</number>
-         <auto_connect>True</auto_connect>
-         <monitor_connection>True</monitor_connection>
-         <keep_connection>True</keep_connection>
-         <keep_alive>True</keep_alive>
-         <delimiter>4f4b0a</delimiter>
-       </port>
-     </ports>
+<class>
+ <classname>SSL</classname>
+ <ports>
+  <port>
+    <number>2112</number>
+    <auto_connect>true</auto_connect>
+    <monitor_connection>true</monitor_connection>
+    <keep_connection>true</keep_connection>
+    <certificate>./cert/cert.pem</certificate>
+    <private_key protected="True">./cert/key.pem</private_key>
+    <cacert>./cert/cacert.pem</cacert>
+    <verify_mode>peer</verify_mode>
+    <method>tlsv12</method>
+  </port>
+ </ports>
+</class>
 ```
 
+In the driver’s XML definition,  the `<port></port>`section in the example has numerous parameters. Several of these are required for SSL Certificate support. Those parameters are:
 
-The code snippet to the right declares an SSL connection bound to port 5810 (Sysman). This particular connection doesn't require the use of any special properties. 
+`certificate` - Path to the certificate to use for the connection. The path is relative to driver’s C4Z location. In this example, a directory at the root of the .c4z file named cert has been created that contains the SSL files.
 
-The properties are defined as:
+`private_key` - Path to the private key to use for the connection. The path is also relative to the driver’s C4Z location and we can see in the example that the key file resides in the cert directory.
 
-`certificate` - Path to the certificate to use for the connection. The path is relative to driver’s C4Z location.
+If the client cert id password protected, (attribute of True)  then Director will call GetPrivateKeyPassword to retrieve the password from the driver. See the example to the right.
 
-`private_key` - Path to the private key to use for the connection. The path is relative to the driver’s C4Z location.
-If the “protected” attribute is “True”, then Director will invoke the following callback to retrieve the password from the driver:
-
-	
 ```lua
 function GetPrivateKeyPassword(Binding, Port)
-<<<<<<< HEAD
-   return “TheKey”
-=======
    return 'TheKey'
->>>>>>> a0ddf822610a11ce484bd20ac2c5f7f6faa1b285
 end
 ```
 
 
-`cacert` - Path to the CA (certificate authority) certificate to use for the connection. The path is relative to the driver’s C4Z location.
+`cacert` - Path to the CA (certificate authority) certificate to use for the connection. As with the cert.pem and key.pem files, in our example cacert.pem resides in the created cert directory.
+
+Note that It is not required to split the `<certificate>, <private_key>` and `<cacert>` elements out into separate driver files to work properly.  If the SSL cert files are maintained in individual driver files, their respective directory names must be passed in the connection XML.
 
 `verify_mode` - Specifies the verification mode to use for the connection. The verify mode corresponds to those supported by OpenSSL. Note that Control4 currently supports only the peer verification mode `SSL_VERIFY_PEER`. Value values include:
 
@@ -82,5 +79,7 @@ If this property is omitted, then Director defaults to use no verification (“n
 
 If this property is omitted, then Director defaults to using sslv23 (which is the OpenSSL default).
 
+**.c4zproj Update:**
+Once the SSL connection XML is correctly configured to include the driver directory that contains your SSL cert files, it will be necessary to update your driver’s c4zproj manifest XML to include the new directory. Based on the example above, the addition of the following line is required within the `<Items></Items>`section of the manifest :
 
-Please note that the `<certificate>, <private_key>` and `<cacert>` expected in those XML tags for certificates and key information may all be contained in the same file.  It is  not required to split the various certificates and keys out into separate files to work properly.  In the case that they are all contained in a single file, put that file's filename value in each of the XML tags.
+`<Item type="dir" c4zDir="cert" name="cert" recurse="true" exclude="false" />`
