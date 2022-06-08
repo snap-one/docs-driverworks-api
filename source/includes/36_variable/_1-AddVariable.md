@@ -1,6 +1,6 @@
 ## AddVariable
 
-Function called from a DriverWorks driver to create a Control4 variable for the driver. This API should not be invoked during OnDriverInit.
+Function called from a DriverWorks driver to create a Control4 variable for the driver. Note that Variables need to be created or added prior to executing OnDriverInit or within OnDriverInit.
 
 ###### Available from 1.6.0.
 
