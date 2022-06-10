@@ -9440,7 +9440,7 @@ Protocol Drivers that have one or more proxies have an additional key-value pair
 </tbody></table>
 
 <h2 id='getprivatekeypassword'>GetPrivateKeyPassword</h2>
-<p>This callback API supports password protection for SSL Certificates that are embedded within a device driver. Implementing GetPrivateKeyPassword within a driver permits a password to be returned for a binding which requires an SSL Certificate. When implemented correctly, this API will return the string value of the SSL Certificate password. Use of this API is recommended in conjunction with encrypted drivers. This API can be invoked during OnDriverInit.</p>
+<p>This function allows Director to request the private key password from a driver. Implementing GetPrivateKeyPassword within a driver permits a password to be returned for a connection which requires client certificate. When implemented correctly (see Usage Notes below), this function should return the string value of the SSL Certificate password. When using a protected certificate it is highly recommend that the driver be encrypted as there is no protection from this function being called by an end user. </p>
 <h6 id='available-from-1-6-0'>Available from 1.6.0</h6>
 
 <table><thead>
@@ -9473,45 +9473,45 @@ Protocol Drivers that have one or more proxies have an additional key-value pair
 </tr>
 </tbody></table>
 
-<h3 id='usage-note'>Usage Note</h3>
+<h3 id='usage-notes'>Usage Notes</h3>
 
-<p>Additional Information Regarding TLS/SSL Certificates:</p>
+<p><strong>SSL Connection Setup:</strong>
+An example “class” of connections that enable the declaration of an SSL connection within a driver file is defined to the right. The code example declares an SSL connection bound to port 2112.</p>
 
-<p>A “class” of connections that enable declaring secure (SSL) connections in a driver file is defined below. As part of this, the “port” section supports some additional properties that enable various features of SSL. Here is an example taken from the HC-800 driver file.</p>
-
-<div class="highlight"><pre class="highlight xml tab-xml"><code><span class="nt">&lt;classname&gt;</span>SSL<span class="nt">&lt;/classname&gt;</span>
-   <span class="nt">&lt;ports&gt;</span>
-      <span class="nt">&lt;port&gt;</span>
-         <span class="nt">&lt;name&gt;</span>Sysman<span class="nt">&lt;/name&gt;</span>
-         <span class="nt">&lt;number&gt;</span>5810<span class="nt">&lt;/number&gt;</span>
-         <span class="nt">&lt;auto_connect&gt;</span>True<span class="nt">&lt;/auto_connect&gt;</span>
-         <span class="nt">&lt;monitor_connection&gt;</span>True<span class="nt">&lt;/monitor_connection&gt;</span>
-         <span class="nt">&lt;keep_connection&gt;</span>True<span class="nt">&lt;/keep_connection&gt;</span>
-         <span class="nt">&lt;keep_alive&gt;</span>True<span class="nt">&lt;/keep_alive&gt;</span>
-         <span class="nt">&lt;delimiter&gt;</span>4f4b0a<span class="nt">&lt;/delimiter&gt;</span>
-       <span class="nt">&lt;/port&gt;</span>
-     <span class="nt">&lt;/ports&gt;</span>
+<div class="highlight"><pre class="highlight xml tab-xml"><code><span class="nt">&lt;class&gt;</span>
+ <span class="nt">&lt;classname&gt;</span>SSL<span class="nt">&lt;/classname&gt;</span>
+ <span class="nt">&lt;ports&gt;</span>
+  <span class="nt">&lt;port&gt;</span>
+    <span class="nt">&lt;number&gt;</span>2112<span class="nt">&lt;/number&gt;</span>
+    <span class="nt">&lt;auto_connect&gt;</span>true<span class="nt">&lt;/auto_connect&gt;</span>
+    <span class="nt">&lt;monitor_connection&gt;</span>true<span class="nt">&lt;/monitor_connection&gt;</span>
+    <span class="nt">&lt;keep_connection&gt;</span>true<span class="nt">&lt;/keep_connection&gt;</span>
+    <span class="nt">&lt;certificate&gt;</span>./cert/cert.pem<span class="nt">&lt;/certificate&gt;</span>
+    <span class="nt">&lt;private_key</span> <span class="na">protected=</span><span class="s">"True"</span><span class="nt">&gt;</span>./cert/key.pem<span class="nt">&lt;/private_key&gt;</span>
+    <span class="nt">&lt;cacert&gt;</span>./cert/cacert.pem<span class="nt">&lt;/cacert&gt;</span>
+    <span class="nt">&lt;verify_mode&gt;</span>peer<span class="nt">&lt;/verify_mode&gt;</span>
+    <span class="nt">&lt;method&gt;</span>tlsv12<span class="nt">&lt;/method&gt;</span>
+  <span class="nt">&lt;/port&gt;</span>
+ <span class="nt">&lt;/ports&gt;</span>
+<span class="nt">&lt;/class&gt;</span>
 </code></pre></div>
 
-<p>The code snippet to the right declares an SSL connection bound to port 5810 (Sysman). This particular connection doesn&#39;t require the use of any special properties. </p>
+<p>In the driver’s XML definition,  the <code>&lt;port&gt;&lt;/port&gt;</code>section in the example has numerous parameters. Several of these are required for SSL Certificate support. Those parameters are:</p>
 
-<p>The properties are defined as:</p>
+<p><code>certificate</code> - Path to the certificate to use for the connection. The path is relative to driver’s C4Z location. In this example, a directory at the root of the .c4z file named cert has been created that contains the SSL files.</p>
 
-<p><code>certificate</code> - Path to the certificate to use for the connection. The path is relative to driver’s C4Z location.</p>
+<p><code>private_key</code> - Path to the private key to use for the connection. The path is also relative to the driver’s C4Z location and we can see in the example that the key file resides in the cert directory.</p>
 
-<p><code>private_key</code> - Path to the private key to use for the connection. The path is relative to the driver’s C4Z location.
-If the “protected” attribute is “True”, then Director will invoke the following callback to retrieve the password from the driver:</p>
+<p>If the client cert id password protected, (attribute of True)  then Director will call GetPrivateKeyPassword to retrieve the password from the driver. See the example to the right.</p>
 
 <div class="highlight"><pre class="highlight lua tab-lua"><code><span class="k">function</span> <span class="nf">GetPrivateKeyPassword</span><span class="p">(</span><span class="n">Binding</span><span class="p">,</span> <span class="n">Port</span><span class="p">)</span>
-<span class="o">&lt;&lt;&lt;&lt;&lt;&lt;&lt;</span> <span class="n">HEAD</span>
-<span class="err">   </span><span class="k">return</span> <span class="err">“</span><span class="n">TheKey</span><span class="err">”</span>
-<span class="o">=======</span>
 <span class="err">   </span><span class="k">return</span> <span class="s1">'TheKey'</span>
-<span class="o">&gt;&gt;&gt;&gt;&gt;&gt;&gt;</span> <span class="n">a0ddf822610a11ce484bd20ac2c5f7f6faa1b285</span>
 <span class="k">end</span>
 </code></pre></div>
 
-<p><code>cacert</code> - Path to the CA (certificate authority) certificate to use for the connection. The path is relative to the driver’s C4Z location.</p>
+<p><code>cacert</code> - Path to the CA (certificate authority) certificate to use for the connection. As with the cert.pem and key.pem files, in our example cacert.pem resides in the created cert directory.</p>
+
+<p>Note that It is not required to split the <code>&lt;certificate&gt;, &lt;private_key&gt;</code> and <code>&lt;cacert&gt;</code> elements out into separate driver files to work properly.  If the SSL cert files are maintained in individual driver files, their respective directory names must be passed in the connection XML.</p>
 
 <p><code>verify_mode</code> - Specifies the verification mode to use for the connection. The verify mode corresponds to those supported by OpenSSL. Note that Control4 currently supports only the peer verification mode <code>SSL_VERIFY_PEER</code>. Value values include:</p>
 
@@ -9535,7 +9535,10 @@ If the “protected” attribute is “True”, then Director will invoke the fo
 
 <p>If this property is omitted, then Director defaults to using sslv23 (which is the OpenSSL default).</p>
 
-<p>Please note that the <code>&lt;certificate&gt;, &lt;private_key&gt;</code> and <code>&lt;cacert&gt;</code> expected in those XML tags for certificates and key information may all be contained in the same file.  It is  not required to split the various certificates and keys out into separate files to work properly.  In the case that they are all contained in a single file, put that file&#39;s filename value in each of the XML tags.</p>
+<p><strong>.c4zproj Update:</strong>
+Once the SSL connection XML is correctly configured to include the driver directory that contains your SSL cert files, it will be necessary to update your driver’s c4zproj manifest XML to include the new directory. Based on the example above, the addition of the following line is required within the <code>&lt;Items&gt;&lt;/Items&gt;</code>section of the manifest :</p>
+
+<p><code>&lt;Item type=&quot;dir&quot; c4zDir=&quot;cert&quot; name=&quot;cert&quot; recurse=&quot;true&quot; exclude=&quot;false&quot; /&gt;</code></p>
 
 <h2 id='getprojectitems'>GetProjectItems</h2>
 
@@ -10087,8 +10090,8 @@ When a driver is loaded, there are two initialization functions that are called 
 </tr>
 <tr>
 <td>AddVariable</td>
-<td>NO</td>
-<td></td>
+<td>YES</td>
+<td>Note that Variables need to be added in OnDriverInit. Programming attached to variables added after OnDriverInit may not work properly on Director restart.</td>
 </tr>
 <tr>
 <td>AllowExecute</td>
@@ -17905,7 +17908,7 @@ boolean:</p>
 
 <h2 id='addvariable'>AddVariable</h2>
 
-<p>Function called from a DriverWorks driver to create a Control4 variable for the driver. This API should not be invoked during OnDriverInit.</p>
+<p>Function called from a DriverWorks driver to create a Control4 variable for the driver. Note that Variables need to be added in OnDriverInit. Programming attached to variables added after OnDriverInit may not work properly on Director restart.</p>
 
 <p><h6 id='available-from-1-6-0'>Available from 1.6.0.</h6><h3 id='signature'>Signature</h3>
 <p><code>C4:AddVariable(identifier, strValue, strVarType, [bReadOnly], [bHidden]) </code></p></p>
