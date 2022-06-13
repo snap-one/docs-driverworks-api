@@ -35,13 +35,13 @@ A new API: [GetBootID][9] has been added. This function returns a string that co
 A new API: [UUID][10] has been added. This function generates a UUID (Universally Unique IDentifier). This function has also been added to tighten driver security and support the removal of the the io.popen() call.
 
 
-[1]:	https://control4.github.io/docs-driverworks-api/#createsshclient
-[2]:	https://control4.github.io/docs-driverworks-api/#filecreatedir
-[3]:	https://control4.github.io/docs-driverworks-api/#filedelete
-[4]:	https://control4.github.io/docs-driverworks-api/#filemove
-[5]:	https://control4.github.io/docs-driverworks-api/#filesetdir
-[6]:	https://control4.github.io/docs-driverworks-api/#unzip
-[7]:	https://control4.github.io/docs-driverworks-api/#getcodeitems
-[8]:	https://control4.github.io/docs-driverworks-api/#getallcodeitems
-[9]:	https://control4.github.io/docs-driverworks-api/#getbootid
-[10]:	https://control4.github.io/docs-driverworks-api/#uuid
+[1]:	https://snap-one.github.io/docs-driverworks-api/#createsshclient
+[2]:	https://snap-one.github.io/docs-driverworks-api/#filecreatedir
+[3]:	https://snap-one.github.io/docs-driverworks-api/#filedelete
+[4]:	https://snap-one.github.io/docs-driverworks-api/#filemove
+[5]:	https://snap-one.github.io/docs-driverworks-api/#filesetdir
+[6]:	https://snap-one.github.io/docs-driverworks-api/#unzip
+[7]:	https://snap-one.github.io/docs-driverworks-api/#getcodeitems
+[8]:	https://snap-one.github.io/docs-driverworks-api/#getallcodeitems
+[9]:	https://snap-one.github.io/docs-driverworks-api/#getbootid
+[10]:	https://snap-one.github.io/docs-driverworks-api/#uuid
