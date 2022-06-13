@@ -12,7 +12,7 @@ The DriverWorks API has been expanded with the addition of the new C4SSH API. Th
 
 As part of Control4’s plan to tighten driver security, the io.popen() call has bee removed. In doing this, driver developers need to use C4:File commands to accomplish what they previously did with io.popen (). The following APIs have been added or modified in support of this effort:
 
-A new API: [FileCreateDir][2] has been added. This function has been added to create a new directory. 
+A new API: [FileCreateDir][2] has been added. This function has been added to create a new file directory. 
 
 The [FileDelete][3] function has been modified in conjunction with O.S. release 3.3.0.  
 
