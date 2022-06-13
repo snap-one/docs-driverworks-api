@@ -19,8 +19,7 @@ jobs:
       uses: actions/checkout@v3
       with:
         path: slate
-        repository: control4/docs-slate
-        token: ${{ secrets.GH_PAT }}
+        repository: snap-one/docs-slate
     - name: Cache Ruby Bundler
       uses: actions/cache@v3
       with:
