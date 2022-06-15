@@ -1604,29 +1604,29 @@ Salt Lake City, UT 84020 USA</p>
 
 <p><strong>Timer Interface</strong></p>
 
-<p>A new API: <a href="https://control4.github.io/docs-driverworks-api/#gettime">GetTime</a> has been added to the Timer Interface in this version of the SDK. This API enables Lua drivers to retrieve the number of milliseconds since the epoch. </p>
+<p>A new API: <a href="https://snap-one.github.io/docs-driverworks-api/#gettime">GetTime</a> has been added to the Timer Interface in this version of the SDK. This API enables Lua drivers to retrieve the number of milliseconds since the epoch.</p>
 
 <h2 id='what-s-new-in-3-2-2'>What’s New in 3.2.2</h2>
 
 <p><strong>Variable Interface</strong></p>
 
-<p>A new API: <a href="https://control4.github.io/docs-driverworks-api/#unregisteredallvariablelisteners">UnRegisterAllVariableListeners</a> has been added to this version of the SDK.</p>
+<p>A new API: <a href="https://snap-one.github.io/docs-driverworks-api/#unregisteredallvariablelisteners">UnRegisterAllVariableListeners</a> has been added to this version of the SDK.</p>
 
 <h2 id='what-s-new-in-3-2-1'>What’s New in 3.2.1</h2>
 
 <p><strong>Variable Interface</strong></p>
 
-<p>A new API: <a href="https://control4.github.io/docs-driverworks-api/#unregisteredallvariablelisteners">UnRegisteredAllVariableListeners</a> has been added to this version of the SDK.</p>
+<p>A new API: <a href="https://snap-one.github.io/docs-driverworks-api/#unregisteredallvariablelisteners">UnRegisteredAllVariableListeners</a> has been added to this version of the SDK.</p>
 
 <h2 id='what-s-new-in-3-2-0'>What’s New in 3.2.0</h2>
 
 <p><strong>Driver Initialization and Destruction</strong></p>
 
-<p>New parameters have been added to <a href="https://control4.github.io/docs-driverworks-api/#ondriverinit">OnDriverInit</a>, <a href="https://control4.github.io/docs-driverworks-api/#ondriverlateinit">OnDriverLateInit</a> and <a href="https://control4.github.io/docs-driverworks-api/#ondriverdestroyed">OnDriver Destroyed</a>. These parameters support instances when driver needs to know under what condition or event caused the Initialization or Destroyed functions to be called. OS Release 3.2.0 introduces a new string parameter for these functions to identify the reason for the call. This parameter, driverInitType (DIT) provides this information.</p>
+<p>New parameters have been added to <a href="https://snap-one.github.io/docs-driverworks-api/#ondriverinit">OnDriverInit</a>, <a href="https://snap-one.github.io/docs-driverworks-api/#ondriverlateinit">OnDriverLateInit</a> and <a href="https://snap-one.github.io/docs-driverworks-api/#ondriverdestroyed">OnDriver Destroyed</a>. These parameters support instances when driver needs to know under what condition or event caused the Initialization or Destroyed functions to be called. OS Release 3.2.0 introduces a new string parameter for these functions to identify the reason for the call. This parameter, driverInitType (DIT) provides this information.</p>
 
 <p><strong>Driver Add Driver</strong></p>
 
-<p>Two new APIs have been delivered with O.S. 3.2.0 to facilitate the ability of driver to add another driver to a project as well as the ability to add a location within the project. See the <a href="https://control4.github.io/docs-driverworks-api/#adddevice">AddDevice</a> and <a href="https://control4.github.io/docs-driverworks-api/#addlocation">AddLocation</a> APIs for more information.</p>
+<p>Two new APIs have been delivered with O.S. 3.2.0 to facilitate the ability of driver to add another driver to a project as well as the ability to add a location within the project. See the <a href="https://snap-one.github.io/docs-driverworks-api/#adddevice">AddDevice</a> and <a href="https://snap-one.github.io/docs-driverworks-api/#addlocation">AddLocation</a> APIs for more information.</p>
 
 <h2 id='what-was-new-in-3-1-0'>What was New in 3.1.0</h2>
 
@@ -2349,7 +2349,7 @@ key/value pair is created by the API if it does not exist. </p>
 <h3 id='signature'>Signature</h3>
 <p><code>C4:InvalidateState()</code></p>
 <h3 id='usage-note'>Usage Note</h3>
-<p>Prior to Operating System 2.10, overuse of C4:InvalidateState() was an issue as persisting extraneous data through a driver had performance implications. Beginning with Operating System 2.10, it is no longer necessary to cause driver data to be persisted. Drivers should use the <a href="https://control4.github.io/docs-driverworks-api/#persistsetvalue">PersistSetValue</a> and <a href="https://control4.github.io/docs-driverworks-api/#persistgetvalue">PersistGetValue</a> functions to store data that will be required across system restarts.</p></p>
+<p>Prior to Operating System 2.10, overuse of C4:InvalidateState() was an issue as persisting extraneous data through a driver had performance implications. Beginning with Operating System 2.10, it is no longer necessary to cause driver data to be persisted. Drivers should use the <a href="https://snap-one.github.io/docs-driverworks-api/#persistsetvalue">PersistSetValue</a> and <a href="https://snap-one.github.io/docs-driverworks-api/#persistgetvalue">PersistGetValue</a> functions to store data that will be required across system restarts.</p></p>
 <h1 id='encryption-interface'>Encryption Interface</h1>
 
 <h2 id='encode'>Encode</h2><div class="highlight"><pre class="highlight lua tab-lua"><code><span class="kd">local</span> <span class="n">data</span> <span class="o">=</span> <span class="s1">'Hello World This Is London Calling'</span>
@@ -2669,7 +2669,7 @@ key/value pair is created by the API if it does not exist. </p>
 </thead><tbody>
 <tr>
 <td>digest</td>
-<td>The algorithm used by the certificate. For example, SHA256. See the <a href="https://control4.github.io/docs-driverworks-api/#getsupporteddigests">C4:GetSupportedDigests</a>()API for information on retrieving digests.</td>
+<td>The algorithm used by the certificate. For example, SHA256. See the <a href="https://snap-one.github.io/docs-driverworks-api/#getsupporteddigests">C4:GetSupportedDigests</a>()API for information on retrieving digests.</td>
 </tr>
 <tr>
 <td>curve</td>
@@ -2708,7 +2708,7 @@ key/value pair is created by the API if it does not exist. </p>
 <span class="n">I</span><span class="o">+</span><span class="n">D0y0pvyw</span><span class="o">+</span><span class="n">tUo8eGO9QjHqmw6A0vm5OyRR3C9qDH8msuDO1ZgieUkCfnfYSoAAw</span>
 <span class="n">CgYIKoZIzj0EAwIDSAAwRQIgMvJKuHT2E</span><span class="o">+</span><span class="n">um</span><span class="o">/</span><span class="n">iXdUNhJK61jSI1ygcjR77lCZM2E</span>
 <span class="err">`</span><span class="n">aRkCIQCcZLJvubYxdGxB0q7ApSBujF</span><span class="o">/</span><span class="n">L6</span><span class="o">/</span><span class="n">UtL</span><span class="o">/</span><span class="n">gjuolLE6JUaw</span><span class="o">==</span><span class="err">`</span>
- <span class="err"> </span><span class="c1">-----END CERTIFICATE REQUEST----- </span>
+ <span class="err"> </span><span class="c1">-----END CERTIFICATE REQUEST-----</span>
 </code></pre></div>
 
 <p>Generate a CSR using ECC requirements with the optional X.509 parameter:</p>
@@ -2750,7 +2750,7 @@ key/value pair is created by the API if it does not exist. </p>
 </thead><tbody>
 <tr>
 <td>digest</td>
-<td>The algorithm used by the certificate. For example, SHA256. See the <a href="https://control4.github.io/docs-driverworks-api/#getsupporteddigests">C4:GetSupportedDigests</a>()API for information on retrieving digests.</td>
+<td>The algorithm used by the certificate. For example, SHA256. See the <a href="https://snap-one.github.io/docs-driverworks-api/#getsupporteddigests">C4:GetSupportedDigests</a>()API for information on retrieving digests.</td>
 </tr>
 <tr>
 <td>sizeCert</td>
@@ -3471,7 +3471,7 @@ iSpRAwom9R5BWUMFoRCn0j0TWFsTIBNSuOcMrw5n6NU=
 
 <p>Specifically the event for “Refresh Navigator” is the “OnPIP” event.  To get this event,  we make use of the following generic event registration calls:</p>
 
-<p><a href="https://control4.github.io/docs-driverworks-api/#registersystemevent">RegisterSystemEvent</a></p>
+<p><a href="https://snap-one.github.io/docs-driverworks-api/#registersystemevent">RegisterSystemEvent</a></p>
 
 <p><code>C4:RegisterSystemEvent(eventId, deviceId)</code></p>
 
@@ -3499,7 +3499,7 @@ iSpRAwom9R5BWUMFoRCn0j0TWFsTIBNSuOcMrw5n6NU=
 
 <p>The C4SystemEvents variable is the array of all event name to ID’s. Use deviceId 0 to register for device specific events for all devices. Some events are system wide and will be sent regardless of the device id that was registered, others use the device id to filter who gets what events.</p>
 
-<p>Additionally, your driver will need to implement the <a href="https://control4.github.io/docs-driverworks-api/#onsystemevent">OnSystemEvent </a>method. </p>
+<p>Additionally, your driver will need to implement the <a href="https://snap-one.github.io/docs-driverworks-api/#onsystemevent">OnSystemEvent </a>method.</p>
 
 <p><strong>Useful System Event ID Values</strong></p>
 
@@ -3908,7 +3908,7 @@ iSpRAwom9R5BWUMFoRCn0j0TWFsTIBNSuOcMrw5n6NU=
 
 <h2 id='unregisteralldeviceevents'>UnregisterAllDeviceEvents</h2>
 
-<p>This API unregisters all prior event registrations created by the <a href="https://control4.github.io/docs-driverworks-api/#registerdeviceevent">RegisterDeviceEvent</a> API. </p>
+<p>This API unregisters all prior event registrations created by the <a href="https://snap-one.github.io/docs-driverworks-api/#registerdeviceevent">RegisterDeviceEvent</a> API.</p>
 
 <p><h6 id='available-in-2-9-0'>Available in  2.9.0</h6><h3 id='signature'>Signature</h3>
 <p><code>C4:UnregisterAllDeviceEvents()</code></p>
@@ -3963,7 +3963,7 @@ iSpRAwom9R5BWUMFoRCn0j0TWFsTIBNSuOcMrw5n6NU=
 
 <h2 id='unregisterdeviceevent'>UnregisterDeviceEvent</h2>
 
-<p>This API unregisters prior event registration created by the <a href="https://control4.github.io/docs-driverworks-api/#registerdeviceevent">RegisterDeviceEvent</a> API. The device ID passed is the ID of the device that is firing the registered event. This is followed by the event ID.</p>
+<p>This API unregisters prior event registration created by the <a href="https://snap-one.github.io/docs-driverworks-api/#registerdeviceevent">RegisterDeviceEvent</a> API. The device ID passed is the ID of the device that is firing the registered event. This is followed by the event ID.</p>
 
 <p><h6 id='available-in-2-9-0'>Available in  2.9.0</h6><h3 id='signature'>Signature</h3>
 <p><code>C4:UnregisterDeviceEvent(deviceId, eventId)</code></p></p>
@@ -4009,9 +4009,9 @@ iSpRAwom9R5BWUMFoRCn0j0TWFsTIBNSuOcMrw5n6NU=
 
 <p>See the following APIs in the Serial Network Device Interface:</p>
 
-<p><a href="https://control4.github.io/docs-driverworks-api/#netconnect">NetConnect</a></p>
+<p><a href="https://snap-one.github.io/docs-driverworks-api/#netconnect">NetConnect</a></p>
 
-<p><a href="https://control4.github.io/docs-driverworks-api/#onconnectionstatuschanged">OnConnectionStatusChanged</a></p>
+<p><a href="https://snap-one.github.io/docs-driverworks-api/#onconnectionstatuschanged">OnConnectionStatusChanged</a></p>
 <h1 id='file-interface'>File Interface</h1>
 
 <h2 id='fileclose'>FileClose</h2>
@@ -4288,7 +4288,7 @@ iSpRAwom9R5BWUMFoRCn0j0TWFsTIBNSuOcMrw5n6NU=
 of -1 is returned if an error.  This API can be invoked during OnDriverInit.</p>
 <h6 id='available-from-1-6-0'>Available from 1.6.0.</h6><h3 id='signature'>Signature</h3>
 
-<p><code>C4:FileOpen</code> </p>
+<p><code>C4:FileOpen</code></p>
 
 <table><thead>
 <tr>
@@ -4325,15 +4325,15 @@ of -1 is returned if an error.  This API can be invoked during OnDriverInit.</p
     <span class="c1">-- the file failed to open</span>
 <span class="k">end</span>
 </code></pre></div><h3 id='usage-note'>Usage Note</h3>
-<p>The <code>C4:FileOpen()</code> function always opens a file so that the position is at end-of-file. For example: </p>
+<p>The <code>C4:FileOpen()</code> function always opens a file so that the position is at end-of-file. For example:</p>
 
 <p><code>local f = io.open(fullfilePath, &quot;rba&quot;)</code></p>
 
-<p>Opening the file as illustrated above opens the file for read, binary, and append (rba). This means that anything written to the file occurs at the end of the file. This ensures that writes don&#39;t overwrite existing data. </p>
+<p>Opening the file as illustrated above opens the file for read, binary, and append (rba). This means that anything written to the file occurs at the end of the file. This ensures that writes don&#39;t overwrite existing data.</p>
 
-<p>However, this also means that attempts to read the file will not return any data because the current read position is at end-of-file. </p>
+<p>However, this also means that attempts to read the file will not return any data because the current read position is at end-of-file.</p>
 
-<p>The example given above can be corrected by using the <a href="https://control4.github.io/docs-driverworks-api/#filesetpos">C4:FileSetPos()</a> function to reset the position to the beginning of the file before reading. See the example to the right.</p>
+<p>The example given above can be corrected by using the <a href="https://snap-one.github.io/docs-driverworks-api/#filesetpos">C4:FileSetPos()</a> function to reset the position to the beginning of the file before reading. See the example to the right.</p>
 <div class="highlight"><pre class="highlight lua tab-lua"><code><span class="n">C4</span><span class="p">:</span><span class="n">FileSetDir</span><span class="p">(</span><span class="n">parentdir</span><span class="p">)</span>
 <span class="kd">local</span> <span class="n">fh</span> <span class="o">=</span> <span class="n">C4</span><span class="p">:</span><span class="n">FileOpen</span><span class="p">(</span><span class="n">fileName</span> <span class="n">without</span> <span class="n">path</span><span class="p">)</span>
 <span class="k">if</span> <span class="p">(</span><span class="n">fh</span> <span class="o">~=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="k">then</span>
@@ -4458,7 +4458,7 @@ OnDriverInit.</p>
 
 <h2 id='fileread'>FileRead</h2>
 
-<p>Used to read data from a file.  Returns an empty string if no bytes are read. This function takes a file handle and number of bytes to be read. If an end of file is reached with this read operation, a string of what data was read is returned and any subsequent calls to FileRead will return an empty string. Use the <a href="https://control4.github.io/docs-driverworks-api/#fileisvalid">FileIsValid</a> call to see if and end of file condition has been reached. This API can be invoked during OnDriverInit.</p>
+<p>Used to read data from a file.  Returns an empty string if no bytes are read. This function takes a file handle and number of bytes to be read. If an end of file is reached with this read operation, a string of what data was read is returned and any subsequent calls to FileRead will return an empty string. Use the <a href="https://snap-one.github.io/docs-driverworks-api/#fileisvalid">FileIsValid</a> call to see if and end of file condition has been reached. This API can be invoked during OnDriverInit.</p>
 
 <p><h6 id='available-from-1-6-0'>Available from 1.6.0.</h6><h3 id='signature'>Signature</h3>
 <p><code>C4:FileRead</code></p></p>
@@ -5931,11 +5931,11 @@ Generates a random version 4 UUID (UUID4). The generator utilizes entropy provid
 
 <h2 id='inbound-driver-interface'>InBound Driver Interface</h2>
 
-<p>The functions listed below represent Lua functions that are not Control4 APIs but are however included in this documentation. The functions below are implemented within a DriverWorks driver and can be called by an API, Director or another external process.  </p>
+<p>The functions listed below represent Lua functions that are not Control4 APIs but are however included in this documentation. The functions below are implemented within a DriverWorks driver and can be called by an API, Director or another external process.</p>
 
-<p>For example, the Lua function UIRequest isn&#39;t a Control4 API. However, it is an InBound Driver Function that needs to be implemented in your driver if you intent to use the Control4 API:<a href="https://control4.github.io/docs-driverworks-api/#senduirequest">SendUIRequest</a>. SendUIRequest sends a request to another driver. It uses the proxy or protocol ID value of the driver as a means to target the driver where the request will be sent. The driver receiving the SendUIRequest must have the InBound Driver Function UIRequest configured, which will contain the return values requested by the SendUIRequest call. </p>
+<p>For example, the Lua function UIRequest isn&#39;t a Control4 API. However, it is an InBound Driver Function that needs to be implemented in your driver if you intent to use the Control4 API:<a href="https://snap-one.github.io/docs-driverworks-api/#senduirequest">SendUIRequest</a>. SendUIRequest sends a request to another driver. It uses the proxy or protocol ID value of the driver as a means to target the driver where the request will be sent. The driver receiving the SendUIRequest must have the InBound Driver Function UIRequest configured, which will contain the return values requested by the SendUIRequest call.</p>
 
-<p>Here is an example of using SendUIRequest in a driver: </p>
+<p>Here is an example of using SendUIRequest in a driver:</p>
 
 <p><code>C4:SendUIRequest(231, &quot;GET_MY_DRIVER_DATA&quot;, tParams)</code></p>
 
@@ -5944,7 +5944,7 @@ Generates a random version 4 UUID (UUID4). The generator utilizes entropy provid
 <p>To the right is an example of the required UIRequest InBound Driver Function found in the driver receiving the SendUIRequest. In this example, when the request is received it takes the values in the tParams table and, if they are not a specified value of 640 or 480, multiplies them by 10. It then formats the values into XML and returns them through retValue to the driver that initiated the SendUIRequest.</p>
 
 <p><div class="highlight"><pre class="highlight lua tab-lua"><code><span class="k">function</span> <span class="nf">UIRequest</span><span class="p">(</span><span class="n">sRequest</span><span class="p">,</span> <span class="n">tParams</span><span class="p">)</span>
-<span class="err">    </span><span class="n">tParams</span> <span class="o">=</span> <span class="n">tParams</span> 
+<span class="err">    </span><span class="n">tParams</span> <span class="o">=</span> <span class="n">tParams</span>
 <span class="err">   </span> <span class="kd">local</span> <span class="n">param_x</span> <span class="o">=</span> <span class="nb">tonumber</span><span class="p">(</span><span class="n">tParams</span><span class="p">[</span><span class="s2">&quot;PARAM_X&quot;</span><span class="p">])</span> <span class="ow">or</span> <span class="mi">640</span>
 <span class="err">    </span><span class="kd">local</span> <span class="n">param_y</span> <span class="o">=</span> <span class="nb">tonumber</span><span class="p">(</span><span class="n">tParams</span><span class="p">[</span><span class="s2">&quot;PARAM_Y&quot;</span><span class="p">])</span> <span class="ow">or</span> <span class="mi">480</span>
 <span class="err">               </span>
@@ -5966,26 +5966,26 @@ Generates a random version 4 UUID (UUID4). The generator utilizes entropy provid
 <span class="o">&lt;/</span><span class="n">driver_data</span><span class="o">&gt;</span>
 </code></pre></div><h3 id='list-of-inbound-driver-functions'>List of InBound Driver Functions:</h3>
 <ul>
-<li><a href="https://control4.github.io/docs-driverworks-api/#onbindingchanged">OnBindingChanged</a></li>
-<li><a href="https://control4.github.io/docs-driverworks-api/#ondriverdestroyed">OnDriverDestroyed</a></li>
-<li><a href="https://control4.github.io/docs-driverworks-api/#ondriverlateinit">OnDriverLateInit</a></li>
-<li><a href="https://control4.github.io/docs-driverworks-api/#ondriverinit">OnDriverInit</a></li>
-<li><a href="https://control4.github.io/docs-driverworks-api/#onpropertychanged">OnPropertyChanged</a></li>
-<li><a href="https://control4.github.io/docs-driverworks-api/#senduirequest">SendUIRequest</a></li>
-<li><a href="https://control4.github.io/docs-driverworks-api/#executecommand">ExecuteCommand</a></li>
-<li><a href="https://control4.github.io/docs-driverworks-api/#receivedfromserial">ReceivedFromSerial</a></li>
-<li><a href="https://control4.github.io/docs-driverworks-api/#receivedfromproxy">ReceivedFromProxy</a></li>
-<li><a href="https://control4.github.io/docs-driverworks-api/#receivedfromnetwork">ReceivedFromNetwork</a></li>
-<li><a href="https://control4.github.io/docs-driverworks-api/#getprivatekeypassword">GetPrivateKeyPassword</a></li>
-<li><a href="https://control4.github.io/docs-driverworks-api/#onvariablechanged">OnVariableChanged</a></li>
-<li><a href="https://control4.github.io/docs-driverworks-api/#onwatchedvariablechanged">OnWatchedVariableChanged</a></li>
-<li><a href="https://control4.github.io/docs-driverworks-api/#onconnectionstatuschanged">OnConnectionStatusChanged</a></li>
-<li><a href="https://control4.github.io/docs-driverworks-api/#onserverconnectionstatuschanged">OnServerConnectionStatusChanged</a></li>
-<li><a href="https://control4.github.io/docs-driverworks-api/#onserverdatain">OnServerDataIn</a></li>
-<li><a href="https://control4.github.io/docs-driverworks-api/#onnetworkbindingchanged">OnNetworkBindingChanged</a></li>
-<li><a href="https://control4.github.io/docs-driverworks-api/#onzigbeeonlinestatuschanged">OnZigbeeOnlineStatusChanged</a></li>
-<li><a href="https://control4.github.io/docs-driverworks-api/#onreflashlockgranted">OnReflashLockGranted</a></li>
-<li><a href="https://control4.github.io/docs-driverworks-api/#onreflashlockrevoked">OnReflashLockRevoked</a></li>
+<li><a href="https://snap-one.github.io/docs-driverworks-api/#onbindingchanged">OnBindingChanged</a></li>
+<li><a href="https://snap-one.github.io/docs-driverworks-api/#ondriverdestroyed">OnDriverDestroyed</a></li>
+<li><a href="https://snap-one.github.io/docs-driverworks-api/#ondriverlateinit">OnDriverLateInit</a></li>
+<li><a href="https://snap-one.github.io/docs-driverworks-api/#ondriverinit">OnDriverInit</a></li>
+<li><a href="https://snap-one.github.io/docs-driverworks-api/#onpropertychanged">OnPropertyChanged</a></li>
+<li><a href="https://snap-one.github.io/docs-driverworks-api/#senduirequest">SendUIRequest</a></li>
+<li><a href="https://snap-one.github.io/docs-driverworks-api/#executecommand">ExecuteCommand</a></li>
+<li><a href="https://snap-one.github.io/docs-driverworks-api/#receivedfromserial">ReceivedFromSerial</a></li>
+<li><a href="https://snap-one.github.io/docs-driverworks-api/#receivedfromproxy">ReceivedFromProxy</a></li>
+<li><a href="https://snap-one.github.io/docs-driverworks-api/#receivedfromnetwork">ReceivedFromNetwork</a></li>
+<li><a href="https://snap-one.github.io/docs-driverworks-api/#getprivatekeypassword">GetPrivateKeyPassword</a></li>
+<li><a href="https://snap-one.github.io/docs-driverworks-api/#onvariablechanged">OnVariableChanged</a></li>
+<li><a href="https://snap-one.github.io/docs-driverworks-api/#onwatchedvariablechanged">OnWatchedVariableChanged</a></li>
+<li><a href="https://snap-one.github.io/docs-driverworks-api/#onconnectionstatuschanged">OnConnectionStatusChanged</a></li>
+<li><a href="https://snap-one.github.io/docs-driverworks-api/#onserverconnectionstatuschanged">OnServerConnectionStatusChanged</a></li>
+<li><a href="https://snap-one.github.io/docs-driverworks-api/#onserverdatain">OnServerDataIn</a></li>
+<li><a href="https://snap-one.github.io/docs-driverworks-api/#onnetworkbindingchanged">OnNetworkBindingChanged</a></li>
+<li><a href="https://snap-one.github.io/docs-driverworks-api/#onzigbeeonlinestatuschanged">OnZigbeeOnlineStatusChanged</a></li>
+<li><a href="https://snap-one.github.io/docs-driverworks-api/#onreflashlockgranted">OnReflashLockGranted</a></li>
+<li><a href="https://snap-one.github.io/docs-driverworks-api/#onreflashlockrevoked">OnReflashLockRevoked</a></li>
 </ul></p>
 <h1 id='ir-interface'>IR Interface</h1>
 
@@ -6057,7 +6057,7 @@ Generates a random version 4 UUID (UUID4). The generator utilizes entropy provid
 
 <h3 id='usage-note'>Usage Note</h3>
 
-<p>Failure to call the <a href="https://control4.github.io/docs-driverworks-api/#sendirstop">SendIRStop</a> function will cause the IR code to be sent continually, which (in the case of
+<p>Failure to call the <a href="https://snap-one.github.io/docs-driverworks-api/#sendirstop">SendIRStop</a> function will cause the IR code to be sent continually, which (in the case of
 volume ramps) could be catastrophic to equipment. The IR code to send must be declared as an <code>&lt;ircode\&gt;</code> in the
 <code>&lt;irsection\&gt;</code> of the driver file.</p>
 
@@ -6065,7 +6065,7 @@ volume ramps) could be catastrophic to equipment. The IR code to send must be de
 
 <p>This example starts sending the specified IR Code out the specified IR Binding:</p>
 
-<p><code>C4:SendIRStart(1, 22)</code> </p>
+<p><code>C4:SendIRStart(1, 22)</code></p>
 
 <h2 id='sendirstop'>SendIRStop</h2>
 
@@ -6441,9 +6441,9 @@ local Foo = {
 
 <h2 id='createtcpclient'>CreateTCPClient</h2>
 
-<p>Generally, the class cleans up any resources associated with it.  For example, when the object is no longer referenced, it will cleans it up.  However, there are a few exceptions:  When the class is performing an asynchronous operation, e.g. a connect request, it will remain alive until the appropriate event callback function is called.  </p>
+<p>Generally, the class cleans up any resources associated with it.  For example, when the object is no longer referenced, it will cleans it up.  However, there are a few exceptions:  When the class is performing an asynchronous operation, e.g. a connect request, it will remain alive until the appropriate event callback function is called. </p>
 
-<p>For instance, if you call the <a href="https://control4.github.io/docs-driverworks-api/#connect">Connect</a>() method, the class will remain alive until it either called the <a href="https://control4.github.io/docs-driverworks-api/#onconnect">OnConnect</a> (and <a href="https://control4.github.io/docs-driverworks-api/#onresolve">OnResolve</a>) callback function, or the <a href="https://control4.github.io/docs-driverworks-api/#onerror">OnError</a> callback function, even if your lua code does not have any reference to the class during that time period.  The same applies to the time period between calling one of the Read() methods and the corresponding OnRead() or OnError() callback, and in between calling the Write() method and the OnWrite() or OnError() callback. This API should not be invoked during OnDriverInit.</p>
+<p>For instance, if you call the <a href="https://snap-one.github.io/docs-driverworks-api/#connect">Connect</a>() method, the class will remain alive until it either called the <a href="https://snap-one.github.io/docs-driverworks-api/#onconnect">OnConnect</a> (and <a href="https://snap-one.github.io/docs-driverworks-api/#onresolve">OnResolve</a>) callback function, or the <a href="https://snap-one.github.io/docs-driverworks-api/#onerror">OnError</a> callback function, even if your lua code does not have any reference to the class during that time period.  The same applies to the time period between calling one of the Read() methods and the corresponding OnRead() or OnError() callback, and in between calling the Write() method and the OnWrite() or OnError() callback. This API should not be invoked during OnDriverInit.</p>
 
 <h6 id='available-in-1-6-0'>Available in 1.6.0</h6>
 
@@ -6551,7 +6551,7 @@ local Foo = {
 <span class="k">end</span><span class="p">)</span>
 </code></pre></div>
 <h2 id='close'>Close</h2>
-<p>This method closes an established connection, or cancels a pending resolve or connection request. If a resolve or connection request is canceled, the <a href="https://control4.github.io/docs-driverworks-api/#onerror">OnError</a> callback function will get called. This API should not be invoked during OnDriverInit. Once you call this method, no more data will be read from the socket and you can no longer write additional data to the socket. Also, the OnWrite callback will not be called anymore, even if the flush argument is set to true.</p>
+<p>This method closes an established connection, or cancels a pending resolve or connection request. If a resolve or connection request is canceled, the <a href="https://snap-one.github.io/docs-driverworks-api/#onerror">OnError</a> callback function will get called. This API should not be invoked during OnDriverInit. Once you call this method, no more data will be read from the socket and you can no longer write additional data to the socket. Also, the OnWrite callback will not be called anymore, even if the flush argument is set to true.</p>
 <h6 id='available-in-1-6-0'>Available in 1.6.0</h6><h3 id='signature'>Signature</h3>
 
 <p><code>C4:Close(flush)</code></p>
@@ -6754,8 +6754,8 @@ local Foo = {
 <h3 id='usage-note'>Usage Note</h3>
 
 <ul>
-<li>client is this C4LuaTCPClient instance </li>
-<li>data is a string with the data that has been read. This can also be any object if you used the <a href="https://control4.github.io/docs-driverworks-api/#readuntil">ReadUntil</a>() method with a custom function that returns an object (e.g. pre-parsed data). </li>
+<li>client is this C4LuaTCPClient instance</li>
+<li>data is a string with the data that has been read. This can also be any object if you used the <a href="https://snap-one.github.io/docs-driverworks-api/#readuntil">ReadUntil</a>() method with a custom function that returns an object (e.g. pre-parsed data).</li>
 </ul>
 
 <h3 id='returns'>Returns</h3>
@@ -6784,14 +6784,14 @@ local Foo = {
 <h3 id='usage-note'>Usage Note</h3>
 
 <ul>
-<li>client is this C4LuaTCPClient instance </li>
-<li>endpoints is an array of endpoint tables, describing all endpoints that the host/service could be resolved to. Each entry has the following fields:  ip (string): The IP address to connect to and  port (number) -  The port number to connect to </li>
-<li>choose is a completion function with this signature: </li>
+<li>client is this C4LuaTCPClient instance</li>
+<li>endpoints is an array of endpoint tables, describing all endpoints that the host/service could be resolved to. Each entry has the following fields:  ip (string): The IP address to connect to and  port (number) -  The port number to connect to</li>
+<li>choose is a completion function with this signature:</li>
 </ul>
 
-<p><code>function([index])</code> </p>
+<p><code>function([index])</code></p>
 
-<p>Using this closure is optional and can be used to delay making a choice. The index argument is of type number, and it is optional.  If not provided, default behavior is requested (first endpoint, if available). If the index argument is provided, it should be an index into the endpoints array.  If the index argument is 0, the listen request will be canceled and the <a href="https://control4.github.io/docs-driverworks-api/#onerror">OnError</a> callback will be called with an invalid argument error (code 22). func may return a number value that describes the index into the endpoints array, which will be the endpoint that the server should listen on. If this value is 0, the listen request will be canceled and the OnError callback will be called with an invalid argument error (code 22). If the function doesn&#39;t return anything, default behavior is chosen unless the choose function is being used to delay making a choice.  Note that if you call the choose function prior to returning from this callback function, that choice will be used rather than whatever the callback may return (if anything). Also, note that modifying the endpoints array (or any table in it) in any way has no effect.|</p>
+<p>Using this closure is optional and can be used to delay making a choice. The index argument is of type number, and it is optional.  If not provided, default behavior is requested (first endpoint, if available). If the index argument is provided, it should be an index into the endpoints array.  If the index argument is 0, the listen request will be canceled and the <a href="https://snap-one.github.io/docs-driverworks-api/#onerror">OnError</a> callback will be called with an invalid argument error (code 22). func may return a number value that describes the index into the endpoints array, which will be the endpoint that the server should listen on. If this value is 0, the listen request will be canceled and the OnError callback will be called with an invalid argument error (code 22). If the function doesn&#39;t return anything, default behavior is chosen unless the choose function is being used to delay making a choice.  Note that if you call the choose function prior to returning from this callback function, that choice will be used rather than whatever the callback may return (if anything). Also, note that modifying the endpoints array (or any table in it) in any way has no effect.|</p>
 
 <h3 id='returns'>Returns</h3>
 
@@ -6834,7 +6834,7 @@ local Foo = {
 
 <h2 id='readatleast'>ReadAtLeast</h2>
 
-<p>This method requests to read at least as many bytes as specified by the min argument. Once at least this amount of data is available, all available data is passed to the <a href="https://control4.github.io/docs-driverworks-api/#onread">OnRead</a> callback. This API should not be invoked during OnDriverInit.</p>
+<p>This method requests to read at least as many bytes as specified by the min argument. Once at least this amount of data is available, all available data is passed to the <a href="https://snap-one.github.io/docs-driverworks-api/#onread">OnRead</a> callback. This API should not be invoked during OnDriverInit.</p>
 
 <p><h6 id='available-in-1-6-0'>Available in 1.6.0</h6><h3 id='signature'>Signature</h3>
 <p><code>C4:ReadAtLeast(min)</code></p></p>
@@ -6874,7 +6874,7 @@ local Foo = {
 </tr>
 <tr>
 <td>arg (str)</td>
-<td>All data until (and including) the value of this argument will be passed to the <a href="https://control4.github.io/docs-driverworks-api/#onread">OnRead</a>() callback.</td>
+<td>All data until (and including) the value of this argument will be passed to the <a href="https://snap-one.github.io/docs-driverworks-api/#onread">OnRead</a>() callback.</td>
 </tr>
 <tr>
 <td>arg (function)</td>
@@ -6900,7 +6900,7 @@ local Foo = {
 </tr>
 <tr>
 <td></td>
-<td>The third return value is optional, and if not nil, will be used to replace the data argument of the <a href="https://control4.github.io/docs-driverworks-api/#onread">OnRead</a> callback handler.  This is useful if the matching process is already rather expensive (e.g. parsing an XML document), as it allows you to transfer that information directly to the OnRead() callback handler without having to do the same work again.</td>
+<td>The third return value is optional, and if not nil, will be used to replace the data argument of the <a href="https://snap-one.github.io/docs-driverworks-api/#onread">OnRead</a> callback handler.  This is useful if the matching process is already rather expensive (e.g. parsing an XML document), as it allows you to transfer that information directly to the OnRead() callback handler without having to do the same work again.</td>
 </tr>
 </tbody></table>
 
@@ -6976,9 +6976,9 @@ local Foo = {
 
 <h2 id='createtcpserver'>CreateTCPServer</h2>
 
-<p>This class does not in any way manage or keep track of connected clients.  If you explicitly <a href="https://control4.github.io/docs-driverworks-api/#close">Close</a>() the TCP server or it goes out of scope and gets cleaned up by lua&#39;s garbage collector, it does not affect any of the accepted client connections. You can keep track of connected clients by saving them into a map in the OnAccept callback, and setting up a OnDisconnect callback for the connected client connection that removes that client from that map.</p>
+<p>This class does not in any way manage or keep track of connected clients.  If you explicitly <a href="https://snap-one.github.io/docs-driverworks-api/#close">Close</a>() the TCP server or it goes out of scope and gets cleaned up by lua&#39;s garbage collector, it does not affect any of the accepted client connections. You can keep track of connected clients by saving them into a map in the OnAccept callback, and setting up a OnDisconnect callback for the connected client connection that removes that client from that map.</p>
 
-<p>Generally, the class cleans up any resources associated with it.  For example, when the object is no longer referenced, it will clean it up.  However, there are a few exceptions:  When the class is performing an asynchronous operation, e.g. a listen request, it will remain alive until the appropriate event callback function is called.  For instance, if you call the <a href="https://control4.github.io/docs-driverworks-api/#listen">Listen</a>() method, the class will remain alive until it either called the <a href="https://control4.github.io/docs-driverworks-api/#onlisten">OnListen</a> (and <a href="https://control4.github.io/docs-driverworks-api/#onresolve">OnResolve</a>) callback function, or the <a href="https://control4.github.io/docs-driverworks-api/#onerror">OnError</a> callback function, even if your lua code does not have any reference to the class during that time period.  However, once the OnListen callback was called, the class gets cleaned up unless at that point your lua code somehow references this instance. This API should not be invoked 
+<p>Generally, the class cleans up any resources associated with it.  For example, when the object is no longer referenced, it will clean it up.  However, there are a few exceptions:  When the class is performing an asynchronous operation, e.g. a listen request, it will remain alive until the appropriate event callback function is called.  For instance, if you call the <a href="https://snap-one.github.io/docs-driverworks-api/#listen">Listen</a>() method, the class will remain alive until it either called the <a href="https://snap-one.github.io/docs-driverworks-api/#onlisten">OnListen</a> (and <a href="https://snap-one.github.io/docs-driverworks-api/#onresolve">OnResolve</a>) callback function, or the <a href="https://snap-one.github.io/docs-driverworks-api/#onerror">OnError</a> callback function, even if your lua code does not have any reference to the class during that time period.  However, once the OnListen callback was called, the class gets cleaned up unless at that point your lua code somehow references this instance. This API should not be invoked
 during OnDriverInit.</p>
 
 <p><h6 id='available-in-1-6-0'>Available in 1.6.0</h6><h3 id='example'>Example</h3>
@@ -7174,7 +7174,7 @@ during OnDriverInit.</p>
 <span class="k">end</span><span class="p">)</span>
 </code></pre></div>
 <h2 id='close'>Close</h2>
-<p>This method stops the server socket, or cancels pending resolve or endpoint selection.  If a pending resolve or endpoint selection was canceled, the <a href="https://control4.github.io/docs-driverworks-api/#onerror">OnError</a> handler will be called.  However, if the server is already accepting connections, the OnError handler will NOT be called and the server simply ceases to accept further connection requests.  Note that the server does not manage accepted client connections and will not close any of these connections. it it is up to your implementation to manage client connections and how to act when you stop the TCP server.</p>
+<p>This method stops the server socket, or cancels pending resolve or endpoint selection.  If a pending resolve or endpoint selection was canceled, the <a href="https://snap-one.github.io/docs-driverworks-api/#onerror">OnError</a> handler will be called.  However, if the server is already accepting connections, the OnError handler will NOT be called and the server simply ceases to accept further connection requests.  Note that the server does not manage accepted client connections and will not close any of these connections. it it is up to your implementation to manage client connections and how to act when you stop the TCP server.</p>
 <h6 id='available-in-1-6-0'>Available in 1.6.0</h6><h3 id='signature'>Signature</h3>
 <p><code>C4: Close()</code></p>
 <h3 id='parameters'>Parameters</h3>
@@ -7209,7 +7209,7 @@ during OnDriverInit.</p>
 
 <h2 id='listen'>Listen</h2>
 
-<p>This method starts a listen request to listen on a particular host/service.  Once the host/service has been resolved and an endpoint has been chosen, the <a href="https://control4.github.io/docs-driverworks-api/#onlisten">OnListen</a> callback function will be called. This indicates that the server is now ready to accept incoming connections.  If errors occur, the <a href="https://control4.github.io/docs-driverworks-api/#onerror">OnError</a> callback function will be called instead. This API should not be invoked during OnDriverInit.</p>
+<p>This method starts a listen request to listen on a particular host/service.  Once the host/service has been resolved and an endpoint has been chosen, the <a href="https://snap-one.github.io/docs-driverworks-api/#onlisten">OnListen</a> callback function will be called. This indicates that the server is now ready to accept incoming connections.  If errors occur, the <a href="https://snap-one.github.io/docs-driverworks-api/#onerror">OnError</a> callback function will be called instead. This API should not be invoked during OnDriverInit.</p>
 
 <p><h6 id='available-in-1-6-0'>Available in 1.6.0</h6><h3 id='signature'>Signature</h3>
 <p><code>C4:Listen(host, service[, backlog])</code></p></p>
@@ -8805,7 +8805,7 @@ shrekMovie = {
 </thead><tbody>
 <tr>
 <td>str</td>
-<td>String to be decoded from <a href="https://control4.github.io/docs-driverworks-api/#base64encode">Base64 encoding</a></td>
+<td>String to be decoded from <a href="https://snap-one.github.io/docs-driverworks-api/#base64encode">Base64 encoding</a></td>
 </tr>
 </tbody></table>
 <h3 id='returns'>Returns</h3>
@@ -8828,7 +8828,7 @@ shrekMovie = {
 <h5 id='available-from-1-6-0'>Available from 1.6.0</h5><h3 id='signature'>Signature</h3>
 <p><code>PersistData = {}</code></p>
 <h3 id='usage-note'>Usage Note</h3>
-<p>It is recommended to use the <a href="https://control4.github.io/docs-driverworks-api/#persistsetvalue">PersistSetValue</a> and <a href="https://control4.github.io/docs-driverworks-api/#persistgetvalue">PersistGetValue</a> calls if they&#39;re supported in your O.S. These calls were introduced with OS 2.10.0. They immediately write to the state database.The PersistData table only is only written out when Director cycles through each driver to save its state. Because of this, latency issues can occur when using PersistData.</p>
+<p>It is recommended to use the <a href="https://snap-one.github.io/docs-driverworks-api/#persistsetvalue">PersistSetValue</a> and <a href="https://snap-one.github.io/docs-driverworks-api/#persistgetvalue">PersistGetValue</a> calls if they&#39;re supported in your O.S. These calls were introduced with OS 2.10.0. They immediately write to the state database.The PersistData table only is only written out when Director cycles through each driver to save its state. Because of this, latency issues can occur when using PersistData.</p>
 
 <h2 id='exit-navigation'>Exit Navigation</h2>
 <p>This command is sent to the room to change the room from the “In Navigation” mode back to the “Normal” mode.  While in the “Normal” mode, the commands sent to the room are sent to the selected audio or video device.  When in the “In Navigation” mode a set of the navigational commands are sent to the on screen device.</p>
@@ -9994,7 +9994,7 @@ Output: network val is 00001234
 <span class="k">end</span>
 </code></pre></div>
 <h2 id='ondriverlateinit'>OnDriverLateInit</h2>
-<p>Function  that serves as a callback into a project after the project is loaded. If any initialization has to occur after the project is loaded, it must occur in OndriverLateInit. See the <a href="https://control4.github.io/docs-driverworks-api/#safe-usage-of-ondriverinit-and-ondriverlateinit">safe usage table</a> for a list of APIs that can be invoked before OnDriverLateInit is executed.</p>
+<p>Function  that serves as a callback into a project after the project is loaded. If any initialization has to occur after the project is loaded, it must occur in OndriverLateInit. See the <a href="https://snap-one.github.io/docs-driverworks-api/#safe-usage-of-ondriverinit-and-ondriverlateinit">safe usage table</a> for a list of APIs that can be invoked before OnDriverLateInit is executed.</p>
 <h6 id='available-from-2-5-0'>Available from 2.5.0</h6><h3 id='signature'>Signature</h3>
 
 <p><code>OnDriverLateInit(strDIT) </code></p>
@@ -10034,7 +10034,7 @@ When a driver is loaded, there are two initialization functions that are called 
 
 <p>There are multiple instances of when a driver is loaded. Driver initialization occurs under the following conditions:</p>
 
-<p><strong>Driver Added to Project</strong> </p>
+<p><strong>Driver Added to Project</strong></p>
 
 <p>When a driver is added to a project, OnDriverInit will be called followed by a call to OnDriverLateInit.</p>
 
@@ -10044,7 +10044,7 @@ When a driver is loaded, there are two initialization functions that are called 
 1. As each driver is loaded, the OnDriverInit function is called.
 2. After all the drivers in the project have been loaded, then OnDriverLateInit is called for all the drivers in the project. This ensures that all the driver’s bindings and initialization is complete. Any initialization that requires that all the bindings be bound, or other driver initialization is complete should be done in OnDriverLateInit.</p>
 
-<p><strong>Driver Update</strong> </p>
+<p><strong>Driver Update</strong></p>
 
 <p>When a driver is being updated and prior to the driver being reloaded, OnDriverDestroyed will be called. This will allow the driver to do any necessary cleanup prior to the driver being reloaded. When the driver is reloaded, OnDriverInit will be called followed by a call to OnDriverLateInit.</p>
 
@@ -10082,7 +10082,7 @@ When a driver is loaded, there are two initialization functions that are called 
 
 </code></pre></div>
 <h2 id='safe-usage-of-ondriverinit-and-ondriverlateinit'>Safe Usage of OnDriverInit and OnDriverLateInit</h2>
-<p>As best practice, Control4 recommends invoking certain API functions prior to <a href="https://control4.github.io/docs-driverworks-api/#ondriverlateinit">OnDriverLateInit</a>. The table below identifies functions that can safely be invoked during driver initialization through <a href="https://control4.github.io/docs-driverworks-api/#ondriverinit">OnDriverInit</a> with a designation of &quot;YES&quot;. Some API functions have significant performance impacts to Director during startup or have been proven to produce non-deterministic results when invoked in <a href="https://control4.github.io/docs-driverworks-api/#ondriverinit">OndriverInit</a>. The APIs are identified in the table below with a designation of &quot;NO&quot;.</p>
+<p>As best practice, Control4 recommends invoking certain API functions prior to <a href="https://snap-one.github.io/docs-driverworks-api/#ondriverlateinit">OnDriverLateInit</a>. The table below identifies functions that can safely be invoked during driver initialization through <a href="https://snap-one.github.io/docs-driverworks-api/#ondriverinit">OnDriverInit</a> with a designation of &quot;YES&quot;. Some API functions have significant performance impacts to Director during startup or have been proven to produce non-deterministic results when invoked in <a href="https://snap-one.github.io/docs-driverworks-api/#ondriverinit">OndriverInit</a>. The APIs are identified in the table below with a designation of &quot;NO&quot;.</p>
 
 <table><thead>
 <tr>
@@ -11219,7 +11219,7 @@ When a driver is loaded, there are two initialization functions that are called 
 
 <p>The value parameter type depends on the value that was set previously and can be one of the following: number, string, boolean, table.If the value parameter is a table, then the elements within the table must be one of the following types: number, string, boolean, table, nil. Tables can contain any combination of types, including nested tables. However, C4:PersistSetValue will fail if the table, or any nested table, contains any elements of the following types: lightuserdata, userdata, function, thread.</p>
 
-<p>PersistSetValue uses its own thread for pushing values to the database. This thread doesn&#39;t start running until just before OnDriverLateInit. All values destined for the database are queued up so is lost. However, there is a window of time during which calling <a href="https://control4.github.io/docs-driverworks-api/#persistgetvalue">C4:PersistGetValue</a> might not return values set previously with C4.PersistSetValue.</p>
+<p>PersistSetValue uses its own thread for pushing values to the database. This thread doesn&#39;t start running until just before OnDriverLateInit. All values destined for the database are queued up so is lost. However, there is a window of time during which calling <a href="https://snap-one.github.io/docs-driverworks-api/#persistgetvalue">C4:PersistGetValue</a> might not return values set previously with C4.PersistSetValue.</p>
 
 <h3 id='example'>Example</h3><div class="highlight"><pre class="highlight lua tab-lua"><code><span class="n">C4</span><span class="p">:</span><span class="n">PersistSetValue</span><span class="p">(</span><span class="s2">"Foo"</span><span class="p">,</span> <span class="s2">"Bar"</span><span class="p">)</span>
 <span class="kd">local</span> <span class="n">Foo</span> <span class="o">=</span> <span class="n">C4</span><span class="p">:</span><span class="n">PersistGetValue</span><span class="p">(</span><span class="s2">"Foo"</span><span class="p">)</span>
@@ -11617,7 +11617,7 @@ print(&quot;Room id is &quot; .. idRoom)
 
 <h2 id='notification-interface'>Notification Interface</h2>
 
-<p>Beginning with OS 3, device drivers have the ability to include .jpeg files within notifications. These images are displayed as part of the notification. The .jpeg file can be retrieved from a cloud service that supports the device, from the device itself or from a location on a Control4 Controller. </p>
+<p>Beginning with OS 3, device drivers have the ability to include .jpeg files within notifications. These images are displayed as part of the notification. The .jpeg file can be retrieved from a cloud service that supports the device, from the device itself or from a location on a Control4 Controller.</p>
 
 <p>Leveraging this functionality in a driver requires the following:</p>
 
@@ -11658,21 +11658,21 @@ print(&quot;Room id is &quot; .. idRoom)
  <span class="nt">&lt;/notification_attachments&gt;</span>
 </code></pre></div>
 
-<p>After clicking the Add button and opening the driver, which is a security camera in this example, we can see the three image types. When the correct type for the device the driver supports is selected, the attachment field is populated. </p>
+<p>After clicking the Add button and opening the driver, which is a security camera in this example, we can see the three image types. When the correct type for the device the driver supports is selected, the attachment field is populated.</p>
 
 <h3 id='execution'>Execution</h3>
 
-<p>The following APIs have been delivered in OS 3 to support the return of the .jpeg files. </p>
+<p>The following APIs have been delivered in OS 3 to support the return of the .jpeg files.</p>
 
-<p><a href="https://control4.github.io/docs-driverworks-api/#getnotificationattachmenturl">GetNotificationAttachmentURL</a></p>
+<p><a href="https://snap-one.github.io/docs-driverworks-api/#getnotificationattachmenturl">GetNotificationAttachmentURL</a></p>
 
-<p><a href="https://control4.github.io/docs-driverworks-api/#getnotificationattachmentfile">GetNotificationAttachmentFile</a></p>
+<p><a href="https://snap-one.github.io/docs-driverworks-api/#getnotificationattachmentfile">GetNotificationAttachmentFile</a></p>
 
-<p><a href="https://control4.github.io/docs-driverworks-api/#getnotificationattachmentbytes">GetNotificationAttachmentBytes</a></p>
+<p><a href="https://snap-one.github.io/docs-driverworks-api/#getnotificationattachmentbytes">GetNotificationAttachmentBytes</a></p>
 
 <p>Each API has been engineered to deliver the file based on the location of where the file is stored. They are called when the Notification is triggered. Currently, there are three options for file storage: URL, File or Memory</p>
 
-<p>Finally, the <a href="https://control4.github.io/docs-driverworks-api/#finishedwithnotificationattachment">FinishedWithNotificationAttachement</a> API has been included in the event that your driver needs to do any sort of clean-up with the stored .jpeg file.</p>
+<p>Finally, the <a href="https://snap-one.github.io/docs-driverworks-api/#finishedwithnotificationattachment">FinishedWithNotificationAttachement</a> API has been included in the event that your driver needs to do any sort of clean-up with the stored .jpeg file.</p>
 
 <p>To assist with implementation, please see the notification driver.c4z file in the Samples folder of this SDK.</p>
 
@@ -11720,9 +11720,9 @@ print(&quot;Room id is &quot; .. idRoom)
 
 <p>Specifically the event for “Refresh Navigator” is the “OnPIP” event.  To get this event,  we make use of the generic event registration calls:</p>
 
-<p><a href="https://control4.github.io/docs-driverworks-api/#registersystemevent">RegisterSystemEvent</a>
-<a href="https://control4.github.io/docs-driverworks-api/#unregistersystemevent">UnregisterSystemEvent</a>
-<a href="https://control4.github.io/docs-driverworks-api/#unregisterallsystemevents">UnregisterAllSystemEvents</a></p>
+<p><a href="https://snap-one.github.io/docs-driverworks-api/#registersystemevent">RegisterSystemEvent</a>
+<a href="https://snap-one.github.io/docs-driverworks-api/#unregistersystemevent">UnregisterSystemEvent</a>
+<a href="https://snap-one.github.io/docs-driverworks-api/#unregisterallsystemevents">UnregisterAllSystemEvents</a></p>
 <h3 id='example'>Example</h3>
 
 <p><code>C4:RegisterSystemEvent(C4SystemEvents[&quot;OnPIP&quot;], 0)</code></p>
@@ -11739,7 +11739,7 @@ print(&quot;Room id is &quot; .. idRoom)
 </code></pre></div>
 <p>The “data” passed to the callback function is event specific and can be provided on an event by event basis as needed.  In most cases, it can be ignored.</p></p>
 
-<p>See <a href="https://control4.github.io/docs-driverworks-api/#registering-for-system-events">Registering for System Events</a> for additional information.</p>
+<p>See <a href="https://snap-one.github.io/docs-driverworks-api/#registering-for-system-events">Registering for System Events</a> for additional information.</p>
 <h1 id='properties-interface'>Properties Interface</h1>
 
 <h2 id='properties-table'>Properties Table</h2>
@@ -11833,7 +11833,7 @@ print(&quot;Room id is &quot; .. idRoom)
 
 <h3 id='usage-note'>Usage Note:</h3>
 
-<p>The value of the property that has changed can be found with: <code>Properties[strName]</code>.  Note that OnPropertyChanged is not called when the Property has been changed by the driver calling the <a href="https://control4.github.io/docs-driverworks-api/#updateproperty">UpdateProperty</a> command, only when the Property is changed by the user from  the Properties Page.This function is called by Director when a property changes value.</p>
+<p>The value of the property that has changed can be found with: <code>Properties[strName]</code>.  Note that OnPropertyChanged is not called when the Property has been changed by the driver calling the <a href="https://snap-one.github.io/docs-driverworks-api/#updateproperty">UpdateProperty</a> command, only when the Property is changed by the user from  the Properties Page.This function is called by Director when a property changes value.</p>
 
 <h3 id='example'>Example</h3>
 
@@ -11853,7 +11853,7 @@ print(&quot;Room id is &quot; .. idRoom)
       <span class="c1">-- do stuff</span>
     <span class="k">end</span>
   <span class="k">elseif</span> <span class="p">(</span><span class="nb">string.find</span><span class="p">(</span><span class="n">strProperty</span><span class="p">,</span><span class="s2">"Zone"</span><span class="p">)</span> <span class="o">~=</span> <span class="kc">nil</span><span class="p">)</span> <span class="k">then</span>
-    <span class="c1">-- do stuff </span>
+    <span class="c1">-- do stuff</span>
   <span class="k">else</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">"No action performed for "</span> <span class="o">..</span> <span class="n">strProperty</span> <span class="o">..</span> <span class="s2">" which has been set to: "</span> <span class="o">..</span> <span class="n">Properties</span><span class="p">[</span><span class="n">strProperty</span><span class="p">])</span>
   <span class="k">end</span>
@@ -15654,7 +15654,7 @@ print(&quot;proxy is: &quot; .. proxyId)</p>
 
 <h2 id='createnetworkconnection'>CreateNetworkConnection</h2>
 
-<p>Function that defines a dynamic Network Connection so no Connection XML is required. Further (port-specific configuration) can be accomplished through the use of the <a href="https://control4.github.io/docs-driverworks-api/#netportoptions">NetPortOptions</a> API. Connections are actually made using the <a href="https://control4.github.io/docs-driverworks-api/#netconnect">NetConnect</a> API. This API should not be invoked during OnDriverInit.</p>
+<p>Function that defines a dynamic Network Connection so no Connection XML is required. Further (port-specific configuration) can be accomplished through the use of the <a href="https://snap-one.github.io/docs-driverworks-api/#netportoptions">NetPortOptions</a> API. Connections are actually made using the <a href="https://snap-one.github.io/docs-driverworks-api/#netconnect">NetConnect</a> API. This API should not be invoked during OnDriverInit.</p>
 
 <p><h6 id='available-from-1-6-0'>Available from 1.6.0.</h6><h3 id='signature'>Signature</h3>
 <p><code>C4:CreateNetworkConnection (idBinding, strAddress, strConnectionType)</code></p></p>
@@ -15687,7 +15687,7 @@ print(&quot;proxy is: &quot; .. proxyId)</p>
 
 <p>This is an alternative to having the connection section in the XML that creates the network connection</p>
 
-<p>This binding parameter is used for other network calls: OnNetworkStatusChanged, <a href="https://control4.github.io/docs-driverworks-api/#netconnect">C4:NetConnect</a> &amp; <a href="https://control4.github.io/docs-driverworks-api/#netdisconnect">C4:NetDisconnect</a>. Note that all Binding ID values must be unique. Duplication of Binding IDs is not permitted within the same system. Binding Ranges include:</p>
+<p>This binding parameter is used for other network calls: OnNetworkStatusChanged, <a href="https://snap-one.github.io/docs-driverworks-api/#netconnect">C4:NetConnect</a> &amp; <a href="https://snap-one.github.io/docs-driverworks-api/#netdisconnect">C4:NetDisconnect</a>. Note that all Binding ID values must be unique. Duplication of Binding IDs is not permitted within the same system. Binding Ranges include:</p>
 
 <ul>
 <li>Control Bindings  = 1 -&gt; 999</li>
@@ -15985,7 +15985,7 @@ print(&quot;proxy is: &quot; .. proxyId)</p>
 <li>location_ // UPNP</li>
 </ul>
 
-<p>Note that C4:GetDiscoveryInfo() is not available at the time that OnDriverLateInit() is executed when Director is starting. Director doesn&#39;t startup it&#39;s discovery mechanism until well after late initialize, so providing discovery info at that point is not possible. It is recommended recommendation here is to listen for the <a href="https://control4.github.io/docs-driverworks-api/#registering-for-system-events">OnSDDPDeviceStatus (#78)</a> system event. This event includes the UUID by which the device was identified, and a boolean indicating whether the device is online. It&#39;s either that or set a timer and poll until GetDiscoveryInfo returns what you&#39;re looking for.</p>
+<p>Note that C4:GetDiscoveryInfo() is not available at the time that OnDriverLateInit() is executed when Director is starting. Director doesn&#39;t startup it&#39;s discovery mechanism until well after late initialize, so providing discovery info at that point is not possible. It is recommended recommendation here is to listen for the <a href="https://snap-one.github.io/docs-driverworks-api/#registering-for-system-events">OnSDDPDeviceStatus (#78)</a> system event. This event includes the UUID by which the device was identified, and a boolean indicating whether the device is online. It&#39;s either that or set a timer and poll until GetDiscoveryInfo returns what you&#39;re looking for.</p>
 
 <p>SDDP is a royalty-free technology that enables your device to be automatically detected by and added into customers’ Control4 systems. SDDP greatly reduces the potential for mistakes and time required for installations. Our 3,500+ dealers much prefer (and seek out) products with SDDP. SDDP is very simple to implement and we can assist you as needed.</p>
 
@@ -16625,7 +16625,7 @@ Using no delimiter: 000a959d6816</p>
 
 <h2 id='netconnect'>NetConnect</h2>
 
-<p>Function used to tell the system to make a connection (static or dynamic). Connections are created using the <a href="https://control4.github.io/docs-driverworks-api/#createnetworkconnection">CreateNetworkConnection</a> API. Further, port-specific configuration can be configured for a connection through the <a href="https://control4.github.io/docs-driverworks-api/#netportoptions">NetPortOptions</a> API. This API should not be invoked during OnDriverInit.</p>
+<p>Function used to tell the system to make a connection (static or dynamic). Connections are created using the <a href="https://snap-one.github.io/docs-driverworks-api/#createnetworkconnection">CreateNetworkConnection</a> API. Further, port-specific configuration can be configured for a connection through the <a href="https://snap-one.github.io/docs-driverworks-api/#netportoptions">NetPortOptions</a> API. This API should not be invoked during OnDriverInit.</p>
 
 <p><h6 id='available-from-1-6-0'>Available from 1.6.0</h6><h3 id='signature'>Signature</h3>
 <p><code>C4:NetConnect(idBinding, nPort, strIPType,)</code></p></p>
@@ -16687,7 +16687,7 @@ Using no delimiter: 000a959d6816</p>
 
 <h2 id='netportoptions'>NetPortOptions</h2>
 
-<p>Function to configure a connection&#39;s Port settings.  The use of this API is contingent upon the use of the <a href="https://control4.github.io/docs-driverworks-api/#createnetworkconnection">CreateNetworkConnection</a> and <a href="https://control4.github.io/docs-driverworks-api/#createnetworkconnection">NetConnect</a> APIs. Connections are created using the CreateNetworkConnection API and Connections are made using the NetConnect API. This API should not be invoked during OnDriverInit.</p>
+<p>Function to configure a connection&#39;s Port settings.  The use of this API is contingent upon the use of the <a href="https://snap-one.github.io/docs-driverworks-api/#createnetworkconnection">CreateNetworkConnection</a> and <a href="https://snap-one.github.io/docs-driverworks-api/#createnetworkconnection">NetConnect</a> APIs. Connections are created using the CreateNetworkConnection API and Connections are made using the NetConnect API. This API should not be invoked during OnDriverInit.</p>
 
 <p><h6 id='available-from-2-8-0'>Available from 2.8.0</h6><h3 id='signature'>Signature</h3>
 <p><code>C4:NetPortOptions(idBinding, nPort, strIPType,tPortParams)</code></p></p>
@@ -16733,7 +16733,7 @@ Using no delimiter: 000a959d6816</p>
 <li><p>CACERTFILE - Path to the CA (certificate authority) certificate to use for the connection. The path is relative to the driver’s C4Z location.</p></li>
 <li><p>VERIFY MODE - Specifies the verification mode to use for the connection. The verify mode corresponds to those supported by OpenSSL. A detailed description of the verification modes can be found here: https://www.openssl.org. Note that Control4 currently supports only the peer verification mode (SSL VERIFY PEER). Values include: none and peer. Note that if this property is omitted, then Director defaults to use no verification (“none”).</p></li>
 <li><p>VERIFY METHOD - Specifies the method to use for establishing the connection. A detailed description of the various methods can be found at https://www.openssl.org Valid values include: sslv2, sslv23, sslv3, tlsv1 &amp;  tlsv1_1_. Note that if this property is omitted, then Director defaults to using sslv23 (which is the OpenSSL default).</p></li>
-<li><p>suppressconnectionevents - true or false to suppress connections. For more information see: <a href="https://control4.github.io/docs-driverworks-api/#suppressing-system-events">Suppressing System Events</a></p></li>
+<li><p>suppressconnectionevents - true or false to suppress connections. For more information see: <a href="https://snap-one.github.io/docs-driverworks-api/#suppressing-system-events">Suppressing System Events</a></p></li>
 </ul>
 
 <p>To the right is a sample tPortParams table using default values:</p>
@@ -16878,7 +16878,7 @@ Using no delimiter: 000a959d6816</p>
 <li>&lt;connectionname&gt; - Reflects the type of connection the XML supports.</li>
 <li>&lt;type&gt; - The type value of 4 is used for all network connections.</li>
 <li>&lt;hidden&gt; - The hidden value indicates if the connection will be displayed in ComposerPro. In this example, the connection will be visible in ComposerPro.</li>
-<li>&lt;consumer&gt; - The consumer value of true is used for all network connections. </li>
+<li>&lt;consumer&gt; - The consumer value of true is used for all network connections.</li>
 </ul>
 
 <p>In the example above, this is followed by the class section of the XML which contains the classname element. Note that the class name element is the same as the connectionname value.</p>
@@ -16894,7 +16894,7 @@ Using no delimiter: 000a959d6816</p>
 <span class="err">   </span><span class="n">KEEP_CONNECTION</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span>
 <span class="err">   </span><span class="n">KEEP_ALIVE</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span>
 <span class="err">   </span><span class="n">DELIMITER</span> <span class="o">=</span> <span class="s2">"0d0a"</span>
-<span class="p">}</span> 
+<span class="p">}</span>
 <span class="n">C4</span><span class="p">:</span><span class="n">CreateNetworkConnection</span> <span class="p">(</span><span class="mi">6001</span><span class="p">,</span> <span class="s1">'192.168.1.100'</span><span class="p">,</span> <span class="s2">"TCP"</span><span class="p">)</span>
 <span class="n">C4</span><span class="p">:</span><span class="n">NetPortOptions</span><span class="p">(</span><span class="mi">6001</span><span class="p">,</span> <span class="mi">6700</span><span class="p">,</span> <span class="s2">"TCP"</span><span class="p">,</span> <span class="n">tPortParams</span><span class="p">)</span>
 <span class="n">C4</span><span class="p">:</span><span class="n">NetConnect</span><span class="p">(</span><span class="mi">6001</span><span class="p">,</span> <span class="mi">6700</span><span class="p">)</span>
@@ -16904,11 +16904,11 @@ Using no delimiter: 000a959d6816</p>
 
 <p><code>C4:CreateNetworkConnection (6001, &#39;192.168.1.100&#39;, &quot;TCP&quot;)</code></p>
 
-<p>This connection&#39;s port parameters are sent using the NetPortOptions API: </p>
+<p>This connection&#39;s port parameters are sent using the NetPortOptions API:</p>
 
 <p><code>C4:NetPortOptions(6001, 6700, &quot;TCP&quot;, tPortParams)</code></p>
 
-<p>Finally, the connection is made using the <a href="https://control4.github.io/docs-driverworks-api/#netconnect">NetConnect</a> API The use of the NetConnect API is required for the new connection to be made.</p>
+<p>Finally, the connection is made using the <a href="https://snap-one.github.io/docs-driverworks-api/#netconnect">NetConnect</a> API The use of the NetConnect API is required for the new connection to be made.</p>
 
 <h2 id='sample-ssl-multi-port-connection'>Sample SSL (Multi-Port) Connection</h2>
 
@@ -16950,27 +16950,27 @@ Using no delimiter: 000a959d6816</p>
 <span class="nt">&lt;/connection&gt;</span>
 </code></pre></div>
 
-<p>This connection using the first port is created using the <a href="https://control4.github.io/docs-driverworks-api/#createnetworkconnection">CreateNetworkConnection</a> API: </p>
+<p>This connection using the first port is created using the <a href="https://snap-one.github.io/docs-driverworks-api/#createnetworkconnection">CreateNetworkConnection</a> API:</p>
 
 <p><code>C4:CreateNetworkConnection (6001, &#39;192.168.1.100&#39;, &quot;SSL&quot;)</code></p>
 
-<p>This connection&#39;s port parameters are sent using the <a href="https://control4.github.io/docs-driverworks-api/#netportoptions">NetPortOptions</a> API:</p>
+<p>This connection&#39;s port parameters are sent using the <a href="https://snap-one.github.io/docs-driverworks-api/#netportoptions">NetPortOptions</a> API:</p>
 
 <p><code>C4:NetPortOptions(6001, 443, &quot;SSL&quot;, tPortParams)</code></p>
 
-<p>Finally, the connection is actually made using the <a href="https://control4.github.io/docs-driverworks-api/#netconnect">NetConnect</a> API. The use of the NectConnect API is required for the new connection to be made:</p>
+<p>Finally, the connection is actually made using the <a href="https://snap-one.github.io/docs-driverworks-api/#netconnect">NetConnect</a> API. The use of the NectConnect API is required for the new connection to be made:</p>
 
 <p><code>C4:NetConnect(6001, 443)</code></p>
 
-<p>This connection using the second port is created using the <a href="https://control4.github.io/docs-driverworks-api/#createnetworkconnection">CreateNetworkConnection</a> API:</p>
+<p>This connection using the second port is created using the <a href="https://snap-one.github.io/docs-driverworks-api/#createnetworkconnection">CreateNetworkConnection</a> API:</p>
 
 <p><code>tPortParams[&quot;AUTO_CONNECT&quot;] = false</code></p>
 
-<p>This connection&#39;s port parameters are sent using the <a href="https://control4.github.io/docs-driverworks-api/#netportoptions">NetPortOptions</a> API:</p>
+<p>This connection&#39;s port parameters are sent using the <a href="https://snap-one.github.io/docs-driverworks-api/#netportoptions">NetPortOptions</a> API:</p>
 
 <p><code>C4:NetPortOptions(6001, 444, &quot;SSL&quot;, tPortParams)</code></p>
 
-<p>Finally, the connection is made using the NetConnect API The use of the <a href="https://control4.github.io/docs-driverworks-api/#netconnect">NectConnect</a> API is required for the new connection to be made:</p>
+<p>Finally, the connection is made using the NetConnect API The use of the <a href="https://snap-one.github.io/docs-driverworks-api/#netconnect">NectConnect</a> API is required for the new connection to be made:</p>
 
 <p><code>C4:NetConnect(6001, 444)</code></p>
 <h1 id='server-socket-interface'>Server Socket Interface</h1>
@@ -17032,7 +17032,7 @@ Using no delimiter: 000a959d6816</p>
 <span class="k">end</span>
 </code></pre></div>
 
-<p>Prior to operating system 2.9.0, it was not possible to specify a port in the C4:CreateServer API that was guaranteed to be safe. While the system could choose a port for you, the caller could not get that port to pass to clients for use. The end result was that driver writers would create drivers that would steal ports from Director or from each other. </p>
+<p>Prior to operating system 2.9.0, it was not possible to specify a port in the C4:CreateServer API that was guaranteed to be safe. While the system could choose a port for you, the caller could not get that port to pass to clients for use. The end result was that driver writers would create drivers that would steal ports from Director or from each other.</p>
 
 <p>Beginning with 2.9.0, callbacks have been modified or added (OnServerStatusChanged) where needed to allow getting the ephemeral port from the C4:CreateServer API and to get the IP address of a client connecting to the server created with C4:CreateServer. It is still possible to pass 0 for the port to have the OS select an available port for you. In the first example to the right, <code>C4:CreateServer</code> is specifying an ephemeral Port:</p>
 
@@ -17049,7 +17049,7 @@ Using no delimiter: 000a959d6816</p>
 <span class="k">end</span>
 </code></pre></div>
 
-<p>Next, <a href="https://control4.github.io/docs-driverworks-api/#onserverconnectionstatuschanged">OnServerConnectionStatusChanged</a> now Reports Client IP:</p>
+<p>Next, <a href="https://snap-one.github.io/docs-driverworks-api/#onserverconnectionstatuschanged">OnServerConnectionStatusChanged</a> now Reports Client IP:</p>
 
 <div class="highlight"><pre class="highlight lua tab-lua"><code><span class="k">function</span> <span class="nf">OnServerConnectionStatusChanged</span><span class="p">(</span><span class="n">nHash</span><span class="p">,</span> <span class="n">nPort</span><span class="p">,</span> <span class="n">strStatus</span><span class="p">,</span> <span class="n">strIP</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">"OnServerConnectionStatusChanged hash: "</span> <span class="o">..</span> <span class="n">nHash</span> <span class="o">..</span> <span class="s2">" port: "</span> <span class="o">..</span> <span class="n">nPort</span> <span class="o">..</span> <span class="s2">" status: "</span> <span class="o">..</span> <span class="n">strStatus</span> <span class="o">..</span> <span class="s2">" ip: "</span> <span class="o">..</span> <span class="n">strIP</span><span class="p">)</span>
@@ -17229,7 +17229,7 @@ Using no delimiter: 000a959d6816</p>
 <p>Close a previously open Server Socket connection. This API should not be invoked during OnDriverInit.</p>
 
 <p><h6 id='available-from-2-10-0'>Available from 2.10.0</h6><h3 id='signature'>Signature</h3>
-<p><code>C4:ServerCloseClient(nHandle)</code> </p></p>
+<p><code>C4:ServerCloseClient(nHandle)</code></p></p>
 
 <table><thead>
 <tr>
@@ -17239,7 +17239,7 @@ Using no delimiter: 000a959d6816</p>
 </thead><tbody>
 <tr>
 <td>num</td>
-<td>Server Socket handle received in <a href="https://control4.github.io/docs-driverworks-api/#onserverconnectionstatuschanged">OnServerConnectionStatusChanged</a>.</td>
+<td>Server Socket handle received in <a href="https://snap-one.github.io/docs-driverworks-api/#onserverconnectionstatuschanged">OnServerConnectionStatusChanged</a>.</td>
 </tr>
 </tbody></table>
 
@@ -17401,7 +17401,7 @@ See: <a href="https://en.wikipedia.org/wiki/Epoch_(computing)" title="Epoch Date
 
 <h2 id='cancel'>Cancel</h2>
 
-<p>Cancels a transfer that has been started by a call to the <a href="https://control4.github.io/docs-driverworks-api/#get">Get()</a>, <a href="https://control4.github.io/docs-driverworks-api/#post">Post()</a>, <a href="https://control4.github.io/docs-driverworks-api/#put">Put(</a>), <a href="https://control4.github.io/docs-driverworks-api/#delete">Delete()</a>, or <a href="https://control4.github.io/docs-driverworks-api/#custom">Custom()</a> methods. The C4LuaUrl object cannot be re-used after canceling a transfer.  A new instance will need to be created by a call to <a href="https://control4.github.io/docs-driverworks-api/#url-interface">C4:url()</a>.</p>
+<p>Cancels a transfer that has been started by a call to the <a href="https://snap-one.github.io/docs-driverworks-api/#get">Get()</a>, <a href="https://snap-one.github.io/docs-driverworks-api/#post">Post()</a>, <a href="https://snap-one.github.io/docs-driverworks-api/#put">Put(</a>), <a href="https://snap-one.github.io/docs-driverworks-api/#delete">Delete()</a>, or <a href="https://snap-one.github.io/docs-driverworks-api/#custom">Custom()</a> methods. The C4LuaUrl object cannot be re-used after canceling a transfer.  A new instance will need to be created by a call to <a href="https://snap-one.github.io/docs-driverworks-api/#url-interface">C4:url()</a>.</p>
 
 <p><h6 id='available-from-2-10-5'>Available from 2.10.5</h6><h3 id='signature'>Signature</h3>
 <p><code>C4:Cancel()</code></p>
@@ -17497,7 +17497,7 @@ See: <a href="https://en.wikipedia.org/wiki/Epoch_(computing)" title="Epoch Date
 
 <h2 id='onbody'>OnBody</h2>
 
-<p>Sets a callback function that will be called each time a response body has finished transferring. This function is called after the callback functions set by <a href="https://control4.github.io/docs-driverworks-api/#onheaders">OnHeaders()</a> and <a href="https://control4.github.io/docs-driverworks-api/#onbodychunk">OnBodyChunk()</a> but before the callback function set by <a href="https://control4.github.io/docs-driverworks-api/#ondone">OnDone()</a>. Note that this method can only be called before a transfer was started. </p>
+<p>Sets a callback function that will be called each time a response body has finished transferring. This function is called after the callback functions set by <a href="https://snap-one.github.io/docs-driverworks-api/#onheaders">OnHeaders()</a> and <a href="https://snap-one.github.io/docs-driverworks-api/#onbodychunk">OnBodyChunk()</a> but before the callback function set by <a href="https://snap-one.github.io/docs-driverworks-api/#ondone">OnDone()</a>. Note that this method can only be called before a transfer was started.</p>
 
 <p><h6 id='available-from-2-10-5'>Available from 2.10.5</h6><h3 id='signature'>Signature</h3>
 <p><code>C4:OnBody(func)</code></p></p>
@@ -17516,7 +17516,7 @@ See: <a href="https://en.wikipedia.org/wiki/Epoch_(computing)" title="Epoch Date
 
 <h3 id='usage-note'>Usage Note</h3>
 
-<p>The transfer argument is the C4LuaUrl object that was created by the call to <a href="https://control4.github.io/docs-driverworks-api/#url-interface">C4:url()</a>.</p>
+<p>The transfer argument is the C4LuaUrl object that was created by the call to <a href="https://snap-one.github.io/docs-driverworks-api/#url-interface">C4:url()</a>.</p>
 
 <h3 id='returns'>Returns</h3>
 
@@ -17548,11 +17548,11 @@ See: <a href="https://en.wikipedia.org/wiki/Epoch_(computing)" title="Epoch Date
 </tr>
 </tbody></table>
 
-<p>The same response table will be passed to the callback set by <a href="https://control4.github.io/docs-driverworks-api/#ondone">OnDone()</a>.  Any modifications to this table will persist, but not affect the transfer in any way.</p>
+<p>The same response table will be passed to the callback set by <a href="https://snap-one.github.io/docs-driverworks-api/#ondone">OnDone()</a>.  Any modifications to this table will persist, but not affect the transfer in any way.</p>
 
 <h2 id='onbodychunk'>OnBodychunk</h2>
 
-<p>Sets a callback function that will be called each time a chunk of the response body has transferred.  This does not necessarily correlate to chunks in the context of the HTTP &quot;chunked&quot; transfer encoding. This function may be called multiple times for each response, following the callback function set by OnHeaders() and before the callback function set by <a href="https://control4.github.io/docs-driverworks-api/#onbody">OnBody()</a> and <a href="https://control4.github.io/docs-driverworks-api/#ondone">OnDone()</a>. Note that this method can only be called before a transfer was started. This callback function is not needed for most use-cases.</p>
+<p>Sets a callback function that will be called each time a chunk of the response body has transferred.  This does not necessarily correlate to chunks in the context of the HTTP &quot;chunked&quot; transfer encoding. This function may be called multiple times for each response, following the callback function set by OnHeaders() and before the callback function set by <a href="https://snap-one.github.io/docs-driverworks-api/#onbody">OnBody()</a> and <a href="https://snap-one.github.io/docs-driverworks-api/#ondone">OnDone()</a>. Note that this method can only be called before a transfer was started. This callback function is not needed for most use-cases.</p>
 
 <p><h6 id='available-from-2-10-5'>Available from 2.10.5</h6><h3 id='signature'>Signature</h3>
 <p><code>C4:OnBodyChunk(func)</code></p></p>
@@ -17571,7 +17571,7 @@ See: <a href="https://en.wikipedia.org/wiki/Epoch_(computing)" title="Epoch Date
 
 <h3 id='usage-note'>Usage Note</h3>
 
-<p>The transfer argument is the C4LuaUrl object that was created by the call to <a href="https://control4.github.io/docs-driverworks-api/#url-interface">C4:url()</a>.</p>
+<p>The transfer argument is the C4LuaUrl object that was created by the call to <a href="https://snap-one.github.io/docs-driverworks-api/#url-interface">C4:url()</a>.</p>
 
 <h3 id='returns'>Returns</h3>
 
@@ -17598,9 +17598,9 @@ See: <a href="https://en.wikipedia.org/wiki/Epoch_(computing)" title="Epoch Date
 </tr>
 </tbody></table>
 
-<p>The same response table will be passed to the callbacks set by <a href="https://control4.github.io/docs-driverworks-api/#onbody">OnBody()</a> and <a href="https://control4.github.io/docs-driverworks-api/#ondone">OnDone()</a>. Any modifications to this table will persist, but not affect the transfer in any way.</p>
+<p>The same response table will be passed to the callbacks set by <a href="https://snap-one.github.io/docs-driverworks-api/#onbody">OnBody()</a> and <a href="https://snap-one.github.io/docs-driverworks-api/#ondone">OnDone()</a>. Any modifications to this table will persist, but not affect the transfer in any way.</p>
 
-<p>The chunk argument is a string of the received chunk of the response body.  By using the <a href="https://control4.github.io/docs-driverworks-api/#onbodychunk">OnBodyChunk()</a> callback, it is up to the driver process and/or store the data as needed.  In this case, the interface does not aggregate the response body, and it is not stored in the body key of the response table.</p>
+<p>The chunk argument is a string of the received chunk of the response body.  By using the <a href="https://snap-one.github.io/docs-driverworks-api/#onbodychunk">OnBodyChunk()</a> callback, it is up to the driver process and/or store the data as needed.  In this case, the interface does not aggregate the response body, and it is not stored in the body key of the response table.</p>
 
 <h2 id='ondone'>OnDone</h2>
 
@@ -17623,11 +17623,11 @@ See: <a href="https://en.wikipedia.org/wiki/Epoch_(computing)" title="Epoch Date
 
 <h3 id='usage-note'>Usage Note</h3>
 
-<p>The transfer argument is the C4LuaUrl object that was created by the call to <a href="https://control4.github.io/docs-driverworks-api/#url-interface">C4:url()</a>. The responses argument receives a table (array) of the response tables in the order that they were received.  These response tables are the same ones that were passed to the callback functions set by <a href="https://control4.github.io/docs-driverworks-api/#onheaders">OnHeaders()</a>, <a href="https://control4.github.io/docs-driverworks-api/#onbody">OnBody()</a>, and <a href="https://control4.github.io/docs-driverworks-api/#onbodychunk">OnBodyChunk()</a>.</p>
+<p>The transfer argument is the C4LuaUrl object that was created by the call to <a href="https://snap-one.github.io/docs-driverworks-api/#url-interface">C4:url()</a>. The responses argument receives a table (array) of the response tables in the order that they were received.  These response tables are the same ones that were passed to the callback functions set by <a href="https://snap-one.github.io/docs-driverworks-api/#onheaders">OnHeaders()</a>, <a href="https://snap-one.github.io/docs-driverworks-api/#onbody">OnBody()</a>, and <a href="https://snap-one.github.io/docs-driverworks-api/#onbodychunk">OnBodyChunk()</a>.</p>
 
 <p>If the transfer succeeded, the errCode argument will be 0 and errMsg will be nil.  If the transfer was aborted by one of the callback functions the errCode argument will be -1.  Otherwise, errCode will hold a number with an error code and the errMsg argument will contain a string with details.</p>
 
-<p>Once the transfer has completed (or failed), the C4LuaUrl object cannot be re-used.  A new instance will need to be created by a call to <a href="https://control4.github.io/docs-driverworks-api/#url-interface">C4:url()</a>.</p>
+<p>Once the transfer has completed (or failed), the C4LuaUrl object cannot be re-used.  A new instance will need to be created by a call to <a href="https://snap-one.github.io/docs-driverworks-api/#url-interface">C4:url()</a>.</p>
 
 <h3 id='returns'>Returns</h3>
 
@@ -17654,7 +17654,7 @@ See: <a href="https://en.wikipedia.org/wiki/Epoch_(computing)" title="Epoch Date
 
 <h3 id='usage-note'>Usage Note</h3>
 
-<p>The transfer argument is the C4LuaUrl object that was created by the call to <a href="https://control4.github.io/docs-driverworks-api/#url-interface">C4:url()</a>.</p>
+<p>The transfer argument is the C4LuaUrl object that was created by the call to <a href="https://snap-one.github.io/docs-driverworks-api/#url-interface">C4:url()</a>.</p>
 
 <h3 id='returns'>Returns</h3>
 
@@ -17683,11 +17683,11 @@ See: <a href="https://en.wikipedia.org/wiki/Epoch_(computing)" title="Epoch Date
 
 <p>The same response table will be passed to the callbacks set by the following:</p>
 
-<p><a href="https://control4.github.io/docs-driverworks-api/#onbody">OnBody()</a></p>
+<p><a href="https://snap-one.github.io/docs-driverworks-api/#onbody">OnBody()</a></p>
 
-<p><a href="https://control4.github.io/docs-driverworks-api/#onbodychunk">OnBodyChunk()</a></p>
+<p><a href="https://snap-one.github.io/docs-driverworks-api/#onbodychunk">OnBodyChunk()</a></p>
 
-<p><a href="https://control4.github.io/docs-driverworks-api/#ondone">OnDone()</a></p>
+<p><a href="https://snap-one.github.io/docs-driverworks-api/#ondone">OnDone()</a></p>
 
 <p>Any modifications to this table will persist but not affect the transfer in any way.</p>
 
@@ -17852,7 +17852,7 @@ table:</p>
 
 <h2 id='setoptions'>SetOptions</h2>
 
-<p>This API is similar to the <a href="https://control4.github.io/docs-driverworks-api/#setoption">SetOption()</a> method, but allows the driver to pass in a table of options and their values. Note that this method can only be called before a transfer was started.</p>
+<p>This API is similar to the <a href="https://snap-one.github.io/docs-driverworks-api/#setoption">SetOption()</a> method, but allows the driver to pass in a table of options and their values. Note that this method can only be called before a transfer was started.</p>
 
 <p><h6 id='available-from-2-10-5'>Available from 2.10.5</h6><h3 id='signature'>Signature</h3>
 <p><code>C4:SetOptions(options)</code></p></p>
@@ -17871,7 +17871,7 @@ table:</p>
 
 <p>Below is a list of valid option names and their values</p>
 
-<p><code>response_headers_duplicates</code> 
+<p><code>response_headers_duplicates</code>
 boolean:</p>
 
 <p>If set to true and duplicate response headers are received, the tHeader table will have an array of string values for this header. If set to false (default) and duplicate response headers are received, only the last header received will be saved to the tHeader table. This option defaults to false.</p>
@@ -17881,7 +17881,7 @@ boolean:</p>
 
 <p>If set to true, enables the use of cookies.  If the <code>cookies_use_jar</code> option is set to true, this causes cookies to be stored in the driver&#39;s cookie jar. If set to false (default) and a Set-Cookie header is received, the cookie will neither be stored in the driver&#39;s cookie jar, nor will it be used with any redirect request that may automatically be performed. This option defaults to false.</p>
 
-<p><code>cookies_use_jar</code> 
+<p><code>cookies_use_jar</code>
 boolean:</p>
 
 <p>If set to true (default), uses cookies in the driver&#39;s cookie jar. If set to false, this transfer does not use any cookies that may be stored in the driver&#39;s cookie jar. This option defaults to true.</p>
@@ -18249,7 +18249,7 @@ Device ID 84:</p>
 <p>Function called from a DriverWorks driver to set the value of the current driver&#39;s variable. This API should not be invoked during OnDriverInit</p>
 
 <p><h6 id='available-from-1-6-0'>Available from 1.6.0.</h6><h3 id='signature'>Signature</h3>
-<p><code>C4:SetVariable(identifier, strValue)</code>  </p></p>
+<p><code>C4:SetVariable(identifier, strValue)</code></p></p>
 
 <table><thead>
 <tr>
@@ -18263,7 +18263,7 @@ Device ID 84:</p>
 </tr>
 <tr>
 <td>strValue</td>
-<td>The value passed here is variable type dependent. See supported variable types in the <a href="https://control4.github.io/docs-driverworks-api/#addvariable">AddVariable</a> API.</td>
+<td>The value passed here is variable type dependent. See supported variable types in the <a href="https://snap-one.github.io/docs-driverworks-api/#addvariable">AddVariable</a> API.</td>
 </tr>
 </tbody></table>
 
@@ -18365,10 +18365,10 @@ Device ID 84:</p>
 <h2 id='registervariablelistener'>RegisterVariableListener</h2>
 
 <p>Function called from a DriverWorks driver to set a listener on a particular device’s variable.
-When a listener is set on a variable, whenever the variable changes, the Lua <a href="https://control4.github.io/docs-driverworks-api/#onwatchedvariablechanged">OnWatchedVariableChanged</a> call is called.</p>
+When a listener is set on a variable, whenever the variable changes, the Lua <a href="https://snap-one.github.io/docs-driverworks-api/#onwatchedvariablechanged">OnWatchedVariableChanged</a> call is called.</p>
 
 <p><h6 id='available-from-1-6-0'>Available from 1.6.0.</h6><h3 id='signature'>Signature</h3>
-<p><code>C4:RegisterVariableListener(idDevice, idVariable) </code>   </p></p>
+<p><code>C4:RegisterVariableListener(idDevice, idVariable) </code></p></p>
 
 <table><thead>
 <tr>
@@ -18392,13 +18392,13 @@ When a listener is set on a variable, whenever the variable changes, the Lua <a 
 
 <h3 id='usage-notes'>Usage Notes</h3>
 
-<p>User Variables belong to the Variable Agent, with a DeviceID of 100001. The <a href="https://control4.github.io/docs-driverworks-api/#onwatchedvariablechanged">OnWatchedVariableChanged</a> function will be called immediately after the listener is successfully set.</p>
+<p>User Variables belong to the Variable Agent, with a DeviceID of 100001. The <a href="https://snap-one.github.io/docs-driverworks-api/#onwatchedvariablechanged">OnWatchedVariableChanged</a> function will be called immediately after the listener is successfully set.</p>
 
 <p>This API will fail if the variable does not exist.</p>
 
 <h3 id='example'>Example</h3>
 
-<p>This example watches the value of the temperature and HVAC mode variables on a Control4 Thermostat registered with the system as device 84.  It also registers to watch for changes to the user variable 209: </p>
+<p>This example watches the value of the temperature and HVAC mode variables on a Control4 Thermostat registered with the system as device 84.  It also registers to watch for changes to the user variable 209:</p>
 
 <div class="highlight"><pre class="highlight lua tab-lua"><code><span class="n">C4</span><span class="p">:</span><span class="n">UnregisterVariableListener</span><span class="p">(</span><span class="mi">84</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
 <span class="n">C4</span><span class="p">:</span><span class="n">UnregisterVariableListener</span><span class="p">(</span><span class="mi">84</span><span class="p">,</span> <span class="mi">1003</span><span class="p">)</span> <span class="n">C4</span><span class="p">:</span><span class="n">UnregisterVariableListener</span><span class="p">(</span><span class="mi">100001</span><span class="p">,</span> <span class="mi">209</span><span class="p">)</span>
@@ -18548,18 +18548,18 @@ When a listener is set on a variable, whenever the variable changes, the Lua <a 
 
 <p>Webservice Authentication using Lua</p>
 
-<p>Control4 drivers have the ability to perform Basic and Digest authentication with a web service using any of the  “*url”*APIs within this Interface. Authentication is achieved by passing the username and password within the string parameter used by each of the APIs. </p>
+<p>Control4 drivers have the ability to perform Basic and Digest authentication with a web service using any of the  “*url”*APIs within this Interface. Authentication is achieved by passing the username and password within the string parameter used by each of the APIs.</p>
 
-<p>Note: Starting with O.S 3, sample drivers are being delivered with the DriverWorks SDK. Included in the sample driver delivery is the generic-http driver which demonstrates how to do basic <a href="https://control4.github.io/docs-driverworks-api/#url-interface">C4:url</a> calls. The sample driver can be found at the root level of the SDK or DriverWorks SDK/Samples.</p>
+<p>Note: Starting with O.S 3, sample drivers are being delivered with the DriverWorks SDK. Included in the sample driver delivery is the generic-http driver which demonstrates how to do basic <a href="https://snap-one.github.io/docs-driverworks-api/#url-interface">C4:url</a> calls. The sample driver can be found at the root level of the SDK or DriverWorks SDK/Samples.</p>
 
 <p>Also included in the Samples directory is an example websockets client driver.</p>
 
 <h2 id='receivedasync'>ReceivedAsync</h2>
 
-<p>This function is used in conjunction with <a href="https://control4.github.io/docs-driverworks-api/#get">urlGet</a> and <a href="https://control4.github.io/docs-driverworks-api/#post">urlPost</a>. It handles the data contained in the data ticket. As soon as data is returned from getUrl, Director will call this in the Lua code. This API should not be invoked during OnDriverInit.</p>
+<p>This function is used in conjunction with <a href="https://snap-one.github.io/docs-driverworks-api/#get">urlGet</a> and <a href="https://snap-one.github.io/docs-driverworks-api/#post">urlPost</a>. It handles the data contained in the data ticket. As soon as data is returned from getUrl, Director will call this in the Lua code. This API should not be invoked during OnDriverInit.</p>
 
 <p><h6 id='available-from-1-6-0'>Available from 1.6.0.</h6><h3 id='signature'>Signature</h3>
-<p><code>function ReceivedAsync(ticketId, strData, responseCode, tHeaders, strError)</code>   </p>
+<p><code>function ReceivedAsync(ticketId, strData, responseCode, tHeaders, strError)</code></p>
 <h3 id='parameters'>Parameters</h3>
 <p><code>None</code></p>
 <h3 id='returns'>Returns</h3>
@@ -18611,9 +18611,9 @@ When a listener is set on a variable, whenever the variable changes, the Lua <a 
 <span class="k">end</span>
 </code></pre></div>
 <h2 id='urlcancel'>urlCancel</h2>
-<p>Function to cancel an ongoing transfer. Note that if a transfer is canceled, neither the ReceivedAsync() entry point nor the callback function specified in the <a href="https://control4.github.io/docs-driverworks-api/#url-interface">C4:url</a> call will be called.  Also, the ticketId is only valid from the point the C4:url function is called until either the <a href="https://control4.github.io/docs-driverworks-api/#receivedasync">ReceivedAsync()</a> entry point or the callback function was called. A call to C4:urlCancel() will also invalidate that ticketed. This API should not be invoked during OnDriverInit</p>
+<p>Function to cancel an ongoing transfer. Note that if a transfer is canceled, neither the ReceivedAsync() entry point nor the callback function specified in the <a href="https://snap-one.github.io/docs-driverworks-api/#url-interface">C4:url</a> call will be called.  Also, the ticketId is only valid from the point the C4:url function is called until either the <a href="https://snap-one.github.io/docs-driverworks-api/#receivedasync">ReceivedAsync()</a> entry point or the callback function was called. A call to C4:urlCancel() will also invalidate that ticketed. This API should not be invoked during OnDriverInit</p>
 <h6 id='available-from-2-7-0'>Available from 2.7.0.</h6><h3 id='signature'>Signature</h3>
-<p><code>C4:urlCancel(ticketId)</code>    </p></p>
+<p><code>C4:urlCancel(ticketId)</code></p></p>
 
 <table><thead>
 <tr>
@@ -18643,12 +18643,12 @@ When a listener is set on a variable, whenever the variable changes, the Lua <a 
 
 <h3 id='usage-note'>Usage Note</h3>
 
-<p>Control4 Web Service APIs, specifically those beginning with <a href="https://control4.github.io/docs-driverworks-api/#url-interface">C4:url</a>,  send the following default Headers with the HTTP(s) request:</p>
+<p>Control4 Web Service APIs, specifically those beginning with <a href="https://snap-one.github.io/docs-driverworks-api/#url-interface">C4:url</a>,  send the following default Headers with the HTTP(s) request:</p>
 
 <div class="highlight"><pre class="highlight html tab-html"><code>Host: <span class="nt">&lt;DNS</span> <span class="na">name</span> <span class="na">or</span> <span class="na">IP</span> <span class="na">of</span> <span class="na">server</span><span class="nt">&gt;</span>,
 Accept: "/",
 Accept-Encoding: "deflate, gzip"
-Connection: "close", is suggested and 
+Connection: "close", is suggested and
 </code></pre></div><h3 id='example'>Example</h3>
 <p>To the right is an example that does a C4:urlGet() and waits only a maximum of one second for a response before canceling:</p>
 <div class="highlight"><pre class="highlight lua tab-lua"><code><span class="kd">local</span> <span class="n">transferTicketId</span><span class="p">,</span> <span class="n">timer</span>
@@ -18686,19 +18686,19 @@ Connection: "close", is suggested and
 <p>This method cancels all ongoing transfers and returns an array with the ticket ids of the transfers that were canceled. This API should not be invoked during OnDriverInit.</p>
 
 <p><h6 id='available-from-2-8-1'>Available from 2.8.1.</h6><h3 id='signature'>Signature</h3>
-<p><code>C4:urlCancelAll()</code> </p>
+<p><code>C4:urlCancelAll()</code></p>
 <h3 id='parameters'>Parameters</h3>
 <p><code>None</code></p>
 <h3 id='returns'>Returns</h3>
 <p><code>None</code></p>
 <h3 id='usage-note'>Usage Note</h3>
-<p>Control4 Web Service APIs, specifically those beginning with <a href="https://control4.github.io/docs-driverworks-api/#url-interface">C4:url</a>, send the following default Headers with the HTTP(s) request:</p>
+<p>Control4 Web Service APIs, specifically those beginning with <a href="https://snap-one.github.io/docs-driverworks-api/#url-interface">C4:url</a>, send the following default Headers with the HTTP(s) request:</p>
 <div class="highlight"><pre class="highlight lua tab-lua"><code><span class="n">Host</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">DNS</span> <span class="n">name</span> <span class="ow">or</span> <span class="n">IP</span> <span class="n">of</span> <span class="n">server</span><span class="o">&gt;</span><span class="p">,</span>
 <span class="n">Accept</span><span class="p">:</span> <span class="s2">&quot;/&quot;</span><span class="p">,</span>
 <span class="n">Accept</span><span class="o">-</span><span class="n">Encoding</span><span class="p">:</span> <span class="s2">&quot;deflate, gzip&quot;</span>
 <span class="n">Connection</span><span class="p">:</span> <span class="s2">&quot;close&quot;</span>
 </code></pre></div>
-<p>It is recommended that these Headers NOT be overwritten. </p></p>
+<p>It is recommended that these Headers NOT be overwritten.</p></p>
 
 <p>Note that a user-agent string is not included in the default Headers. However, including one within a driver is suggested as it makes diagnostics easier for servers.</p>
 
@@ -18707,7 +18707,7 @@ Connection: "close", is suggested and
 <p>Function to clear all cookies from a driver&#39;s cookie jar.</p>
 
 <p><h6 id='available-from-2-9-0'>Available from 2.9.0.</h6><h3 id='signature'>Signature</h3>
-<p><code>C4:urlClearCookies() </code>    </p>
+<p><code>C4:urlClearCookies() </code></p>
 <h3 id='parameters'>Parameters</h3>
 <p><code>None</code></p>
 <h3 id='returns'>Returns</h3>
@@ -18723,13 +18723,13 @@ Connection: "close", is suggested and
 </tr>
 </tbody></table>
 <h3 id='usage-note'>Usage Note</h3>
-<p>Control4 Web Service APIs, specifically those beginning with <a href="https://control4.github.io/docs-driverworks-api/#url-interface">C4:url</a>, send the following default Headers with the HTTP(s) request:</p>
+<p>Control4 Web Service APIs, specifically those beginning with <a href="https://snap-one.github.io/docs-driverworks-api/#url-interface">C4:url</a>, send the following default Headers with the HTTP(s) request:</p>
 <div class="highlight"><pre class="highlight html tab-html"><code>Host: <span class="nt">&lt;DNS</span> <span class="na">name</span> <span class="na">or</span> <span class="na">IP</span> <span class="na">of</span> <span class="na">server</span><span class="nt">&gt;</span>,
 Accept: &quot;/&quot;,
 Accept-Encoding: &quot;deflate, gzip&quot;
-Connection: &quot;close&quot;, is suggested and 
+Connection: &quot;close&quot;, is suggested and
 </code></pre></div>
-<p>It is recommend that these Headers NOT be overwritten. </p></p>
+<p>It is recommend that these Headers NOT be overwritten.</p></p>
 
 <p>Note that a user-agent string is not included in the default Headers. However, including one within a driver is suggested as it makes diagnostics easier for servers.</p>
 
@@ -18738,7 +18738,7 @@ Connection: &quot;close&quot;, is suggested and
 <p>Function to clear all session cookies from a driver&#39;s cookie jar.</p>
 
 <p><h6 id='available-from-2-9-0'>Available from 2.9.0.</h6><h3 id='signature'>Signature</h3>
-<p><code>C4:urlClearSessionCookies()</code>   </p>
+<p><code>C4:urlClearSessionCookies()</code></p>
 <h3 id='parameters'>Parameters</h3>
 <p><code>None</code></p>
 <h3 id='returns'>Returns</h3>
@@ -18754,13 +18754,13 @@ Connection: &quot;close&quot;, is suggested and
 </tr>
 </tbody></table>
 <h3 id='usage-note'>Usage Note</h3>
-<p>Control4 Web Service APIs, specifically those beginning with <a href="https://control4.github.io/docs-driverworks-api/#url-interface">C4:url</a>, send the following default Headers with the HTTP(s) request:</p>
+<p>Control4 Web Service APIs, specifically those beginning with <a href="https://snap-one.github.io/docs-driverworks-api/#url-interface">C4:url</a>, send the following default Headers with the HTTP(s) request:</p>
 <div class="highlight"><pre class="highlight html tab-html"><code>Host: <span class="nt">&lt;DNS</span> <span class="na">name</span> <span class="na">or</span> <span class="na">IP</span> <span class="na">of</span> <span class="na">server</span><span class="nt">&gt;</span>,
 Accept: &quot;/&quot;,
 Accept-Encoding: &quot;deflate, gzip&quot;
-Connection: &quot;close&quot;, is suggested and 
+Connection: &quot;close&quot;, is suggested and
 </code></pre></div>
-<p>It is recommend that these Headers NOT be overwritten. </p></p>
+<p>It is recommend that these Headers NOT be overwritten.</p></p>
 
 <p>Note that a user-agent string is not included in the default Headers. However, including one within a driver is suggested as it makes diagnostics easier for servers.</p>
 
@@ -18769,7 +18769,7 @@ Connection: &quot;close&quot;, is suggested and
 <p>Function to retrieve cookies from the driver&#39;s cookie jar filtered by a specific domain.</p>
 
 <p><h6 id='available-from-2-9-0'>Available from 2.9.0.</h6><h3 id='signature'>Signature</h3>
-<p><code>C4:urlGetCookies (domain)</code> </p></p>
+<p><code>C4:urlGetCookies (domain)</code></p></p>
 
 <table><thead>
 <tr>
@@ -18813,15 +18813,15 @@ Connection: &quot;close&quot;, is suggested and
 
 <h3 id='usage-note-2'>Usage Note</h3>
 
-<p>Control4 Web Service APIs, specifically those beginning with <a href="https://control4.github.io/docs-driverworks-api/#url-interface">C4:url</a>, send the following default Headers with the HTTP(s) request:</p>
+<p>Control4 Web Service APIs, specifically those beginning with <a href="https://snap-one.github.io/docs-driverworks-api/#url-interface">C4:url</a>, send the following default Headers with the HTTP(s) request:</p>
 
 <div class="highlight"><pre class="highlight html tab-html"><code>Host: <span class="nt">&lt;DNS</span> <span class="na">name</span> <span class="na">or</span> <span class="na">IP</span> <span class="na">of</span> <span class="na">server</span><span class="nt">&gt;</span>,
 Accept: "/",
 Accept-Encoding: "deflate, gzip"
-Connection: "close", is suggested and 
+Connection: "close", is suggested and
 </code></pre></div>
 
-<p>It is recommend that these Headers NOT be overwritten. </p>
+<p>It is recommend that these Headers NOT be overwritten.</p>
 
 <p>Note that a user-agent string is not included in the default Headers. However, including one within a driver is suggested as it makes diagnostics easier for servers.</p>
 
@@ -18835,7 +18835,7 @@ Connection: "close", is suggested and
 <p>Function to retrieve cookies from the driver&#39;s cookie jar filtered by a specific domain.</p>
 <h6 id='available-from-2-9-0'>Available from 2.9.0.</h6><h3 id='signature'>Signature</h3>
 
-<p><code>C4:urlGetCookiesForDomain (domain)</code>    </p>
+<p><code>C4:urlGetCookiesForDomain (domain)</code></p>
 
 <table><thead>
 <tr>
@@ -18879,15 +18879,15 @@ Connection: "close", is suggested and
 
 <h3 id='usage-note-2'>Usage Note</h3>
 
-<p>Control4 Web Service APIs, specifically those beginning with <a href="https://control4.github.io/docs-driverworks-api/#url-interface">C4:url</a>, send the following default Headers with the HTTP(s) request:</p>
+<p>Control4 Web Service APIs, specifically those beginning with <a href="https://snap-one.github.io/docs-driverworks-api/#url-interface">C4:url</a>, send the following default Headers with the HTTP(s) request:</p>
 
 <div class="highlight"><pre class="highlight html tab-html"><code>Host: <span class="nt">&lt;DNS</span> <span class="na">name</span> <span class="na">or</span> <span class="na">IP</span> <span class="na">of</span> <span class="na">server</span><span class="nt">&gt;</span>,
 Accept: "/",
 Accept-Encoding: "deflate, gzip"
-Connection: "close", is suggested and 
+Connection: "close", is suggested and
 </code></pre></div>
 
-<p>It is recommend that these Headers NOT be overwritten. </p>
+<p>It is recommend that these Headers NOT be overwritten.</p>
 
 <p>Note that a user-agent string is not included in the default Headers. However, including one within a driver is suggested as it makes diagnostics easier for servers.</p>
 
@@ -18900,7 +18900,7 @@ Connection: "close", is suggested and
 <p>Function to retrieve cookies from the driver&#39;s cookie jar filtered by a specific domain.</p>
 <h6 id='available-from-2-9-0'>Available from 2.9.0.</h6><h3 id='signature'>Signature</h3>
 
-<p><code>C4:urlGetOption (option)</code>  </p>
+<p><code>C4:urlGetOption (option)</code></p>
 
 <table><thead>
 <tr>
@@ -18924,7 +18924,7 @@ Connection: "close", is suggested and
 
 <h3 id='usage-note'>Usage Note</h3>
 
-<p>Control4 Web Service APIs, specifically those beginning with <a href="https://control4.github.io/docs-driverworks-api/#url-interface">C4:url</a>, send the following default Headers with the HTTP(s) request:</p>
+<p>Control4 Web Service APIs, specifically those beginning with <a href="https://snap-one.github.io/docs-driverworks-api/#url-interface">C4:url</a>, send the following default Headers with the HTTP(s) request:</p>
 
 <div class="highlight"><pre class="highlight html tab-html"><code>Host: <span class="nt">&lt;DNS</span> <span class="na">name</span> <span class="na">or</span> <span class="na">IP</span> <span class="na">of</span> <span class="na">server</span><span class="nt">&gt;</span>,
 Accept: "/",
@@ -18932,7 +18932,7 @@ Accept-Encoding: "deflate, gzip"
 Connection: "close"
 </code></pre></div>
 
-<p>It is recommend that these Headers NOT be overwritten. </p>
+<p>It is recommend that these Headers NOT be overwritten.</p>
 
 <p>Note that a user-agent string is not included in the default Headers. However, including one within a driver is suggested as it makes diagnostics easier for servers.</p>
 
@@ -18941,19 +18941,19 @@ Connection: "close"
 <p>This method returns an array with the ticket ids of all ongoing transfers. This API should not be invoked during OnDriverInit.</p>
 
 <p><h6 id='available-from-2-8-1'>Available from 2.8.1.</h6><h3 id='signature'>Signature</h3>
-<p><code>C4:urlGetTickets()</code>    </p>
+<p><code>C4:urlGetTickets()</code></p>
 <h3 id='parameter'>Parameter</h3>
 <p><code>None</code></p>
 <h3 id='returns'>Returns</h3>
 <p>Ticket IDs</p>
 <h3 id='usage-note'>Usage Note</h3>
-<p>Control4 Web Service APIs, specifically those beginning with <a href="https://control4.github.io/docs-driverworks-api/#url-interface">C4:url</a>, send the following default Headers with the HTTP(s) request:</p>
+<p>Control4 Web Service APIs, specifically those beginning with <a href="https://snap-one.github.io/docs-driverworks-api/#url-interface">C4:url</a>, send the following default Headers with the HTTP(s) request:</p>
 <div class="highlight"><pre class="highlight html tab-html"><code>Host: <span class="nt">&lt;DNS</span> <span class="na">name</span> <span class="na">or</span> <span class="na">IP</span> <span class="na">of</span> <span class="na">server</span><span class="nt">&gt;</span>,
 Accept: &quot;/&quot;,
 Accept-Encoding: &quot;deflate, gzip&quot;
-Connection: &quot;close&quot;, is suggested and 
+Connection: &quot;close&quot;, is suggested and
 </code></pre></div>
-<p>It is recommend that these Headers NOT be overwritten. </p></p>
+<p>It is recommend that these Headers NOT be overwritten.</p></p>
 
 <p>Note that a user-agent string is not included in the default Headers. However, including one within a driver is suggested as it makes diagnostics easier for servers.</p>
 
@@ -18964,7 +18964,7 @@ Connection: &quot;close&quot;, is suggested and
 <p>NOTE: These options apply to both the &#39;legacy&#39; C4:urlGet / C4:urlPut / C4:urlPost commands, as well as the newer C4:url() functionality.</p>
 
 <p><h6 id='available-from-2-8-1'>Available from 2.8.1.</h6><h3 id='signature'>Signature</h3>
-<p><code>C4:urlSetOption(option, value)</code>    </p></p>
+<p><code>C4:urlSetOption(option, value)</code></p></p>
 
 <p>There are 2 supported options: <code>max_host_connections</code>, and &#39;pipelining&#39;.</p>
 
@@ -19000,7 +19000,7 @@ Connection: &quot;close&quot;, is suggested and
 
 <p>Note that if the concurrent transfers value is being changed to anything other than 1, the &quot;pipelining&quot; option will automatically get disabled.</p>
 
-<p>Note that If the pipelining boolean is being changed to true, the <code>max_host_connections</code> option will automatically be set. Changing this option will not have any effect until there are no active transfers running. Also, it will not apply to new transfers created until then. Once all transfers are completed, this setting will apply to any transfers created from that point on.  You can use the <a href="https://control4.github.io/docs-driverworks-api/#urlcancelall">C4:urlCancelAll()</a> method to cancel all transfers prior to setting this option, or you can use the <a href="https://control4.github.io/docs-driverworks-api/#urlgettickets">C4:urlGetTickets()</a> method to determine whether any transfers are currently pending.</p>
+<p>Note that If the pipelining boolean is being changed to true, the <code>max_host_connections</code> option will automatically be set. Changing this option will not have any effect until there are no active transfers running. Also, it will not apply to new transfers created until then. Once all transfers are completed, this setting will apply to any transfers created from that point on.  You can use the <a href="https://snap-one.github.io/docs-driverworks-api/#urlcancelall">C4:urlCancelAll()</a> method to cancel all transfers prior to setting this option, or you can use the <a href="https://snap-one.github.io/docs-driverworks-api/#urlgettickets">C4:urlGetTickets()</a> method to determine whether any transfers are currently pending.</p>
 
 <h3 id='returns'>Returns</h3>
 
@@ -19017,7 +19017,7 @@ Connection: &quot;close&quot;, is suggested and
 <p>This function is to set server related security information that may be needed in future related url calls. This API should not be invoked during OnDriverInit.</p>
 
 <p><h6 id='available-from-1-6-0'>Available from 1.6.0.</h6><h3 id='signature'>Signature</h3>
-<p><code>C4:urlSetProxy ()</code> </p></p>
+<p><code>C4:urlSetProxy ()</code></p></p>
 
 <table><thead>
 <tr>
@@ -19049,12 +19049,12 @@ Connection: &quot;close&quot;, is suggested and
 
 <h2 id='usage-note'>Usage Note</h2>
 
-<p>Control4 Web Service APIs, specifically those beginning with <a href="https://control4.github.io/docs-driverworks-api/#url-interface">C4:url</a>, send the following default Headers with the HTTP(s) request:</p>
+<p>Control4 Web Service APIs, specifically those beginning with <a href="https://snap-one.github.io/docs-driverworks-api/#url-interface">C4:url</a>, send the following default Headers with the HTTP(s) request:</p>
 
 <div class="highlight"><pre class="highlight html tab-html"><code>Host: <span class="nt">&lt;DNS</span> <span class="na">name</span> <span class="na">or</span> <span class="na">IP</span> <span class="na">of</span> <span class="na">server</span><span class="nt">&gt;</span>,
 Accept: "/",
 Accept-Encoding: "deflate, gzip"
-Connection: "close", is suggested and 
+Connection: "close", is suggested and
 </code></pre></div>
 
 <p>It is recommend that these Headers NOT be overwritten. Note that a user-agent string is not included in the default Headers. However, including one within a driver is suggested as it makes diagnostics easier for servers.</p>
@@ -19121,10 +19121,10 @@ Connection: "close", is suggested and
 
 <h2 id='updating-zigbee-device-firmware-using-driverworks'>Updating Zigbee Device firmware Using DriverWorks</h2>
 
-<p>The ability to use DriverWorks drivers to update firmware on ZigBee devices has been implemented using two features: </p>
+<p>The ability to use DriverWorks drivers to update firmware on ZigBee devices has been implemented using two features:</p>
 
 <ol>
-<li>Support of encoded BLOB data (firmware) within the driver file </li>
+<li>Support of encoded BLOB data (firmware) within the driver file</li>
 <li>Functions to handle device requests and delivery of the firmware data.</li>
 </ol>
 
@@ -19145,11 +19145,11 @@ Connection: "close", is suggested and
 
 <p><strong>Firmware Request Functions</strong></p>
 
-<p>When a device requests a firmware update (the version of the firmware on the device is older than the firmware the driver has), the driver should request a &#39;reflash lock&#39; via <a href="https://control4.github.io/docs-driverworks-api/#requestreflashlock">RequestRefreshLock</a>. This allows the driver to ensure that it is the only driver updating a device at any time. This is required so that Director can manage multiple Zigbee drivers so that only one driver will be allowed to update at a time.  This ensures that device firmware updates don&#39;t overload the zigbee network.</p>
+<p>When a device requests a firmware update (the version of the firmware on the device is older than the firmware the driver has), the driver should request a &#39;reflash lock&#39; via <a href="https://snap-one.github.io/docs-driverworks-api/#requestreflashlock">RequestRefreshLock</a>. This allows the driver to ensure that it is the only driver updating a device at any time. This is required so that Director can manage multiple Zigbee drivers so that only one driver will be allowed to update at a time.  This ensures that device firmware updates don&#39;t overload the zigbee network.</p>
 
-<p>The <a href="https://control4.github.io/docs-driverworks-api/#onreflashlockgranted">OnReflashLockGranted</a> function is called by Director when the driver has permission to update the firmware on the device.  This function ensures that the driver is the only device using the zigbee network to flash a device. This ensures that the delivery of the firmware update won’t be slowed down due to other firmware updates from other devices.</p>
+<p>The <a href="https://snap-one.github.io/docs-driverworks-api/#onreflashlockgranted">OnReflashLockGranted</a> function is called by Director when the driver has permission to update the firmware on the device.  This function ensures that the driver is the only device using the zigbee network to flash a device. This ensures that the delivery of the firmware update won’t be slowed down due to other firmware updates from other devices.</p>
 
-<p>All reflash traffic is sent to the device using standard <a href="https://control4.github.io/docs-driverworks-api/#sendzigbeepacket">SendZigbeePacket</a> and <a href="https://control4.github.io/docs-driverworks-api/#onzigbeepacketin">OnZigbeePacketIn</a> commands/functions as described above.</p>
+<p>All reflash traffic is sent to the device using standard <a href="https://snap-one.github.io/docs-driverworks-api/#sendzigbeepacket">SendZigbeePacket</a> and <a href="https://snap-one.github.io/docs-driverworks-api/#onzigbeepacketin">OnZigbeePacketIn</a> commands/functions as described above.</p>
 
 <h2 id='getblobbyname'>GetBlobByName</h2>
 
