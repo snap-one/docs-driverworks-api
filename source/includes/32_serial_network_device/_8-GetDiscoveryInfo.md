@@ -51,4 +51,4 @@ Note that C4:GetDiscoveryInfo() is not available at the time that OnDriverLateIn
 
 SDDP is a royalty-free technology that enables your device to be automatically detected by and added into customers’ Control4 systems. SDDP greatly reduces the potential for mistakes and time required for installations. Our 3,500+ dealers much prefer (and seek out) products with SDDP. SDDP is very simple to implement and we can assist you as needed.
 
-[1]:	https://control4.github.io/docs-driverworks-api/#registering-for-system-events
+[1]:	https://snap-one.github.io/docs-driverworks-api/#registering-for-system-events

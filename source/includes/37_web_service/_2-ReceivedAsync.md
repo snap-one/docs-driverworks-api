@@ -7,7 +7,7 @@ This function is used in conjunction with [urlGet][1] and [urlPost][2]. It handl
 
 ### Signature
 
-`function ReceivedAsync(ticketId, strData, responseCode, tHeaders, strError)`	
+`function ReceivedAsync(ticketId, strData, responseCode, tHeaders, strError)`
 
 
 ### Parameters
@@ -49,5 +49,5 @@ function ReceivedAsync(ticketId, strData)
 end
 ```
 
-[1]:	https://control4.github.io/docs-driverworks-api/#get
-[2]:	https://control4.github.io/docs-driverworks-api/#post
+[1]:	https://snap-one.github.io/docs-driverworks-api/#get
+[2]:	https://snap-one.github.io/docs-driverworks-api/#post

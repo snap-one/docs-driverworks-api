@@ -6,7 +6,7 @@ Function to retrieve cookies from the driver's cookie jar filtered by a specific
 
 ### Signature
 
-`C4:urlGetOption (option)`	
+`C4:urlGetOption (option)`
 
 
 | Parameter | Description |
@@ -31,8 +31,8 @@ Accept-Encoding: "deflate, gzip"
 Connection: "close"
 ```
 
-It is recommend that these Headers NOT be overwritten. 
+It is recommend that these Headers NOT be overwritten.
 
 Note that a user-agent string is not included in the default Headers. However, including one within a driver is suggested as it makes diagnostics easier for servers.
 
-[1]:	https://control4.github.io/docs-driverworks-api/#url-interface
+[1]:	https://snap-one.github.io/docs-driverworks-api/#url-interface

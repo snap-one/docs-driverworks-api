@@ -1,10 +1,10 @@
 ## InBound Driver Interface
 
-The functions listed below represent Lua functions that are not Control4 APIs but are however included in this documentation. The functions below are implemented within a DriverWorks driver and can be called by an API, Director or another external process.  
+The functions listed below represent Lua functions that are not Control4 APIs but are however included in this documentation. The functions below are implemented within a DriverWorks driver and can be called by an API, Director or another external process.
 
-For example, the Lua function UIRequest isn't a Control4 API. However, it is an InBound Driver Function that needs to be implemented in your driver if you intent to use the Control4 API:[SendUIRequest][1]. SendUIRequest sends a request to another driver. It uses the proxy or protocol ID value of the driver as a means to target the driver where the request will be sent. The driver receiving the SendUIRequest must have the InBound Driver Function UIRequest configured, which will contain the return values requested by the SendUIRequest call. 
+For example, the Lua function UIRequest isn't a Control4 API. However, it is an InBound Driver Function that needs to be implemented in your driver if you intent to use the Control4 API:[SendUIRequest][1]. SendUIRequest sends a request to another driver. It uses the proxy or protocol ID value of the driver as a means to target the driver where the request will be sent. The driver receiving the SendUIRequest must have the InBound Driver Function UIRequest configured, which will contain the return values requested by the SendUIRequest call.
 
-Here is an example of using SendUIRequest in a driver: 
+Here is an example of using SendUIRequest in a driver:
 
 `C4:SendUIRequest(231, "GET_MY_DRIVER_DATA", tParams)`
 
@@ -14,7 +14,7 @@ To the right is an example of the required UIRequest InBound Driver Function fou
 
 ```lua
 function UIRequest(sRequest, tParams)
-    tParams = tParams 
+    tParams = tParams
     local param_x = tonumber(tParams["PARAM_X"]) or 640
     local param_y = tonumber(tParams["PARAM_Y"]) or 480
                
@@ -58,24 +58,24 @@ end
 - [OnReflashLockGranted][20]
 - [OnReflashLockRevoked][21]
 
-[1]:	https://control4.github.io/docs-driverworks-api/#senduirequest
-[2]:	https://control4.github.io/docs-driverworks-api/#onbindingchanged
-[3]:	https://control4.github.io/docs-driverworks-api/#ondriverdestroyed
-[4]:	https://control4.github.io/docs-driverworks-api/#ondriverlateinit
-[5]:	https://control4.github.io/docs-driverworks-api/#ondriverinit
-[6]:	https://control4.github.io/docs-driverworks-api/#onpropertychanged
-[7]:	https://control4.github.io/docs-driverworks-api/#senduirequest
-[8]:	https://control4.github.io/docs-driverworks-api/#executecommand
-[9]:	https://control4.github.io/docs-driverworks-api/#receivedfromserial
-[10]:	https://control4.github.io/docs-driverworks-api/#receivedfromproxy
-[11]:	https://control4.github.io/docs-driverworks-api/#receivedfromnetwork
-[12]:	https://control4.github.io/docs-driverworks-api/#getprivatekeypassword
-[13]:	https://control4.github.io/docs-driverworks-api/#onvariablechanged
-[14]:	https://control4.github.io/docs-driverworks-api/#onwatchedvariablechanged
-[15]:	https://control4.github.io/docs-driverworks-api/#onconnectionstatuschanged
-[16]:	https://control4.github.io/docs-driverworks-api/#onserverconnectionstatuschanged
-[17]:	https://control4.github.io/docs-driverworks-api/#onserverdatain
-[18]:	https://control4.github.io/docs-driverworks-api/#onnetworkbindingchanged
-[19]:	https://control4.github.io/docs-driverworks-api/#onzigbeeonlinestatuschanged
-[20]:	https://control4.github.io/docs-driverworks-api/#onreflashlockgranted
-[21]:	https://control4.github.io/docs-driverworks-api/#onreflashlockrevoked
+[1]:	https://snap-one.github.io/docs-driverworks-api/#senduirequest
+[2]:	https://snap-one.github.io/docs-driverworks-api/#onbindingchanged
+[3]:	https://snap-one.github.io/docs-driverworks-api/#ondriverdestroyed
+[4]:	https://snap-one.github.io/docs-driverworks-api/#ondriverlateinit
+[5]:	https://snap-one.github.io/docs-driverworks-api/#ondriverinit
+[6]:	https://snap-one.github.io/docs-driverworks-api/#onpropertychanged
+[7]:	https://snap-one.github.io/docs-driverworks-api/#senduirequest
+[8]:	https://snap-one.github.io/docs-driverworks-api/#executecommand
+[9]:	https://snap-one.github.io/docs-driverworks-api/#receivedfromserial
+[10]:	https://snap-one.github.io/docs-driverworks-api/#receivedfromproxy
+[11]:	https://snap-one.github.io/docs-driverworks-api/#receivedfromnetwork
+[12]:	https://snap-one.github.io/docs-driverworks-api/#getprivatekeypassword
+[13]:	https://snap-one.github.io/docs-driverworks-api/#onvariablechanged
+[14]:	https://snap-one.github.io/docs-driverworks-api/#onwatchedvariablechanged
+[15]:	https://snap-one.github.io/docs-driverworks-api/#onconnectionstatuschanged
+[16]:	https://snap-one.github.io/docs-driverworks-api/#onserverconnectionstatuschanged
+[17]:	https://snap-one.github.io/docs-driverworks-api/#onserverdatain
+[18]:	https://snap-one.github.io/docs-driverworks-api/#onnetworkbindingchanged
+[19]:	https://snap-one.github.io/docs-driverworks-api/#onzigbeeonlinestatuschanged
+[20]:	https://snap-one.github.io/docs-driverworks-api/#onreflashlockgranted
+[21]:	https://snap-one.github.io/docs-driverworks-api/#onreflashlockrevoked

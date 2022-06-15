@@ -11,7 +11,7 @@ Causes Director to start sending the specified IR Code out the specified binding
 
 
 | Parameter | Description |
-| --- | --- |	
+| --- | --- |
 | num | idBinding: Proxy Binding ID. |
 | num | idBinding: Binding ID to send the IR Code. |
 | num | idIRCode: Id of the IR Code to start sending from the driver. |
@@ -33,6 +33,6 @@ volume ramps) could be catastrophic to equipment. The IR code to send must be de
 
 This example starts sending the specified IR Code out the specified IR Binding:
 
-`C4:SendIRStart(1, 22)`	
+`C4:SendIRStart(1, 22)`
 
-[1]:	https://control4.github.io/docs-driverworks-api/#sendirstop
+[1]:	https://snap-one.github.io/docs-driverworks-api/#sendirstop

@@ -11,7 +11,7 @@ Creates a Server Socket, that listens on port nPort, and sends messages to the d
 
 | Parameter | Description |
 | --- | --- |
-| num | TCP Socket to listen for connections on. See note below for additional port information. | 
+| num | TCP Socket to listen for connections on. See note below for additional port information. |
 | str | Optional: Delimiter to separate messages. If no delimiter is specified, packets are delivered as they are received. |
 | bool | bUseUDP: When True, the server socket connection is a UDP server socket. The default is TCP. |
 
@@ -45,7 +45,7 @@ function OnServerDataIn(nHandle, strData)
 end
 ```
 
-Prior to operating system 2.9.0, it was not possible to specify a port in the C4:CreateServer API that was guaranteed to be safe. While the system could choose a port for you, the caller could not get that port to pass to clients for use. The end result was that driver writers would create drivers that would steal ports from Director or from each other. 
+Prior to operating system 2.9.0, it was not possible to specify a port in the C4:CreateServer API that was guaranteed to be safe. While the system could choose a port for you, the caller could not get that port to pass to clients for use. The end result was that driver writers would create drivers that would steal ports from Director or from each other.
 
 Beginning with 2.9.0, callbacks have been modified or added (OnServerStatusChanged) where needed to allow getting the ephemeral port from the C4:CreateServer API and to get the IP address of a client connecting to the server created with C4:CreateServer. It is still possible to pass 0 for the port to have the OS select an available port for you. In the first example to the right, `C4:CreateServer` is specifying an ephemeral Port:
 
@@ -86,4 +86,4 @@ OnServerDataIn hash: 162938911 data: lkasjdfl ip: 192.168.200.100
 ```
 
 
-[1]:	https://control4.github.io/docs-driverworks-api/#onserverconnectionstatuschanged
+[1]:	https://snap-one.github.io/docs-driverworks-api/#onserverconnectionstatuschanged

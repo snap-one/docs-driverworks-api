@@ -7,7 +7,7 @@ Close a previously open Server Socket connection. This API should not be invoked
 
 ### Signature
 
-`C4:ServerCloseClient(nHandle)`	
+`C4:ServerCloseClient(nHandle)`
 
 | Parameter | Description |
 | --- | --- |
@@ -25,4 +25,4 @@ This function closes the server socket previously received.
 
 `C4:ServerCloseClient(nHandle)`
 
-[1]:	https://control4.github.io/docs-driverworks-api/#onserverconnectionstatuschanged
+[1]:	https://snap-one.github.io/docs-driverworks-api/#onserverconnectionstatuschanged

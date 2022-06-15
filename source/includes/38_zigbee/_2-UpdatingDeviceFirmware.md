@@ -1,9 +1,9 @@
 
 ## Updating Zigbee Device firmware Using DriverWorks
 
-The ability to use DriverWorks drivers to update firmware on ZigBee devices has been implemented using two features: 
+The ability to use DriverWorks drivers to update firmware on ZigBee devices has been implemented using two features:
 
-1. Support of encoded BLOB data (firmware) within the driver file 
+1. Support of encoded BLOB data (firmware) within the driver file
 2. Functions to handle device requests and delivery of the firmware data.
 
 **Encoded BLOB Data in the Driver File **
@@ -33,7 +33,7 @@ The [OnReflashLockGranted][2] function is called by Director when the driver has
 
 All reflash traffic is sent to the device using standard [SendZigbeePacket][3] and [OnZigbeePacketIn][4] commands/functions as described above.
 
-[1]:	https://control4.github.io/docs-driverworks-api/#requestreflashlock
-[2]:	https://control4.github.io/docs-driverworks-api/#onreflashlockgranted
-[3]:	https://control4.github.io/docs-driverworks-api/#sendzigbeepacket
-[4]:	https://control4.github.io/docs-driverworks-api/#onzigbeepacketin
+[1]:	https://snap-one.github.io/docs-driverworks-api/#requestreflashlock
+[2]:	https://snap-one.github.io/docs-driverworks-api/#onreflashlockgranted
+[3]:	https://snap-one.github.io/docs-driverworks-api/#sendzigbeepacket
+[4]:	https://snap-one.github.io/docs-driverworks-api/#onzigbeepacketin

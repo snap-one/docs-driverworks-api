@@ -14,10 +14,10 @@ This method requests to read at least as many bytes as specified by the min argu
 | Parameters | Description |
 | --- | --- |
 | num | Number and must be greater than 0 and is currently limited to 1024 kb |
- 
+
 
 ### Returns
 
 This method returns a reference to itself, or nil in case of an error.
 
-[1]:	https://control4.github.io/docs-driverworks-api/#onread
+[1]:	https://snap-one.github.io/docs-driverworks-api/#onread

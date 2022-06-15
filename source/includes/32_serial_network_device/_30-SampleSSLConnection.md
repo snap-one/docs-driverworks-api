@@ -40,7 +40,7 @@ To the right is a sample of a Driver's Connection XML. It shows the XML entries 
 </connection>
 ```
 
-This connection using the first port is created using the [CreateNetworkConnection][1] API: 
+This connection using the first port is created using the [CreateNetworkConnection][1] API:
 
 `C4:CreateNetworkConnection (6001, '192.168.1.100', "SSL")`
 
@@ -64,9 +64,9 @@ Finally, the connection is made using the NetConnect API The use of the [NectCon
 
  `C4:NetConnect(6001, 444)`
 
-[1]:	https://control4.github.io/docs-driverworks-api/#createnetworkconnection
-[2]:	https://control4.github.io/docs-driverworks-api/#netportoptions
-[3]:	https://control4.github.io/docs-driverworks-api/#netconnect
-[4]:	https://control4.github.io/docs-driverworks-api/#createnetworkconnection
-[5]:	https://control4.github.io/docs-driverworks-api/#netportoptions
-[6]:	https://control4.github.io/docs-driverworks-api/#netconnect
+[1]:	https://snap-one.github.io/docs-driverworks-api/#createnetworkconnection
+[2]:	https://snap-one.github.io/docs-driverworks-api/#netportoptions
+[3]:	https://snap-one.github.io/docs-driverworks-api/#netconnect
+[4]:	https://snap-one.github.io/docs-driverworks-api/#createnetworkconnection
+[5]:	https://snap-one.github.io/docs-driverworks-api/#netportoptions
+[6]:	https://snap-one.github.io/docs-driverworks-api/#netconnect

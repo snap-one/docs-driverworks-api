@@ -20,4 +20,4 @@ This API unregisters prior event registration created by the [RegisterDeviceEven
 
 `None`
 
-[1]:	https://control4.github.io/docs-driverworks-api/#registerdeviceevent
+[1]:	https://snap-one.github.io/docs-driverworks-api/#registerdeviceevent

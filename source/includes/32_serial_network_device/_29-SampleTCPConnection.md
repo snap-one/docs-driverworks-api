@@ -35,7 +35,7 @@ In the example above we see the following XML elements:
 - \<connectionname\> - Reflects the type of connection the XML supports.
 - \<type\> - The type value of 4 is used for all network connections.
 - \<hidden\> - The hidden value indicates if the connection will be displayed in ComposerPro. In this example, the connection will be visible in ComposerPro.
-- \<consumer\> - The consumer value of true is used for all network connections. 
+- \<consumer\> - The consumer value of true is used for all network connections.
 
 In the example above, this is followed by the class section of the XML which contains the classname element. Note that the class name element is the same as the connectionname value.
 
@@ -51,7 +51,7 @@ local tPortParams = {
    KEEP_CONNECTION = true,
    KEEP_ALIVE = true,
    DELIMITER = "0d0a"
-} 
+}
 C4:CreateNetworkConnection (6001, '192.168.1.100', "TCP")
 C4:NetPortOptions(6001, 6700, "TCP", tPortParams)
 C4:NetConnect(6001, 6700)
@@ -62,10 +62,10 @@ This connection is created using the CreateNetworkConnection API:
 
 `C4:CreateNetworkConnection (6001, '192.168.1.100', "TCP")`
 
-This connection's port parameters are sent using the NetPortOptions API: 
+This connection's port parameters are sent using the NetPortOptions API:
 
 `C4:NetPortOptions(6001, 6700, "TCP", tPortParams)`
 
 Finally, the connection is made using the [NetConnect][1] API The use of the NetConnect API is required for the new connection to be made.
 
-[1]:	https://control4.github.io/docs-driverworks-api/#netconnect
+[1]:	https://snap-one.github.io/docs-driverworks-api/#netconnect

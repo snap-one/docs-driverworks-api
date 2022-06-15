@@ -17,7 +17,7 @@ This API is similar to the [SetOption()][1] method, but allows the driver to pas
 Below is a list of valid option names and their values
 
 
-`response_headers_duplicates` 
+`response_headers_duplicates`
 boolean:
 
 If set to true and duplicate response headers are received, the tHeader table will have an array of string values for this header. If set to false (default) and duplicate response headers are received, only the last header received will be saved to the tHeader table. This option defaults to false.
@@ -27,7 +27,7 @@ If set to true and duplicate response headers are received, the tHeader table wi
 
 If set to true, enables the use of cookies.  If the `cookies_use_jar` option is set to true, this causes cookies to be stored in the driver's cookie jar. If set to false (default) and a Set-Cookie header is received, the cookie will neither be stored in the driver's cookie jar, nor will it be used with any redirect request that may automatically be performed. This option defaults to false.
 
-`cookies_use_jar` 
+`cookies_use_jar`
 boolean:
 
 If set to true (default), uses cookies in the driver's cookie jar. If set to false, this transfer does not use any cookies that may be stored in the driver's cookie jar. This option defaults to true.
@@ -49,4 +49,4 @@ If set to true, clears any "session" cookies (cookies with no expiration time) f
 
 A reference to itself.
 
-[1]:	https://control4.github.io/docs-driverworks-api/#setoption
+[1]:	https://snap-one.github.io/docs-driverworks-api/#setoption

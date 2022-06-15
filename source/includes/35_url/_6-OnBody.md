@@ -1,6 +1,6 @@
 ## OnBody
 
-Sets a callback function that will be called each time a response body has finished transferring. This function is called after the callback functions set by [OnHeaders()][1] and [OnBodyChunk()][2] but before the callback function set by [OnDone()][3]. Note that this method can only be called before a transfer was started. 
+Sets a callback function that will be called each time a response body has finished transferring. This function is called after the callback functions set by [OnHeaders()][1] and [OnBodyChunk()][2] but before the callback function set by [OnDone()][3]. Note that this method can only be called before a transfer was started.
 
 ###### Available from 2.10.5
 
@@ -33,8 +33,8 @@ The response table contains the following keys:
 
 The same response table will be passed to the callback set by [OnDone()][5].  Any modifications to this table will persist, but not affect the transfer in any way.
 
-[1]:	https://control4.github.io/docs-driverworks-api/#onheaders
-[2]:	https://control4.github.io/docs-driverworks-api/#onbodychunk
-[3]:	https://control4.github.io/docs-driverworks-api/#ondone
-[4]:	https://control4.github.io/docs-driverworks-api/#url-interface
-[5]:	https://control4.github.io/docs-driverworks-api/#ondone
+[1]:	https://snap-one.github.io/docs-driverworks-api/#onheaders
+[2]:	https://snap-one.github.io/docs-driverworks-api/#onbodychunk
+[3]:	https://snap-one.github.io/docs-driverworks-api/#ondone
+[4]:	https://snap-one.github.io/docs-driverworks-api/#url-interface
+[5]:	https://snap-one.github.io/docs-driverworks-api/#ondone

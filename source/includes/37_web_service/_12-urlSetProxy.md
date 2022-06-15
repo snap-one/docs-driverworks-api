@@ -7,7 +7,7 @@ This function is to set server related security information that may be needed i
 
 ### Signature
 
-`C4:urlSetProxy ()`	
+`C4:urlSetProxy ()`
 
 
 | Parameter | Description |
@@ -31,7 +31,7 @@ Control4 Web Service APIs, specifically those beginning with [C4:url][1], send t
 Host: <DNS name or IP of server>,
 Accept: "/",
 Accept-Encoding: "deflate, gzip"
-Connection: "close", is suggested and 
+Connection: "close", is suggested and
 ```
 
 It is recommend that these Headers NOT be overwritten. Note that a user-agent string is not included in the default Headers. However, including one within a driver is suggested as it makes diagnostics easier for servers.
@@ -42,4 +42,4 @@ It is recommend that these Headers NOT be overwritten. Note that a user-agent st
 `C4:urlSetProxy("www.mywebsite.com", 8080, "me", "mypassword")`
 
 
-[1]:	https://control4.github.io/docs-driverworks-api/#url-interface
+[1]:	https://snap-one.github.io/docs-driverworks-api/#url-interface

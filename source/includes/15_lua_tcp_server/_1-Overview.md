@@ -2,7 +2,7 @@
 
 This class does not in any way manage or keep track of connected clients.  If you explicitly [Close][1]() the TCP server or it goes out of scope and gets cleaned up by lua's garbage collector, it does not affect any of the accepted client connections. You can keep track of connected clients by saving them into a map in the OnAccept callback, and setting up a OnDisconnect callback for the connected client connection that removes that client from that map.
 
-Generally, the class cleans up any resources associated with it.  For example, when the object is no longer referenced, it will clean it up.  However, there are a few exceptions:  When the class is performing an asynchronous operation, e.g. a listen request, it will remain alive until the appropriate event callback function is called.  For instance, if you call the [Listen][2]() method, the class will remain alive until it either called the [OnListen][3] (and [OnResolve][4]) callback function, or the [OnError][5] callback function, even if your lua code does not have any reference to the class during that time period.  However, once the OnListen callback was called, the class gets cleaned up unless at that point your lua code somehow references this instance. This API should not be invoked 
+Generally, the class cleans up any resources associated with it.  For example, when the object is no longer referenced, it will clean it up.  However, there are a few exceptions:  When the class is performing an asynchronous operation, e.g. a listen request, it will remain alive until the appropriate event callback function is called.  For instance, if you call the [Listen][2]() method, the class will remain alive until it either called the [OnListen][3] (and [OnResolve][4]) callback function, or the [OnError][5] callback function, even if your lua code does not have any reference to the class during that time period.  However, once the OnListen callback was called, the class gets cleaned up unless at that point your lua code somehow references this instance. This API should not be invoked
 during OnDriverInit.
 
 ###### Available in 1.6.0
@@ -206,8 +206,8 @@ server:start(5, "*", 0, function(success, info)
 end)
 ```
 
-[1]:	https://control4.github.io/docs-driverworks-api/#close
-[2]:	https://control4.github.io/docs-driverworks-api/#listen
-[3]:	https://control4.github.io/docs-driverworks-api/#onlisten
-[4]:	https://control4.github.io/docs-driverworks-api/#onresolve
-[5]:	https://control4.github.io/docs-driverworks-api/#onerror
+[1]:	https://snap-one.github.io/docs-driverworks-api/#close
+[2]:	https://snap-one.github.io/docs-driverworks-api/#listen
+[3]:	https://snap-one.github.io/docs-driverworks-api/#onlisten
+[4]:	https://snap-one.github.io/docs-driverworks-api/#onresolve
+[5]:	https://snap-one.github.io/docs-driverworks-api/#onerror

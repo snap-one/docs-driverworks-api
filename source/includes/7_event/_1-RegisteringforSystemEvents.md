@@ -22,7 +22,7 @@ Creates a registration for a notification when a system event fires.
 
 The C4SystemEvents variable is the array of all event name to ID’s. Use deviceId 0 to register for device specific events for all devices. Some events are system wide and will be sent regardless of the device id that was registered, others use the device id to filter who gets what events.
 
-Additionally, your driver will need to implement the [OnSystemEvent ][2]method. 
+Additionally, your driver will need to implement the [OnSystemEvent ][2]method.
 
 
 **Useful System Event ID Values**
@@ -54,5 +54,5 @@ Note that the OnProjectChanged event was deprecated in 2.10.X due to the archite
 * OnItemRemoved
 * OnItemNameChanged
 
-[1]:	https://control4.github.io/docs-driverworks-api/#registersystemevent
-[2]:	https://control4.github.io/docs-driverworks-api/#onsystemevent
+[1]:	https://snap-one.github.io/docs-driverworks-api/#registersystemevent
+[2]:	https://snap-one.github.io/docs-driverworks-api/#onsystemevent

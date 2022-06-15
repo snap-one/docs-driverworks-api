@@ -1,6 +1,6 @@
 ## CreateTCPClient
 
-Generally, the class cleans up any resources associated with it.  For example, when the object is no longer referenced, it will cleans it up.  However, there are a few exceptions:  When the class is performing an asynchronous operation, e.g. a connect request, it will remain alive until the appropriate event callback function is called.  
+Generally, the class cleans up any resources associated with it.  For example, when the object is no longer referenced, it will cleans it up.  However, there are a few exceptions:  When the class is performing an asynchronous operation, e.g. a connect request, it will remain alive until the appropriate event callback function is called. 
 
 For instance, if you call the [Connect][1]() method, the class will remain alive until it either called the [OnConnect][2] (and [OnResolve][3]) callback function, or the [OnError][4] callback function, even if your lua code does not have any reference to the class during that time period.  The same applies to the time period between calling one of the Read() methods and the corresponding OnRead() or OnError() callback, and in between calling the Write() method and the OnWrite() or OnError() callback. This API should not be invoked during OnDriverInit.
 
@@ -112,7 +112,7 @@ PullHttpPage("example.com", "/", 5000, function(info, err)
 end)
 ```
 
-[1]:	https://control4.github.io/docs-driverworks-api/#connect
-[2]:	https://control4.github.io/docs-driverworks-api/#onconnect
-[3]:	https://control4.github.io/docs-driverworks-api/#onresolve
-[4]:	https://control4.github.io/docs-driverworks-api/#onerror
+[1]:	https://snap-one.github.io/docs-driverworks-api/#connect
+[2]:	https://snap-one.github.io/docs-driverworks-api/#onconnect
+[3]:	https://snap-one.github.io/docs-driverworks-api/#onresolve
+[4]:	https://snap-one.github.io/docs-driverworks-api/#onerror

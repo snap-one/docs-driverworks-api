@@ -15,7 +15,7 @@ This API will generate a certificate signing request (CSR) which, when sent to a
 | digest | The algorithm used by the certificate. For example, SHA256. See the [C4:GetSupportedDigests][1]()API for information on retrieving digests. |
 | curve | The elliptical curve encoding format for the certificate. |
 | subject | The person, organization or device required by the certificate. For example: `"/C=US/ST=Utah/L=SLC/O=Foo/OU=Controller Certificates/CN=foo.bar.com` |
-| `tx509_exts` | Optional  table of key/value pairs. Used in the event that the desired certificate contains X.509 encryption data. 
+| `tx509_exts` | Optional  table of key/value pairs. Used in the event that the desired certificate contains X.509 encryption data.
 
 
 ### Returns
@@ -43,7 +43,7 @@ zj0CATCBogIBATAsBgcqhkjOPQEBAiEA////////////////////////////////
 I+D0y0pvyw+tUo8eGO9QjHqmw6A0vm5OyRR3C9qDH8msuDO1ZgieUkCfnfYSoAAw
 CgYIKoZIzj0EAwIDSAAwRQIgMvJKuHT2E+um/iXdUNhJK61jSI1ygcjR77lCZM2E
 `aRkCIQCcZLJvubYxdGxB0q7ApSBujF/L6/UtL/gjuolLE6JUaw==`
-  -----END CERTIFICATE REQUEST----- 
+  -----END CERTIFICATE REQUEST-----
 ```
 
 Generate a CSR using ECC requirements with the optional X.509 parameter:
@@ -71,4 +71,4 @@ phLqvILbPqe2Lsm8JyCg/yEn5JlfncA=
  -----END CERTIFICATE REQUEST-----
 ```
 
-[1]:	https://control4.github.io/docs-driverworks-api/#getsupporteddigests
+[1]:	https://snap-one.github.io/docs-driverworks-api/#getsupporteddigests

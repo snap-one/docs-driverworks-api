@@ -11,7 +11,7 @@ Sets a callback function that will be called when the entire transfer succeeded 
 
 
 |PArameter | Description |
-| --- | --- | 
+| --- | --- |
 | func | A callback function of type func(transfer, responses, errCode, errMsg). |
 
 ### Usage Note
@@ -27,8 +27,8 @@ Once the transfer has completed (or failed), the C4LuaUrl object cannot be re-us
 
 A reference to itself.
 
-[1]:	https://control4.github.io/docs-driverworks-api/#url-interface
-[2]:	https://control4.github.io/docs-driverworks-api/#onheaders
-[3]:	https://control4.github.io/docs-driverworks-api/#onbody
-[4]:	https://control4.github.io/docs-driverworks-api/#onbodychunk
-[5]:	https://control4.github.io/docs-driverworks-api/#url-interface
+[1]:	https://snap-one.github.io/docs-driverworks-api/#url-interface
+[2]:	https://snap-one.github.io/docs-driverworks-api/#onheaders
+[3]:	https://snap-one.github.io/docs-driverworks-api/#onbody
+[4]:	https://snap-one.github.io/docs-driverworks-api/#onbodychunk
+[5]:	https://snap-one.github.io/docs-driverworks-api/#url-interface

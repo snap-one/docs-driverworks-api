@@ -25,5 +25,5 @@ See the following APIs in the Serial Network Device Interface:
 
 
 
-[1]:	https://control4.github.io/docs-driverworks-api/#netconnect
-[2]:	https://control4.github.io/docs-driverworks-api/#onconnectionstatuschanged
+[1]:	https://snap-one.github.io/docs-driverworks-api/#netconnect
+[2]:	https://snap-one.github.io/docs-driverworks-api/#onconnectionstatuschanged

@@ -18,12 +18,12 @@ This method sets a callback method that will be called once data has been read o
 
 ### Usage Note
 
-- client is this C4LuaTCPClient instance 
-- data is a string with the data that has been read. This can also be any object if you used the [ReadUntil][1]() method with a custom function that returns an object (e.g. pre-parsed data). 
+- client is this C4LuaTCPClient instance
+- data is a string with the data that has been read. This can also be any object if you used the [ReadUntil][1]() method with a custom function that returns an object (e.g. pre-parsed data).
 
 
 ### Returns
 
 This method returns a reference to itself.
 
-[1]:	https://control4.github.io/docs-driverworks-api/#readuntil
+[1]:	https://snap-one.github.io/docs-driverworks-api/#readuntil

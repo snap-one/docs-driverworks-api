@@ -52,4 +52,4 @@ print(Bar["Biz"])
 print(Bar["Qux"])
 ```
 
-[1]:	https://control4.github.io/docs-driverworks-api/#persistgetvalue
+[1]:	https://snap-one.github.io/docs-driverworks-api/#persistgetvalue

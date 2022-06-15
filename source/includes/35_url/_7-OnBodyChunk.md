@@ -34,9 +34,9 @@ The same response table will be passed to the callbacks set by [OnBody()][4] and
 
 The chunk argument is a string of the received chunk of the response body.  By using the [OnBodyChunk()][6] callback, it is up to the driver process and/or store the data as needed.  In this case, the interface does not aggregate the response body, and it is not stored in the body key of the response table.
 
-[1]:	https://control4.github.io/docs-driverworks-api/#onbody
-[2]:	https://control4.github.io/docs-driverworks-api/#ondone
-[3]:	https://control4.github.io/docs-driverworks-api/#url-interface
-[4]:	https://control4.github.io/docs-driverworks-api/#onbody
-[5]:	https://control4.github.io/docs-driverworks-api/#ondone
-[6]:	https://control4.github.io/docs-driverworks-api/#onbodychunk
+[1]:	https://snap-one.github.io/docs-driverworks-api/#onbody
+[2]:	https://snap-one.github.io/docs-driverworks-api/#ondone
+[3]:	https://snap-one.github.io/docs-driverworks-api/#url-interface
+[4]:	https://snap-one.github.io/docs-driverworks-api/#onbody
+[5]:	https://snap-one.github.io/docs-driverworks-api/#ondone
+[6]:	https://snap-one.github.io/docs-driverworks-api/#onbodychunk

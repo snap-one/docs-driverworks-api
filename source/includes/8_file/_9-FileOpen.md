@@ -8,7 +8,7 @@ of -1 is returned if an error.  This API can be invoked during OnDriverInit.
 
 ### Signature
 
-`C4:FileOpen` 
+`C4:FileOpen`
 
 
 | Parameter | Description |
@@ -37,13 +37,13 @@ end
 
 ### Usage Note
 
-The `C4:FileOpen()` function always opens a file so that the position is at end-of-file. For example: 
+The `C4:FileOpen()` function always opens a file so that the position is at end-of-file. For example:
 
 `local f = io.open(fullfilePath, "rba")`
 
-Opening the file as illustrated above opens the file for read, binary, and append (rba). This means that anything written to the file occurs at the end of the file. This ensures that writes don't overwrite existing data. 
+Opening the file as illustrated above opens the file for read, binary, and append (rba). This means that anything written to the file occurs at the end of the file. This ensures that writes don't overwrite existing data.
 
-However, this also means that attempts to read the file will not return any data because the current read position is at end-of-file. 
+However, this also means that attempts to read the file will not return any data because the current read position is at end-of-file.
 
 The example given above can be corrected by using the [C4:FileSetPos()][1] function to reset the position to the beginning of the file before reading. See the example to the right.
 
@@ -58,4 +58,4 @@ if (fh ~= -1) then
 end
 ```
 
-[1]:	https://control4.github.io/docs-driverworks-api/#filesetpos
+[1]:	https://snap-one.github.io/docs-driverworks-api/#filesetpos

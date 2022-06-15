@@ -40,11 +40,11 @@ function OnPropertyChanged(strProperty)
       -- do stuff
     end
   elseif (string.find(strProperty,"Zone") ~= nil) then
-    -- do stuff 
+    -- do stuff
   else
     print("No action performed for " .. strProperty .. " which has been set to: " .. Properties[strProperty])
   end
 end
 ```
 
-[1]:	https://control4.github.io/docs-driverworks-api/#updateproperty
+[1]:	https://snap-one.github.io/docs-driverworks-api/#updateproperty

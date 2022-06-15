@@ -11,8 +11,8 @@ Sets a callback function that will be called each time all of the headers of a r
 
 
 |Parameter | Description |
-| --- | --- | 
-| func |  A callback function of type func (transfer, response, chunk). Returning true from this function aborts the transfer. 
+| --- | --- |
+| func |  A callback function of type func (transfer, response, chunk). Returning true from this function aborts the transfer.
 
 ### Usage Note
 
@@ -55,7 +55,7 @@ OnHeaders(
     end
 ```
 
-[1]:	https://control4.github.io/docs-driverworks-api/#url-interface
-[2]:	https://control4.github.io/docs-driverworks-api/#onbody
-[3]:	https://control4.github.io/docs-driverworks-api/#onbodychunk
-[4]:	https://control4.github.io/docs-driverworks-api/#ondone
+[1]:	https://snap-one.github.io/docs-driverworks-api/#url-interface
+[2]:	https://snap-one.github.io/docs-driverworks-api/#onbody
+[3]:	https://snap-one.github.io/docs-driverworks-api/#onbodychunk
+[4]:	https://snap-one.github.io/docs-driverworks-api/#ondone

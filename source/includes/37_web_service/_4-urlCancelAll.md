@@ -6,7 +6,7 @@ This method cancels all ongoing transfers and returns an array with the ticket i
 
 ### Signature
 
-`C4:urlCancelAll()`	
+`C4:urlCancelAll()`
 
 
 ### Parameters
@@ -31,11 +31,11 @@ Accept-Encoding: "deflate, gzip"
 Connection: "close"
 ```
 
-It is recommended that these Headers NOT be overwritten. 
+It is recommended that these Headers NOT be overwritten.
 
 Note that a user-agent string is not included in the default Headers. However, including one within a driver is suggested as it makes diagnostics easier for servers.
 
 
 
 
-[1]:	https://control4.github.io/docs-driverworks-api/#url-interface
+[1]:	https://snap-one.github.io/docs-driverworks-api/#url-interface

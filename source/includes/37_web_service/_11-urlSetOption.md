@@ -8,7 +8,7 @@ NOTE: These options apply to both the 'legacy' C4:urlGet / C4:urlPut / C4:urlPos
 
 ### Signature
 
-`C4:urlSetOption(option, value)`	
+`C4:urlSetOption(option, value)`
 
 There are 2 supported options: `max_host_connections`, and 'pipelining'.
 
@@ -22,7 +22,7 @@ pipelining parameter:
 
 | Parameter | Description |
 | --- | --- |
-| bool | pipelining. Sets whether HTTP pipelining should be enabled. | 
+| bool | pipelining. Sets whether HTTP pipelining should be enabled. |
 
 ### Usage Notes
 
@@ -43,5 +43,5 @@ Note that If the pipelining boolean is being changed to true, the `max_host_conn
 `C4:urlSetOption("pipelining", true)`
 
 
-[1]:	https://control4.github.io/docs-driverworks-api/#urlcancelall
-[2]:	https://control4.github.io/docs-driverworks-api/#urlgettickets
+[1]:	https://snap-one.github.io/docs-driverworks-api/#urlcancelall
+[2]:	https://snap-one.github.io/docs-driverworks-api/#urlgettickets

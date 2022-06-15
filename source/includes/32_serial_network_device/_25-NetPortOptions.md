@@ -76,6 +76,6 @@ UDP Connection: The use of the mirror udp port parameter defaults to false. Sett
 
 `None`
 
-[1]:	https://control4.github.io/docs-driverworks-api/#createnetworkconnection
-[2]:	https://control4.github.io/docs-driverworks-api/#createnetworkconnection
-[3]:	https://control4.github.io/docs-driverworks-api/#suppressing-system-events
+[1]:	https://snap-one.github.io/docs-driverworks-api/#createnetworkconnection
+[2]:	https://snap-one.github.io/docs-driverworks-api/#createnetworkconnection
+[3]:	https://snap-one.github.io/docs-driverworks-api/#suppressing-system-events

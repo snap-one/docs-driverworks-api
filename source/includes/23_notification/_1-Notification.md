@@ -2,7 +2,7 @@
 ## Notification Interface
 
 
-Beginning with OS 3, device drivers have the ability to include .jpeg files within notifications. These images are displayed as part of the notification. The .jpeg file can be retrieved from a cloud service that supports the device, from the device itself or from a location on a Control4 Controller. 
+Beginning with OS 3, device drivers have the ability to include .jpeg files within notifications. These images are displayed as part of the notification. The .jpeg file can be retrieved from a cloud service that supports the device, from the device itself or from a location on a Control4 Controller.
 
 Leveraging this functionality in a driver requires the following:
 
@@ -43,12 +43,12 @@ There are three types of .jpeg attachments that can be included in the Push Noti
 ```
 
 
-After clicking the Add button and opening the driver, which is a security camera in this example, we can see the three image types. When the correct type for the device the driver supports is selected, the attachment field is populated. 
+After clicking the Add button and opening the driver, which is a security camera in this example, we can see the three image types. When the correct type for the device the driver supports is selected, the attachment field is populated.
 
 
 ### Execution
 
-The following APIs have been delivered in OS 3 to support the return of the .jpeg files. 
+The following APIs have been delivered in OS 3 to support the return of the .jpeg files.
 
 [GetNotificationAttachmentURL][1]
 
@@ -62,7 +62,7 @@ Finally, the [FinishedWithNotificationAttachement][4] API has been included in t
 
 To assist with implementation, please see the notification driver.c4z file in the Samples folder of this SDK.
 
-[1]:	https://control4.github.io/docs-driverworks-api/#getnotificationattachmenturl
-[2]:	https://control4.github.io/docs-driverworks-api/#getnotificationattachmentfile
-[3]:	https://control4.github.io/docs-driverworks-api/#getnotificationattachmentbytes
-[4]:	https://control4.github.io/docs-driverworks-api/#finishedwithnotificationattachment
+[1]:	https://snap-one.github.io/docs-driverworks-api/#getnotificationattachmenturl
+[2]:	https://snap-one.github.io/docs-driverworks-api/#getnotificationattachmentfile
+[3]:	https://snap-one.github.io/docs-driverworks-api/#getnotificationattachmentbytes
+[4]:	https://snap-one.github.io/docs-driverworks-api/#finishedwithnotificationattachment
