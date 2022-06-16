@@ -7,7 +7,7 @@ This API allows for a driver to register for another driver's event. The device 
 
 ### Signature
 
-`C4:RegisterDeviceEvent(80,15)`
+`C4:RegisterDeviceEvent(deviceID,eventID)`
 
 
 | Parameter | Description |
