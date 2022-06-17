@@ -34,6 +34,7 @@ A new API: [GetBootID][9] has been added. This function returns a string that co
 
 A new API: [UUID][10] has been added. This function generates a UUID (Universally Unique IDentifier). This function has also been added to tighten driver security and support the removal of the the io.popen() call.
 
+A new API: CreateTLSServer has been added. This function enables a Lua driver to create a new secure SSL/TLS server that listens for incoming connections on a specified port.
 
 [1]:	https://snap-one.github.io/docs-driverworks-api/#createsshclient
 [2]:	https://snap-one.github.io/docs-driverworks-api/#filecreatedir
