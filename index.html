@@ -527,6 +527,9 @@
                     <a href="#gettimezone" class="toc-h2 toc-link" data-title="GetTimeZone">GetTimeZone</a>
                   </li>
                   <li>
+                    <a href="#gettickcount" class="toc-h2 toc-link" data-title="GetTickCount">GetTickCount</a>
+                  </li>
+                  <li>
                     <a href="#hexdump" class="toc-h2 toc-link" data-title="hexdump">hexdump</a>
                   </li>
                   <li>
@@ -5728,6 +5731,17 @@ re-booted, the ID will change.  The returned value is the same value as the one 
 <h3 id='usage-note'>Usage Note</h3>
 
 <p>The string value returned will be same as the Project value set in: Composer -&gt; Project Settings -&gt; Time Zone field.</p>
+
+<h2 id='gettickcount'>GetTickCount</h2>
+
+<p>Returns the number of milliseconds that have elapsed since the Operating System was started.</p>
+
+<p><h6 id='available-from-2-4-0'>Available from 2.4.0</h6><h3 id='signature'>Signature</h3>
+<p><code>GetTickCount()</code></p>
+<h3 id='parameters'>Parameters</h3>
+<p><em>None</em></p>
+<h3 id='example'>Example</h3>
+<p><code>print(C4:GetTickCount())</code></p></p>
 
 <h2 id='hexdump'>hexdump</h2>
 
