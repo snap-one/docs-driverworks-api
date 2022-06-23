@@ -2786,7 +2786,7 @@ key/value pair is created by the API if it does not exist. </p>
 
 <p>The resulting CSR to the right is generated:</p>
 
-<div class="highlight"><pre class="highlight lua tab-lua"><code><span class="n">BEGIN</span> <span class="n">CERTIFICATE</span> <span class="n">REQUEST</span><span class="c1">-----</span>
+<div class="highlight"><pre class="highlight lua tab-lua"><code> <span class="c1">-----BEGIN CERTIFICATE REQUEST-----</span>
 <span class="n">MIICvTCCAaUCAQAweDELMAkGA1UEBhMCVVMxDTALBgNVBAgMBFV0YWgxDzANBgNV</span>
 <span class="n">BAcMBkRyYXBlcjERMA8GA1UECgwIQ29udHJvbDQxIDAeBgNVBAsMF0NvbnRyb2x</span><span class="err">~~</span><span class="n">s</span>
 <span class="n">ZXIgQ2VydGlmaWNhdGVzMRQwEgYDVQQDDAtmb28uYmFyLmNvbTCCASIwDQYJKoZI</span>
@@ -2802,7 +2802,7 @@ key/value pair is created by the API if it does not exist. </p>
 <span class="n">oeom</span><span class="o">+</span><span class="n">w0fl</span><span class="o">+/</span><span class="n">qCcIjvDAGh8ODz4gfk6Mjl1iiQykOyWeGhZiGyd6G80IAF1pjciVS</span>
 <span class="n">O94cvy6o9EAAgujSCmCZFOgx3kwOfLZ</span><span class="o">/</span><span class="n">r1rq5jRvyyjK7wzL7bZHHjBJBLpe</span><span class="o">/</span><span class="n">tx0</span>
 <span class="n">AV</span><span class="o">+</span><span class="n">GeKVQe0nHme1tt1n</span><span class="o">+</span><span class="n">ZC5mIZ0q7qjKL3wwl4ckwTg</span><span class="o">/</span>
-      <span class="c1">-----END CERTIFICATE REQUEST—</span>
+<span class="c1">-----END CERTIFICATE REQUEST-----</span>
 </code></pre></div>
 
 <p>Generate a CSR using RSA requirements with the optional X.509 parameter:</p>
@@ -5067,7 +5067,7 @@ OnDriverInit.</p>
 <h2 id='createtlsserver'>CreateTLSServer</h2>
 <p>This function enables a Lua driver to create a secure SSL/TLS server that listens for incoming connections on a specified port.</p>
 <h6 id='available-from-3-3-0'>Available from 3.3.0</h6><h3 id='signature'>Signature</h3>
-<p><code>C4:CreateTLSServer(port, delimiter, options, verifyMode, cipherList, certificate, privateKey, password, chain)</code></p>
+<p><code>C4:CreateTLSServer(int, str, options, num, str, str, str, str)</code></p>
 
 <table><thead>
 <tr>
