@@ -2664,7 +2664,7 @@ key/value pair is created by the API if it does not exist. </p>
 
 <h2 id='generatecsr-ecc'>GenerateCSR ECC</h2>
 
-<p>This API will generate a certificate signing request (CSR) which, when sent to a certificate authority, will return a digital identity certificate that meets the encryption criteria defined by Elliptic-curve cryptography (ECC) standard. The use of this API assumes a thorough knowledge of public-key cryptosystems and the ECC cryptosystem definition.</p>
+<p>This API will generate a certificate signing request (CSR) which, when sent to a certificate authority, will return a digital identity certificate that meets the encryption criteria defined by Elliptic-curve cryptography (ECC) standard. The use of this API assumes a thorough knowledge of public-key cryptosystems and the ECC cryptosystem definition. The driver needs to send CSR off to a service that can sign and return the certificate. That step is left up to the driver writer. </p>
 
 <p><h6 id='available-in-3-1-2'>Available in 3.1.2.</h6><h3 id='signature'>Signature</h3>
 <p><code>C4:GenerateCSP_ECC(digest, curve, subject, tx509_exts) </code></p></p>
@@ -2695,7 +2695,7 @@ key/value pair is created by the API if it does not exist. </p>
 
 <h3 id='returns'>Returns</h3>
 
-<p><code>None</code></p>
+<p>The PEM-encoded CSR request. It should contain both the signing request and the private key.</p>
 
 <h3 id='examples'>Examples</h3>
 
@@ -2745,7 +2745,7 @@ key/value pair is created by the API if it does not exist. </p>
 
 <h2 id='generatecsr-rsa'>GenerateCSR RSA</h2>
 
-<p>This API will generate a certificate signing request (CSR) which, when sent to a certificate authority, will return a digital identity certificate that meets the encryption criteria defined by the Rivest–Shamir–Adleman (RSA) standard. The use of this API assumes a thorough knowledge of public-key cryptosystems and the RSA cryptosystem definition.</p>
+<p>This API will generate a certificate signing request (CSR) which, when sent to a certificate authority, will return a digital identity certificate that meets the encryption criteria defined by the Rivest–Shamir–Adleman (RSA) standard. The use of this API assumes a thorough knowledge of public-key cryptosystems and the RSA cryptosystem definition. The driver needs to send CSR off to a service that can sign and return the certificate. That step is left up to the driver writer. </p>
 
 <p><h6 id='available-in-3-1-2'>Available in 3.1.2.</h6><h3 id='signature'>Signature</h3>
 <p><code>C4:GenerateCSP_RSA(digest, sizeCert, subject, tx509_exts)</code></p></p>
@@ -2776,7 +2776,7 @@ key/value pair is created by the API if it does not exist. </p>
 
 <h3 id='returns'>Returns</h3>
 
-<p><code>None</code></p>
+<p>The PEM-encoded CSR request. It should contain both the signing request and the private key.</p>
 
 <h3 id='examples'>Examples</h3>
 
@@ -5065,7 +5065,7 @@ OnDriverInit.</p>
 <span class="n">Callback</span> <span class="n">was</span> <span class="n">executed</span><span class="p">.</span>
 </code></pre></div>
 <h2 id='createtlsserver'>CreateTLSServer</h2>
-<p>This function enables a Lua driver to create a secure SSL/TLS server that listens for incoming connections on a specified port.</p>
+<p>This function enables a Lua driver to create a secure SSL/TLS server that listens for incoming connections on a specified port. The driver needs to provide its own cert/key/CA. This step is left up to the driver writer.</p>
 <h6 id='available-from-3-3-0'>Available from 3.3.0</h6><h3 id='signature'>Signature</h3>
 <p><code>C4:CreateTLSServer(int, str, options, num, str, str, str, str)</code></p>
 
