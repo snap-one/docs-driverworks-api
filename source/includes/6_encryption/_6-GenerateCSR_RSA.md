@@ -1,6 +1,6 @@
 ## GenerateCSR RSA
 
-This API will generate a certificate signing request (CSR) which, when sent to a certificate authority, will return a digital identity certificate that meets the encryption criteria defined by the Rivest–Shamir–Adleman (RSA) standard. The use of this API assumes a thorough knowledge of public-key cryptosystems and the RSA cryptosystem definition.
+This API will generate a certificate signing request (CSR) which, when sent to a certificate authority, will return a digital identity certificate that meets the encryption criteria defined by the Rivest–Shamir–Adleman (RSA) standard. The use of this API assumes a thorough knowledge of public-key cryptosystems and the RSA cryptosystem definition. The driver needs to send CSR off to a service that can sign and return the certificate. That step is left up to the driver writer. 
 
 
 ###### Available in 3.1.2.
@@ -21,7 +21,7 @@ This API will generate a certificate signing request (CSR) which, when sent to a
 
 ### Returns
 
-`None`
+The PEM-encoded CSR request. It should contain both the signing request and the private key.
 
 ### Examples
 
