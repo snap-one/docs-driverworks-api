@@ -314,7 +314,7 @@ The OnData callback is invoked to notify a driver when data has been read from a
 
 ### Signature
 
-`OnData(Client, Data)`
+`OnData(client, data)`
 
 
 | Parameters | Description |
@@ -363,7 +363,7 @@ The OnDisconnected callback is invoked to notify a driver that a connection has 
 
 ### Signature
 
-`OnDisconnected(client Error)`
+`OnDisconnected(client, Error)`
 
 
 | Parameters | Description |
