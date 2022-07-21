@@ -2065,7 +2065,7 @@ SetOnDisconnected: Provides notification when the connection is disconnected, or
 <p>The OnData callback is invoked to notify a driver when data has been read from a connection.</p>
 <h3 id='signature-10'>Signature</h3>
 
-<p><code>OnData(Client, Data)</code></p>
+<p><code>OnData(client, data)</code></p>
 
 <table><thead>
 <tr>
@@ -2115,7 +2115,7 @@ SetOnDisconnected: Provides notification when the connection is disconnected, or
 <p>The OnDisconnected callback is invoked to notify a driver that a connection has been disconnected. If an error forced the closure of the connection, then the Error argument provides a string describing the error.</p>
 <h3 id='signature-11'>Signature</h3>
 
-<p><code>OnDisconnected(client Error)</code></p>
+<p><code>OnDisconnected(client, Error)</code></p>
 
 <table><thead>
 <tr>
