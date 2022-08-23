@@ -12507,7 +12507,7 @@ print(&quot;proxy is: &quot; .. proxyId)</p>
 
 <p>PersistSetValue uses its own thread for pushing values to the database. This thread doesn&#39;t start running until just before OnDriverLateInit. All values destined for the database are queued up so is lost. However, there is a window of time during which calling <a href="https://snap-one.github.io/docs-driverworks-api/#persistgetvalue">C4:PersistGetValue</a> might not return values set previously with C4.PersistSetValue.</p>
 
-<p>Persisting an empty value does not remove a value from the database. Use <code>C4:PersistDeleteValue</code> to remove a value.</p>
+<p>Persisting an empty value does not remove a value from the database. Use <a href="https://snap-one.github.io/docs-driverworks-api/#persistdeletevalue">C4:PersistDeleteValue</a> to remove a value.</p>
 
 <p><h3 id='example'>Example</h3><div class="highlight"><pre class="highlight lua tab-lua"><code><span class="n">C4</span><span class="p">:</span><span class="n">PersistSetValue</span><span class="p">(</span><span class="s2">&quot;Foo&quot;</span><span class="p">,</span> <span class="s2">&quot;Bar&quot;</span><span class="p">)</span>
 <span class="kd">local</span> <span class="n">Foo</span> <span class="o">=</span> <span class="n">C4</span><span class="p">:</span><span class="n">PersistGetValue</span><span class="p">(</span><span class="s2">&quot;Foo&quot;</span><span class="p">)</span>
