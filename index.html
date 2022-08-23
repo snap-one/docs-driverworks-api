@@ -925,18 +925,6 @@
                     <a href="#parseiso8601datetime" class="toc-h2 toc-link" data-title="ParseIso8601DateTime">ParseIso8601DateTime</a>
                   </li>
                   <li>
-                    <a href="#persistdeleteall" class="toc-h2 toc-link" data-title="PersistDeleteAll">PersistDeleteAll</a>
-                  </li>
-                  <li>
-                    <a href="#persistdeletevalue" class="toc-h2 toc-link" data-title="PersistDeleteValue">PersistDeleteValue</a>
-                  </li>
-                  <li>
-                    <a href="#persistgetvalue" class="toc-h2 toc-link" data-title="PersistGetValue">PersistGetValue</a>
-                  </li>
-                  <li>
-                    <a href="#persistsetvalue" class="toc-h2 toc-link" data-title="PersistSetValue">PersistSetValue</a>
-                  </li>
-                  <li>
                     <a href="#removedynamicbinding" class="toc-h2 toc-link" data-title="RemoveDynamicBinding">RemoveDynamicBinding</a>
                   </li>
                   <li>
@@ -1031,6 +1019,23 @@
                   </li>
                   <li>
                     <a href="#sendtoproxy" class="toc-h2 toc-link" data-title="SendToProxy">SendToProxy</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#persistence-interface" class="toc-h1 toc-link" data-title="Persistence Interface">Persistence Interface</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#persistdeleteall" class="toc-h2 toc-link" data-title="PersistDeleteAll">PersistDeleteAll</a>
+                  </li>
+                  <li>
+                    <a href="#persistdeletevalue" class="toc-h2 toc-link" data-title="PersistDeleteValue">PersistDeleteValue</a>
+                  </li>
+                  <li>
+                    <a href="#persistgetvalue" class="toc-h2 toc-link" data-title="PersistGetValue">PersistGetValue</a>
+                  </li>
+                  <li>
+                    <a href="#persistsetvalue" class="toc-h2 toc-link" data-title="PersistSetValue">PersistSetValue</a>
                   </li>
               </ul>
           </li>
@@ -11377,146 +11382,6 @@ When a driver is loaded, there are two initialization functions that are called 
    t = nil
 --]]</span>
 </code></pre></div>
-<h2 id='persistdeleteall'>PersistDeleteAll</h2>
-<p>Deletes all values from the database.</p>
-<h6 id='available-from-2-10-0'>Available from 2.10.0</h6><h3 id='signature'>Signature</h3>
-
-<p><code>C4:PersistDeleteAll()</code></p>
-
-<p>Parameter</p>
-
-<p><code>None</code></p>
-
-<h3 id='returns'>Returns</h3>
-
-<p><code>None</code></p>
-
-<h3 id='example'>Example</h3>
-
-<p><code>C4:PersistDeleteAll()</code></p>
-
-<h2 id='persistdeletevalue'>PersistDeleteValue</h2>
-
-<p>Removes a value from the database.</p>
-
-<p><h6 id='available-from-2-10-0'>Available from 2.10.0</h6><h3 id='signature'>Signature</h3>
-<p><code>C4:PersistDeleteValue (name)</code></p></p>
-
-<p>Parameter</p>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>string</td>
-<td>The name of the key for which the value is to be removed.</td>
-</tr>
-</tbody></table>
-
-<h3 id='returns'>Returns</h3>
-
-<p><code>None</code></p>
-
-<h2 id='persistgetvalue'>PersistGetValue</h2>
-
-<p>Returns the value associated with the specified name from the database. This API can be used before OnDriverLateInit.</p>
-
-<p><h6 id='available-from-2-10-0'>Available from 2.10.0</h6><h3 id='signature'>Signature</h3>
-<p><code>C4:PersistGetValue(name, encrypted)</code></p></p>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>str</td>
-<td>A string containing the name of the value.</td>
-</tr>
-<tr>
-<td>bool</td>
-<td>Boolean indicating whether the value is encrypted. If true, the value is decrypted before it is returned</td>
-</tr>
-</tbody></table>
-
-<h3 id='returns'>Returns</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>value</td>
-<td>The value associated with the specified name, or nil if no value was found. Can be : number, string, boolean, table.</td>
-</tr>
-</tbody></table>
-
-<h3 id='example'>Example</h3>
-
-<p><code>local Foo = C4:PersistGetValue(&quot;Foo&quot;) </code></p>
-
-<h2 id='persistsetvalue'>PersistSetValue</h2>
-
-<p>Persists a value associated with the specified name to the database. Note that existing values are overwritten. This API can be used before OnDriverLateInit.</p>
-
-<p><h6 id='available-from-2-10-0'>Available from 2.10.0</h6><h3 id='signature'>Signature</h3>
-<p><code>C4:PersistSetValue(name, value, encrypted) </code></p></p>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>str</td>
-<td>A string containing the name of the value.</td>
-</tr>
-<tr>
-<td>value</td>
-<td>The value to be persisted. The type can be any one of the following: number, string, boolean, table.</td>
-</tr>
-<tr>
-<td>boolean</td>
-<td>encrypted. Optional. A flag indicating whether the value is encrypted in the database.</td>
-</tr>
-</tbody></table>
-
-<h3 id='returns'>Returns</h3>
-
-<p>None</p>
-
-<h3 id='usage-note'>Usage Note</h3>
-
-<p>The value parameter type depends on the value that was set previously and can be one of the following: number, string, boolean, table.If the value parameter is a table, then the elements within the table must be one of the following types: number, string, boolean, table, nil. Tables can contain any combination of types, including nested tables. However, C4:PersistSetValue will fail if the table, or any nested table, contains any elements of the following types: lightuserdata, userdata, function, thread.</p>
-
-<p>PersistSetValue uses its own thread for pushing values to the database. This thread doesn&#39;t start running until just before OnDriverLateInit. All values destined for the database are queued up so is lost. However, there is a window of time during which calling <a href="https://snap-one.github.io/docs-driverworks-api/#persistgetvalue">C4:PersistGetValue</a> might not return values set previously with C4.PersistSetValue.</p>
-
-<p>Persisting an empty value does not remove a value from the database. Use <code>C4:PersistDeleteValue</code> to remove a value.</p>
-
-<h3 id='example'>Example</h3><div class="highlight"><pre class="highlight lua tab-lua"><code><span class="n">C4</span><span class="p">:</span><span class="n">PersistSetValue</span><span class="p">(</span><span class="s2">"Foo"</span><span class="p">,</span> <span class="s2">"Bar"</span><span class="p">)</span>
-<span class="kd">local</span> <span class="n">Foo</span> <span class="o">=</span> <span class="n">C4</span><span class="p">:</span><span class="n">PersistGetValue</span><span class="p">(</span><span class="s2">"Foo"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">Foo</span><span class="p">)</span>
-
-<span class="o">...</span>
-
-<span class="kd">local</span> <span class="n">Foo</span> <span class="o">=</span> <span class="p">{</span>
-<span class="err"> </span> <span class="err"> </span> <span class="n">Biz</span> <span class="o">=</span> <span class="s2">"Baz"</span><span class="p">,</span>
-<span class="err"> </span> <span class="err"> </span> <span class="n">Qux</span> <span class="o">=</span> <span class="s2">"Norf
-}
-
-C4:PersistSetValue("</span><span class="n">Foo</span><span class="s2">", Foo)
-
-local Bar = C4:PersistGetValue("</span><span class="n">Foo</span><span class="s2">")
-print(Bar["</span><span class="n">Biz</span><span class="s2">"])
-print(Bar["</span><span class="n">Qux</span><span class="s2">"])
-</span></code></pre></div>
 <h2 id='removedynamicbinding'>RemoveDynamicBinding</h2>
 <p>Function called by a DriverWorks driver to remove a dynamically created binding. This API should not be invoked during OnDriverInit. No Events will be sent prior to OnDriverlateInit. If an event is required, this method must be invoked in OnDriverlateInit.</p>
 <h6 id='available-from-1-6-0'>Available from 1.6.0</h6><h3 id='signature'>Signature</h3>
@@ -12516,6 +12381,151 @@ print(&quot;proxy is: &quot; .. proxyId)</p>
 <p>Send the ‘System Armed’ text to the attached security proxy Display Text:</p>
 
 <p><code>C4:SendToProxy(5001, &quot;DISPLAY_TEXT&quot;, &quot;&lt;text&gt;SYSTEM ARMED&lt;/text&gt;&quot;)</code></p>
+<h1 id='persistence-interface'>Persistence Interface</h1>
+
+<p>The Lua Persistence API enables a driver to persist and retrieve values from a database. The API works by storing key/value pairs in which a value is associated with a given key (name).</p>
+
+<h2 id='persistdeleteall'>PersistDeleteAll</h2>
+
+<p>Deletes all values from the database.</p>
+
+<p><h6 id='available-from-2-10-0'>Available from 2.10.0</h6><h3 id='signature'>Signature</h3>
+<p><code>C4:PersistDeleteAll()</code></p></p>
+
+<p>Parameter</p>
+
+<p><code>None</code></p>
+
+<h3 id='returns'>Returns</h3>
+
+<p><code>None</code></p>
+
+<h3 id='example'>Example</h3>
+
+<p><code>C4:PersistDeleteAll()</code></p>
+
+<h2 id='persistdeletevalue'>PersistDeleteValue</h2>
+
+<p>Removes a value from the database.</p>
+
+<p><h6 id='available-from-2-10-0'>Available from 2.10.0</h6><h3 id='signature'>Signature</h3>
+<p><code>C4:PersistDeleteValue (name)</code></p></p>
+
+<p>Parameter</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>string</td>
+<td>The name of the key for which the value is to be removed.</td>
+</tr>
+</tbody></table>
+
+<h3 id='returns'>Returns</h3>
+
+<p><code>None</code></p>
+
+<h2 id='persistgetvalue'>PersistGetValue</h2>
+
+<p>Returns the value associated with the specified name from the database. This API can be used before OnDriverLateInit.</p>
+
+<p><h6 id='available-from-2-10-0'>Available from 2.10.0</h6><h3 id='signature'>Signature</h3>
+<p><code>C4:PersistGetValue(name, encrypted)</code></p></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>str</td>
+<td>A string containing the name of the value.</td>
+</tr>
+<tr>
+<td>bool</td>
+<td>Boolean indicating whether the value is encrypted. If true, the value is decrypted before it is returned</td>
+</tr>
+</tbody></table>
+
+<h3 id='returns'>Returns</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>value</td>
+<td>The value associated with the specified name, or nil if no value was found. Can be : number, string, boolean, table.</td>
+</tr>
+</tbody></table>
+
+<h3 id='example'>Example</h3>
+
+<p><code>local Foo = C4:PersistGetValue(&quot;Foo&quot;) </code></p>
+
+<h2 id='persistsetvalue'>PersistSetValue</h2>
+
+<p>Persists a value associated with the specified name to the database. Note that existing values are overwritten. This API can be used before OnDriverLateInit.</p>
+
+<p><h6 id='available-from-2-10-0'>Available from 2.10.0</h6><h3 id='signature'>Signature</h3>
+<p><code>C4:PersistSetValue(name, value, encrypted) </code></p></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>str</td>
+<td>A string containing the name of the value.</td>
+</tr>
+<tr>
+<td>value</td>
+<td>The value to be persisted. The type can be any one of the following: number, string, boolean, table.</td>
+</tr>
+<tr>
+<td>boolean</td>
+<td>encrypted. Optional. A flag indicating whether the value is encrypted in the database.</td>
+</tr>
+</tbody></table>
+
+<h3 id='returns'>Returns</h3>
+
+<p>None</p>
+
+<h3 id='usage-note'>Usage Note</h3>
+
+<p>The value parameter type depends on the value that was set previously and can be one of the following: number, string, boolean, table.If the value parameter is a table, then the elements within the table must be one of the following types: number, string, boolean, table, nil. Tables can contain any combination of types, including nested tables. However, C4:PersistSetValue will fail if the table, or any nested table, contains any elements of the following types: lightuserdata, userdata, function, thread.</p>
+
+<p>PersistSetValue uses its own thread for pushing values to the database. This thread doesn&#39;t start running until just before OnDriverLateInit. All values destined for the database are queued up so is lost. However, there is a window of time during which calling <a href="https://snap-one.github.io/docs-driverworks-api/#persistgetvalue">C4:PersistGetValue</a> might not return values set previously with C4.PersistSetValue.</p>
+
+<p>Persisting an empty value does not remove a value from the database. Use <code>C4:PersistDeleteValue</code> to remove a value.</p>
+
+<p><h3 id='example'>Example</h3><div class="highlight"><pre class="highlight lua tab-lua"><code><span class="n">C4</span><span class="p">:</span><span class="n">PersistSetValue</span><span class="p">(</span><span class="s2">&quot;Foo&quot;</span><span class="p">,</span> <span class="s2">&quot;Bar&quot;</span><span class="p">)</span>
+<span class="kd">local</span> <span class="n">Foo</span> <span class="o">=</span> <span class="n">C4</span><span class="p">:</span><span class="n">PersistGetValue</span><span class="p">(</span><span class="s2">&quot;Foo&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Foo</span><span class="p">)</span></p>
+
+<p><span class="o">...</span></p>
+
+<p><span class="kd">local</span> <span class="n">Foo</span> <span class="o">=</span> <span class="p">{</span>
+<span class="err"> </span> <span class="err"> </span> <span class="n">Biz</span> <span class="o">=</span> <span class="s2">&quot;Baz&quot;</span><span class="p">,</span>
+<span class="err"> </span> <span class="err"> </span> <span class="n">Qux</span> <span class="o">=</span> <span class="s2">&quot;Norf
+}</p>
+
+<p>C4:PersistSetValue(&quot;</span><span class="n">Foo</span><span class="s2">&quot;, Foo)</p>
+
+<p>local Bar = C4:PersistGetValue(&quot;</span><span class="n">Foo</span><span class="s2">&quot;)
+print(Bar[&quot;</span><span class="n">Biz</span><span class="s2">&quot;])
+print(Bar[&quot;</span><span class="n">Qux</span><span class="s2">&quot;])
+</span></code></pre></div></p>
 <h1 id='registry-interface'>Registry Interface</h1>
 
 <h2 id='introduction'>Introduction</h2>
