@@ -1,12 +1,12 @@
 ## PersistGetValue
 
-Returns the value associated with the specified name. This API can be used before OnDriverLateInit.
+Returns the value associated with the specified name from the database. This API can be used before OnDriverLateInit.
 
 ###### Available from 2.10.0
 
 ### Signature
 
-`C4:PersistGetValue()`
+`C4:PersistGetValue(name, encrypted)`
 
 
 | Parameter | Description |

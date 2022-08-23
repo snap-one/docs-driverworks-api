@@ -1,6 +1,6 @@
 ## PersistDeleteAll
 
-Deletes all values. See PersistGetValue and PersistSetValue
+Deletes all values from the database.
 
 ###### Available from 2.10.0
 
