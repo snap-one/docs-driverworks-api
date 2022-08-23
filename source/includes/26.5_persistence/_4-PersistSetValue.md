@@ -28,7 +28,7 @@ The value parameter type depends on the value that was set previously and can be
 
 PersistSetValue uses its own thread for pushing values to the database. This thread doesn't start running until just before OnDriverLateInit. All values destined for the database are queued up so is lost. However, there is a window of time during which calling [C4:PersistGetValue][1] might not return values set previously with C4.PersistSetValue.
 
-Persisting an empty value does not remove a value from the database. Use `C4:PersistDeleteValue` to remove a value.
+Persisting an empty value does not remove a value from the database. Use [C4:PersistDeleteValue][2] to remove a value.
 
 ### Example
 
@@ -52,3 +52,4 @@ print(Bar["Qux"])
 ```
 
 [1]:	https://snap-one.github.io/docs-driverworks-api/#persistgetvalue
+[2]:	https://snap-one.github.io/docs-driverworks-api/#persistdeletevalue
