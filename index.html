@@ -928,6 +928,9 @@
                     <a href="#persistdeleteall" class="toc-h2 toc-link" data-title="PersistDeleteAll">PersistDeleteAll</a>
                   </li>
                   <li>
+                    <a href="#persistdeletevalue" class="toc-h2 toc-link" data-title="PersistDeleteValue">PersistDeleteValue</a>
+                  </li>
+                  <li>
                     <a href="#persistgetvalue" class="toc-h2 toc-link" data-title="PersistGetValue">PersistGetValue</a>
                   </li>
                   <li>
@@ -11375,7 +11378,7 @@ When a driver is loaded, there are two initialization functions that are called 
 --]]</span>
 </code></pre></div>
 <h2 id='persistdeleteall'>PersistDeleteAll</h2>
-<p>Deletes all values. See PersistGetValue and PersistSetValue</p>
+<p>Deletes all values from the database.</p>
 <h6 id='available-from-2-10-0'>Available from 2.10.0</h6><h3 id='signature'>Signature</h3>
 
 <p><code>C4:PersistDeleteAll()</code></p>
@@ -11392,12 +11395,37 @@ When a driver is loaded, there are two initialization functions that are called 
 
 <p><code>C4:PersistDeleteAll()</code></p>
 
-<h2 id='persistgetvalue'>PersistGetValue</h2>
+<h2 id='persistdeletevalue'>PersistDeleteValue</h2>
 
-<p>Returns the value associated with the specified name. This API can be used before OnDriverLateInit.</p>
+<p>Removes a value from the database.</p>
 
 <p><h6 id='available-from-2-10-0'>Available from 2.10.0</h6><h3 id='signature'>Signature</h3>
-<p><code>C4:PersistGetValue()</code></p></p>
+<p><code>C4:PersistDeleteValue (name)</code></p></p>
+
+<p>Parameter</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>string</td>
+<td>The name of the key for which the value is to be removed.</td>
+</tr>
+</tbody></table>
+
+<h3 id='returns'>Returns</h3>
+
+<p><code>None</code></p>
+
+<h2 id='persistgetvalue'>PersistGetValue</h2>
+
+<p>Returns the value associated with the specified name from the database. This API can be used before OnDriverLateInit.</p>
+
+<p><h6 id='available-from-2-10-0'>Available from 2.10.0</h6><h3 id='signature'>Signature</h3>
+<p><code>C4:PersistGetValue(name, encrypted)</code></p></p>
 
 <table><thead>
 <tr>
@@ -11435,7 +11463,7 @@ When a driver is loaded, there are two initialization functions that are called 
 
 <h2 id='persistsetvalue'>PersistSetValue</h2>
 
-<p>Persists a value associated with the specified name. This API can be used before OnDriverLateInit.</p>
+<p>Persists a value associated with the specified name to the database. Note that existing values are overwritten. This API can be used before OnDriverLateInit.</p>
 
 <p><h6 id='available-from-2-10-0'>Available from 2.10.0</h6><h3 id='signature'>Signature</h3>
 <p><code>C4:PersistSetValue(name, value, encrypted) </code></p></p>
@@ -11454,31 +11482,23 @@ When a driver is loaded, there are two initialization functions that are called 
 <td>value</td>
 <td>The value to be persisted. The type can be any one of the following: number, string, boolean, table.</td>
 </tr>
+<tr>
+<td>boolean</td>
+<td>encrypted. Optional. A flag indicating whether the value is encrypted in the database.</td>
+</tr>
 </tbody></table>
 
 <h3 id='returns'>Returns</h3>
 
-<table><thead>
-<tr>
-<th>Value</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>value</td>
-<td>The value associated with the specified name, or nil if no value was found.</td>
-</tr>
-<tr>
-<td>bool</td>
-<td>Boolean indicating whether the value is encrypted before persisting.</td>
-</tr>
-</tbody></table>
+<p>None</p>
 
 <h3 id='usage-note'>Usage Note</h3>
 
 <p>The value parameter type depends on the value that was set previously and can be one of the following: number, string, boolean, table.If the value parameter is a table, then the elements within the table must be one of the following types: number, string, boolean, table, nil. Tables can contain any combination of types, including nested tables. However, C4:PersistSetValue will fail if the table, or any nested table, contains any elements of the following types: lightuserdata, userdata, function, thread.</p>
 
 <p>PersistSetValue uses its own thread for pushing values to the database. This thread doesn&#39;t start running until just before OnDriverLateInit. All values destined for the database are queued up so is lost. However, there is a window of time during which calling <a href="https://snap-one.github.io/docs-driverworks-api/#persistgetvalue">C4:PersistGetValue</a> might not return values set previously with C4.PersistSetValue.</p>
+
+<p>Persisting an empty value does not remove a value from the database. Use <code>C4:PersistDeleteValue</code> to remove a value.</p>
 
 <h3 id='example'>Example</h3><div class="highlight"><pre class="highlight lua tab-lua"><code><span class="n">C4</span><span class="p">:</span><span class="n">PersistSetValue</span><span class="p">(</span><span class="s2">"Foo"</span><span class="p">,</span> <span class="s2">"Bar"</span><span class="p">)</span>
 <span class="kd">local</span> <span class="n">Foo</span> <span class="o">=</span> <span class="n">C4</span><span class="p">:</span><span class="n">PersistGetValue</span><span class="p">(</span><span class="s2">"Foo"</span><span class="p">)</span>
