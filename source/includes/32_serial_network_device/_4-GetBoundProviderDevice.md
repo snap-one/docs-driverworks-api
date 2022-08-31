@@ -6,7 +6,7 @@ Call to retrieve what device is attached to an input binding of the specified de
 
 ### Signature
 
-`C4:GetBoundProviderDevices()`
+`C4:GetBoundProviderDevice()`
 
 | Parameter | Description |
 | --- | --- |
