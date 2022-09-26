@@ -228,6 +228,9 @@
             <a href="#what-39-s-new" class="toc-h1 toc-link" data-title="What's New">What's New</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#what-s-new-in-3-3-1" class="toc-h2 toc-link" data-title="What’s New in 3.3.1">What’s New in 3.3.1</a>
+                  </li>
+                  <li>
                     <a href="#what-s-new-in-3-3-0" class="toc-h2 toc-link" data-title="What’s New in 3.3.0">What’s New in 3.3.0</a>
                   </li>
                   <li>
@@ -1615,6 +1618,39 @@ Salt Lake City, UT 84020 USA</p>
 
 <p>Effective communication between your driver and Control4 System is paramount to a successful end user experience. The API Reference Guide details each of the Interfaces supported through the DriverWorksSDK. These Interfaces include numerous APIs that can be leveraged by your driver to  facilitate communication between the driver and the Control4 O.S.</p>
 <h1 id='what-39-s-new'>What&#39;s New</h1>
+
+<h2 id='what-s-new-in-3-3-1'>What’s New in 3.3.1</h2>
+
+<p><strong>Encryption Interface</strong></p>
+
+<p>The <a href="https://snap-one.github.io/docs-driverworks-api-3.3.1-beta/#generatecsr-ecc">GenerateCSR ECC</a> and <a href="https://snap-one.github.io/docs-driverworks-api-3.3.1-beta/#generatecsr-rsa">GenerateCSR RSA</a> APIs have been modified. Upon success, they now return strings containing the CSR/ECC, public key and private key. Upon failure, nil is returned.</p>
+
+<p><strong> Helper Interface</strong></p>
+
+<p>As part of Control4’s plan to tighten driver security, the io.popen() call is in the process of being removed. The following APIs have been added in support of this effort: </p>
+
+<ul>
+<li><a href="https://snap-one.github.io/docs-driverworks-api-3.3.1-beta/#gethostname">GetHostname</a></li>
+<li><a href="https://snap-one.github.io/docs-driverworks-api-3.3.1-beta/#portinuse">PortInUse</a></li>
+</ul>
+
+<p><strong>Ping Interface</strong></p>
+
+<p>The Lua DriverWorks API has been expanded with the addition of the new <a href="https://snap-one.github.io/docs-driverworks-api-3.3.1-beta/#c4ping">C4Ping</a> API. This new API enables drivers to ping a specified endpoint to determine whether it is reachable across the network.</p>
+
+<p><strong>Server Socket Interface</strong></p>
+
+<p>The Lua C4:<a href="https://snap-one.github.io/docs-driverworks-api-3.3.1-beta/#createtlsserver">CreateTLSServer</a> API and <a href="https://snap-one.github.io/docs-driverworks-api-3.3.1-beta/#createserver">CreateServer</a> API have been modified to accommodate the addition of an identifier that is associated with an instance of a server. This identifier enables a Lua driver to determine which instance of a server is active.</p>
+
+<p><strong> URL Interface</strong></p>
+
+<p>As part of Control4’s plan to tighten driver security, the io.popen() call is in the process of being removed. The following APIs have been added or modified in support of this effort: </p>
+
+<ul>
+<li><a href="https://snap-one.github.io/docs-driverworks-api-3.3.1-beta/#downloadfile">DownloadFile</a></li>
+<li><a href="https://snap-one.github.io/docs-driverworks-api-3.3.1-beta/#getuname">GetUname</a></li>
+<li><a href="https://snap-one.github.io/docs-driverworks-api-3.3.1-beta/#getuptime">GetUptime</a></li>
+</ul>
 
 <h2 id='what-s-new-in-3-3-0'>What’s New in 3.3.0</h2>
 
