@@ -1623,33 +1623,33 @@ Salt Lake City, UT 84020 USA</p>
 
 <p><strong>Encryption Interface</strong></p>
 
-<p>The <a href="https://snap-one.github.io/docs-driverworks-api-3.3.1-beta/#generatecsr-ecc">GenerateCSR ECC</a> and <a href="https://snap-one.github.io/docs-driverworks-api-3.3.1-beta/#generatecsr-rsa">GenerateCSR RSA</a> APIs have been modified. Upon success, they now return strings containing the CSR/ECC, public key and private key. Upon failure, nil is returned.</p>
+<p>The <a href="https://snap-one.github.io/docs-driverworks-api/#generatecsr-ecc">GenerateCSR ECC</a> and <a href="https://snap-one.github.io/docs-driverworks-api/#generatecsr-rsa">GenerateCSR RSA</a> APIs have been modified. Upon success, they now return strings containing the CSR/ECC, public key and private key. Upon failure, nil is returned.</p>
 
 <p><strong> Helper Interface</strong></p>
 
 <p>As part of Control4’s plan to tighten driver security, the io.popen() call is in the process of being removed. The following APIs have been added in support of this effort: </p>
 
 <ul>
-<li><a href="https://snap-one.github.io/docs-driverworks-api-3.3.1-beta/#gethostname">GetHostname</a></li>
-<li><a href="https://snap-one.github.io/docs-driverworks-api-3.3.1-beta/#portinuse">PortInUse</a></li>
+<li><a href="https://snap-one.github.io/docs-driverworks-api/#gethostname">GetHostname</a></li>
+<li><a href="https://snap-one.github.io/docs-driverworks-api/#portinuse">PortInUse</a></li>
 </ul>
 
 <p><strong>Ping Interface</strong></p>
 
-<p>The Lua DriverWorks API has been expanded with the addition of the new <a href="https://snap-one.github.io/docs-driverworks-api-3.3.1-beta/#c4ping">C4Ping</a> API. This new API enables drivers to ping a specified endpoint to determine whether it is reachable across the network.</p>
+<p>The Lua DriverWorks API has been expanded with the addition of the new <a href="https://snap-one.github.io/docs-driverworks-api/#ping-interface">C4Ping</a> API. This new API enables drivers to ping a specified endpoint to determine whether it is reachable across the network.</p>
 
 <p><strong>Server Socket Interface</strong></p>
 
-<p>The Lua C4:<a href="https://snap-one.github.io/docs-driverworks-api-3.3.1-beta/#createtlsserver">CreateTLSServer</a> API and <a href="https://snap-one.github.io/docs-driverworks-api-3.3.1-beta/#createserver">CreateServer</a> API have been modified to accommodate the addition of an identifier that is associated with an instance of a server. This identifier enables a Lua driver to determine which instance of a server is active.</p>
+<p>The Lua C4:<a href="https://snap-one.github.io/docs-driverworks-api/#createtlsserver">CreateTLSServer</a> API and <a href="https://snap-one.github.io/docs-driverworks-api/#createserver">CreateServer</a> API have been modified to accommodate the addition of an identifier that is associated with an instance of a server. This identifier enables a Lua driver to determine which instance of a server is active.</p>
 
 <p><strong> URL Interface</strong></p>
 
 <p>As part of Control4’s plan to tighten driver security, the io.popen() call is in the process of being removed. The following APIs have been added or modified in support of this effort: </p>
 
 <ul>
-<li><a href="https://snap-one.github.io/docs-driverworks-api-3.3.1-beta/#downloadfile">DownloadFile</a></li>
-<li><a href="https://snap-one.github.io/docs-driverworks-api-3.3.1-beta/#getuname">GetUname</a></li>
-<li><a href="https://snap-one.github.io/docs-driverworks-api-3.3.1-beta/#getuptime">GetUptime</a></li>
+<li><a href="https://snap-one.github.io/docs-driverworks-api/#downloadfile">DownloadFile</a></li>
+<li><a href="https://snap-one.github.io/docs-driverworks-api/#getuname">GetUname</a></li>
+<li><a href="https://snap-one.github.io/docs-driverworks-api/#getuptime">GetUptime</a></li>
 </ul>
 
 <h2 id='what-s-new-in-3-3-0'>What’s New in 3.3.0</h2>
