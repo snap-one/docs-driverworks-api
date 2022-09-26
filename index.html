@@ -494,9 +494,6 @@
                     <a href="#callasync" class="toc-h2 toc-link" data-title="CallAsync">CallAsync</a>
                   </li>
                   <li>
-                    <a href="#createtlsserver" class="toc-h2 toc-link" data-title="CreateTLSServer">CreateTLSServer</a>
-                  </li>
-                  <li>
                     <a href="#evaluateexpression" class="toc-h2 toc-link" data-title="EvaluateExpression">EvaluateExpression</a>
                   </li>
                   <li>
@@ -1325,6 +1322,9 @@
                   </li>
                   <li>
                     <a href="#createserver" class="toc-h2 toc-link" data-title="CreateServer">CreateServer</a>
+                  </li>
+                  <li>
+                    <a href="#createtlsserver" class="toc-h2 toc-link" data-title="CreateTLSServer">CreateTLSServer</a>
                   </li>
                   <li>
                     <a href="#destroyserver" class="toc-h2 toc-link" data-title="DestroyServer">DestroyServer</a>
@@ -5124,246 +5124,6 @@ OnDriverInit.</p>
 <span class="n">Called</span> <span class="n">CallAsync</span><span class="p">().</span>
 <span class="n">Callback</span> <span class="n">was</span> <span class="n">executed</span><span class="p">.</span>
 </code></pre></div>
-<h2 id='createtlsserver'>CreateTLSServer</h2>
-<p>This function enables a Lua driver to create a secure SSL/TLS server that listens for incoming connections on a specified port. The driver needs to provide its own cert/key/CA. This step is left up to the driver writer.</p>
-<h6 id='available-from-3-3-0'>Available from 3.3.0</h6><h3 id='signature'>Signature</h3>
-<p><code>C4:CreateTLSServer(int, str, options, num, str, str, str, str)</code></p>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>int</td>
-<td>port. The network port to which the new server is bound.</td>
-</tr>
-<tr>
-<td>str</td>
-<td>delimiter. A sequence of one or more characters that specify the boundary between network payloads. When specified, the server socket will read from the network until it encounters the delimiter. The entire payload, including the delimiter, is then delivered to the driver. If the value of the delimiter argument is empty (no delimiter specified), then incoming network traffic is delivered to the driver as it is read from the network.</td>
-</tr>
-<tr>
-<td>int</td>
-<td>options. A numeric value that specifies the TLS options to be applied to the server. The various bits in the number identify the options that are set for the server. This number can be constructed by bitwise ORing values together. The <a href="https://snap-one.github.io/docs-driverworks-fundamentals/#operating-system-3-and-binary-data">BitOp library</a> (which is available to drivers) can perform these operations. Alternatively, if the options are known beforehand, then this value can be computed ahead of time and hardcoded. The following table identifies the options that can be set:</td>
-</tr>
-</tbody></table>
-
-<table><thead>
-<tr>
-<th>Options</th>
-<th>Value</th>
-<th>Bitwise Position</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>DEFAULT_WORKAROUNDS: Enables various SSL/TLS bug workarounds</td>
-<td>0x0001</td>
-<td>000000001</td>
-</tr>
-<tr>
-<td>NO_COMPRESSION: Disables SSL compression (disabled by default)</td>
-<td>0x0002</td>
-<td>000000010</td>
-</tr>
-<tr>
-<td>SSL_OP_NO_SSLv2: Disables the SSL version 2 protocol</td>
-<td>0x0004</td>
-<td>000000100</td>
-</tr>
-<tr>
-<td>SSL_OP_NO_SSLv3: Disables the SSL version 3 protocol</td>
-<td>0x0008</td>
-<td>000001000</td>
-</tr>
-<tr>
-<td>SSL_OP_NO_TLSv1: Disable the TLS version 1 protocol</td>
-<td>0x0010</td>
-<td>000010000</td>
-</tr>
-<tr>
-<td>SSL_OP_NO_TLSv1_1: Disables the TLS version 1.1 protocol</td>
-<td>0x0020</td>
-<td>000100000</td>
-</tr>
-<tr>
-<td>SSL_OP_NO_TLSv1_2: Disables the TLS version 1.2 protocol</td>
-<td>0x0040</td>
-<td>001000000</td>
-</tr>
-<tr>
-<td>SSL_OP_NO_TLSv1_3: Disables the TLS version 1.3 protocol</td>
-<td>0x0080</td>
-<td>010000000</td>
-</tr>
-</tbody></table>
-
-<p>If the value is zero, then the following default value is used: 0x003D, which consists of the following options ORed together:</p>
-
-<table><thead>
-<tr>
-<th>Options</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>DEFAULT_WORKAROUNDS</td>
-</tr>
-<tr>
-<td>SSL_OP_NO_SSLv2</td>
-</tr>
-<tr>
-<td>SSL_OP_NO_SSLv3</td>
-</tr>
-<tr>
-<td>SSL_OP_NO_TLSv1</td>
-</tr>
-<tr>
-<td>SSL_OP_NO_TLSv1_1</td>
-</tr>
-</tbody></table>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>num</td>
-<td>verifyMode. A numeric value that specifies the peer verification mode. The various bits in the number identify options that are set for the server. This number can be constructed by bitwise ORing values together. The <a href="https://snap-one.github.io/docs-driverworks-fundamentals/#operating-system-3-and-binary-data">BitOp library</a> (which is available to drivers) can perform these operations. Alternatively, if the options are known beforehand, then this value can be computed ahead of time and hardcoded. The following table identifies the options that can be set:</td>
-</tr>
-</tbody></table>
-
-<table><thead>
-<tr>
-<th>Option</th>
-<th>Value</th>
-<th>Bitwise Position</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>SSL_VERIFY_NONE: The server will not send a client certificate request to the client, so the client will not send a certificate.</td>
-<td>0x01</td>
-<td>0001</td>
-</tr>
-<tr>
-<td>SSL_VERIFY_PEER: The server sends a client certificate request to the client. The certificate returned (if any) is checked. If the verification process fails, the TLS/SSL handshake is immediately terminated.</td>
-<td>0x02</td>
-<td>0010</td>
-</tr>
-<tr>
-<td>SSL_VERIFY_FAIL_IF_NO_PEER_CERT: If the client did not return a certificate, the TLS/SSL handshake is immediately terminated. This flag must be used together with SSL_VERIFY_PEER.</td>
-<td>0x04</td>
-<td>0100</td>
-</tr>
-<tr>
-<td>SSL_VERIFY_CLIENT_ONCE: Only request a client certificate once during the connection. Do not ask for a client certificate again during renegotiation or post-authentication if a certificate was requested during the initial handshake. This flag must be used together with SSL_VERIFY_PEER.</td>
-<td>0x08</td>
-<td>1000</td>
-</tr>
-</tbody></table>
-
-<p>If the value is zero, then the following default value us used: 0x0A, which consists of the following options ORed together:</p>
-
-<table><thead>
-<tr>
-<th>Options</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>SSL_VERIFY_PEER</td>
-</tr>
-<tr>
-<td>SSL_VERIFY_PEER</td>
-</tr>
-</tbody></table>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>str</td>
-<td>cipherList: A string that specifies the list of available ciphers. The format of this string is described here: Ciphers. If this string is empty, then the following default string is used: <strong>HIGH:!EXPORT:!DES:!RC4:!3DES:!MD5:!PSK</strong></td>
-</tr>
-<tr>
-<td>str</td>
-<td>A string containing the certificate to use for server connections. This can be one of the following:</td>
-</tr>
-</tbody></table>
-
-<table><thead>
-<tr>
-<th>Format</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>PEM</td>
-<td>A PEM-encoded certificate</td>
-</tr>
-<tr>
-<td>PEM-FILE</td>
-<td>A path to a file containing a PEM-encoded certificate. The path is relative to either the C4Z directory or the driver&#39;s sandbox directory. Note that paths starting with either &quot;.&quot; or &quot;..&quot; are rejected.</td>
-</tr>
-<tr>
-<td>#PKCS12-FILE</td>
-<td>A path to a #PKCS12 file containing the certificate, private key, and an optional certificate chain. The password argument must specify the password (if required). When specified, the certificate and private key are extracted from the #PKCS12 file and applied to all server connections. As a result, the privateKey argument is ignored. The certificate chain found in the #PKCS12 file is used automatically unless the chain argument specifies an alternate certificate chain to be used.</td>
-</tr>
-</tbody></table>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>str</td>
-<td>password: The password used to unlock either a PEM-encoded private key or a #PKCS12 file. Note that the password is encrypted and stored in memory in its encrypted form. It is decrypted at the moment that it is needed. Thereafter, all buffers containing the password are scrubbed from memory.</td>
-</tr>
-<tr>
-<td>str</td>
-<td>chain: A string containing the certificate chain to use for server connections. This can be one of the following:</td>
-</tr>
-</tbody></table>
-
-<table><thead>
-<tr>
-<th>Format</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>PEM</td>
-<td>A list of one or more PEM-encoded certificates.</td>
-</tr>
-<tr>
-<td>PEM-FILE</td>
-<td>A path to a file containing a list of one, or more, PEM-encoded certificates. The path is relative to either the C4Z directory or the driver&#39;s sandbox directory. Note that paths starting with either &quot;.&quot; or &quot;..&quot; are rejected.</td>
-</tr>
-</tbody></table>
-<h3 id='returns'>Returns</h3>
-<p>The C4:CreateTLSServer function may return multiple values as follows:</p>
-
-<table><thead>
-<tr>
-<th>Value</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>status</td>
-<td>A boolean value indicating success or failure.</td>
-</tr>
-<tr>
-<td>error</td>
-<td>If status is false (failure), then the function also returns a string describing the error.</td>
-</tr>
-</tbody></table>
-
 <h2 id='evaluateexpression'>EvaluateExpression</h2>
 <p>EvaluateConditional evaluates the expression and returns a Boolean result. This API has 3 parameters, a logic operator and two operands.  ‘value1’ is the left operand and ‘value2’ is the right operand. </p>
 <h6 id='available-from-2-10-0'>Available from 2.10.0</h6><h3 id='signature'>Signature</h3>
@@ -17561,6 +17321,250 @@ On failure, the function returns the following:</p></p>
 <span class="n">OnServerConnectionStatusChanged</span> <span class="n">hash</span><span class="p">:</span> <span class="mi">162938911</span> <span class="n">port</span><span class="p">:</span> <span class="mi">53319</span> <span class="n">status</span><span class="p">:</span> <span class="n">ONLINE</span> <span class="n">ip</span><span class="p">:</span> <span class="mi">192</span><span class="p">.</span><span class="mi">168</span><span class="p">.</span><span class="mi">200</span><span class="p">.</span><span class="mi">100</span>
 <span class="n">OnServerDataIn</span> <span class="n">hash</span><span class="p">:</span> <span class="mi">162938911</span> <span class="n">data</span><span class="p">:</span> <span class="n">lkasjdfl</span> <span class="n">ip</span><span class="p">:</span> <span class="mi">192</span><span class="p">.</span><span class="mi">168</span><span class="p">.</span><span class="mi">200</span><span class="p">.</span><span class="mi">100</span>
 </code></pre></div>
+
+<h2 id='createtlsserver'>CreateTLSServer</h2>
+
+<p>This function enables a Lua driver to create a secure SSL/TLS server that listens for incoming connections on a specified port. The driver needs to provide its own cert/key/CA. This step is left up to the driver writer.</p>
+
+<p><h6 id='available-from-3-3-0'>Available from 3.3.0</h6><h3 id='signature'>Signature</h3>
+<p><code>C4:CreateTLSServer(int, str, options, num, str, str, str, str)</code></p></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>int</td>
+<td>port. The network port to which the new server is bound.</td>
+</tr>
+<tr>
+<td>str</td>
+<td>delimiter. A sequence of one or more characters that specify the boundary between network payloads. When specified, the server socket will read from the network until it encounters the delimiter. The entire payload, including the delimiter, is then delivered to the driver. If the value of the delimiter argument is empty (no delimiter specified), then incoming network traffic is delivered to the driver as it is read from the network.</td>
+</tr>
+<tr>
+<td>int</td>
+<td>options. A numeric value that specifies the TLS options to be applied to the server. The various bits in the number identify the options that are set for the server. This number can be constructed by bitwise ORing values together. The <a href="https://snap-one.github.io/docs-driverworks-fundamentals/#operating-system-3-and-binary-data">BitOp library</a> (which is available to drivers) can perform these operations. Alternatively, if the options are known beforehand, then this value can be computed ahead of time and hardcoded. The following table identifies the options that can be set:</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Options</th>
+<th>Value</th>
+<th>Bitwise Position</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>DEFAULT_WORKAROUNDS: Enables various SSL/TLS bug workarounds</td>
+<td>0x0001</td>
+<td>000000001</td>
+</tr>
+<tr>
+<td>NO_COMPRESSION: Disables SSL compression (disabled by default)</td>
+<td>0x0002</td>
+<td>000000010</td>
+</tr>
+<tr>
+<td>SSL_OP_NO_SSLv2: Disables the SSL version 2 protocol</td>
+<td>0x0004</td>
+<td>000000100</td>
+</tr>
+<tr>
+<td>SSL_OP_NO_SSLv3: Disables the SSL version 3 protocol</td>
+<td>0x0008</td>
+<td>000001000</td>
+</tr>
+<tr>
+<td>SSL_OP_NO_TLSv1: Disable the TLS version 1 protocol</td>
+<td>0x0010</td>
+<td>000010000</td>
+</tr>
+<tr>
+<td>SSL_OP_NO_TLSv1_1: Disables the TLS version 1.1 protocol</td>
+<td>0x0020</td>
+<td>000100000</td>
+</tr>
+<tr>
+<td>SSL_OP_NO_TLSv1_2: Disables the TLS version 1.2 protocol</td>
+<td>0x0040</td>
+<td>001000000</td>
+</tr>
+<tr>
+<td>SSL_OP_NO_TLSv1_3: Disables the TLS version 1.3 protocol</td>
+<td>0x0080</td>
+<td>010000000</td>
+</tr>
+</tbody></table>
+
+<p>If the value is zero, then the following default value is used: 0x003D, which consists of the following options ORed together:</p>
+
+<table><thead>
+<tr>
+<th>Options</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>DEFAULT_WORKAROUNDS</td>
+</tr>
+<tr>
+<td>SSL_OP_NO_SSLv2</td>
+</tr>
+<tr>
+<td>SSL_OP_NO_SSLv3</td>
+</tr>
+<tr>
+<td>SSL_OP_NO_TLSv1</td>
+</tr>
+<tr>
+<td>SSL_OP_NO_TLSv1_1</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>num</td>
+<td>verifyMode. A numeric value that specifies the peer verification mode. The various bits in the number identify options that are set for the server. This number can be constructed by bitwise ORing values together. The <a href="https://snap-one.github.io/docs-driverworks-fundamentals/#operating-system-3-and-binary-data">BitOp library</a> (which is available to drivers) can perform these operations. Alternatively, if the options are known beforehand, then this value can be computed ahead of time and hardcoded. The following table identifies the options that can be set:</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Option</th>
+<th>Value</th>
+<th>Bitwise Position</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>SSL_VERIFY_NONE: The server will not send a client certificate request to the client, so the client will not send a certificate.</td>
+<td>0x01</td>
+<td>0001</td>
+</tr>
+<tr>
+<td>SSL_VERIFY_PEER: The server sends a client certificate request to the client. The certificate returned (if any) is checked. If the verification process fails, the TLS/SSL handshake is immediately terminated.</td>
+<td>0x02</td>
+<td>0010</td>
+</tr>
+<tr>
+<td>SSL_VERIFY_FAIL_IF_NO_PEER_CERT: If the client did not return a certificate, the TLS/SSL handshake is immediately terminated. This flag must be used together with SSL_VERIFY_PEER.</td>
+<td>0x04</td>
+<td>0100</td>
+</tr>
+<tr>
+<td>SSL_VERIFY_CLIENT_ONCE: Only request a client certificate once during the connection. Do not ask for a client certificate again during renegotiation or post-authentication if a certificate was requested during the initial handshake. This flag must be used together with SSL_VERIFY_PEER.</td>
+<td>0x08</td>
+<td>1000</td>
+</tr>
+</tbody></table>
+
+<p>If the value is zero, then the following default value us used: 0x0A, which consists of the following options ORed together:</p>
+
+<table><thead>
+<tr>
+<th>Options</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>SSL_VERIFY_PEER</td>
+</tr>
+<tr>
+<td>SSL_VERIFY_PEER</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>str</td>
+<td>cipherList: A string that specifies the list of available ciphers. The format of this string is described here: Ciphers. If this string is empty, then the following default string is used: <strong>HIGH:!EXPORT:!DES:!RC4:!3DES:!MD5:!PSK</strong></td>
+</tr>
+<tr>
+<td>str</td>
+<td>A string containing the certificate to use for server connections. This can be one of the following:</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Format</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>PEM</td>
+<td>A PEM-encoded certificate</td>
+</tr>
+<tr>
+<td>PEM-FILE</td>
+<td>A path to a file containing a PEM-encoded certificate. The path is relative to either the C4Z directory or the driver&#39;s sandbox directory. Note that paths starting with either &quot;.&quot; or &quot;..&quot; are rejected.</td>
+</tr>
+<tr>
+<td>#PKCS12-FILE</td>
+<td>A path to a #PKCS12 file containing the certificate, private key, and an optional certificate chain. The password argument must specify the password (if required). When specified, the certificate and private key are extracted from the #PKCS12 file and applied to all server connections. As a result, the privateKey argument is ignored. The certificate chain found in the #PKCS12 file is used automatically unless the chain argument specifies an alternate certificate chain to be used.</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>str</td>
+<td>password: The password used to unlock either a PEM-encoded private key or a #PKCS12 file. Note that the password is encrypted and stored in memory in its encrypted form. It is decrypted at the moment that it is needed. Thereafter, all buffers containing the password are scrubbed from memory.</td>
+</tr>
+<tr>
+<td>str</td>
+<td>chain: A string containing the certificate chain to use for server connections. This can be one of the following:</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Format</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>PEM</td>
+<td>A list of one or more PEM-encoded certificates.</td>
+</tr>
+<tr>
+<td>PEM-FILE</td>
+<td>A path to a file containing a list of one, or more, PEM-encoded certificates. The path is relative to either the C4Z directory or the driver&#39;s sandbox directory. Note that paths starting with either &quot;.&quot; or &quot;..&quot; are rejected.</td>
+</tr>
+</tbody></table>
+
+<h3 id='returns'>Returns</h3>
+
+<p>The C4:CreateTLSServer function may return multiple values as follows:</p>
+
+<table><thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>status</td>
+<td>A boolean value indicating success or failure.</td>
+</tr>
+<tr>
+<td>error</td>
+<td>If status is false (failure), then the function also returns a string describing the error.</td>
+</tr>
+</tbody></table>
 
 <h2 id='destroyserver'>DestroyServer</h2>
 
