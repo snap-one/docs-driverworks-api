@@ -515,6 +515,9 @@
                     <a href="#getc4zdir" class="toc-h2 toc-link" data-title="GetC4zDir">GetC4zDir</a>
                   </li>
                   <li>
+                    <a href="#gethostname" class="toc-h2 toc-link" data-title="GetHostname">GetHostname</a>
+                  </li>
+                  <li>
                     <a href="#getlogdir" class="toc-h2 toc-link" data-title="GetLogDir">GetLogDir</a>
                   </li>
                   <li>
@@ -537,6 +540,9 @@
                   </li>
                   <li>
                     <a href="#parsexml" class="toc-h2 toc-link" data-title="ParseXML">ParseXML</a>
+                  </li>
+                  <li>
+                    <a href="#portinuse" class="toc-h2 toc-link" data-title="PortInUse">PortInUse</a>
                   </li>
                   <li>
                     <a href="#print" class="toc-h2 toc-link" data-title="print">print</a>
@@ -5718,6 +5724,15 @@ re-booted, the ID will change.  The returned value is the same value as the one 
 </tr>
 </tbody></table>
 
+<h2 id='gethostname'>GetHostname</h2>
+<p>The C4:GetHostname function returns the host name of the controller.</p>
+<h6 id='available-from-3-3-1'>Available from 3.3.1</h6><h3 id='signature'>Signature</h3>
+<p><code>C4:GetHostname()</code></p>
+<h3 id='parameters'>Parameters</h3>
+<p><em>None</em></p>
+<h3 id='returns'>Returns</h3>
+<p>Returns a string containing the host name of the controller.</p>
+
 <h2 id='getlogdir'>GetLogDir</h2>
 <p>Function that will return the directory path on the controller where log files reside.</p>
 <h6 id='available-from-2-10-0'>Available from 2.10.0</h6><h3 id='signature'>Signature</h3>
@@ -5914,13 +5929,33 @@ OnDriverInit.</p>
 <span class="err">      </span>
 <span class="k">end</span>
 </code></pre></div>
+<h2 id='portinuse'>PortInUse</h2>
+<p>This function returns a value indicating whether a specified network port is currently in use.</p>
+<h6 id='available-from-3-3-1'>Available from 3.3.1</h6><h3 id='signature'>Signature</h3>
+
+<p><code>C4:PortInUse()</code></p>
+
+<h3 id='parameters'>Parameters</h3>
+
+<p><em>None</em></p>
+
+<h3 id='returns'>Returns</h3>
+
+<p>A boolean indicating whether the specified network port is currently in use. This can be one of the following values:</p>
+
+<ul>
+<li>false: The specified network port is not used.</li>
+<li>true: The specified network port is currently in use.</li>
+</ul>
+
 <h2 id='print'>print</h2>
+
 <p>Function called from DriverWorks driver to prints items out the drivers’ properties page console. Note that for 
 convenience, the print function can be called without prefacing with &quot;C4:&quot; This API can be invoked during
 OnDriverInit.</p>
-<h6 id='available-from-1-6-0'>Available from 1.6.0.</h6><h3 id='signature'>Signature</h3>
 
-<p><code>print(strPrintText)</code></p>
+<p><h6 id='available-from-1-6-0'>Available from 1.6.0.</h6><h3 id='signature'>Signature</h3>
+<p><code>print(strPrintText)</code></p></p>
 
 <table><thead>
 <tr>
