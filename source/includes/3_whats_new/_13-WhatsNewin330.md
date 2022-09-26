@@ -36,6 +36,8 @@ A new API: [UUID][10] has been added. This function generates a UUID (Universall
 
 A new API: [CreateTLSServer][11] has been added. This function enables a Lua driver to create a new secure SSL/TLS server that listens for incoming connections on a specified port.
 
+The [GetTimeZone][12] API return values have been modified. Deprecated Time Zones are no longer supported.
+
 [1]:	https://snap-one.github.io/docs-driverworks-api/#createsshclient
 [2]:	https://snap-one.github.io/docs-driverworks-api/#filecreatedir
 [3]:	https://snap-one.github.io/docs-driverworks-api/#filedelete
@@ -47,3 +49,4 @@ A new API: [CreateTLSServer][11] has been added. This function enables a Lua dri
 [9]:	https://snap-one.github.io/docs-driverworks-api/#getbootid
 [10]:	https://snap-one.github.io/docs-driverworks-api/#uuid
 [11]:	https://snap-one.github.io/docs-driverworks-api/#createtlsserver
+[12]:	https://snap-one.github.io/docs-driverworks-api/#gettimezone
