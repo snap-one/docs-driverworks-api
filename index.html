@@ -957,6 +957,23 @@
               </ul>
           </li>
           <li>
+            <a href="#ping-interface" class="toc-h1 toc-link" data-title="Ping Interface">Ping Interface</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#createpingclient" class="toc-h2 toc-link" data-title="CreatePingClient">CreatePingClient</a>
+                  </li>
+                  <li>
+                    <a href="#c4ping" class="toc-h2 toc-link" data-title="C4Ping">C4Ping</a>
+                  </li>
+                  <li>
+                    <a href="#setonresult" class="toc-h2 toc-link" data-title="SetOnResult">SetOnResult</a>
+                  </li>
+                  <li>
+                    <a href="#c4ping-callbacks" class="toc-h2 toc-link" data-title="C4Ping Callbacks">C4Ping Callbacks</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#notification-interface" class="toc-h1 toc-link" data-title="Notification Interface">Notification Interface</a>
               <ul class="toc-list-h2">
                   <li>
@@ -11600,6 +11617,124 @@ print(&quot;Room id is &quot; .. idRoom)
     print(C4:TEADecrypt(e, key))</p>
 
 <p>-- prints &quot;Control4 Rocks! </p>
+<h1 id='ping-interface'>Ping Interface</h1>
+
+<p>The Lua DriverWorks API has been expanded with the addition of the new C4Ping Interface in conjunction with O.S release 3.3.1. This new API enables drivers to ping a specified endpoint to determine whether it is reachable across the network.</p>
+
+<h2 id='createpingclient'>CreatePingClient</h2><h6 id='available-from-3-3-1'>Available from 3.3.1</h6><h3 id='signature'>Signature</h3>
+<p><code>C4: CreatePingClient()</code></p>
+<h3 id='parameters'>Parameters</h3>
+<p><em>None</em></p>
+<h3 id='returns'>Returns</h3>
+<p>An instance of a C4Ping object that can be used to ping a specified endpoint.</p>
+
+<h2 id='c4ping'>C4Ping</h2>
+
+<p>The C4Ping object enables a Lua driver to &quot;ping&quot; a specified endpoint, generally to determine whether the endpoint is reachable across the network. This is accomplished by sending an ICMP &quot;Echo&quot; packet to the specified endpoint and awaiting a response. The C4Ping object provides the following methods: Ping and SetOnReset</p>
+
+<h3 id='ping'>Ping</h3>
+
+<p>The Ping method &quot;pings&quot; a specified endpoint by sending one, or more, ICMP &quot;Echo&quot; packets to the endpoint. There is one method that sets a callback function that enables a driver to receive the result of &quot;pinging&quot; a specified endpoint: SetOnresult. SetOnResult sets a callback that is invoked to notify a driver about the result of &quot;pinging&quot; a specified endpoint.</p>
+
+<p>A driver can specify the number of rounds, or attempts, to &quot;ping&quot; a specified endpoint. The C4Ping object will &quot;ping&quot; an endpoint until it reaches the specified number of rounds. Each round is spaced 5 seconds apart. If the C4Ping object fails to receive a response after reaching the specified number of rounds, it invokes the OnResult callback to notify the caller about the failure.</p>
+
+<h3 id='signature'>Signature</h3>
+
+<p><code>C4:Ping (str, int)</code></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>str</td>
+<td>Endpoint. The endpoint to ping.</td>
+</tr>
+<tr>
+<td>int</td>
+<td>Rounds. The number of times to &quot;ping&quot; the specified endpoint when there is no response.</td>
+</tr>
+</tbody></table>
+
+<h3 id='returns'>Returns</h3>
+
+<p>The Ping method may return multiple values. 
+On success, Ping returns the following: 
+- The instance of the C4Ping object on which Ping was invoked.</p>
+
+<p>On failure, Ping returns the following:
+- nil
+- A string describing the failure.</p>
+
+<h2 id='setonresult'>SetOnResult</h2>
+
+<p>SetOnResult
+Sets the callback that is invoked to notify a driver about the result of &quot;pinging&quot; a specified endpoint.</p>
+
+<h3 id='signature'>Signature</h3>
+
+<p><code>C4:SetOnResult (callback)</code></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>str</td>
+<td>Endpoint. The endpoint to ping.</td>
+</tr>
+<tr>
+<td>int</td>
+<td>Rounds. The number of times to &quot;ping&quot; the specified endpoint when there is no response.</td>
+</tr>
+</tbody></table>
+
+<h3 id='parameters'>Parameters</h3>
+
+<p>Callback: A callback function to be invoked to notify a driver about the result of &quot;pinging&quot; a specified endpoint.</p>
+
+<h3 id='returns'>Returns</h3>
+
+<p>The SetOnResult method returns a single result:
+- The instance of the C4Ping object on which SetOnResult was invoked.</p>
+
+<h2 id='c4ping-callbacks'>C4Ping Callbacks</h2>
+
+<p>The C4Ping object provides a callback that notifies a driver about  the result of &quot;pinging&quot; a specified endpoint: OnResult</p>
+
+<h3 id='onresult'>OnResult</h3>
+
+<p>The OnResult callback is invoked to notify a driver about the result of &quot;pinging&quot; a specified endpoint.</p>
+
+<h3 id='signature'>Signature</h3>
+
+<p><code>C4:OnResult (instance, bool, str)</code></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>instance</td>
+<td><code>[C4Ping]</code>: The instance of the C4Ping object that has finished &quot;pinging&quot; a specified endpoint.</td>
+</tr>
+<tr>
+<td>boolean</td>
+<td>A boolean value indicating whether &quot;pinging&quot; the specified endpoint was successful. This can be one of the following values:</td>
+</tr>
+</tbody></table>
+
+<ul>
+<li>false: &quot;pinging&quot; a specified endpoint failed. The endpoint is not reachable across the network.</li>
+<li>true: &quot;pinging&quot; a specified endpoint was successful. The endpoint is reachable. |
+|string| error: A string describing the error when &quot;pinging&quot; the specified endpoint has failed. When successful, the value of the error argument is nil.|</li>
+</ul>
 <h1 id='notification-interface'>Notification Interface</h1>
 
 <h2 id='notification-interface'>Notification Interface</h2>
