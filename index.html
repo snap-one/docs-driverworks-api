@@ -1387,7 +1387,16 @@
                     <a href="#delete" class="toc-h2 toc-link" data-title="Delete">Delete</a>
                   </li>
                   <li>
+                    <a href="#downloadfile" class="toc-h2 toc-link" data-title="DownloadFile">DownloadFile</a>
+                  </li>
+                  <li>
                     <a href="#get" class="toc-h2 toc-link" data-title="Get">Get</a>
+                  </li>
+                  <li>
+                    <a href="#getuname" class="toc-h2 toc-link" data-title="GetUname">GetUname</a>
+                  </li>
+                  <li>
+                    <a href="#getuptime" class="toc-h2 toc-link" data-title="GetUptime">GetUptime</a>
                   </li>
                   <li>
                     <a href="#onbody" class="toc-h2 toc-link" data-title="OnBody">OnBody</a>
@@ -18225,12 +18234,70 @@ See: <a href="https://en.wikipedia.org/wiki/Epoch_(computing)" title="Epoch Date
 
 <p>A reference to itself.</p>
 
+<h2 id='downloadfile'>DownloadFile</h2>
+
+<p>Function that causes a file to be downloaded from a URL to a specified location on the file system.</p>
+
+<p><h6 id='available-from-3-3-1'>Available from 3.3.1</h6><h3 id='signature'>Signature</h3>
+<p><code>C4:DownloadFile(url, filename, subdir, table)</code></p></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>url</td>
+<td>String of the URL to the download file.</td>
+</tr>
+<tr>
+<td>filename</td>
+<td>The file name (without path) where the file will downloaded.</td>
+</tr>
+<tr>
+<td>subdir</td>
+<td>A directory alias, such as &quot;SANDBOX&quot;, &quot;MEDIA&quot;, &quot;C4Z&quot;, etc. that the file should be downloaded to.</td>
+</tr>
+<tr>
+<td>table</td>
+<td>A table of request headers and values to be sent.</td>
+</tr>
+</tbody></table>
+
+<h3 id='returns'>Returns</h3>
+
+<p><em>Nothing</em></p>
+
+<h3 id='usage-note'>Usage Note</h3>
+
+<p>The C4:DownloadFile() function will make an HTTP GET request to the specified server, and stream the data that is returned to the specified location on the file system.   The events that are usually triggered by the C4:url():Get() call are not triggered with the exception of the OnDone() event.   When the transfer is complete, the OnDone() event will be triggered and passed the headers from the transfer, but not the actual data that was written to the file system.</p>
+
+<h3 id='example'>Example</h3><div class="highlight"><pre class="highlight lua tab-lua"><code><span class="n">myurl</span> <span class="o">=</span> <span class="n">C4</span><span class="p">:</span><span class="n">url</span><span class="p">()</span>
+<span class="n">myurl</span><span class="p">:</span><span class="n">OnDone</span><span class="p">(</span><span class="k">function</span><span class="p">(</span><span class="n">transfer</span><span class="p">,</span> <span class="n">responses</span><span class="p">,</span> <span class="n">errCode</span><span class="p">,</span> <span class="n">errMsg</span><span class="p">)</span>
+   <span class="k">if</span> <span class="p">(</span><span class="n">errCode</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="k">then</span>
+    <span class="kd">local</span> <span class="n">lresp</span> <span class="o">=</span> <span class="n">responses</span><span class="p">[</span><span class="o">#</span><span class="n">responses</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"OnDone: transfer succeeded ("</span> <span class="o">..</span> <span class="o">#</span><span class="n">responses</span> <span class="o">..</span> <span class="s2">" responses received), last response code: "</span> <span class="o">..</span> <span class="n">lresp</span><span class="p">.</span><span class="n">code</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">hdr</span><span class="p">,</span><span class="n">val</span> <span class="k">in</span> <span class="nb">pairs</span><span class="p">(</span><span class="n">lresp</span><span class="p">.</span><span class="n">headers</span><span class="p">)</span> <span class="k">do</span>
+     <span class="nb">print</span><span class="p">(</span><span class="s2">"OnDone: "</span> <span class="o">..</span> <span class="n">hdr</span> <span class="o">..</span> <span class="s2">" = "</span> <span class="o">..</span> <span class="n">val</span><span class="p">)</span>
+    <span class="k">end</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"OnDone: body of last response: "</span> <span class="o">..</span><span class="nb">tostring</span><span class="p">(</span><span class="n">lresp</span><span class="p">.</span><span class="n">body</span><span class="p">))</span>
+   <span class="k">else</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">errCode</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="k">then</span>
+     <span class="nb">print</span><span class="p">(</span><span class="s2">"OnDone: transfer was aborted"</span><span class="p">)</span>
+    <span class="k">else</span>
+     <span class="nb">print</span><span class="p">(</span><span class="s2">"OnDone: transfer failed with error "</span> <span class="o">..</span> <span class="n">errCode</span> <span class="o">..</span> <span class="s2">": "</span> <span class="o">..</span> <span class="n">errMsg</span> <span class="o">..</span> <span class="s2">" ("</span> <span class="o">..</span> <span class="o">#</span><span class="n">responses</span> <span class="o">..</span> <span class="s2">" responses completed)"</span><span class="p">)</span>
+    <span class="k">end</span>
+   <span class="k">end</span>
+  <span class="k">end</span><span class="p">)</span>
+<span class="n">myurl</span><span class="p">:</span><span class="n">DownloadFile</span><span class="p">(</span><span class="s2">"https://www.google.com"</span><span class="p">,</span> <span class="s2">"test.txt"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"scheduled url transfer with id "</span> <span class="o">..</span> <span class="n">myurl</span><span class="p">:</span><span class="n">TicketId</span><span class="p">())</span>
+</code></pre></div>
 <h2 id='get'>Get</h2>
-
 <p>Starts a HTTP GET transfer.</p>
+<h6 id='available-from-2-10-5'>Available from 2.10.5</h6><h3 id='signature'>Signature</h3>
 
-<p><h6 id='available-from-2-10-5'>Available from 2.10.5</h6><h3 id='signature'>Signature</h3>
-<p><code>C4:Get(url, headers)</code></p></p>
+<p><code>C4:Get(url, headers)</code></p>
 
 <table><thead>
 <tr>
@@ -18251,6 +18318,28 @@ See: <a href="https://en.wikipedia.org/wiki/Epoch_(computing)" title="Epoch Date
 <h3 id='returns'>Returns</h3>
 
 <p>A reference to itself.</p>
+
+<h2 id='getuname'>GetUname</h2>
+
+<p>The C4:GetUname function returns a string containing basic information about the system. The response is equivalent to running the uname command from the command line.</p>
+
+<p><h6 id='available-from-3-3-1'>Available from 3.3.1</h6><h3 id='signature'>Signature</h3>
+<p><code>C4:GetUname()</code></p>
+<h3 id='parameters'>Parameters</h3>
+<p><em>None</em></p>
+<h3 id='returns'>Returns</h3>
+<p>Returns a string containing basic information about the system.</p></p>
+
+<h2 id='getuptime'>GetUptime</h2>
+
+<p>The C4:GetUptime function returns a number specifying the total number of seconds for which the system has been running. The response is equivalent to the contents of the /proc/uptime system file.</p>
+
+<p><h6 id='available-from-3-3-1'>Available from 3.3.1</h6><h3 id='signature'>Signature</h3>
+<p><code>C4:GetUptime()</code></p>
+<h3 id='parameters'>Parameters</h3>
+<p><em>None</em></p>
+<h3 id='returns'>Returns</h3>
+<p>Returns a floating-point number specifying the total number of seconds for which the system has been running.</p></p>
 
 <h2 id='onbody'>OnBody</h2>
 
