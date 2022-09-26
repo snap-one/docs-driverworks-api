@@ -21,7 +21,12 @@ This API will generate a certificate signing request (CSR) which, when sent to a
 
 ### Returns
 
-The PEM-encoded CSR request. It should contain both the signing request and the private key.
+| Return | Description |
+| --- | --- |
+| CSR | String of the CSR|
+|pubkey| String of the public key|
+|privkey|String of the private key|
+|nil| On failure, an error string containing a message describing the failure.|
 
 
 ### Examples
