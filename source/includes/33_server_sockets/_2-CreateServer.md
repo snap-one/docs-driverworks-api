@@ -1,24 +1,85 @@
 ## CreateServer
 
-Creates a Server Socket, that listens on port nPort, and sends messages to the driver upon receipt of the delimiter, strDelimiter (or upon timeout). This API should not be invoked during OnDriverInit.
+Creates a Server Socket that listens on port nPort and sends messages to the driver upon receipt of the delimiter, strDelimiter (or upon timeout). Note that this API API was modified in O.S. 3.3.1 to accommodate the addition of an identifier that is associated with an instance of a server. This identifier enables a Lua driver to determine which instance of a server is active. This API should not be invoked during OnDriverInit.
 
 ###### Available from 2.10.0
 
 
 ### Signature
 
-`C4:CreateServer(nPort, strDelimiter, bUseUDP) `
+```
+C4:CreateServer(port,[delimiter], [useUDP], [identifier])`
+```
 
 | Parameter | Description |
 | --- | --- |
-| num | TCP Socket to listen for connections on. See note below for additional port information. |
-| str | Optional: Delimiter to separate messages. If no delimiter is specified, packets are delivered as they are received. |
-| bool | bUseUDP: When True, the server socket connection is a UDP server socket. The default is TCP. |
+|int| port: The port number to which the server is to be bound. If this value is zero (0), then an ephemeral port will be assigned automatically.|
+|str| delimiter: The delimiter to use when reading the socket. This can be any combination of characters. When specified, the server will automatically deliver complete payloads to the driver up to, and including, the delimiter. When empty or not otherwise specified, the server will deliver packets to the driver as they arrive.|
+|bool| useUDP: A boolean flag indicating whether the server should be established using the UDP protocol. When false, or not otherwise specified, the server is established using the TCP stream protocol.|
+|str| identifier: A string that is associated with the instance of the server that is created. This identifier is passed as an argument to the various callbacks.|
 
 
 ### Returns
 
-`None`
+The CreateServer() function may return multiple values. 
+On failure, the function returns the following:
+
+- false
+- A string describing the error that occurred.
+
+On Success, the C4:CreateServer() functions returns the following:
+
+- true
+
+### Callbacks
+
+There are three callbacks associated with servers created using the C4:CreateServer() function. These include:
+
+- OnServerStatusChanged
+- OnServerConnectionStatusChanged
+- OnServerDataIn
+
+### OnServerStatusChanged
+The OnServerStatusChanged callback is invoked to notify a driver that the status of a server has changed. More specifically, that the server is now either online or offline.
+
+### Signature
+
+`OnServerStatusChanged(port, status, identifier)`
+
+| Parameter | Description |
+| --- | --- |
+| int | port: The port on which the server is listening.|
+|status| A string containing the status of the server. This is either "ONLINE" or "OFFLINE”.|
+|identifier| The identifier that was specified when the server was created with either C4:CreateServer.|
+
+### OnServerConnectionStatusChanged
+The OnServerConnectionStatusChanged callback is invoked to notify a driver that either: a) a new connection has been accepted by the server; or b)  a previously accepted connection is now closed.
+
+### Signature
+`OnServerConnectionStatusChanged(handle, port, status, address, identifier)`
+
+| Parameter | Description |
+| --- | --- |
+|int| handle: A handle to the connection. A driver can use this handle to address the connection in subsequent calls to C4:ServerSend() and C4:ServerCloseClient().|
+|int| port: The port on which the server is listening.|
+|str| string: A string containing the status of the connection. This is either "ONLINE" or "OFFLINE”.|
+|str| address: The IP address of the remote endpoint that is connected to the server.|
+|str| identifier: The identifier that was specified when the server was created with C4:CreateServer.|
+
+
+### OnServerDataIn
+The OnServerDataIn callback is invoked to notify a driver that data has received on a server connection.
+
+### Signature
+`OnServerDataIn(handle, data, address, port, identifier)`
+
+| Parameter | Description |
+| --- | --- |
+|int| handle:  A handle to the connection. A driver can use this handle to address the connection in subsequent calls to C4:ServerSend() and C4:ServerCloseClient().|
+|str| data: The data that was received from the connection.|
+|str| address: The IP address of the remote endpoint that is connected to the server.|
+|int| port: The port of the remote endpoint that is connected to the server.
+|str| identifier: The identifier that was specified when the server was created with C4:CreateServer |
 
 
 ### Usage Note
@@ -71,7 +132,6 @@ function OnServerConnectionStatusChanged(nHash, nPort, strStatus, strIP)
     print("OnServerConnectionStatusChanged hash: " .. nHash .. " port: " .. nPort .. " status: " .. strStatus .. " ip: " .. strIP)
 end
 ```
-
 
 
 The last example to the right shows executing the Lua code in an example driver with output to a console:
