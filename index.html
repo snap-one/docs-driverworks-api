@@ -17354,10 +17354,65 @@ Using no delimiter: 000a959d6816</p>
 
 <h2 id='createserver'>CreateServer</h2>
 
-<p>Creates a Server Socket, that listens on port nPort, and sends messages to the driver upon receipt of the delimiter, strDelimiter (or upon timeout). This API should not be invoked during OnDriverInit.</p>
+<p>Creates a Server Socket that listens on port nPort and sends messages to the driver upon receipt of the delimiter, strDelimiter (or upon timeout). Note that this API API was modified in O.S. 3.3.1 to accommodate the addition of an identifier that is associated with an instance of a server. This identifier enables a Lua driver to determine which instance of a server is active. This API should not be invoked during OnDriverInit.</p>
 
-<p><h6 id='available-from-2-10-0'>Available from 2.10.0</h6><h3 id='signature'>Signature</h3>
-<p><code>C4:CreateServer(nPort, strDelimiter, bUseUDP) </code></p></p>
+<p><h6 id='available-from-2-10-0'>Available from 2.10.0</h6><h3 id='signature'>Signature</h3><div class="highlight"><pre class="highlight plaintext"><code>C4:CreateServer(port,[delimiter], [useUDP], [identifier])`
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>int</td>
+<td>port: The port number to which the server is to be bound. If this value is zero (0), then an ephemeral port will be assigned automatically.</td>
+</tr>
+<tr>
+<td>str</td>
+<td>delimiter: The delimiter to use when reading the socket. This can be any combination of characters. When specified, the server will automatically deliver complete payloads to the driver up to, and including, the delimiter. When empty or not otherwise specified, the server will deliver packets to the driver as they arrive.</td>
+</tr>
+<tr>
+<td>bool</td>
+<td>useUDP: A boolean flag indicating whether the server should be established using the UDP protocol. When false, or not otherwise specified, the server is established using the TCP stream protocol.</td>
+</tr>
+<tr>
+<td>str</td>
+<td>identifier: A string that is associated with the instance of the server that is created. This identifier is passed as an argument to the various callbacks.</td>
+</tr>
+</tbody></table>
+<h3 id='returns'>Returns</h3>
+<p>The CreateServer() function may return multiple values. 
+On failure, the function returns the following:</p></p>
+
+<ul>
+<li>false</li>
+<li>A string describing the error that occurred.</li>
+</ul>
+
+<p>On Success, the C4:CreateServer() functions returns the following:</p>
+
+<ul>
+<li>true</li>
+</ul>
+
+<h3 id='callbacks'>Callbacks</h3>
+
+<p>There are three callbacks associated with servers created using the C4:CreateServer() function. These include:</p>
+
+<ul>
+<li>OnServerStatusChanged</li>
+<li>OnServerConnectionStatusChanged</li>
+<li>OnServerDataIn</li>
+</ul>
+
+<h3 id='onserverstatuschanged'>OnServerStatusChanged</h3>
+
+<p>The OnServerStatusChanged callback is invoked to notify a driver that the status of a server has changed. More specifically, that the server is now either online or offline.</p>
+
+<h3 id='signature-2'>Signature</h3>
+
+<p><code>OnServerStatusChanged(port, status, identifier)</code></p>
 
 <table><thead>
 <tr>
@@ -17366,22 +17421,90 @@ Using no delimiter: 000a959d6816</p>
 </tr>
 </thead><tbody>
 <tr>
-<td>num</td>
-<td>TCP Socket to listen for connections on. See note below for additional port information.</td>
+<td>int</td>
+<td>port: The port on which the server is listening.</td>
 </tr>
 <tr>
-<td>str</td>
-<td>Optional: Delimiter to separate messages. If no delimiter is specified, packets are delivered as they are received.</td>
+<td>status</td>
+<td>A string containing the status of the server. This is either &quot;ONLINE&quot; or &quot;OFFLINE”.</td>
 </tr>
 <tr>
-<td>bool</td>
-<td>bUseUDP: When True, the server socket connection is a UDP server socket. The default is TCP.</td>
+<td>identifier</td>
+<td>The identifier that was specified when the server was created with either C4:CreateServer.</td>
 </tr>
 </tbody></table>
 
-<h3 id='returns'>Returns</h3>
+<h3 id='onserverconnectionstatuschanged'>OnServerConnectionStatusChanged</h3>
 
-<p><code>None</code></p>
+<p>The OnServerConnectionStatusChanged callback is invoked to notify a driver that either: a) a new connection has been accepted by the server; or b)  a previously accepted connection is now closed.</p>
+
+<h3 id='signature-3'>Signature</h3>
+
+<p><code>OnServerConnectionStatusChanged(handle, port, status, address, identifier)</code></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>int</td>
+<td>handle: A handle to the connection. A driver can use this handle to address the connection in subsequent calls to C4:ServerSend() and C4:ServerCloseClient().</td>
+</tr>
+<tr>
+<td>int</td>
+<td>port: The port on which the server is listening.</td>
+</tr>
+<tr>
+<td>str</td>
+<td>string: A string containing the status of the connection. This is either &quot;ONLINE&quot; or &quot;OFFLINE”.</td>
+</tr>
+<tr>
+<td>str</td>
+<td>address: The IP address of the remote endpoint that is connected to the server.</td>
+</tr>
+<tr>
+<td>str</td>
+<td>identifier: The identifier that was specified when the server was created with C4:CreateServer.</td>
+</tr>
+</tbody></table>
+
+<h3 id='onserverdatain'>OnServerDataIn</h3>
+
+<p>The OnServerDataIn callback is invoked to notify a driver that data has received on a server connection.</p>
+
+<h3 id='signature-4'>Signature</h3>
+
+<p><code>OnServerDataIn(handle, data, address, port, identifier)</code></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>int</td>
+<td>handle:  A handle to the connection. A driver can use this handle to address the connection in subsequent calls to C4:ServerSend() and C4:ServerCloseClient().</td>
+</tr>
+<tr>
+<td>str</td>
+<td>data: The data that was received from the connection.</td>
+</tr>
+<tr>
+<td>str</td>
+<td>address: The IP address of the remote endpoint that is connected to the server.</td>
+</tr>
+<tr>
+<td>int</td>
+<td>port: The port of the remote endpoint that is connected to the server.</td>
+</tr>
+<tr>
+<td>str</td>
+<td>identifier: The identifier that was specified when the server was created with C4:CreateServer</td>
+</tr>
+</tbody></table>
 
 <h3 id='usage-note'>Usage Note</h3>
 
