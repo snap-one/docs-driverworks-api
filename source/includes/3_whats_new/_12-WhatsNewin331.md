@@ -32,13 +32,13 @@ As part of Control4’s plan to tighten driver security, the io.popen() call is 
 - [GetUname][9]
 - [GetUptime][10]
 
-[1]:	https://snap-one.github.io/docs-driverworks-api-3.3.1-beta/#generatecsr-ecc
-[2]:	https://snap-one.github.io/docs-driverworks-api-3.3.1-beta/#generatecsr-rsa
-[3]:	https://snap-one.github.io/docs-driverworks-api-3.3.1-beta/#gethostname
-[4]:	https://snap-one.github.io/docs-driverworks-api-3.3.1-beta/#portinuse
-[5]:	https://snap-one.github.io/docs-driverworks-api-3.3.1-beta/#c4ping
-[6]:	https://snap-one.github.io/docs-driverworks-api-3.3.1-beta/#createtlsserver
-[7]:	https://snap-one.github.io/docs-driverworks-api-3.3.1-beta/#createserver
-[8]:	https://snap-one.github.io/docs-driverworks-api-3.3.1-beta/#downloadfile
-[9]:	https://snap-one.github.io/docs-driverworks-api-3.3.1-beta/#getuname
-[10]:	https://snap-one.github.io/docs-driverworks-api-3.3.1-beta/#getuptime
+[1]:	https://snap-one.github.io/docs-driverworks-api/#generatecsr-ecc
+[2]:	https://snap-one.github.io/docs-driverworks-api/#generatecsr-rsa
+[3]:	https://snap-one.github.io/docs-driverworks-api/#gethostname
+[4]:	https://snap-one.github.io/docs-driverworks-api/#portinuse
+[5]:	https://snap-one.github.io/docs-driverworks-api/#ping-interface
+[6]:	https://snap-one.github.io/docs-driverworks-api/#createtlsserver
+[7]:	https://snap-one.github.io/docs-driverworks-api/#createserver
+[8]:	https://snap-one.github.io/docs-driverworks-api/#downloadfile
+[9]:	https://snap-one.github.io/docs-driverworks-api/#getuname
+[10]:	https://snap-one.github.io/docs-driverworks-api/#getuptime
