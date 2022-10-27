@@ -515,6 +515,9 @@
                     <a href="#getc4zdir" class="toc-h2 toc-link" data-title="GetC4zDir">GetC4zDir</a>
                   </li>
                   <li>
+                    <a href="#getgeosettings" class="toc-h2 toc-link" data-title="GetGeoSettings">GetGeoSettings</a>
+                  </li>
+                  <li>
                     <a href="#gethostname" class="toc-h2 toc-link" data-title="GetHostname">GetHostname</a>
                   </li>
                   <li>
@@ -5545,6 +5548,43 @@ re-booted, the ID will change.  The returned value is the same value as the one 
 <td>Directory path.</td>
 </tr>
 </tbody></table>
+
+<h2 id='getgeosettings'>GetGeoSettings</h2>
+<p>Lua function that enables a Lua driver to retrieve the geo location that was retrieved from webservices. </p>
+<h6 id='available-from-3-2-0'>Available from 3.2.0</h6><h3 id='signature'>Signature</h3>
+<p><code>C4:GetGeoSettings()</code></p>
+<h3 id='parameters'>Parameters</h3>
+<p>None</p>
+<h3 id='returns'>Returns</h3>
+<p>The method returns multiple values consisting of string, string:</p>
+
+<table><thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>str</td>
+<td>Country code</td>
+</tr>
+<tr>
+<td>str</td>
+<td>Country name</td>
+</tr>
+</tbody></table>
+<h3 id='usage-notes'>Usage Notes</h3>
+<p>A driver can retrieve the geo location as follows:</p>
+
+<p><code>countryCode, countryName = C4:GetGeoSettings()</code></p>
+
+<p>A driver can retrieve the project location as follows:</p>
+
+<p><code>countryCode = C4:GetProjectProperty(&quot;countrycode&quot;)</code></p>
+
+<p><code>countryName = C4:GetProjectProperty(&quot;countryname&quot;)</code></p>
+
+<p>If a driver falls back to using the project location, it is imperative (due to regulations) that it retry the call to <code>C4:GetGeoSettings()</code> on some regular interval. It is recommended that the driver use the same interval as Director, which is 1 hour (by default). The driver can set a timer to retry the call to <code>C4:GetGeoSettings()</code>.</p>
 
 <h2 id='gethostname'>GetHostname</h2>
 <p>The C4:GetHostname function returns the host name of the controller.</p>
