@@ -5897,6 +5897,10 @@ OnDriverInit.</p>
 <li>true: The specified network port is currently in use.</li>
 </ul>
 
+<h3 id='usage-note'>Usage Note</h3>
+
+<p>Note that there is a race condition inherent in the use of this function. The network port may, or may not be in use at the moment that the function is invoked. However, it is possible for the network port to be freed or utilized by another process during the time that the function is invoked and a driver attempts to make use of the network port.</p>
+
 <h2 id='print'>print</h2>
 
 <p>Function called from DriverWorks driver to prints items out the drivers’ properties page console. Note that for 
