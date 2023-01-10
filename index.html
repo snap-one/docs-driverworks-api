@@ -507,13 +507,7 @@
             <a href="#geolocation-interface" class="toc-h1 toc-link" data-title="Geolocation Interface">Geolocation Interface</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#configuring-wi-fi-with-director-s-geolocation-services" class="toc-h2 toc-link" data-title="Configuring Wi-Fi with Director’s Geolocation  Services">Configuring Wi-Fi with Director’s Geolocation  Services</a>
-                  </li>
-                  <li>
-                    <a href="#director-geo-location-service" class="toc-h2 toc-link" data-title="Director Geo Location Service">Director Geo Location Service</a>
-                  </li>
-                  <li>
-                    <a href="#c4-getgeosettings" class="toc-h2 toc-link" data-title="C4:GetGeoSettings">C4:GetGeoSettings</a>
+                    <a href="#getgeosettings" class="toc-h2 toc-link" data-title="GetGeoSettings">GetGeoSettings</a>
                   </li>
               </ul>
           </li>
@@ -1730,7 +1724,7 @@ Salt Lake City, UT 84020 USA</p>
 
 <p><strong>Geoloaction Interface</strong></p>
 
-<p>A new interface has been delivered with O.S. 3.3.2 to assist Lua drivers in handling the geo location that was retrieved from webservices.</p>
+<p>A new <a href="https://snap-one.github.io/docs-driverworks-api/#geolocation-interface">interface </a>has been delivered with O.S. 3.3.2 to assist Lua drivers in handling the geo location that was retrieved from webservices.</p>
 
 <h2 id='what-s-new-in-3-3-1'>What’s New in 3.3.1</h2>
 
@@ -4255,7 +4249,7 @@ iSpRAwom9R5BWUMFoRCn0j0TWFsTIBNSuOcMrw5n6NU=
 <p><a href="https://snap-one.github.io/docs-driverworks-api/#netconnect">NetConnect</a></p>
 
 <p><a href="https://snap-one.github.io/docs-driverworks-api/#onconnectionstatuschanged">OnConnectionStatusChanged</a></p>
-<p><h1 id='geolocation-interface'>Geolocation Interface</h1><h3 id='configuring-wi-fi-with-director-s-geolocation-services'>Configuring Wi-Fi with Director’s Geolocation  Services</h3>
+<p><h1 id='geolocation-interface'>Geolocation Interface</h1><h4 id='configuring-wi-fi-with-director-s-geolocation-services'>Configuring Wi-Fi with Director’s Geolocation  Services</h4>
 <p>Director maintains two different values for location. The first is the project location which is set by the dealer. This value is maintained by the project and is stored in the project database. </p></p>
 
 <p>The second is the geo location. This value is retrieved from web services. </p>
@@ -4264,7 +4258,7 @@ iSpRAwom9R5BWUMFoRCn0j0TWFsTIBNSuOcMrw5n6NU=
 
 <p>In order to comply with regulations, Control4 has implemented a new service that returns the geo location. This location is retrieved from a webservice and is based on the IP address. This webservice returns the country code and name, and does so with a high degree of certainty.</p>
 
-<h3 id='director-geo-location-service'>Director Geo Location Service</h3>
+<h4 id='director-geo-location-service'>Director Geo Location Service</h4>
 
 <p>After Director has loaded the project and finished initializing drivers, it schedules an initial call to the geo location webservice. It does this by setting a timer. The interval for this timer is maintained by the following Director configuration setting: <code>geo-initial-interval-seconds</code></p>
 
@@ -4280,7 +4274,7 @@ iSpRAwom9R5BWUMFoRCn0j0TWFsTIBNSuOcMrw5n6NU=
 
 <p>This configuration setting specifies the number of minutes until the next call to the geo location webservice. The default value is 60 minutes resulting in Director invoking the geo location webservice every hour, by default.</p>
 
-<h2 id='c4-getgeosettings'>C4:GetGeoSettings</h2>
+<h2 id='getgeosettings'>GetGeoSettings</h2>
 
 <p><code>C4:GetGeoSettings()</code> is a Lua function that enables a Lua driver to retrieve the geo location that was retrieved from webservices.</p>
 
