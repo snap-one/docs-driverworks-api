@@ -501,6 +501,20 @@
               </ul>
           </li>
           <li>
+            <a href="#geolocation-interface" class="toc-h1 toc-link" data-title="Geolocation Interface">Geolocation Interface</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#configuring-wi-fi-with-director-s-geolocation-services" class="toc-h2 toc-link" data-title="Configuring Wi-Fi with Director’s Geolocation  Services">Configuring Wi-Fi with Director’s Geolocation  Services</a>
+                  </li>
+                  <li>
+                    <a href="#director-geo-location-service" class="toc-h2 toc-link" data-title="Director Geo Location Service">Director Geo Location Service</a>
+                  </li>
+                  <li>
+                    <a href="#c4-getgeosettings" class="toc-h2 toc-link" data-title="C4:GetGeoSettings">C4:GetGeoSettings</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#file-interface" class="toc-h1 toc-link" data-title="File Interface">File Interface</a>
               <ul class="toc-list-h2">
                   <li>
@@ -4232,6 +4246,71 @@ iSpRAwom9R5BWUMFoRCn0j0TWFsTIBNSuOcMrw5n6NU=
 <p><a href="https://snap-one.github.io/docs-driverworks-api/#netconnect">NetConnect</a></p>
 
 <p><a href="https://snap-one.github.io/docs-driverworks-api/#onconnectionstatuschanged">OnConnectionStatusChanged</a></p>
+<p><h1 id='geolocation-interface'>Geolocation Interface</h1><h3 id='configuring-wi-fi-with-director-s-geolocation-services'>Configuring Wi-Fi with Director’s Geolocation  Services</h3>
+<p>Director maintains two different values for location. The first is the project location which is set by the dealer. This value is maintained by the project and is stored in the project database. </p></p>
+
+<p>The second is the geo location. This value is retrieved from web services. </p>
+
+<p>Why does Director now need to manage two different values for location? Historically, Director has always stored the project location. The project location value is used for such things as computing sunrise/sunset times and determining the radio power level for ZigBee devices. However, inadequacies arise when trying to use the project location value to determine radio power levels, particularly for WiFi levels. These inadequacies are largely due to new regulations. These regulations require that the location be determined with a high degree of certainty. As such, Director can no longer rely on the project location value because a dealer may inadvertently set the wrong location or purposefully enter inaccurate location information. </p>
+
+<p>In order to comply with regulations, Control4 has implemented a new service that returns the geo location. This location is retrieved from a webservice and is based on the IP address. This webservice returns the country code and name, and does so with a high degree of certainty.</p>
+
+<h3 id='director-geo-location-service'>Director Geo Location Service</h3>
+
+<p>After Director has loaded the project and finished initializing drivers, it schedules an initial call to the geo location webservice. It does this by setting a timer. The interval for this timer is maintained by the following Director configuration setting: <code>geo-initial-interval-seconds</code></p>
+
+<p>This configuration setting specifies the number of seconds that Director should wait before making the initial call to the geo location webservice. The default value is 5 seconds.</p>
+
+<p>When the timer fires Director invokes the geo location webservice. The endpoint for this webservice is retrieved from the registry using the following key: <code>geolocation.service_url</code></p>
+
+<p>The default URL for the geo location webservice (stored in the registry) is as follows:</p>
+
+<p><code>https://apiz.control4.com/cs/geolocation/v1/location</code></p>
+
+<p>On success, Director retrieves the country code and name from the response and stores them. Regardless of success or failure, Director then schedules another call to the geo location webservice. It does this by setting a timer. The interval for this timer is maintained by the following Director configuration setting: <code>geo-interval-minutes</code></p>
+
+<p>This configuration setting specifies the number of minutes until the next call to the geo location webservice. The default value is 60 minutes resulting in Director invoking the geo location webservice every hour, by default.</p>
+
+<h2 id='c4-getgeosettings'>C4:GetGeoSettings</h2>
+
+<p><code>C4:GetGeoSettings()</code> is a Lua function that enables a Lua driver to retrieve the geo location that was retrieved from webservices.</p>
+
+<p><h6 id='available-in-1-6-0'>Available in 1.6.0.</h6><h3 id='signature'>Signature</h3>
+<p><code>C4:GetGeoSettings()</code></p>
+<h3 id='parameters'>Parameters</h3>
+<p>None</p>
+<h3 id='returns'>Returns</h3>
+<p>The method returns multiple values consisting of string, string:</p></p>
+
+<table><thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>str</td>
+<td>Country code</td>
+</tr>
+<tr>
+<td>str</td>
+<td>Country name</td>
+</tr>
+</tbody></table>
+
+<h3 id='usage-notes'>Usage Notes</h3>
+
+<p>A driver can retrieve the geo location as follows:</p>
+
+<p><code>countryCode, countryName = C4:GetGeoSettings()</code></p>
+
+<p>A driver can retrieve the project location as follows:</p>
+
+<p><code>countryCode = C4:GetProjectProperty(&quot;countrycode&quot;)</code></p>
+
+<p><code>countryName = C4:GetProjectProperty(&quot;countryname&quot;)</code></p>
+
+<p>If a driver falls back to using the project location, it is imperative (due to regulations) that it retry the call to <code>C4:GetGeoSettings()</code> on some regular interval. It is recommended that the driver use the same interval as Director, which is 1 hour (by default). The driver can set a timer to retry the call to <code>C4:GetGeoSettings()</code>.</p>
 <h1 id='file-interface'>File Interface</h1>
 
 <h2 id='fileclose'>FileClose</h2>
