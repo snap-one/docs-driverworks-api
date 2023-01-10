@@ -1,6 +1,6 @@
 # Geolocation Interface
 
-### Configuring Wi-Fi with Director’s Geolocation  Services
+#### Configuring Wi-Fi with Director’s Geolocation  Services
 
 Director maintains two different values for location. The first is the project location which is set by the dealer. This value is maintained by the project and is stored in the project database. 
 
@@ -12,7 +12,7 @@ Why does Director now need to manage two different values for location? Historic
 In order to comply with regulations, Control4 has implemented a new service that returns the geo location. This location is retrieved from a webservice and is based on the IP address. This webservice returns the country code and name, and does so with a high degree of certainty.
 
 
-### Director Geo Location Service
+#### Director Geo Location Service
 After Director has loaded the project and finished initializing drivers, it schedules an initial call to the geo location webservice. It does this by setting a timer. The interval for this timer is maintained by the following Director configuration setting: `geo-initial-interval-seconds`
 
 

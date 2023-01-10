@@ -1,4 +1,4 @@
-## C4:GetGeoSettings
+## GetGeoSettings
 `C4:GetGeoSettings()` is a Lua function that enables a Lua driver to retrieve the geo location that was retrieved from webservices.
 
 
