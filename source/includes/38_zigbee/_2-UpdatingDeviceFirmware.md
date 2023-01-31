@@ -1,6 +1,8 @@
 
 ## Updating Zigbee Device firmware Using DriverWorks
 
+_Note: The following is applicable to operating systems 3.3.1 and earlier._
+
 The ability to use DriverWorks drivers to update firmware on ZigBee devices has been implemented using two features:
 
 1. Support of encoded BLOB data (firmware) within the driver file
