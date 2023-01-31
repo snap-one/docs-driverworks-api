@@ -1,7 +1,7 @@
 
 ## Updating Zigbee Device firmware Using DriverWorks
 
-_Note: The following is applicable to operating systems 3.3.1 and earlier. 3.3.2 and later support the use of [over the air device updates][1].
+_Note: The following is applicable to operating systems 3.3.1 and earlier. 3.3.2 and later support the use of [over the air device updates][1]._
 
 The ability to use DriverWorks drivers to update firmware on ZigBee devices has been implemented using two features:
 
