@@ -1632,6 +1632,9 @@
                     <a href="#overview" class="toc-h2 toc-link" data-title="Overview">Overview</a>
                   </li>
                   <li>
+                    <a href="#o-s-3-2-2-and-later-zigbee-ota-upgrade" class="toc-h2 toc-link" data-title="O.S. 3.2.2 (and later) Zigbee OTA Upgrade">O.S. 3.2.2 (and later) Zigbee OTA Upgrade</a>
+                  </li>
+                  <li>
                     <a href="#updating-zigbee-device-firmware-using-driverworks" class="toc-h2 toc-link" data-title="Updating Zigbee Device firmware Using DriverWorks">Updating Zigbee Device firmware Using DriverWorks</a>
                   </li>
                   <li>
@@ -20214,7 +20217,298 @@ Connection: "close", is suggested and
 <li><p>Allow ZigBee SDK developers the ability to utilize the Control4 identification mechanism, but define their own ID strings.</p></li>
 </ul>
 
+<h2 id='o-s-3-2-2-and-later-zigbee-ota-upgrade'>O.S. 3.2.2 (and later) Zigbee OTA Upgrade</h2>
+
+<p>Beginning with operating system 3.3.2, Control4 controllers now implement a common Zigbee Over the Air (OTA) server that allows third party devices to update firmware in a Zigbee standard way. The OTA server is accessible through a simple Lua driver API which is defined below. </p>
+
+<p>A Firmware image can be bundled with the Lua driver within  a .c4z driver file and hosted using an internal web server built-in to the Control4 controller. Devices may then utilize the Zigbee Standard OTA Upgrade Cluster to query status and receive firmware upgrades configured using this common server and Lua driver API.</p>
+
+<p>For further information regarding the Zigbee Cluster Library and OTA functionality, please see section 11 of the latest Zigbee Cluster Library Specification available through the Connectivity Standards Alliance <a href="https://csa-iot.org/all-solutions/zigbee/">here</a>. </p>
+
+<h3 id='driver-requirements'>Driver Requirements</h3>
+
+<p>There are a number of requirements that Lua driver writers must meet when making use of the ZigBee Over the Air (OTA) Upgrade feature.</p>
+
+<p>Refer to the Lua API documentation: ZigBee OTA Upgrade Lua API.</p>
+
+<ul>
+<li><p>Drivers must packaged in the c4z mechanism.</p></li>
+<li><p>OTA upgrade image files will be accessible via the controller&#39;s on-board web server. Therefore, the image files will be located in the www directory of the driver&#39;s c4z space on the controller&#39;s file system.</p></li>
+<li><p>The name of the upgrade image SHOULD follow a sensible naming convention prescribed by the C4 Embedded Systems team. NOTE: The name of the upgrade image, managed by the Ota Upgrade Server, will be changed as necessary to ensure proper handling of multiple upgrade images. However, the bulk of the filename located in the driver repository will be preserved.</p></li>
+<li><p>The extension of the upgrade image SHOULD be .zigbee as defined in the ZigBee OTA Upgrade Cluster document. See the example to the right.</p></li>
+</ul>
+
+<div class="highlight"><pre class="highlight xml tab-xml"><code>/mnt/internal/c4z/C4-V-ODIM120/www# ls -alh
+drwxrwxrwx    2 root     root        4.0K Aug 15 14:51 .
+drwx------    8 root     root        4.0K Aug 16 10:38 ..
+-rwx------    1 root     root      135.0K Aug 15 14:51 Documentation.rtf
+-rwx------    1 root     root      135.0K Aug 15 14:51 myAwsomeUpgradeImage.zigbee
+</code></pre></div>
+
+<p>When a Lua driver passes a URL to the Ota Upgrade Server for processing, the URL will be transformed from:</p>
+
+<p><code>&quot;controller://driver/&lt;myDriverName&gt;/myAwsomeUpgradeImage.zigbee&quot;</code> </p>
+
+<p>to </p>
+
+<p><code>&quot;http://director/driver/&lt;myDriverName&gt;/myAwsomeUpgradeImage.zigbee&quot;.</code> </p>
+
+<p>This will allow the Ota Upgrade Server to access the upgrade image from any arbitrary project controller it is running on.</p>
+
+<p>All upgrade images, managed by the Ota Upgrade Server, have a unique key:</p>
+
+<p><code>(driverTypeId (string): driverVersion (uint32_t): manufacturerId (uin16_t): imageTypeId (uint16_t): imageVersion (uint32_t))</code> </p>
+
+<p>Because all drivers of the same type on a C4 system must be the same version, it is not possible for a driver of the same type to register more than one image version on a Control4 system. Therefore, the first driver of any one type to register an image version will change the image version for all instances of that driver type.</p>
+
+<p>Currently, the Ota Upgrade Server will remove all previously registered upgrade images at initialization time (i.e., a reboot of the controller or restart of the zserver2 process). As a result, the driver will need to re-add ota upgrade images when this occurs. </p>
+
+<p>There are several ways to ensure the Ota Upgrade Server is re-populated with the correct upgrade images. As a first attempt, Control4 recommends the driver re-add the ota upgrade image when the driver is notified the device is online. This will also work for the scenario where the driver is newly initialized but the zserver2 process remains running (i.e., director is restarted but not zserver2). </p>
+
+<p>The driver is also free to blindly re-add the upgrade image or can first query the upgrade server for the currently registered upgrade image via otaImageInfo request.</p>
+
+<h3 id='zigbee-ota-upgrade-lua-api'>Zigbee OTA UPgrade Lua API</h3>
+
+<p>The over-the-air (OTA) upgrade process can be guided by a driver through the OTA Upgrade Lua API described below.  The API consists of four functions and Lua bindings.  To gain access to these bindings you must first load the Lua API with:</p>
+
+<p><code>zb = C4:RequireModule(&quot;zigbee&quot;)</code></p>
+
+<p>After this, all the OTA functions are accessed through the zb table.<br>
+- Each of these functions returns a result representing the status of the message sent from director to zserver.<br>
+- A non-zero value indicates problems sending the message to zserver.<br>
+- A zero value indicates the message was sent correctly.</p>
+
+<h3 id='status-zb-otaservicestatus-deviceid'>status = zb:otaServiceStatus(deviceId)</h3><h6 id='available-from-3-3-2'>Available from 3.3.2</h6>
+<p>This function queries the state of the OTA service in zserver.   A device id (integer) is required to identify the zserver to query.  The device id can be any id on the mesh controlled by that zserver. However, it makes the most sense to use the id of the device you want to upgrade.</p>
+
+<p>The OTA server will eventually respond with a ZigbeeOtaUpgradeOperation data item.  This will be delivered by director to the driver&#39;s ReceivedFromNetwork event handler described below.</p>
+<h3 id='status-zb-otaaddimage-deviceid-mfgid-imagetypeid-url-drivertypeid-version'>status = zb:otaAddImage(deviceId, mfgId, imageTypeId, url, driverTypeId, version)</h3><h6 id='available-from-3-3-2-2'>Available from 3.3.2</h6>
+<p>This function is used to add new device image information to the OTA server.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>int</td>
+<td>deviceId: The device id (integer) of the device for which the image should be applied.</td>
+</tr>
+<tr>
+<td>int</td>
+<td>mfgId: The manufacturer&#39;s id (integer).  A unique number associated with the manufacturer of the device being upgraded.</td>
+</tr>
+<tr>
+<td>int</td>
+<td>imageTypeId: The image type id (integer).  A unique number associated with the image type (shared by devices of this type) of the device being upgraded.</td>
+</tr>
+<tr>
+<td>str</td>
+<td>url: The url of the image file (string).  The url can refer to local files on the controller as well as hosts outside the local network.</td>
+</tr>
+<tr>
+<td>str</td>
+<td>driverTypeId: The driver type id (string).  A string which should be the c4i/c4z file name, e.g. &quot;C4-V-ODIM120.c4z&quot; for the device being upgraded.</td>
+</tr>
+<tr>
+<td>int</td>
+<td>version: The version (integer) of the driver.  This number has no generic format and is specific to this manufacturer and driver type.</td>
+</tr>
+</tbody></table>
+<h3 id='status-zb-otaremoveimage-deviceid'>status = zb:otaRemoveImage(deviceId)</h3><h6 id='available-from-3-3-2-3'>Available from 3.3.2</h6>
+<p>This function removes an image record from the OTA server.  The deviceId (integer) is the id of the device whose image is being removed. </p>
+<h3 id='status-zb-otaimageinfo-deviceid'>status = zb:otaImageInfo(deviceId)</h3>
+
+<p>This function returns information about the image associated with the device id.</p>
+
+<p>The OTA server will eventually respond with a ZigbeeOtaUpgradeOperation data item.  This will be delivered by director to the driver&#39;s ReceivedFromNetwork event handler described below.</p>
+
+<p>The otaServiceStatus and otaImageInfo functions return an instance of a ZigbeeOtaUpgradeOperation.  This result message will be delivered to the driver&#39;s ReceivedFromNetwork event handler.  See the example to the right.</p>
+
+<div class="highlight"><pre class="highlight lua tab-lua"><code><span class="k">function</span> <span class="nf">ReceivedFromNetwork</span><span class="p">(</span><span class="n">idBinding</span><span class="p">,</span> <span class="n">port</span><span class="p">,</span> <span class="n">pObject</span><span class="p">)</span>
+   <span class="nb">print</span><span class="p">(</span><span class="s2">"----------------------------------"</span><span class="p">)</span>
+   <span class="nb">print</span><span class="p">(</span><span class="s2">"ReceivedFromNetwork: idBinding ="</span><span class="p">,</span> <span class="n">idBinding</span><span class="p">)</span>
+   <span class="nb">print</span><span class="p">(</span><span class="s2">"ReceivedFromNetwork: port ="</span><span class="p">,</span> <span class="n">port</span><span class="p">)</span>
+   <span class="nb">print</span><span class="p">(</span><span class="s2">"ReceivedFromNetwork: pObject ="</span><span class="p">,</span> <span class="n">pObject</span><span class="p">)</span>
+   <span class="n">p</span> <span class="o">=</span> <span class="n">_G</span><span class="p">[</span><span class="n">pObject</span><span class="p">]</span>
+   <span class="nb">print</span><span class="p">(</span><span class="s2">"operation:"</span><span class="p">,</span> <span class="n">p</span><span class="p">:</span><span class="n">operation</span><span class="p">())</span>
+   <span class="nb">print</span><span class="p">(</span><span class="s2">"status:"</span><span class="p">,</span> <span class="n">p</span><span class="p">:</span><span class="n">status</span><span class="p">())</span>
+   <span class="nb">print</span><span class="p">(</span><span class="s2">"euid:"</span><span class="p">,</span> <span class="n">p</span><span class="p">:</span><span class="n">euid</span><span class="p">())</span>
+   <span class="nb">print</span><span class="p">(</span><span class="s2">"mfgId:"</span><span class="p">,</span> <span class="n">p</span><span class="p">:</span><span class="n">mfgId</span><span class="p">())</span>
+   <span class="nb">print</span><span class="p">(</span><span class="s2">"imageTypeId:"</span><span class="p">,</span> <span class="n">p</span><span class="p">:</span><span class="n">imageTypeId</span><span class="p">())</span>
+   <span class="nb">print</span><span class="p">(</span><span class="s2">"url:"</span><span class="p">,</span> <span class="s2">"'"</span> <span class="o">..</span> <span class="n">p</span><span class="p">:</span><span class="n">url</span><span class="p">()</span> <span class="o">..</span> <span class="s2">"'"</span><span class="p">)</span>
+   <span class="nb">print</span><span class="p">(</span><span class="s2">"driverTypeId:"</span><span class="p">,</span> <span class="n">p</span><span class="p">:</span><span class="n">driverTypeId</span><span class="p">())</span>
+   <span class="nb">print</span><span class="p">(</span><span class="s2">"driverVersion:"</span><span class="p">,</span> <span class="n">p</span><span class="p">:</span><span class="n">driverVersion</span><span class="p">())</span>
+   <span class="nb">print</span><span class="p">(</span><span class="s2">"imageVersion:"</span><span class="p">,</span> <span class="n">p</span><span class="p">:</span><span class="n">imageVersion</span><span class="p">())</span>
+   <span class="nb">print</span><span class="p">(</span><span class="s2">"oldImageVersion:"</span><span class="p">,</span> <span class="n">p</span><span class="p">:</span><span class="n">oldImageVersion</span><span class="p">())</span>
+   <span class="n">_G</span><span class="p">[</span><span class="n">pOjbect</span><span class="p">]</span> <span class="o">=</span> <span class="kc">nil</span>
+<span class="k">end</span>
+</code></pre></div>
+
+<p>The ReceivedFromNetwork handler accepts three arguments:</p>
+
+<ol>
+<li>The bindingId of the device.</li>
+<li>The port number (if available). </li>
+<li>The object received.<br></li>
+</ol>
+
+<p>For the ZigBee Lua API, the object is transmitted as the name of a variable in the Lua heap.  This name has the form: <code>ou0x12345678</code>.  </p>
+
+<p>The driver accesses the object by looking up the name in the Lua globals table with <code>_G[pObject]</code> <em>See line 6 in the example to the right.</em>  </p>
+
+<p>The object itself is a Lua table filled with print and accessor functions.  When the driver is done with the result, it is important to remove all references to the object that might prevent garbage collection from reclaiming this storage.  Do this by setting the local and global variables to nil:</p>
+
+<div class="highlight"><pre class="highlight lua tab-lua"><code><span class="err">—</span> <span class="n">Unpin</span> <span class="n">Results</span> <span class="n">from</span> <span class="n">OTA</span> <span class="n">Server</span>
+<span class="o">...</span>
+<span class="n">_G</span><span class="p">[</span><span class="n">pObject</span><span class="p">]</span> <span class="o">=</span> <span class="kc">nil</span>
+<span class="o">...</span>
+</code></pre></div><h3 id='zigbee-ota-upgrade-lua-api-responses'>Zigbee OTA UPgrade Lua API Responses</h3>
+<p>Each of the Lua API functions listed above has a corresponding set of responses that may be returned by the Ota Upgrade Server. In general, the value of the operation will be: <code>&lt;action&gt;Response</code>. The status supplied with the response from the Ota Upgrade Server should be handled appropriately by the driver. Not all possible statuses apply to all operations.</p>
+<h3 id='zb-otaservicestatus'>zb:otaServiceStatus</h3>
+<p>Response operation: serviceStatusResponse</p>
+
+<table><thead>
+<tr>
+<th>Response</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>serviceAvailable</td>
+<td>The Ota Upgrade plugin is installed and the Ota Upgrade Server is available for use.</td>
+</tr>
+<tr>
+<td>serviceNotAvailable</td>
+<td>The Ota Upgrade Server is not available for use. The Ota Upgrade plugin may not be installed or the service is otherwise disabled for this build of the OS.</td>
+</tr>
+</tbody></table>
+<h3 id='zb-otaaddimage'>zb:otaAddImage</h3>
+<p>Response operation: addImageResponse</p>
+
+<table><thead>
+<tr>
+<th>Response</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>serviceNotAvailable</td>
+<td>The Ota Upgrade Server is not available for use. The Ota Upgrade plugin may not be installed or the service is otherwise disabled for this build of the OS.</td>
+</tr>
+<tr>
+<td>inProgress</td>
+<td>The command has been accepted by the server for processing. Expect additional status in the future.</td>
+</tr>
+<tr>
+<td>success</td>
+<td>The command completed successfully. No additional status should be expected.</td>
+</tr>
+<tr>
+<td>failure</td>
+<td>The operation failed in a non-specific way. No additional status should be expected.</td>
+</tr>
+<tr>
+<td>imageAccessFailed</td>
+<td>There was some problem accessing an appropriated upgrade image from the provided URL.</td>
+</tr>
+<tr>
+<td>imageValidationFailed</td>
+<td>The image retrieved from the provided URL failed validation in some manner.</td>
+</tr>
+<tr>
+<td>deviceNotFound</td>
+<td>No physical zigbee device could be found associated with the driver id provided. The command can not be routed correctly until the binding between the driver and the physical device is completed.</td>
+</tr>
+<tr>
+<td>invalidData</td>
+<td>One or more of the command parameters provided are invalid. No further status should be expected.</td>
+</tr>
+<tr>
+<td>incompatibleDriverVersion</td>
+<td>Not yet implemented. The upgrade image located at the provided URL was determined to be incompatible with the current version of the driver.</td>
+</tr>
+</tbody></table>
+<h3 id='zb-otaremoveimage'>zb:otaRemoveImage</h3>
+<p>Response operation: removeImageResponse</p>
+
+<table><thead>
+<tr>
+<th>Response</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>serviceNotAvailable</td>
+<td>The Ota Upgrade Server is not available for use. The Ota Upgrade plugin may not be installed or the service is otherwise disabled for this build of the OS.</td>
+</tr>
+<tr>
+<td>inProgress:</td>
+<td>The command has been accepted by the server for processing. Expect additional status in the future.</td>
+</tr>
+<tr>
+<td>success</td>
+<td>The command completed successfully. No additional status should be expected.</td>
+</tr>
+<tr>
+<td>failure</td>
+<td>The operation failed in a non-specific way. No additional status should be expected.</td>
+</tr>
+<tr>
+<td>deviceNotFound</td>
+<td>No physical zigbee device could be found associated with the driver id provided. The command can not be routed correctly until the binding between the driver and the physical device is completed.</td>
+</tr>
+<tr>
+<td>invalidData</td>
+<td>One or more of the command parameters provided are invalid. No further status should be expected.</td>
+</tr>
+<tr>
+<td>imageInfoNotFound</td>
+<td>No upgrade image data was found for this device. This could happen if no previous add operation occurred for this device.</td>
+</tr>
+</tbody></table>
+<h3 id='zb-otaimageinfo'>zb:otaImageInfo</h3>
+<p>Response operation: imageInfoResponse</p>
+
+<table><thead>
+<tr>
+<th>Response</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>serviceNotAvailable</td>
+<td>The Ota Upgrade Server is not available for use. The Ota Upgrade plugin may not be installed or the service is otherwise disabled for this build of the OS.</td>
+</tr>
+<tr>
+<td>inProgress</td>
+<td>The command has been accepted by the server for processing. Expect additional status in the future.</td>
+</tr>
+<tr>
+<td>success</td>
+<td>The command completed successfully. No additional status should be expected.</td>
+</tr>
+<tr>
+<td>failure</td>
+<td>The operation failed in a non-specific way. No additional status should be expected.</td>
+</tr>
+<tr>
+<td>deviceNotFound</td>
+<td>No physical zigbee device could be found associated with the driver id provided. The command can not be routed correctly until the binding between the driver and the physical device is completed.</td>
+</tr>
+<tr>
+<td>invalidData</td>
+<td>One or more of the command parameters provided are invalid. No further status should be expected.</td>
+</tr>
+<tr>
+<td>imageInfoNotFound</td>
+<td>No upgrade image data was found for this device. This could happen if no previous add operation occurred for this device.</td>
+</tr>
+</tbody></table>
+
 <h2 id='updating-zigbee-device-firmware-using-driverworks'>Updating Zigbee Device firmware Using DriverWorks</h2>
+<p><em>Note: The following is applicable to operating systems 3.3.1 and earlier.</em></p>
 
 <p>The ability to use DriverWorks drivers to update firmware on ZigBee devices has been implemented using two features:</p>
 
@@ -20226,7 +20520,6 @@ Connection: "close", is suggested and
 <p><strong>Encoded BLOB Data in the Driver File </strong></p>
 
 <p>DriverWorks supports the ability to store binary firmware data within the driver file. This data must be Base64 encoded. The encoded firmware data string information should reside at the beginning of the driver file as seen in the example to the right:</p>
-
 <div class="highlight"><pre class="highlight xml tab-xml"><code><span class="nt">&lt;devicedata&gt;</span>
  <span class="nt">&lt;copyright&gt;</span>Copyright 2019 Control4 Corporation. All rights reserved.<span class="nt">&lt;/copyright&gt;</span>
    <span class="nt">&lt;largeblobs&gt;</span>
