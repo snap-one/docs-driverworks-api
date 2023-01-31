@@ -1,7 +1,7 @@
 
 ## Updating Zigbee Device firmware Using DriverWorks
 
-_Note: The following is applicable to operating systems 3.3.1 and earlier._
+_Note: The following is applicable to operating systems 3.3.1 and earlier. 3.3.2 and later support the use of [over the air device updates][1].
 
 The ability to use DriverWorks drivers to update firmware on ZigBee devices has been implemented using two features:
 
@@ -29,13 +29,14 @@ When ZigBee devices come on-line they can validate firmware versions with Direct
 
 **Firmware Request Functions**
 
-When a device requests a firmware update (the version of the firmware on the device is older than the firmware the driver has), the driver should request a 'reflash lock' via [RequestRefreshLock][1]. This allows the driver to ensure that it is the only driver updating a device at any time. This is required so that Director can manage multiple Zigbee drivers so that only one driver will be allowed to update at a time.  This ensures that device firmware updates don't overload the zigbee network.
+When a device requests a firmware update (the version of the firmware on the device is older than the firmware the driver has), the driver should request a 'reflash lock' via [RequestRefreshLock][2]. This allows the driver to ensure that it is the only driver updating a device at any time. This is required so that Director can manage multiple Zigbee drivers so that only one driver will be allowed to update at a time.  This ensures that device firmware updates don't overload the zigbee network.
 
-The [OnReflashLockGranted][2] function is called by Director when the driver has permission to update the firmware on the device.  This function ensures that the driver is the only device using the zigbee network to flash a device. This ensures that the delivery of the firmware update won’t be slowed down due to other firmware updates from other devices.
+The [OnReflashLockGranted][3] function is called by Director when the driver has permission to update the firmware on the device.  This function ensures that the driver is the only device using the zigbee network to flash a device. This ensures that the delivery of the firmware update won’t be slowed down due to other firmware updates from other devices.
 
-All reflash traffic is sent to the device using standard [SendZigbeePacket][3] and [OnZigbeePacketIn][4] commands/functions as described above.
+All reflash traffic is sent to the device using standard [SendZigbeePacket][4] and [OnZigbeePacketIn][5] commands/functions as described above.
 
-[1]:	https://snap-one.github.io/docs-driverworks-api/#requestreflashlock
-[2]:	https://snap-one.github.io/docs-driverworks-api/#onreflashlockgranted
-[3]:	https://snap-one.github.io/docs-driverworks-api/#sendzigbeepacket
-[4]:	https://snap-one.github.io/docs-driverworks-api/#onzigbeepacketin
+[1]:	https://snap-one.github.io/docs-driverworks-api/#o-s-3-2-2-and-later-zigbee-ota-upgrade
+[2]:	https://snap-one.github.io/docs-driverworks-api/#requestreflashlock
+[3]:	https://snap-one.github.io/docs-driverworks-api/#onreflashlockgranted
+[4]:	https://snap-one.github.io/docs-driverworks-api/#sendzigbeepacket
+[5]:	https://snap-one.github.io/docs-driverworks-api/#onzigbeepacketin
