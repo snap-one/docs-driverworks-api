@@ -17251,21 +17251,21 @@ Using no delimiter: 000a959d6816</p>
 
 <ul>
 <li><p>AUTO_CONNECT - Corresponds to the <code>&lt;auto_connect&gt;</code> setting defined in the .c4i file. Specifies that Director should automatically attempt the connectIon.</p></li>
-<li><p>MONITOR CONNECTION - Corresponds to the <code>&lt;monitor_connection&gt;</code> setting defined in the .c4i file. Specifies that Director should monitor the connectIon by periodically polling. Director invokes the OnPoll method for a driver to inform the driver that it should poll the connectIon.</p></li>
-<li><p>KEEP CONNECTION - Corresponds to the <code>&lt;keep_connectIon&gt;</code> setting defined in the .c4i file. Specifies that Director should automatically attempt to reestablish a connectIon if it drops.</p></li>
-<li><p>KEEP ALIVE - Corresponds to the <code>&lt;keep_alive&gt;</code> setting defined in the .c4i file. Specifies that Director should enable TCP keep-alive for the connectIon.</p></li>
+<li><p>MONITOR_CONNECTION - Corresponds to the <code>&lt;monitor_connection&gt;</code> setting defined in the .c4i file. Specifies that Director should monitor the connectIon by periodically polling. Director invokes the OnPoll method for a driver to inform the driver that it should poll the connectIon.</p></li>
+<li><p>KEEP_CONNECTION - Corresponds to the <code>&lt;keep_connectIon&gt;</code> setting defined in the .c4i file. Specifies that Director should automatically attempt to reestablish a connectIon if it drops.</p></li>
+<li><p>KEEP_ALIVE - Corresponds to the <code>&lt;keep_alive&gt;</code> setting defined in the .c4i file. Specifies that Director should enable TCP keep-alive for the connectIon.</p></li>
 <li><p>DELIMITER - String Delimiter to separate messages. If no delimiter is specified, packets are delivered as they are received.</p></li>
 <li><p>CERTIFICATE - Path to the  certificate to use for the connection. The path is relative to the driver’s .c4z location.</p></li>
-<li><p>PRIVATE KEY - Path to the private key to use for the connection. The path is relative to the driver’s .c4z location.</p></li>
-<li><p>MIRROR UDP PORT - The use of the mirror udp port parameter defaults to false. Setting this to true will use the value assigned in the nPort parameter of the  NetPortOptions function (which is the destination port) as the source port value. Meaning that the data packets will be sent from and received on port  values that are the same. Note that MIRROR UPD PORT is only available through Port Options on Dynamically created connections. Statically created connection do not support he use of MIRROR UPD PORT being set to true.</p></li>
+<li><p>PRIVATE_KEY - Path to the private key to use for the connection. The path is relative to the driver’s .c4z location.</p></li>
+<li><p>MIRROR_UDP_PORT - The use of the mirror udp port parameter defaults to false. Setting this to true will use the value assigned in the nPort parameter of the  NetPortOptions function (which is the destination port) as the source port value. Meaning that the data packets will be sent from and received on port  values that are the same. Note that MIRROR UPD PORT is only available through Port Options on Dynamically created connections. Statically created connection do not support he use of MIRROR UPD PORT being set to true.</p></li>
 <li><p>PROTECTED - If the “protected” value is “True”, then Director will invoke the following callback to retrieve the password from the driver:</p>
 
 <p><code>function GetPrivateKeyPassword(Binding, Port)</code>
  <code>return “TheKey”</code>
   <code>end</code></p></li>
 <li><p>CACERTFILE - Path to the CA (certificate authority) certificate to use for the connection. The path is relative to the driver’s C4Z location.</p></li>
-<li><p>VERIFY MODE - Specifies the verification mode to use for the connection. The verify mode corresponds to those supported by OpenSSL. A detailed description of the verification modes can be found here: https://www.openssl.org. Note that Control4 currently supports only the peer verification mode (SSL VERIFY PEER). Values include: none and peer. Note that if this property is omitted, then Director defaults to use no verification (“none”).</p></li>
-<li><p>VERIFY METHOD - Specifies the method to use for establishing the connection. A detailed description of the various methods can be found at https://www.openssl.org Valid values include: sslv2, sslv23, sslv3, tlsv1 &amp;  tlsv1_1_. Note that if this property is omitted, then Director defaults to using sslv23 (which is the OpenSSL default).</p></li>
+<li><p>VERIFY_MODE - Specifies the verification mode to use for the connection. The verify mode corresponds to those supported by OpenSSL. A detailed description of the verification modes can be found here: https://www.openssl.org. Note that Control4 currently supports only the peer verification mode (SSL VERIFY PEER). Values include: none and peer. Note that if this property is omitted, then Director defaults to use no verification (“none”).</p></li>
+<li><p>VERIFY_METHOD - Specifies the method to use for establishing the connection. A detailed description of the various methods can be found at https://www.openssl.org Valid values include: sslv2, sslv23, sslv3, tlsv1 &amp;  tlsv1_1_. Note that if this property is omitted, then Director defaults to using sslv23 (which is the OpenSSL default).</p></li>
 <li><p>suppressconnectionevents - true or false to suppress connections. For more information see: <a href="https://snap-one.github.io/docs-driverworks-api/#suppressing-system-events">Suppressing System Events</a></p></li>
 </ul>
 
