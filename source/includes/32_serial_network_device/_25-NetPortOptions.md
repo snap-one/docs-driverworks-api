@@ -16,7 +16,7 @@ Function to configure a connection's Port settings.  The use of this API is cont
 | str | Network Connection type. For example, TCP/SSL or UDP. |
 | table | lua table of Key/Value pairs that contain all of the parameters for the specific Port. These parameters include: |
 
-- AUTO CONNECT - Corresponds to the `<auto_connect>` setting defined in the .c4i file. Specifies that Director should automatically attempt the connectIon.
+- AUTO_CONNECT - Corresponds to the `<auto_connect>` setting defined in the .c4i file. Specifies that Director should automatically attempt the connectIon.
 
 - MONITOR CONNECTION - Corresponds to the `<monitor_connection>` setting defined in the .c4i file. Specifies that Director should monitor the connectIon by periodically polling. Director invokes the OnPoll method for a driver to inform the driver that it should poll the connectIon.
 
