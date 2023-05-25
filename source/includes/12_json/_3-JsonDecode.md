@@ -1,4 +1,4 @@
-## Json:Decode
+## JsonDecode
 
 JSON function that takes data from the JSON formatted string message and decodes it into the Lua table. On success, this function returns a single value which is as designed. On failure, the function returns two
 values:

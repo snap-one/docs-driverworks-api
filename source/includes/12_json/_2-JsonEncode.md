@@ -1,4 +1,4 @@
-## Json:Encode
+## JsonEncode
 
 JSON function that takes the data in the Lua tCommand table and encodes it into a JSON formatted command string
 representing a Lua object. 
