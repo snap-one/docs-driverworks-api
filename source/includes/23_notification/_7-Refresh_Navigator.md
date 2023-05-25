@@ -1,5 +1,5 @@
 
-## Refresh Navigator
+## Refresh Navigator Example
 
 The following is an example of how to be notified when the “Refresh Navigator” call is made. When bindings, device names, or device media has changed, a “Refresh Navigator” call is made. This event is an alert for the Navigators that any cached data about the project or media may now be invalid.
 
