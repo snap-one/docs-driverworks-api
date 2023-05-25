@@ -700,10 +700,10 @@
                     <a href="#c4json-null" class="toc-h2 toc-link" data-title="c4json.null">c4json.null</a>
                   </li>
                   <li>
-                    <a href="#json-encode" class="toc-h2 toc-link" data-title="Json:Encode">Json:Encode</a>
+                    <a href="#jsonencode" class="toc-h2 toc-link" data-title="JsonEncode">JsonEncode</a>
                   </li>
                   <li>
-                    <a href="#json-decode" class="toc-h2 toc-link" data-title="Json:Decode">Json:Decode</a>
+                    <a href="#jsondecode" class="toc-h2 toc-link" data-title="JsonDecode">JsonDecode</a>
                   </li>
               </ul>
           </li>
@@ -6515,7 +6515,7 @@ volume ramps) could be catastrophic to equipment. The IR code to send must be de
 
 <p><code>c4json.null</code> can be used to insert a null value into a JSON document (encode), or test for a null value that was encountered in a JSON document (decode).</p>
 
-<h2 id='json-encode'>Json:Encode</h2>
+<h2 id='jsonencode'>JsonEncode</h2>
 
 <p>JSON function that takes the data in the Lua tCommand table and encodes it into a JSON formatted command string
 representing a Lua object. 
@@ -6714,7 +6714,7 @@ local Foo = {
 </code></pre></div>
 <p>Note the use of the &quot;:index:&quot; markers. These markers specify that the first element, &quot;One&quot;, is located at the first numeric index. Similarly, the second element, &quot;Two&quot;, is located at the second numeric index. Decoding this JSON string produces the original Lua table. It is important to note that Lua doesn&#39;t guarantee any particular order when enumerating the elements of a table. As described in the documentation for the Lua next function. The order in which the indices are enumerated is not specified, even for numeric indices.</p>
 
-<h2 id='json-decode'>Json:Decode</h2>
+<h2 id='jsondecode'>JsonDecode</h2>
 <p>JSON function that takes data from the JSON formatted string message and decodes it into the Lua table. On success, this function returns a single value which is as designed. On failure, the function returns two
 values:</p>
 
