@@ -1041,9 +1041,6 @@
                     <a href="#senduirequest" class="toc-h2 toc-link" data-title="SendUIRequest">SendUIRequest</a>
                   </li>
                   <li>
-                    <a href="#setpropertyattribs" class="toc-h2 toc-link" data-title="SetPropertyAttribs">SetPropertyAttribs</a>
-                  </li>
-                  <li>
                     <a href="#teadecrypt" class="toc-h2 toc-link" data-title="TEADecrypt">TEADecrypt</a>
                   </li>
                   <li>
@@ -11748,38 +11745,6 @@ print(&quot;Room id is &quot; .. idRoom)
 <span class="err">   </span> <span class="o">&lt;</span><span class="n">value_y</span><span class="o">&gt;</span><span class="mi">7680</span><span class="o">&lt;/</span><span class="n">value_y</span><span class="o">&gt;</span>
 <span class="o">&lt;/</span><span class="n">driver_data</span><span class="o">&gt;</span>
 </code></pre></div>
-
-<h2 id='setpropertyattribs'>SetPropertyAttribs</h2>
-
-<p>Function to modify the visibility of properties as viewed from Composer. This API should not be invoked during OnDriverInit.</p>
-
-<p><h6 id='available-from-1-6-0'>Available from 1.6.0</h6><h3 id='signature'>Signature</h3>
-<p><code>C4:SetPropertyAttribs(string, int)</code></p></p>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>str</td>
-<td>Name of property to modify</td>
-</tr>
-<tr>
-<td>int</td>
-<td>0 (to show) or 1 (to hide)</td>
-</tr>
-</tbody></table>
-
-<h3 id='returns'>Returns</h3>
-
-<p><code>None</code></p>
-
-<h3 id='example'>Example</h3>
-
-<p>The following code would hide the property named “resolution” in the Lua property page for this driver:
-<code>C4:SetPropertyAttribs(&quot;Resolution&quot;, 1)</code></p>
 
 <h2 id='teadecrypt'>TEADecrypt</h2>
 
