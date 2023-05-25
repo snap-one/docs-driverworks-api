@@ -1,4 +1,4 @@
-# DebugLog
+## DebugLog
 
 Function called from DriverWorks driver to send messages to the following log files: director.log and driver.log. This API can be invoked during OnDriverInit.
 
