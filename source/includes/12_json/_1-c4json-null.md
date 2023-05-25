@@ -1,4 +1,4 @@
-## c4json.null
+## JSON Null
 
 c4json is a global object that is used by the JSON encoder/decoder.
 
