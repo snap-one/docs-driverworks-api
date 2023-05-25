@@ -1078,19 +1078,19 @@
                     <a href="#execution" class="toc-h2 toc-link" data-title="Execution">Execution</a>
                   </li>
                   <li>
-                    <a href="#getnotificationattachmenturl" class="toc-h2 toc-link" data-title="GetNotificationAttachmentURL">GetNotificationAttachmentURL</a>
-                  </li>
-                  <li>
-                    <a href="#getnotificationattachmentfile" class="toc-h2 toc-link" data-title="GetNotificationAttachmentFile">GetNotificationAttachmentFile</a>
+                    <a href="#finishedwithnotificationattachment" class="toc-h2 toc-link" data-title="FinishedWithNotificationAttachment">FinishedWithNotificationAttachment</a>
                   </li>
                   <li>
                     <a href="#getnotificationattachmentbytes" class="toc-h2 toc-link" data-title="GetNotificationAttachmentBytes">GetNotificationAttachmentBytes</a>
                   </li>
                   <li>
-                    <a href="#finishedwithnotificationattachment" class="toc-h2 toc-link" data-title="FinishedWithNotificationAttachment">FinishedWithNotificationAttachment</a>
+                    <a href="#getnotificationattachmentfile" class="toc-h2 toc-link" data-title="GetNotificationAttachmentFile">GetNotificationAttachmentFile</a>
                   </li>
                   <li>
-                    <a href="#refresh-navigator" class="toc-h2 toc-link" data-title="Refresh Navigator">Refresh Navigator</a>
+                    <a href="#getnotificationattachmenturl" class="toc-h2 toc-link" data-title="GetNotificationAttachmentURL">GetNotificationAttachmentURL</a>
+                  </li>
+                  <li>
+                    <a href="#refresh-navigator-example" class="toc-h2 toc-link" data-title="Refresh Navigator Example">Refresh Navigator Example</a>
                   </li>
               </ul>
           </li>
@@ -12061,20 +12061,12 @@ Sets the callback that is invoked to notify a driver about the result of &quot;p
 
 <p>To assist with implementation, please see the notification driver.c4z file in the Samples folder of this SDK.</p>
 
-<h2 id='getnotificationattachmenturl'>GetNotificationAttachmentURL</h2>
+<h2 id='finishedwithnotificationattachment'>FinishedWithNotificationAttachment</h2>
 
-<p>If the .jpeg file from the device is stored on the web or in a cloud, the GetNotificationAttachmentURL API should be included in your driver to return the URL of the file.</p>
+<p>This API has been included in the event that your driver needs to do any sort of clean-up with the stored .jpeg file. It also provides a notification when the original notification has been sent. This is an optional API and only recommended if cleanup is needed. For example, if it is desirable to remove a temporary image file from your system. </p>
 
-<h3 id='example'>Example</h3><div class="highlight"><pre class="highlight lua tab-lua"><code><span class="k">function</span> <span class="nf">GetNotificationAttachmentURL</span><span class="p">()</span>
-  <span class="k">return</span> <span class="s2">"http://10.12.80.4:80/snap1vga"</span>
-<span class="k">end</span>
-</code></pre></div>
-<p>To assist with implementation, please see the notification driver.c4z file in the Samples folder of this SDK.</p>
-
-<h2 id='getnotificationattachmentfile'>GetNotificationAttachmentFile</h2>
-<p>If the .jpeg file is placed on the Control4 controller by the driver, the GetNotificationAttachmentFile API should be included in your driver to return the file.</p>
-<h3 id='example'>Example</h3><div class="highlight"><pre class="highlight lua tab-lua"><code><span class="k">function</span> <span class="nf">GetNotificationAttachmentFile</span><span class="p">()</span>
-    <span class="k">return</span> <span class="s2">"image.jpg"</span>
+<h3 id='example'>Example</h3><div class="highlight"><pre class="highlight lua tab-lua"><code><span class="k">function</span> <span class="nf">FinishedWithNotificationAttachment</span><span class="p">()</span>
+  <span class="c1">-- do any cleanup required here.</span>
 <span class="k">end</span>
 </code></pre></div>
 <p>To assist with implementation, please see the notification driver.c4z file in the Samples folder of this SDK.</p>
@@ -12092,15 +12084,23 @@ Sets the callback that is invoked to notify a driver about the result of &quot;p
 </code></pre></div>
 <p>To assist with implementation, please see the notification driver.c4z file in the Samples folder of this SDK.</p>
 
-<h2 id='finishedwithnotificationattachment'>FinishedWithNotificationAttachment</h2>
-<p>This API has been included in the event that your driver needs to do any sort of clean-up with the stored .jpeg file. It also provides a notification when the original notification has been sent. This is an optional API and only recommended if cleanup is needed. For example, if it is desirable to remove a temporary image file from your system. </p>
-<h3 id='example'>Example</h3><div class="highlight"><pre class="highlight lua tab-lua"><code><span class="k">function</span> <span class="nf">FinishedWithNotificationAttachment</span><span class="p">()</span>
-  <span class="c1">-- do any cleanup required here.</span>
+<h2 id='getnotificationattachmentfile'>GetNotificationAttachmentFile</h2>
+<p>If the .jpeg file is placed on the Control4 controller by the driver, the GetNotificationAttachmentFile API should be included in your driver to return the file.</p>
+<h3 id='example'>Example</h3><div class="highlight"><pre class="highlight lua tab-lua"><code><span class="k">function</span> <span class="nf">GetNotificationAttachmentFile</span><span class="p">()</span>
+    <span class="k">return</span> <span class="s2">"image.jpg"</span>
 <span class="k">end</span>
 </code></pre></div>
 <p>To assist with implementation, please see the notification driver.c4z file in the Samples folder of this SDK.</p>
 
-<h2 id='refresh-navigator'>Refresh Navigator</h2>
+<h2 id='getnotificationattachmenturl'>GetNotificationAttachmentURL</h2>
+<p>If the .jpeg file from the device is stored on the web or in a cloud, the GetNotificationAttachmentURL API should be included in your driver to return the URL of the file.</p>
+<h3 id='example'>Example</h3><div class="highlight"><pre class="highlight lua tab-lua"><code><span class="k">function</span> <span class="nf">GetNotificationAttachmentURL</span><span class="p">()</span>
+  <span class="k">return</span> <span class="s2">"http://10.12.80.4:80/snap1vga"</span>
+<span class="k">end</span>
+</code></pre></div>
+<p>To assist with implementation, please see the notification driver.c4z file in the Samples folder of this SDK.</p>
+
+<h2 id='refresh-navigator-example'>Refresh Navigator Example</h2>
 <p>The following is an example of how to be notified when the “Refresh Navigator” call is made. When bindings, device names, or device media has changed, a “Refresh Navigator” call is made. This event is an alert for the Navigators that any cached data about the project or media may now be invalid.</p>
 
 <p>Specifically the event for “Refresh Navigator” is the “OnPIP” event.  To get this event,  we make use of the generic event registration calls:</p>
