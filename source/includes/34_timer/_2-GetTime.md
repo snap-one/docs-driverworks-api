@@ -12,4 +12,14 @@ This API was added in conjunction with O.S. 3.2.3.
 `C4:GetTime()`
 
 
+### Params
+`None`
+
+
+### Returns
+
+| Valuer | Description |
+| --- | --- |
+|num| sec: Number of milliseconds since the epoch.|
+
 [1]:	https://en.wikipedia.org/wiki/Epoch_(computing) "Epoch Date in Computing"
