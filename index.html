@@ -1597,13 +1597,7 @@
                     <a href="#urlsetproxy" class="toc-h2 toc-link" data-title="urlSetProxy">urlSetProxy</a>
                   </li>
                   <li>
-                    <a href="#usage-note" class="toc-h2 toc-link" data-title="Usage Note">Usage Note</a>
-                  </li>
-                  <li>
                     <a href="#urlsettimeout" class="toc-h2 toc-link" data-title="urlSetTimeout">urlSetTimeout</a>
-                  </li>
-                  <li>
-                    <a href="#usage-notes" class="toc-h2 toc-link" data-title="Usage Notes">Usage Notes</a>
                   </li>
               </ul>
           </li>
@@ -20110,7 +20104,7 @@ Connection: &quot;close&quot;, is suggested and
 
 <p><code>None</code></p>
 
-<h2 id='usage-note'>Usage Note</h2>
+<h3 id='usage-note'>Usage Note</h3>
 
 <p>Control4 Web Service APIs, specifically those beginning with <a href="https://snap-one.github.io/docs-driverworks-api/#url-interface">C4:url</a>, send the following default Headers with the HTTP(s) request:</p>
 
@@ -20149,7 +20143,7 @@ Connection: "close", is suggested and
 
 <p><code>None</code></p>
 
-<h2 id='usage-notes'>Usage Notes</h2>
+<h3 id='usage-notes'>Usage Notes</h3>
 
 <p>Starting with the release of OS 2.9.0, urlSetTimeout is optional as a driver no longer has to make this call explicitly. As of 2.9.0, Control4 imposes a 300 second overall timeout to all web requests by default.  A driver may however override this and call C4:urlSetTimeout() to revert back to the behavior described above. </p>
 
