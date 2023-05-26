@@ -1368,9 +1368,6 @@
                     <a href="#getnetworkconnections" class="toc-h2 toc-link" data-title="GetNetworkConnections">GetNetworkConnections</a>
                   </li>
                   <li>
-                    <a href="#getproxydevicesbyid" class="toc-h2 toc-link" data-title="GetProxyDevicesbyID">GetProxyDevicesbyID</a>
-                  </li>
-                  <li>
                     <a href="#getserialsettings" class="toc-h2 toc-link" data-title="GetSerialSettings">GetSerialSettings</a>
                   </li>
                   <li>
@@ -16677,43 +16674,6 @@ print(Bar[&quot;</span><span class="n">Qux</span><span class="s2">&quot;])
 <span class="n">name</span><span class="p">:</span><span class="err"> </span> <span class="n">Leviton</span> <span class="n">Z</span><span class="o">-</span><span class="n">Wave</span> <span class="n">DZPD3</span> <span class="n">Lamp</span> <span class="n">Dimmer</span> <span class="n">Module</span>
 <span class="n">port</span><span class="p">:</span><span class="err"> </span> <span class="mi">0</span>
 </code></pre></div>
-
-<h2 id='getproxydevicesbyid'>GetProxyDevicesbyID</h2>
-
-<p>Returns the Proxy ID value when passed a Device ID value. This API should not be invoked during OnDriverInit.</p>
-
-<p><h6 id='available-from-1-6-0'>Available from 1.6.0</h6><h3 id='signature'>Signature</h3>
-<p><code>C4:GetProxyDevicesbyID (idDevice)</code></p></p>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>num</td>
-<td>ID value of a device. Optional</td>
-</tr>
-</tbody></table>
-
-<h3 id='returns'>Returns</h3>
-
-<table><thead>
-<tr>
-<th>Value</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>num</td>
-<td>Proxy ID value</td>
-</tr>
-</tbody></table>
-
-<h3 id='usage-note'>Usage Note</h3>
-
-<p>Usage Note: If parameter passed is zero (0), this function will return the current Proxy ID for the driver selected in the Composer Project. If multiple proxies are associated with a device, the first Proxy ID displayed will be the first proxy as displayed in the Composer device tree.</p>
 
 <h2 id='getserialsettings'>GetSerialSettings</h2>
 
