@@ -17810,11 +17810,23 @@ On failure, the function returns the following:</p></p>
 <td>str</td>
 <td>A string containing the certificate to use for server connections. This can be one of the following:</td>
 </tr>
+<tr>
+<td>---</td>
+<td>---</td>
+</tr>
+<tr>
+<td>PEM</td>
+<td>A PEM-encoded certificate</td>
+</tr>
+<tr>
+<td>PEM-FILE</td>
+<td>A path to a file containing a PEM-encoded certificate. The path is relative to either the C4Z directory or the driver&#39;s sandbox directory. Note that paths starting with either &quot;.&quot; or &quot;..&quot; are rejected.</td>
+</tr>
+<tr>
+<td>#PKCS12-FILE</td>
+<td>A path to a #PKCS12 file containing the certificate, private key, and an optional certificate chain. The password argument must specify the password (if required). When specified, the certificate and private key are extracted from the #PKCS12 file and applied to all server connections. As a result, the privateKey argument is ignored. The certificate chain found in the #PKCS12 file is used automatically unless the chain argument specifies an alternate certificate chain to be used.</td>
+</tr>
 </tbody></table>
-
-<p>| PEM | A PEM-encoded certificate |
-| PEM-FILE | A path to a file containing a PEM-encoded certificate. The path is relative to either the C4Z directory or the driver&#39;s sandbox directory. Note that paths starting with either &quot;.&quot; or &quot;..&quot; are rejected. |
-| #PKCS12-FILE | A path to a #PKCS12 file containing the certificate, private key, and an optional certificate chain. The password argument must specify the password (if required). When specified, the certificate and private key are extracted from the #PKCS12 file and applied to all server connections. As a result, the privateKey argument is ignored. The certificate chain found in the #PKCS12 file is used automatically unless the chain argument specifies an alternate certificate chain to be used.|</p>
 
 <p>|str| privateKey: A string containing the private key to use for server connections. This can be one of the following:|</p>
 
