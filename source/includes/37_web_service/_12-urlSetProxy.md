@@ -23,7 +23,7 @@ This function is to set server related security information that may be needed i
 `None`
 
 
-## Usage Note
+### Usage Note
 
 Control4 Web Service APIs, specifically those beginning with [C4:url][1], send the following default Headers with the HTTP(s) request:
 

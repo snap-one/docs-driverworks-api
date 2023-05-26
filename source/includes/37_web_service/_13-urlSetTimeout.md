@@ -20,7 +20,7 @@ This function is to set a maximum time value (in seconds) for a transfer operati
 `None`
 
 
-## Usage Notes
+### Usage Notes
 
 Starting with the release of OS 2.9.0, urlSetTimeout is optional as a driver no longer has to make this call explicitly. As of 2.9.0, Control4 imposes a 300 second overall timeout to all web requests by default.  A driver may however override this and call C4:urlSetTimeout() to revert back to the behavior described above. 
 
