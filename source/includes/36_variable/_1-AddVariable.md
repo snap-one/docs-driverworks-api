@@ -18,6 +18,12 @@ Function called from a DriverWorks driver to create a Control4 variable for the 
 | bReadOnly | Boolean. ReadOnly: Optional, defaults to FALSE |
 | bHidden | Boolean. Hidden: Optional, defaults to FALSE.  A flag indicating whether the variable is hidden. 
 
+### Returns
+| Value | Description |
+| --- | --- |
+| num |ID of variable that was added.|
+| bool | Indicates if the variable was added successfully.|
+
 
 ### Usage Notes
 
