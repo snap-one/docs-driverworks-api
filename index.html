@@ -19622,10 +19622,8 @@ When a listener is set on a variable, whenever the variable changes, the Lua <a 
 <p>This function is used in conjunction with <a href="https://snap-one.github.io/docs-driverworks-api/#get">urlGet</a> and <a href="https://snap-one.github.io/docs-driverworks-api/#post">urlPost</a>. It handles the data contained in the data ticket. As soon as data is returned from getUrl, Director will call this in the Lua code. This API should not be invoked during OnDriverInit.</p>
 
 <p><h6 id='available-from-1-6-0'>Available from 1.6.0.</h6><h3 id='signature'>Signature</h3>
-<p><code>function ReceivedAsync(ticketId, strData, responseCode, tHeaders, strError)</code></p>
-<h3 id='parameters'>Parameters</h3>
-<p><code>None</code></p>
-<h3 id='returns'>Returns</h3>
+<p><code>function ReceivedAsync(ticketId, strData, responseCode, tHeaders, strError)</code></p></p>
+
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -19653,30 +19651,32 @@ When a listener is set on a variable, whenever the variable changes, the Lua <a 
 <td>String representing the error content</td>
 </tr>
 </tbody></table>
+
 <h3 id='example'>Example</h3><div class="highlight"><pre class="highlight lua tab-lua"><code><span class="k">function</span> <span class="nf">ReceivedAsync</span><span class="p">(</span><span class="n">ticketId</span><span class="p">,</span> <span class="n">strData</span><span class="p">)</span>
 <span class="err"> </span> <span class="n">callType</span> <span class="o">=</span> <span class="n">g_ticketToTypeMap</span><span class="p">[</span><span class="n">ticketId</span><span class="p">]</span>
-<span class="err"> </span> <span class="c1">--print(&quot;ra - ct = &quot; .. callType .. &quot; id is &quot; .. ticketId .. &quot; data is&lt;&lt; &quot; .. strData .. &quot; &gt;&gt;&quot;)</span>
-<span class="err"> </span> <span class="k">if</span> <span class="p">(</span><span class="n">callType</span> <span class="o">==</span> <span class="s2">&quot;root&quot;</span><span class="p">)</span> <span class="k">then</span>
+<span class="err"> </span> <span class="c1">--print("ra - ct = " .. callType .. " id is " .. ticketId .. " data is&lt;&lt; " .. strData .. " &gt;&gt;")</span>
+<span class="err"> </span> <span class="k">if</span> <span class="p">(</span><span class="n">callType</span> <span class="o">==</span> <span class="s2">"root"</span><span class="p">)</span> <span class="k">then</span>
 <span class="err">       </span> <span class="n">g_shoutCastHtmlParsed</span> <span class="o">=</span> <span class="n">parsestr</span><span class="p">(</span><span class="n">strData</span><span class="p">)</span>
-<span class="err"> </span> <span class="k">elseif</span> <span class="p">(</span><span class="n">callType</span> <span class="o">==</span> <span class="s2">&quot;playlist&quot;</span><span class="p">)</span> <span class="k">then</span>
+<span class="err"> </span> <span class="k">elseif</span> <span class="p">(</span><span class="n">callType</span> <span class="o">==</span> <span class="s2">"playlist"</span><span class="p">)</span> <span class="k">then</span>
 <span class="err">               </span> <span class="n">stationUrl</span> <span class="o">=</span> <span class="n">GetStationUrlFromHtml</span><span class="p">(</span><span class="n">strData</span><span class="p">)</span>
             <span class="k">if</span> <span class="p">(</span><span class="n">stationUrl</span><span class="p">)</span> <span class="k">then</span>
-<span class="err">                  </span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Adding station &quot;</span> <span class="o">..</span> <span class="n">stationUrl</span><span class="p">)</span>
+<span class="err">                  </span> <span class="nb">print</span><span class="p">(</span><span class="s2">"Adding station "</span> <span class="o">..</span> <span class="n">stationUrl</span><span class="p">)</span>
 <span class="err">               </span> <span class="err">        </span> <span class="n">AddStationToDb</span><span class="p">(</span><span class="n">stationUrl</span><span class="p">,</span> <span class="n">ticketId</span><span class="p">)</span>
 <span class="err">        </span> <span class="k">else</span>
 <span class="err">   </span> <span class="err">           </span> <span class="c1">-- must have been a genre item they clicked on</span>
 <span class="err">           </span> <span class="n">genreTable</span> <span class="o">=</span> <span class="n">parsestr</span><span class="p">(</span><span class="n">strData</span><span class="p">)</span>
-<span class="err">           </span> <span class="n">ShowSubGenres</span><span class="p">(</span><span class="s2">&quot;Add Genre&quot;</span><span class="p">,</span> <span class="n">genreTable</span><span class="p">)</span>
+<span class="err">           </span> <span class="n">ShowSubGenres</span><span class="p">(</span><span class="s2">"Add Genre"</span><span class="p">,</span> <span class="n">genreTable</span><span class="p">)</span>
 <span class="err">               </span> <span class="k">end</span>
 <span class="err"> </span> <span class="k">else</span>
-<span class="err">   </span> <span class="err">           </span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ReceivedAsync called with unexpected id of &quot;</span> <span class="o">..</span> <span class="n">ticketId</span><span class="p">)</span> <span class="c1">-- ..  and data of &quot; .. strData)</span>
+<span class="err">   </span> <span class="err">           </span> <span class="nb">print</span><span class="p">(</span><span class="s2">"ReceivedAsync called with unexpected id of "</span> <span class="o">..</span> <span class="n">ticketId</span><span class="p">)</span> <span class="c1">-- ..  and data of " .. strData)</span>
 <span class="err"> </span> <span class="k">end</span>
 <span class="k">end</span>
 </code></pre></div>
 <h2 id='urlcancel'>urlCancel</h2>
 <p>Function to cancel an ongoing transfer. Note that if a transfer is canceled, neither the ReceivedAsync() entry point nor the callback function specified in the <a href="https://snap-one.github.io/docs-driverworks-api/#url-interface">C4:url</a> call will be called.  Also, the ticketId is only valid from the point the C4:url function is called until either the <a href="https://snap-one.github.io/docs-driverworks-api/#receivedasync">ReceivedAsync()</a> entry point or the callback function was called. A call to C4:urlCancel() will also invalidate that ticketed. This API should not be invoked during OnDriverInit</p>
 <h6 id='available-from-2-7-0'>Available from 2.7.0.</h6><h3 id='signature'>Signature</h3>
-<p><code>C4:urlCancel(ticketId)</code></p></p>
+
+<p><code>C4:urlCancel(ticketId)</code></p>
 
 <table><thead>
 <tr>
