@@ -425,10 +425,10 @@
                     <a href="#encryption-interface-decrypt" class="toc-h2 toc-link" data-title="Decrypt">Decrypt</a>
                   </li>
                   <li>
-                    <a href="#encryption-interface-generatecsr-ecc" class="toc-h2 toc-link" data-title="GenerateCSR ECC">GenerateCSR ECC</a>
+                    <a href="#encryption-interface-generatecsr_ecc" class="toc-h2 toc-link" data-title="GenerateCSR_ECC">GenerateCSR_ECC</a>
                   </li>
                   <li>
-                    <a href="#encryption-interface-generatecsr-rsa" class="toc-h2 toc-link" data-title="GenerateCSR RSA">GenerateCSR RSA</a>
+                    <a href="#encryption-interface-generatecsr_-rsa" class="toc-h2 toc-link" data-title="GenerateCSR_ RSA">GenerateCSR_ RSA</a>
                   </li>
                   <li>
                     <a href="#encryption-interface-getsupportedciphers" class="toc-h2 toc-link" data-title="GetSupportedCiphers">GetSupportedCiphers</a>
@@ -2364,17 +2364,27 @@ SetOnDisconnected: Provides notification when the connection is disconnected, or
 
 <p><h6 id='controller-registry-interface-registrygetvalue-returns-see-also-available-from-2-10-4'>Available from 2.10.4</h6><h3 id='controller-registry-interface-registrygetvalue-signature'>Signature</h3>
 <p><code>C4:RegistryGetValue(key)&#39;
-</code>
-|Parameters | Description|
-| --- | --- |
-| num | The key applicable to the value being retrieved. |</p>
+</code></p></p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>num</td>
+<td>The key applicable to the value being retrieved.</td>
+</tr>
+</tbody></table>
+
 <h3 id='controller-registry-interface-registrygetvalue-returns'>Returns</h3>
-<p>Upon success, the API returns the value that was decoded from the Registry. The value can be any of the following: number, string ,boolean, table. Upon failure, the API returns nil.</p></p>
+
+<p>Upon success, the API returns the value that was decoded from the Registry. The value can be any of the following: number, string ,boolean, table. Upon failure, the API returns nil.</p>
 
 <h2 id='controller-registry-interface-registrysetvalue'>RegistrySetValue</h2>
 
-<p>Sets the value of a Registry key/value pair. The value is updated if the specified key/value pair exists. A
-key/value pair is created by the API if it does not exist. </p>
+<p>Sets the value of a Registry key/value pair. The value is updated if the specified key/value pair exists. A key/value pair is created by the API if it does not exist. </p>
 
 <p><h5 id='controller-registry-interface-registrysetvalue-returns-see-also-available-from-2-10-4'>Available from 2.10.4</h5><h3 id='controller-registry-interface-registrysetvalue-signature'>Signature</h3>
 <p><code>C4:RegistrySetValue(key, value)</code></p></p>
@@ -2833,11 +2843,11 @@ key/value pair is created by the API if it does not exist. </p>
 </tr>
 </tbody></table>
 
-<h2 id='encryption-interface-generatecsr-ecc'>GenerateCSR ECC</h2>
+<h2 id='encryption-interface-generatecsr_ecc'>GenerateCSR_ECC</h2>
 
 <p>This API will generate a certificate signing request (CSR) which, when sent to a certificate authority, will return a digital identity certificate that meets the encryption criteria defined by Elliptic-curve cryptography (ECC) standard. The use of this API assumes a thorough knowledge of public-key cryptosystems and the ECC cryptosystem definition. The driver needs to send CSR off to a service that can sign and return the certificate. That step is left up to the driver writer. </p>
 
-<p><h6 id='encryption-interface-generatecsr-ecc-returns-see-also-available-from-2-10-4-available-in-3-1-2'>Available in 3.1.2.</h6><h3 id='encryption-interface-generatecsr-ecc-signature'>Signature</h3>
+<p><h6 id='encryption-interface-generatecsr_ecc-returns-see-also-available-from-2-10-4-available-in-3-1-2'>Available in 3.1.2.</h6><h3 id='encryption-interface-generatecsr_ecc-signature'>Signature</h3>
 <p><code>C4:GenerateCSP_ECC(digest, curve, subject, tx509_exts) </code></p></p>
 
 <table><thead>
@@ -2864,7 +2874,7 @@ key/value pair is created by the API if it does not exist. </p>
 </tr>
 </tbody></table>
 
-<h3 id='encryption-interface-generatecsr-ecc-returns'>Returns</h3>
+<h3 id='encryption-interface-generatecsr_ecc-returns'>Returns</h3>
 
 <table><thead>
 <tr>
@@ -2890,7 +2900,7 @@ key/value pair is created by the API if it does not exist. </p>
 </tr>
 </tbody></table>
 
-<h3 id='encryption-interface-generatecsr-ecc-examples'>Examples</h3>
+<h3 id='encryption-interface-generatecsr_ecc-examples'>Examples</h3>
 
 <p>Generate a CSR using ECC requirements:</p>
 
@@ -2936,11 +2946,11 @@ key/value pair is created by the API if it does not exist. </p>
  <span class="c1">-----END CERTIFICATE REQUEST-----</span>
 </code></pre></div>
 
-<h2 id='encryption-interface-generatecsr-rsa'>GenerateCSR RSA</h2>
+<h2 id='encryption-interface-generatecsr_-rsa'>GenerateCSR_ RSA</h2>
 
 <p>This API will generate a certificate signing request (CSR) which, when sent to a certificate authority, will return a digital identity certificate that meets the encryption criteria defined by the Rivest–Shamir–Adleman (RSA) standard. The use of this API assumes a thorough knowledge of public-key cryptosystems and the RSA cryptosystem definition. The driver needs to send CSR off to a service that can sign and return the certificate. That step is left up to the driver writer. </p>
 
-<p><h6 id='encryption-interface-generatecsr-rsa-examples-see-also-available-from-2-10-4-available-in-3-1-2'>Available in 3.1.2.</h6><h3 id='encryption-interface-generatecsr-rsa-signature'>Signature</h3>
+<p><h6 id='encryption-interface-generatecsr_-rsa-examples-see-also-available-from-2-10-4-available-in-3-1-2'>Available in 3.1.2.</h6><h3 id='encryption-interface-generatecsr_-rsa-signature'>Signature</h3>
 <p><code>C4:GenerateCSP_RSA(digest, sizeCert, subject, tx509_exts)</code></p></p>
 
 <table><thead>
@@ -2967,7 +2977,7 @@ key/value pair is created by the API if it does not exist. </p>
 </tr>
 </tbody></table>
 
-<h3 id='encryption-interface-generatecsr-rsa-returns'>Returns</h3>
+<h3 id='encryption-interface-generatecsr_-rsa-returns'>Returns</h3>
 
 <table><thead>
 <tr>
@@ -2993,7 +3003,7 @@ key/value pair is created by the API if it does not exist. </p>
 </tr>
 </tbody></table>
 
-<h3 id='encryption-interface-generatecsr-rsa-examples'>Examples</h3>
+<h3 id='encryption-interface-generatecsr_-rsa-examples'>Examples</h3>
 
 <p>Generate a CSR using RSA requirements:</p>
 
@@ -5397,9 +5407,7 @@ OnDriverInit.</p>
 
 <h2 id='helper-interface-getallcodeitems'>GetAllCodeItems</h2>
 <p>This function returns all Code Items within the project.</p>
-
-<p><em>This API was introduced in O.S. Release 3.3.0</em></p>
-<h3 id='helper-interface-getallcodeitems-signature'>Signature</h3>
+<h6 id='helper-interface-getallcodeitems-example-director-geo-location-service-available-from-2-10-4-available-from-3-3-0'>Available from 3.3.0</h6><h3 id='helper-interface-getallcodeitems-signature'>Signature</h3>
 <p><code>C4:GetAllCodeItems()</code></p>
 <h3 id='helper-interface-getallcodeitems-parameters'>Parameters</h3>
 <p><code>None</code></p>
@@ -5498,9 +5506,7 @@ OnDriverInit.</p>
 re-booted, the ID will change.  The returned value is the same value as the one stored on Linux at:</p>
 
 <p><code>/proc/sys/kernel/random/boot_id</code> </p>
-
-<p><em>This API was introduced in O.S. Release 3.3.0</em></p>
-<h3 id='helper-interface-getbootid-signature'>Signature</h3>
+<h6 id='helper-interface-getbootid-example-director-geo-location-service-available-from-2-10-4-available-from-3-3-0'>Available from 3.3.0</h6><h3 id='helper-interface-getbootid-signature'>Signature</h3>
 <p><code>C4:GetBootID()</code></p>
 <h3 id='helper-interface-getbootid-parameters'>Parameters</h3>
 <p><code>None</code></p>
@@ -5523,9 +5529,7 @@ re-booted, the ID will change.  The returned value is the same value as the one 
 
 <h2 id='helper-interface-getcodeitems'>GetCodeItems</h2>
 <p>This function returns Code Items for a specified device and event.</p>
-
-<p><em>This API was introduced in O.S. Release 3.3.0</em></p>
-<h3 id='helper-interface-getcodeitems-signature'>Signature</h3>
+<h6 id='helper-interface-getcodeitems-example-director-geo-location-service-available-from-2-10-4-available-from-3-3-0'>Available from 3.3.0</h6><h3 id='helper-interface-getcodeitems-signature'>Signature</h3>
 <p><code>C4:GetCodeItems ()</code></p>
 
 <table><thead>
@@ -5976,7 +5980,7 @@ convenience, the print function can be called without prefacing with &quot;C4:&q
 OnDriverInit.</p>
 
 <p><h6 id='helper-interface-print-usage-note-director-geo-location-service-available-from-2-10-4-available-from-1-6-0'>Available from 1.6.0.</h6><h3 id='helper-interface-print-signature'>Signature</h3>
-<p><code>print(strPrintText)</code></p></p>
+<p><code>C4:print(strPrintText)</code></p></p>
 
 <table><thead>
 <tr>
@@ -6080,7 +6084,7 @@ Control4 system is set to a locale where the decimal separator is different from
 <p>Driver writers must ensure that their drivers will not fail in these circumstances. To assist with this, Control4 has provided a function: tonumberloc(). This function is included in the driver templates beginning OS release 2.8.0 and its use ensures this problem does not occur.  Driver writers are advised to usetonumberloc()  in place of tonumber() in their code.</p>
 
 <p><h6 id='helper-interface-tonumberloc-example-director-geo-location-service-available-from-2-10-4-available-from-1-6-0'>Available from 1.6.0.</h6><h3 id='helper-interface-tonumberloc-signature'>Signature</h3>
-<p><code>tonumber_loc()</code></p>
+<p><code>C4:tonumber_loc()</code></p>
 <h3 id='helper-interface-tonumberloc-example'>Example</h3><div class="highlight"><pre class="highlight lua tab-lua"><code>
 <span class="k">function</span> <span class="nf">tonumber_loc</span><span class="p">(</span><span class="n">str</span><span class="p">,</span> <span class="n">base</span><span class="p">)</span>
         <span class="kd">local</span> <span class="n">s</span>
@@ -6490,10 +6494,7 @@ volume ramps) could be catastrophic to equipment. The IR code to send must be de
 
 <h2 id='json-interface-jsonencode'>JsonEncode</h2>
 
-<p>JSON function that takes the data in the Lua tCommand table and encodes it into a JSON formatted command string
-representing a Lua object. 
-On success, this function returns a single value which is as designed. On failure, the function returns two
-values:</p>
+<p>JSON function that takes the data in the Lua tCommand table and encodes it into a JSON formatted command string representing a Lua object. On success, this function returns a single value which is as designed. On failure, the function returns two values:</p>
 
 <ol>
 <li>nil</li>
@@ -6501,6 +6502,10 @@ values:</p>
 </ol>
 
 <p>This API should not be invoked during OnDriverInit.</p>
+
+<h3 id='json-interface-jsonencode-signature'>Signature</h3>
+
+<p><code>C4:JsonEncode(json)</code></p>
 
 <table><thead>
 <tr>
@@ -7547,7 +7552,7 @@ during OnDriverInit.</p>
 <h2 id='tcpserver-interface-close'>Close</h2>
 <p>This method stops the server socket, or cancels pending resolve or endpoint selection.  If a pending resolve or endpoint selection was canceled, the <a href="https://snap-one.github.io/docs-driverworks-api/#onerror">OnError</a> handler will be called.  However, if the server is already accepting connections, the OnError handler will NOT be called and the server simply ceases to accept further connection requests.  Note that the server does not manage accepted client connections and will not close any of these connections. it it is up to your implementation to manage client connections and how to act when you stop the TCP server.</p>
 <h6 id='tcpserver-interface-close-example-director-geo-location-service-available-from-2-10-4-available-in-1-6-0'>Available in 1.6.0</h6><h3 id='tcpserver-interface-close-signature'>Signature</h3>
-<p><code>C4: Close()</code></p>
+<p><code>C4:Close()</code></p>
 <h3 id='tcpserver-interface-close-parameters'>Parameters</h3>
 <p><code>None</code></p>
 <h3 id='tcpserver-interface-close-returns'>Returns</h3>
@@ -7723,7 +7728,7 @@ during OnDriverInit.</p>
 <p>This method sets a callback method that will be called once the host/service has been resolved.  If implemented, it allows you to choose a particular endpoint to listen on, or to cancel the listen request.</p>
 
 <p><h6 id='tcpserver-interface-onresolve-signature-director-geo-location-service-available-from-2-10-4-available-in-1-6-0'>Available in 1.6.0</h6><h3 id='tcpserver-interface-onresolve-signature'>Signature</h3>
-<p><code>C4: OnResolve(func)</code></p></p>
+<p><code>C4:OnResolve(func)</code></p></p>
 
 <table><thead>
 <tr>
@@ -7897,7 +7902,7 @@ during OnDriverInit.</p>
 <p>This API should not be invoked during OnDriverInit.</p>
 
 <p><h6 id='media-management-albums-interface-mediagetalbuminfo-example-director-geo-location-service-available-from-2-10-4-available-from-1-6-0'>Available from 1.6.0</h6><h3 id='media-management-albums-interface-mediagetalbuminfo-signature'>Signature</h3>
-<p><code>C4: MediaGetAlbumInfo</code></p></p>
+<p><code>C4:MediaGetAlbumInfo</code></p></p>
 
 <table><thead>
 <tr>
@@ -7980,7 +7985,7 @@ during OnDriverInit.</p>
 <p>This API should not be invoked during OnDriverInit.</p>
 <h6 id='media-management-albums-interface-mediagetalbumlocation-example-director-geo-location-service-available-from-2-10-4-available-from-1-6-0'>Available from 1.6.0</h6><h3 id='media-management-albums-interface-mediagetalbumlocation-signature'>Signature</h3>
 
-<p><code>C4: MediaGetAlbumLocations() </code></p>
+<p><code>C4:MediaGetAlbumLocations() </code></p>
 
 <table><thead>
 <tr>
@@ -8074,7 +8079,7 @@ during OnDriverInit.</p>
 <p>This API should not be invoked during OnDriverInit.</p>
 
 <p><h6 id='media-management-albums-interface-mediaremoveallalbums-example-director-geo-location-service-available-from-2-10-4-available-from-1-6-0'>Available from 1.6.0</h6><h3 id='media-management-albums-interface-mediaremoveallalbums-signature'>Signature</h3>
-<p><code>C4: MediaRemoveAllAlbums() </code></p>
+<p><code>C4:MediaRemoveAllAlbums() </code></p>
 <h3 id='media-management-albums-interface-mediaremoveallalbums-parameter'>Parameter</h3>
 <p><code>None</code></p>
 <h3 id='media-management-albums-interface-mediaremoveallalbums-returns'>Returns</h3>
@@ -8666,7 +8671,7 @@ shrekMovie = {
 <p>This API should not be invoked during OnDriverInit.</p>
 <h6 id='media-management-movies-interface-mediagetmovielocation-example-director-geo-location-service-available-from-2-10-4-available-from-1-6-0'>Available from 1.6.0</h6><h3 id='media-management-movies-interface-mediagetmovielocation-signature'>Signature</h3>
 
-<p><code>C4: MediaGetMovieLocations()</code></p>
+<p><code>C4:MediaGetMovieLocations()</code></p>
 
 <table><thead>
 <tr>
@@ -8864,7 +8869,7 @@ shrekMovie = {
 <h2 id='media-management-songs-interface-mediagetsonglocation'>MediaGetSongLocation</h2>
 <p>This API should not be invoked during OnDriverInit.</p>
 <h6 id='media-management-songs-interface-mediagetsonglocation-example-director-geo-location-service-available-from-2-10-4-available-from-1-6-0'>Available from 1.6.0</h6><h3 id='media-management-songs-interface-mediagetsonglocation-signature'>Signature</h3>
-<p><code>C4: MediaGetSongLocation( </code></p></p>
+<p><code>C4:MediaGetSongLocation( </code></p></p>
 
 <table><thead>
 <tr>
@@ -8963,8 +8968,7 @@ shrekMovie = {
 <p>This API should not be invoked during OnDriverInit.</p>
 
 <p><h6 id='media-management-songs-interface-mediagetsongsforalbum-example-director-geo-location-service-available-from-2-10-4-available-from-1-6-0'>Available from 1.6.0</h6><h3 id='media-management-songs-interface-mediagetsongsforalbum-signature'>Signature</h3>
-<p><code>C4:MediaGetSongsforAlbum() 
-</code></p></p>
+<p><code>C4:MediaGetSongsforAlbum()</code> </p></p>
 
 <table><thead>
 <tr>
@@ -9041,8 +9045,8 @@ shrekMovie = {
 
 <p>Function called by a DriverWorks driver to add a dynamic binding (a binding added at runtime).  This is typically done by security panels or other devices whose number of bindings are unknown when the driver is created.</p>
 
-<h6 id='miscellaneous-interface-adddynamicbinding-example-director-geo-location-service-available-from-2-10-4-available-from-1-6-0'>Available from 1.6.0</h6><h3 id='miscellaneous-interface-adddynamicbinding-signature'>Signature</h3>
-<p><code>C4:AddDynamicBinding(idBinding, strType, bIsProvider, strName, strClass, bHidden, bAutoBind)</code></p>
+<p><h6 id='miscellaneous-interface-adddynamicbinding-example-director-geo-location-service-available-from-2-10-4-available-from-1-6-0'>Available from 1.6.0</h6><h3 id='miscellaneous-interface-adddynamicbinding-signature'>Signature</h3>
+<p><code>C4:AddDynamicBinding(idBinding, strType, bIsProvider, strName, strClass, bHidden, bAutoBind)</code></p></p>
 
 <table><thead>
 <tr>
@@ -9079,8 +9083,11 @@ shrekMovie = {
 <td>AutoBind: Whether the dynamic binding should be auto-bound. Should typically be false</td>
 </tr>
 </tbody></table>
+
 <h3 id='miscellaneous-interface-adddynamicbinding-example'>Example</h3>
+
 <p>Dynamically create 4 Zone Contact Bindings for a Security Driver:</p>
+
 <div class="highlight"><pre class="highlight lua tab-lua"><code><span class="n">C4</span><span class="p">:</span><span class="n">AddDynamicBinding</span><span class="p">(</span><span class="mi">101</span><span class="p">,</span> <span class="s2">"CONTROL"</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="s2">"Zone 1"</span><span class="p">,</span> <span class="s2">"CONTACT_SENSOR"</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="kc">false</span><span class="p">)</span>
 <span class="n">C4</span><span class="p">:</span><span class="n">AddDynamicBinding</span><span class="p">(</span><span class="mi">102</span><span class="p">,</span> <span class="s2">"CONTROL"</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="s2">"Zone 2"</span><span class="p">,</span> <span class="s2">"CONTACT_SENSOR"</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="kc">false</span><span class="p">)</span>
 <span class="n">C4</span><span class="p">:</span><span class="n">AddDynamicBinding</span><span class="p">(</span><span class="mi">103</span><span class="p">,</span> <span class="s2">"CONTROL"</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="s2">"Zone 3"</span><span class="p">,</span> <span class="s2">"CONTACT_SENSOR"</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="kc">false</span><span class="p">)</span>
@@ -9106,20 +9113,28 @@ shrekMovie = {
 <span class="n">PersistData</span><span class="p">[</span><span class="s2">"zonebindings"</span><span class="p">][</span><span class="mi">103</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"Zone 3"</span>
 <span class="n">C4</span><span class="p">:</span><span class="n">AddDynamicBinding</span><span class="p">(</span><span class="mi">103</span><span class="p">,</span> <span class="s2">"CONTROL"</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="s2">"Zone 3"</span><span class="p">,</span> <span class="s2">"CONTACT_SENSOR"</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="kc">false</span><span class="p">)</span>
 </code></pre></div>
+
 <p>The next is an example of how to restore saved bindings. This code should be in the main body of the script section of the driver, not within any declared function:</p>
+
 <div class="highlight"><pre class="highlight lua tab-lua"><code><span class="k">if</span> <span class="p">(</span><span class="n">PersistData</span> <span class="o">~=</span> <span class="kc">nil</span><span class="p">)</span> <span class="k">then</span>
   <span class="k">for</span> <span class="n">key</span><span class="p">,</span><span class="n">value</span> <span class="k">in</span> <span class="nb">pairs</span><span class="p">(</span><span class="n">PersistData</span><span class="p">[</span><span class="s2">"zonebindings"</span><span class="p">])</span> <span class="k">do</span> 
     <span class="n">C4</span><span class="p">:</span><span class="n">AddDynamicBinding</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="s2">"CONTROL"</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="s2">"CONTACT_SENSOR"</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="kc">false</span><span class="p">)</span>
   <span class="k">end</span>
 <span class="k">end</span>
 </code></pre></div>
+
 <p>A sample driver using AddDyamicBinding can be found in the Samples folder of the SDK.</p>
+
 <h3 id='miscellaneous-interface-adddynamicbinding-warning'>Warning</h3>
+
 <p>No events will be sent prior to OnDriverLateInit. If an Event is required this method must be invoked in OnDriverLateInit.</p>
 
 <h2 id='miscellaneous-interface-allowexecute'>AllowExecute</h2>
+
 <p>Beginning with OS release 2.6.0, default runtime editing of encrypted drivers has been deprecated. This has been done to better protect encrypted drivers from unwanted code review or hacking. The AllowExecute API allows for the runtime editing of encrypted drivers through its setting. The API defaults to a setting of False. When set to True, the lua command window will not support entry of any data and the lua output window cannot be used as a display. Use of this API allows driver developers to build into their driver the option to enable remote execution permanently or embed the function call within your own debugging functions to allow or disallow executing of commands in Composer. This API can be invoked during OnDriverInit.</p>
+
 <h3 id='miscellaneous-interface-allowexecute-signature'>Signature</h3>
+
 <p><code>C4:AllowExecute()</code></p>
 
 <table><thead>
@@ -9135,9 +9150,11 @@ shrekMovie = {
 </tbody></table>
 
 <h2 id='miscellaneous-interface-base64encode'>Base64Encode</h2>
+
 <p>Function called in a DriverWorks driver to encode the specified string as a Base64-encoded string. This API can be invoked during OnDriverInit.</p>
-<h6 id='miscellaneous-interface-base64encode-signature-director-geo-location-service-available-from-2-10-4-available-from-1-6-0'>Available from 1.6.0</h6><h3 id='miscellaneous-interface-base64encode-signature'>Signature</h3>
-<p><code>C4:Base64Encode(strToEncode)</code></p>
+
+<p><h6 id='miscellaneous-interface-base64encode-signature-director-geo-location-service-available-from-2-10-4-available-from-1-6-0'>Available from 1.6.0</h6><h3 id='miscellaneous-interface-base64encode-signature'>Signature</h3>
+<p><code>C4:Base64Encode(strToEncode)</code></p></p>
 
 <table><thead>
 <tr>
@@ -9150,7 +9167,9 @@ shrekMovie = {
 <td>String to be encoded in Base64 encoding</td>
 </tr>
 </tbody></table>
+
 <h3 id='miscellaneous-interface-base64encode-returns'>Returns</h3>
+
 <table><thead>
 <tr>
 <th>Values</th>
@@ -9164,9 +9183,11 @@ shrekMovie = {
 </tbody></table>
 
 <h2 id='miscellaneous-interface-base64decode'>Base64Decode</h2>
+
 <p>Function called in a DriverWorks driver to decode the specified string from a Base64-encoded string. This API can be invoked during OnDriverInit.</p>
-<h6 id='miscellaneous-interface-base64decode-returns-director-geo-location-service-available-from-2-10-4-available-from-1-6-0'>Available from 1.6.0</h6><h3 id='miscellaneous-interface-base64decode-signature'>Signature</h3>
-<p><code>C4:Base64Decode(strToDecode)</code></p>
+
+<p><h6 id='miscellaneous-interface-base64decode-returns-director-geo-location-service-available-from-2-10-4-available-from-1-6-0'>Available from 1.6.0</h6><h3 id='miscellaneous-interface-base64decode-signature'>Signature</h3>
+<p><code>C4:Base64Decode(strToDecode)</code></p></p>
 
 <table><thead>
 <tr>
@@ -9179,7 +9200,9 @@ shrekMovie = {
 <td>String to be decoded from <a href="https://snap-one.github.io/docs-driverworks-api/#base64encode">Base64 encoding</a></td>
 </tr>
 </tbody></table>
+
 <h3 id='miscellaneous-interface-base64decode-returns'>Returns</h3>
+
 <table><thead>
 <tr>
 <th>Value</th>
@@ -9193,15 +9216,18 @@ shrekMovie = {
 </tbody></table>
 
 <h2 id='miscellaneous-interface-persistdata'>PersistData</h2>
+
 <p>The Lua Table ‘PersistData’ is available for drivers to keep persistent data across director restarts.  Any values placed into the PersistData table will exist in the PersistData table when the driver is loaded after a director restart.</p>
 
 <p>Note: we do not guarantee that binary data will be persisted correctly.  If you wish to persist binary data in the PersistData table, it is recommended that you encode it to be 7-bit safe, by using something like <code>C4:Base64Encode</code>.</p>
-<h5 id='miscellaneous-interface-persistdata-returns-director-geo-location-service-available-from-1-6-0'>Available from 1.6.0</h5><h3 id='miscellaneous-interface-persistdata-signature'>Signature</h3>
+
+<p><h6 id='miscellaneous-interface-persistdata-returns-director-geo-location-service-available-from-2-10-4-available-from-2-10-0'>Available from 2.10.0</h6><h3 id='miscellaneous-interface-persistdata-signature'>Signature</h3>
 <p><code>PersistData = {}</code></p>
 <h3 id='miscellaneous-interface-persistdata-usage-note'>Usage Note</h3>
-<p>It is recommended to use the <a href="https://snap-one.github.io/docs-driverworks-api/#persistsetvalue">PersistSetValue</a> and <a href="https://snap-one.github.io/docs-driverworks-api/#persistgetvalue">PersistGetValue</a> calls if they&#39;re supported in your O.S. These calls were introduced with OS 2.10.0. They immediately write to the state database.The PersistData table only is only written out when Director cycles through each driver to save its state. Because of this, latency issues can occur when using PersistData.</p>
+<p>It is recommended to use the <a href="https://snap-one.github.io/docs-driverworks-api/#persistsetvalue">PersistSetValue</a> and <a href="https://snap-one.github.io/docs-driverworks-api/#persistgetvalue">PersistGetValue</a> calls if they&#39;re supported in your O.S. These calls were introduced with OS 2.10.0. They immediately write to the state database.The PersistData table only is only written out when Director cycles through each driver to save its state. Because of this, latency issues can occur when using PersistData.</p></p>
 
 <h2 id='miscellaneous-interface-exit-navigation'>Exit Navigation</h2>
+
 <p>This command is sent to the room to change the room from the “In Navigation” mode back to the “Normal” mode.  While in the “Normal” mode, the commands sent to the room are sent to the selected audio or video device.  When in the “In Navigation” mode a set of the navigational commands are sent to the on screen device.</p>
 
 <p>For reference, the set of commands that are forwarded are:</p>
@@ -9233,18 +9259,21 @@ shrekMovie = {
 <p>Sending the “CONTROL4” command to the room will have it select the bound on screen navigation and enter the “In Navigation” mode.</p>
 
 <p>Sending the <code>EXIT_NAVIGATION</code> command will have the room go back to the “Normal” mode.</p>
-<h5 id='miscellaneous-interface-exit-navigation-usage-note-director-geo-location-service-available-from-1-6-0'>Available from 1.6.0</h5><h3 id='miscellaneous-interface-exit-navigation-example'>Example</h3>
+
+<p><h5 id='miscellaneous-interface-exit-navigation-usage-note-director-geo-location-service-available-from-1-6-0'>Available from 1.6.0</h5><h3 id='miscellaneous-interface-exit-navigation-example'>Example</h3>
 <p>roomId = C4:RoomGetId()
     -- now tell the room to enter &quot;In Navigation&quot; mode
     tParams = {}
     C4:SendToDevice(roomId, &quot;CONTROL4&quot;, tParams) 
     -- now go back to normal mode
-    C4:SendToDevice(roomId, &quot;EXIT_NAVIGATION&quot;, tParams)</p>
+    C4:SendToDevice(roomId, &quot;EXIT_NAVIGATION&quot;, tParams)</p></p>
 
 <h2 id='miscellaneous-interface-getcapability'>GetCapability</h2>
+
 <p>Function called from DriverWorks driver to get a capability from the driver. This API should not be invoked during OnDriverInit.</p>
-<h6 id='miscellaneous-interface-getcapability-example-director-geo-location-service-available-from-1-6-0-available-from-1-6-0'>Available from 1.6.0</h6><h3 id='miscellaneous-interface-getcapability-signature'>Signature</h3>
-<p><code>C4:GetCapability(strName)</code></p>
+
+<p><h6 id='miscellaneous-interface-getcapability-example-director-geo-location-service-available-from-1-6-0-available-from-1-6-0'>Available from 1.6.0</h6><h3 id='miscellaneous-interface-getcapability-signature'>Signature</h3>
+<p><code>C4:GetCapability(strName)</code></p></p>
 
 <table><thead>
 <tr>
@@ -9257,7 +9286,9 @@ shrekMovie = {
 <td>The name of the capability to retrieve</td>
 </tr>
 </tbody></table>
+
 <h3 id='miscellaneous-interface-getcapability-returns'>Returns</h3>
+
 <table><thead>
 <tr>
 <th>Value</th>
@@ -9269,7 +9300,9 @@ shrekMovie = {
 <td>The value of the capability retrieved from the driver file</td>
 </tr>
 </tbody></table>
+
 <h3 id='miscellaneous-interface-getcapability-examples'>Examples</h3>
+
 <p>If this device supports discrete volume control, send discrete volume, otherwise, send a Volume Up or Volume Down command:</p>
 
 <p>if (C4:GetCapability(&quot;has_discrete_volume_control&quot;) == &quot;False&quot;) then
@@ -9284,9 +9317,11 @@ shrekMovie = {
     OnBindingChanged</p>
 
 <h2 id='miscellaneous-interface-getdevicedata'>GetDeviceData</h2>
+
 <p>This API returns data found in the driver&#39;s device data, &lt;devicedata&gt; XML. The Device ID of the driver value must be passed to return the XML content. An optional string value parameter can be passed to retrieve specific XML data.</p>
-<h6 id='miscellaneous-interface-getdevicedata-examples-director-geo-location-service-available-from-1-6-0-available-from-2-10-0'>Available from 2.10.0</h6><h3 id='miscellaneous-interface-getdevicedata-signature'>Signature</h3>
-<p><code>C4:GetDeviceData()</code></p>
+
+<p><h6 id='miscellaneous-interface-getdevicedata-examples-director-geo-location-service-available-from-1-6-0-available-from-2-10-0'>Available from 2.10.0</h6><h3 id='miscellaneous-interface-getdevicedata-signature'>Signature</h3>
+<p><code>C4:GetDeviceData()</code></p></p>
 
 <table><thead>
 <tr>
@@ -9303,14 +9338,23 @@ shrekMovie = {
 <td>tagName is an optional parameter that can be passed to return specific devicedata.</td>
 </tr>
 </tbody></table>
+
 <h3 id='miscellaneous-interface-getdevicedata-usage-note'>Usage Note</h3>
+
 <p>For example, if the “string parameter is passed as “version”, the value for the devicedata&#39;s &lt;version&gt;&lt;/version&gt; XML tag will be returned. </p>
+
 <h3 id='miscellaneous-interface-getdevicedata-returns'>Returns</h3>
+
 <p>XML data found in the driver&#39;s <code>&lt;devicedata&gt;&lt;/devicedata&gt;</code>. </p>
+
 <h3 id='miscellaneous-interface-getdevicedata-usage-note'>Usage Note</h3>
+
 <p>If multiple instances of identical XML tags exist in the &lt;devicedata&gt; section for the driver, only the first instance of that XML data will be returned. Also, the GetDeviceData API only has the ability to return data from the first two levels of XML.</p>
+
 <h3 id='miscellaneous-interface-getdevicedata-examples'>Examples</h3>
+
 <p>For example purposes, consider the following sample XML to the right.  It is taken from a Pool Controller&#39;s  &lt;devicedata&gt;&lt;/devicedata&gt;. This Pool Controller has a DeviceID of 8 in the project:</p>
+
 <div class="highlight"><pre class="highlight xml tab-xml"><code><span class="nt">&lt;devicedata&gt;</span>
     <span class="nt">&lt;copyright&gt;</span>Copyright 2016 Control4 Corporation.  All rights reserved.<span class="nt">&lt;/copyright&gt;</span>
     <span class="nt">&lt;creator&gt;</span>Control4<span class="nt">&lt;/creator&gt;</span>
@@ -9347,6 +9391,7 @@ shrekMovie = {
     <span class="nt">&lt;/capabilities&gt;</span>
 <span class="nt">&lt;/devicedata&gt;</span>
 </code></pre></div>
+
 <p>If <code>C4:GetDeviceData</code> is executed with only the Device ID value, as:</p>
 
 <p><code>C4:GetDeviceData(8)</code></p>
@@ -9370,6 +9415,7 @@ The return values will be: <code>Off,On</code></p>
 <p><code>C4:GetDeviceData(8, “capabilities”)</code></p>
 
 <p>To the right is the return value: </p>
+
 <div class="highlight"><pre class="highlight plaintext"><code>-- Return Value
 
 &lt;pool_pumpmodes&gt;Off,On&lt;/pool_pumpmodes&gt;
@@ -9393,12 +9439,15 @@ The return values will be: <code>Off,On</code></p>
     &lt;/mode&gt;
 &lt;/spa_heat_modes
 </code></pre></div>
+
 <h2 id='miscellaneous-interface-getdevices'>GetDevices</h2>
+
 <p>The GetDevices API provides the ability to return a table of devices based on driver names and/or device ID values. Additionally, the use of the location parameter further limits the list returned based on locations found within a project.</p>
-<h6 id='miscellaneous-interface-getdevices-examples-director-geo-location-service-available-from-1-6-0-available-from-2-10-0'>Available from 2.10.0</h6><h3 id='miscellaneous-interface-getdevices-signature'>Signature</h3>
+
+<p><h6 id='miscellaneous-interface-getdevices-examples-director-geo-location-service-available-from-1-6-0-available-from-2-10-0'>Available from 2.10.0</h6><h3 id='miscellaneous-interface-getdevices-signature'>Signature</h3>
 <p><code>GetDevices(tFilter, locationFilter)</code></p>
 <h3 id='miscellaneous-interface-getdevices-parameters'>Parameters</h3>
-<p>tFilter:  (optional) The tFilter is a table of key/value pairs that specify the filters used within the search. The search can be filtered by .c4i or .c4z driver names and/or device id values.  To filter by driver names, add an entry in the table called C4iNames. The value is a string consisting of a comma delimited list of .c4i or .c4z names such as:</p>
+<p>tFilter:  (optional) The tFilter is a table of key/value pairs that specify the filters used within the search. The search can be filtered by .c4i or .c4z driver names and/or device id values.  To filter by driver names, add an entry in the table called C4iNames. The value is a string consisting of a comma delimited list of .c4i or .c4z names such as:</p></p>
 
 <p><code>control4_sr250.c4i, control4_sr150.c4i</code>.  </p>
 
@@ -9413,7 +9462,9 @@ The return values will be: <code>Off,On</code></p>
 <p>Note that the tFilter parameter is an optional parameter of the GetDevices function. Also, empty filter tables  tFilter = {} can be passed within the function. This will result in all devices being included when the function is executed.</p>
 
 <p>locationFilter: The locationFilter parameter is a comma delimited list of project location IDs. Only devices matching the filter criteria used in the first parameter and belonging to one of the locations in the list will be included when the function is executed. Locations IDs include Sites, Buildings, Floors and Rooms.</p>
+
 <h3 id='miscellaneous-interface-getdevices-returns'>Returns</h3>
+
 <table><thead>
 <tr>
 <th>Value</th>
@@ -9427,7 +9478,9 @@ The return values will be: <code>Off,On</code></p>
 </tbody></table>
 
 <p>To better understand how driver data is arranged in tables and how the data is returned by the GetDevices API, the following section consists of example data returned from the function. </p>
+
 <h3 id='miscellaneous-interface-getdevices-example-1'>Example 1</h3>
+
 <p>Return Example for All Drivers including Combo Drivers
 GetDevices returns a table with an entry for each device found. The key of the entry is the ID number of the device. The value is a table that contains additional information about the device. The table contains the following key-value pairs:</p>
 
@@ -9456,6 +9509,7 @@ GetDevices returns a table with an entry for each device found. The key of the e
 </tbody></table>
 
 <p>To the right is an example where you would like to get a list of all the remotes in the project. Passing driver names, you would use GetDevices in the following manner:</p>
+
 <div class="highlight"><pre class="highlight lua tab-lua"><code><span class="c1">-- Example 1</span>
 
 <span class="n">tFilter</span> <span class="o">=</span> <span class="p">{</span>
@@ -9465,7 +9519,9 @@ GetDevices returns a table with an entry for each device found. The key of the e
 
 <span class="n">tResult</span> <span class="o">=</span> <span class="n">C4</span><span class="p">:</span><span class="n">GetDevices</span><span class="p">(</span><span class="n">tFilter</span><span class="p">)</span>
 </code></pre></div>
+
 <p>The table that is returned by the GetDevices command (that was stored in tReturn) is to the right :</p>
+
 <div class="highlight"><pre class="highlight lua tab-lua"><code> <span class="c1">-- Example 1 Return</span>
 
     <span class="p">[</span><span class="mi">27</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
@@ -9506,8 +9562,11 @@ GetDevices returns a table with an entry for each device found. The key of the e
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
+
 <p>In this  example, note the value of 27. This is the index into the table that, in this example, contains a list of key/value pairs of device information for the remote with device id of 27. Based on our return table, we can see the project has six remotes and we can also see which room those remotes are located as well as the location ID value and their respective device name.</p>
+
 <h3 id='miscellaneous-interface-getdevices-example-2'>Example 2</h3>
+
 <p>Return Example for a Proxy Driver 
 Proxy Drivers return a table as described in the previous example with the addition of an extra key/value pair. The additional information is the protocol information for the driver. In the table returned, the additional key is the driverFilename and its value is the string of the protocol&#39;s name. The return table structure looks like this:</p>
 
@@ -9562,6 +9621,7 @@ Proxy Drivers return a table as described in the previous example with the addit
 <p><code>C4:GetDevices(`light_v2.c4z`)</code></p>
 
 <p>The table that is returned by the GetDevices command looks like this:</p>
+
 <div class="highlight"><pre class="highlight lua tab-lua"><code><span class="c1">-- Example 2</span>
 
 <span class="p">{</span>
@@ -9579,6 +9639,7 @@ Proxy Drivers return a table as described in the previous example with the addit
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
+
 <p>Based on this return table, we can see that the project has one light., located in the Foyer, which happens to have a location ID of 9. Additionally, we can see the protocol sub-table that  is returned with the driver filename and the device name.</p>
 
 <p>Example 3: Return Example for a Protocol Driver 
@@ -9635,6 +9696,7 @@ Protocol Drivers that have one or more proxies have an additional key-value pair
 <p>If the device utilizes multiple proxies, each of those proxies will be represented here by its respective table.</p>
 
 <p>Consider an example where you would like to get a list of all of the keypad dimmers in the project.  These dimmer devices rely on two proxies: a proxy for the dimmer portion of the device <code>light_v2 proxy</code> as well as a proxy for the keypad capabilities <code>keypad_proxy</code>. To do this, you can pass the proxy id value used by the dimmers in the tFilter parameter:</p>
+
 <div class="highlight"><pre class="highlight lua tab-lua"><code><span class="n">tFilter</span> <span class="o">=</span> <span class="p">{</span>
     <span class="n">c4iNames</span> <span class="o">=</span> <span class="s2">"combo_dimmer.c4i"</span><span class="p">}</span>
 
@@ -9660,12 +9722,15 @@ Protocol Drivers that have one or more proxies have an additional key-value pair
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
+
 <p>Based on this return table, we can see to the right that the project has one light, located in the Foyer, which happens to have a location ID of 9. Additionally, we can see the two proxy sub-tables that are returned with the driver filename.</p>
 
 <h2 id='miscellaneous-interface-getdevicesbyname'>GetDevicesByName</h2>
+
 <p>Function used to obtain the Device ID and the Room ID assigned to a device in the project. This API should not be invoked during OnDriverInit.</p>
-<h6 id='miscellaneous-interface-getdevicesbyname-example-2-director-geo-location-service-available-from-1-6-0-available-from-2-8-0'>Available from 2.8.0</h6><h3 id='miscellaneous-interface-getdevicesbyname-signature'>Signature</h3>
-<p><code>C4:GetDeviceByName(str,str)</code></p>
+
+<p><h6 id='miscellaneous-interface-getdevicesbyname-example-2-director-geo-location-service-available-from-1-6-0-available-from-2-8-0'>Available from 2.8.0</h6><h3 id='miscellaneous-interface-getdevicesbyname-signature'>Signature</h3>
+<p><code>C4:GetDeviceByName(str,str)</code></p></p>
 
 <table><thead>
 <tr>
@@ -9682,7 +9747,9 @@ Protocol Drivers that have one or more proxies have an additional key-value pair
 <td>Optional. Name of the Room where the Device resides.</td>
 </tr>
 </tbody></table>
+
 <h3 id='miscellaneous-interface-getdevicesbyname-returns'>Returns</h3>
+
 <table><thead>
 <tr>
 <th>Value</th>
@@ -9694,20 +9761,29 @@ Protocol Drivers that have one or more proxies have an additional key-value pair
 <td>Device ID and Room ID values.</td>
 </tr>
 </tbody></table>
+
 <h3 id='miscellaneous-interface-getdevicesbyname-usage-note'>Usage Note</h3>
+
 <p>The ID value returned for the Device is actually the Proxy ID.</p>
+
 <h3 id='miscellaneous-interface-getdevicesbyname-example'>Example</h3>
+
 <p><code>C4:GetDevicesByName(&quot;AV Switch&quot;,&quot;Theater&quot;)</code></p>
 
 <h2 id='miscellaneous-interface-getdeviceid'>GetDeviceID</h2>
+
 <p>Function called from DriverWorks driver to get this driver’s Device ID. This API should not be invoked during OnDriverInit.</p>
+
 <h3 id='miscellaneous-interface-getdeviceid-signature'>Signature</h3>
+
 <p><code>C4:GetDeviceID()</code></p>
 
 <h2 id='miscellaneous-interface-getdevicevariables'>GetDeviceVariables</h2>
+
 <p>Function used to obtain a Device&#39;s variables. This API should not be invoked during OnDriverInit.</p>
-<h6 id='miscellaneous-interface-getdevicevariables-signature-director-geo-location-service-available-from-1-6-0-available-from-2-8-0'>Available from 2.8.0</h6><h3 id='miscellaneous-interface-getdevicevariables-signature'>Signature</h3>
-<p><code>C4:GetDeviceVariables()</code></p>
+
+<p><h6 id='miscellaneous-interface-getdevicevariables-signature-director-geo-location-service-available-from-1-6-0-available-from-2-8-0'>Available from 2.8.0</h6><h3 id='miscellaneous-interface-getdevicevariables-signature'>Signature</h3>
+<p><code>C4:GetDeviceVariables()</code></p></p>
 
 <table><thead>
 <tr>
@@ -9720,7 +9796,9 @@ Protocol Drivers that have one or more proxies have an additional key-value pair
 <td>This is the Proxy ID or the Protocol ID assigned to the Device in the project.</td>
 </tr>
 </tbody></table>
+
 <h3 id='miscellaneous-interface-getdevicevariables-returns'>Returns</h3>
+
 <table><thead>
 <tr>
 <th>Value</th>
@@ -9732,13 +9810,17 @@ Protocol Drivers that have one or more proxies have an additional key-value pair
 <td>Table of all of the proxy variables or protocol variables for the Device (depending on the parameter passed) as well as all of the information for each of the variables.</td>
 </tr>
 </tbody></table>
+
 <h3 id='miscellaneous-interface-getdevicevariables-example'>Example</h3>
+
 <p><code>C4:GetDeviceVariables(1000)</code></p>
 
 <h2 id='miscellaneous-interface-getdriverconfiginfo'>GetDriverConfigInfo</h2>
+
 <p>Function that returns the XML contents of a driver&#39;s config.xml file. This API should not be invoked during OnDriverInit.</p>
-<h6 id='miscellaneous-interface-getdriverconfiginfo-example-director-geo-location-service-available-from-1-6-0-available-from-2-8-0'>Available from 2.8.0</h6><h3 id='miscellaneous-interface-getdriverconfiginfo-signature'>Signature</h3>
-<p><code>C4:GetDriverConfigInfo()</code></p>
+
+<p><h6 id='miscellaneous-interface-getdriverconfiginfo-example-director-geo-location-service-available-from-1-6-0-available-from-2-8-0'>Available from 2.8.0</h6><h3 id='miscellaneous-interface-getdriverconfiginfo-signature'>Signature</h3>
+<p><code>C4:GetDriverConfigInfo()</code></p></p>
 
 <table><thead>
 <tr>
@@ -9751,7 +9833,9 @@ Protocol Drivers that have one or more proxies have an additional key-value pair
 <td>XML tag for the inner XML that is being requested. This is passed in a string format without the XML brackets.</td>
 </tr>
 </tbody></table>
+
 <h3 id='miscellaneous-interface-getdriverconfiginfo-returns'>Returns</h3>
+
 <table><thead>
 <tr>
 <th>Value</th>
@@ -9763,14 +9847,20 @@ Protocol Drivers that have one or more proxies have an additional key-value pair
 <td>XML of the tag that is passed as a parameter.</td>
 </tr>
 </tbody></table>
+
 <h3 id='miscellaneous-interface-getdriverconfiginfo-usage-note'>Usage Note</h3>
+
 <p>User defined XML tags can also be returned using this function.</p>
+
 <h3 id='miscellaneous-interface-getdriverconfiginfo-example'>Example</h3>
+
 <p><code>C4:GetDriverConfigInfo(&quot;version&quot;)</code></p>
 
 <h2 id='miscellaneous-interface-getdriverfilename'>GetDriverFileName</h2>
+
 <p>Function that returns the name of the filename (i.e., .c4i, .c4z) for a driver.</p>
-<h6 id='miscellaneous-interface-getdriverfilename-example-director-geo-location-service-available-from-1-6-0-available-from-3-3-0'>Available from 3.3.0</h6><h3 id='miscellaneous-interface-getdriverfilename-signature'>Signature</h3>
+
+<p><h6 id='miscellaneous-interface-getdriverfilename-example-director-geo-location-service-available-from-1-6-0-available-from-3-3-0'>Available from 3.3.0</h6><h3 id='miscellaneous-interface-getdriverfilename-signature'>Signature</h3>
 <p><code>C4:GetDriverFileName()</code></p>
 <h3 id='miscellaneous-interface-getdriverfilename-parameters'>Parameters</h3>
 <p><em>None</em></p>
@@ -9785,24 +9875,26 @@ Protocol Drivers that have one or more proxies have an additional key-value pair
 <td>str</td>
 <td>Filename of the driver.</td>
 </tr>
-</tbody></table>
+</tbody></table></p>
 
 <h2 id='miscellaneous-interface-getlocale'>GetLocale</h2>
+
 <p>Function to get the current locale of the system. This API should not be invoked during OnDriverInit.</p>
-<h6 id='miscellaneous-interface-getlocale-returns-director-geo-location-service-available-from-1-6-0-available-from-1-6-0'>Available from 1.6.0</h6><h3 id='miscellaneous-interface-getlocale-signature'>Signature</h3>
+
+<p><h6 id='miscellaneous-interface-getlocale-returns-director-geo-location-service-available-from-1-6-0-available-from-1-6-0'>Available from 1.6.0</h6><h3 id='miscellaneous-interface-getlocale-signature'>Signature</h3>
 <p><code>C4:GetLocale()</code></p>
 <h3 id='miscellaneous-interface-getlocale-parameters'>Parameters</h3>
 <p><code>None</code></p>
 <h3 id='miscellaneous-interface-getlocale-returns'>Returns</h3>
 <p>String of local.</p>
-<h3 id='miscellaneous-interface-getlocale-example'>Example</h3><div class="highlight"><pre class="highlight lua tab-lua"><code><span class="nb">print</span><span class="p">(</span><span class="s2">"Current locale is "</span> <span class="o">..</span> <span class="n">C4</span><span class="p">:</span><span class="n">GetLocale</span><span class="p">())</span>
- <span class="n">Output</span><span class="p">:</span> <span class="n">Current</span> <span class="n">locale</span> <span class="n">is</span> <span class="n">C</span>
+<h3 id='miscellaneous-interface-getlocale-example'>Example</h3><div class="highlight"><pre class="highlight lua tab-lua"><code><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Current locale is &quot;</span> <span class="o">..</span> <span class="n">C4</span><span class="p">:</span><span class="n">GetLocale</span><span class="p">())</span>
+ <span class="n">Output</span><span class="p">:</span> <span class="n">Current</span> <span class="n">locale</span> <span class="n">is</span> <span class="n">C</span></p>
 
-</code></pre></div>
+<p></code></pre></div>
 <h2 id='miscellaneous-interface-getprojecthierarchy'>GetProjectHierarchy</h2>
 <p>This API returns a table. The table is a representation of the project. The table consists of key/value pairs where the key is the ID of the location. The value is a table with entries of all of the location’s children if any. It also contains the locations name and type.</p>
 <h6 id='miscellaneous-interface-getprojecthierarchy-example-director-geo-location-service-available-from-1-6-0-available-from-2-10-0'>Available from 2.10.0</h6><h3 id='miscellaneous-interface-getprojecthierarchy-signature'>Signature</h3>
-<p><code>C4:GetProjectHierarchy()</code></p>
+<p><code>C4:GetProjectHierarchy()</code></p></p>
 
 <table><thead>
 <tr>
@@ -9815,7 +9907,9 @@ Protocol Drivers that have one or more proxies have an additional key-value pair
 <td>location (optional) – The location parameter can be passed to identify a specific place in the project where project hierarchy data will be returned. All children of the location specified (including itself) will be included in the results.</td>
 </tr>
 </tbody></table>
+
 <h3 id='miscellaneous-interface-getprojecthierarchy-returns'>Returns</h3>
+
 <table><thead>
 <tr>
 <th>Value</th>
@@ -9829,8 +9923,11 @@ Protocol Drivers that have one or more proxies have an additional key-value pair
 </tbody></table>
 
 <h2 id='miscellaneous-interface-getprivatekeypassword'>GetPrivateKeyPassword</h2>
+
 <p>This function allows Director to request the private key password from a driver. Implementing GetPrivateKeyPassword within a driver permits a password to be returned for a connection which requires client certificate. When implemented correctly (see Usage Notes below), this function should return the string value of the SSL Certificate password. When using a protected certificate it is highly recommend that the driver be encrypted as there is no protection from this function being called by an end user. </p>
-<h6 id='miscellaneous-interface-getprivatekeypassword-returns-director-geo-location-service-available-from-1-6-0-available-from-1-6-0'>Available from 1.6.0</h6>
+
+<p><h6 id='miscellaneous-interface-getprivatekeypassword-returns-director-geo-location-service-available-from-1-6-0-available-from-1-6-0'>Available from 1.6.0</h6><h3 id='miscellaneous-interface-getprivatekeypassword-signature'>Signature</h3>
+<p><code>C4:GetPrivateKeyPassword(Binding, Port)</code></p></p>
 
 <table><thead>
 <tr>
@@ -11773,11 +11870,12 @@ print(&quot;Room id is &quot; .. idRoom)
 
 <p>Encrypt then Decrypt a string, then print the original string out:</p>
 
-<p>local key = &quot;1234567887654321abcdefabcabcdefa&quot;
-    e = C4:TEAEncrypt(&quot;Control4 Rocks! &quot;, key)
-    print(C4:TEADecrypt(e, key))</p>
+<div class="highlight"><pre class="highlight plaintext"><code>local key = "1234567887654321abcdefabcabcdefa"
+e = C4:TEAEncrypt("Control4 Rocks! ", key)
+print(C4:TEADecrypt(e, key))
 
-<p>-- prints &quot;Control4 Rocks! </p>
+    -- prints "Control4 Rocks! 
+</code></pre></div>
 
 <h2 id='miscellaneous-interface-teaencrypt'>TEAEncrypt</h2>
 
@@ -11824,17 +11922,18 @@ print(&quot;Room id is &quot; .. idRoom)
 
 <p>Encrypt then Decrypt a string, then print the original string out:</p>
 
-<p>local key = &quot;1234567887654321abcdefabcabcdefa&quot;
-    e = C4:TEAEncrypt(&quot;Control4 Rocks! &quot;, key)
-    print(C4:TEADecrypt(e, key))</p>
+<div class="highlight"><pre class="highlight plaintext"><code>local key = "1234567887654321abcdefabcabcdefa"
+e = C4:TEAEncrypt("Control4 Rocks! ", key)
+print(C4:TEADecrypt(e, key))
 
-<p>-- prints &quot;Control4 Rocks! </p>
+    -- prints "Control4 Rocks! 
+</code></pre></div>
 <h1 id='ping-interface'>Ping Interface</h1>
 
 <p>The Lua DriverWorks API has been expanded with the addition of the new C4Ping Interface in conjunction with O.S release 3.3.1. This new API enables drivers to ping a specified endpoint to determine whether it is reachable across the network.</p>
 
 <h2 id='ping-interface-createpingclient'>CreatePingClient</h2><h6 id='ping-interface-createpingclient-example-director-geo-location-service-available-from-1-6-0-available-from-3-3-1'>Available from 3.3.1</h6><h3 id='ping-interface-createpingclient-signature'>Signature</h3>
-<p><code>C4: CreatePingClient()</code></p>
+<p><code>C4:CreatePingClient()</code></p>
 <h3 id='ping-interface-createpingclient-parameters'>Parameters</h3>
 <p><em>None</em></p>
 <h3 id='ping-interface-createpingclient-returns'>Returns</h3>
@@ -16188,7 +16287,7 @@ print(Bar[&quot;</span><span class="n">Qux</span><span class="s2">&quot;])
 <p>Returns a physical (IP) address of a network binding. This API should not be invoked during OnDriverInit</p>
 
 <p><h6 id='serial-and-network-interface-getbindingaddress-example-example-available-from-1-6-0-available-from-1-6-0'>Available from 1.6.0.</h6><h3 id='serial-and-network-interface-getbindingaddress-signature'>Signature</h3>
-<p><code>C4: GetBindingAddress (idBinding)</code></p></p>
+<p><code>C4:GetBindingAddress (idBinding)</code></p></p>
 
 <table><thead>
 <tr>
@@ -16886,7 +16985,7 @@ print(Bar[&quot;</span><span class="n">Qux</span><span class="s2">&quot;])
 <p>Function called from DriverWorks driver to send a Control4 CommandMessage to the specified Control4 device driver. This API should not be invoked during OnDriverInit.</p>
 
 <p><h6 id='serial-and-network-interface-sendtodevice-example-example-available-from-1-6-0-available-from-1-6-0'>Available from 1.6.0</h6><h3 id='serial-and-network-interface-sendtodevice-signature'>Signature</h3>
-<p><code>C4:SendToDevice(idDevice, strCommand, tParams, AllowEmptyValues logCommand))</code></p></p>
+<p><code>C4:SendToDevice(idDevice, strCommand, tParams, AllowEmptyValues logCommand)</code></p></p>
 
 <table><thead>
 <tr>
@@ -17202,7 +17301,7 @@ Using no delimiter: 000a959d6816</p>
 <h2 id='serial-and-network-interface-onbindingvalidate'>OnBindingValidate</h2>
 <p>The OnBindingValidate API supports validation by a driver before Director adds a new binding. This enables drivers to reject bindings that aren&#39;t valid due to some internal, dynamic state.</p>
 <h6 id='serial-and-network-interface-onbindingvalidate-returns-example-available-from-1-6-0-available-from-1-6-0'>Available from 1.6.0</h6><h3 id='serial-and-network-interface-onbindingvalidate-signature'>Signature</h3>
-<p><code>OnBindingValidate(idBinding, strClass) </code></p>
+<p><code>C4:OnBindingValidate(idBinding, strClass) </code></p>
 
 <table><thead>
 <tr>
@@ -17223,7 +17322,7 @@ Using no delimiter: 000a959d6816</p>
 <h2 id='serial-and-network-interface-onconnectionstatuschanged'>OnConnectionStatusChanged</h2>
 <p>Function based on this return from the system used to process communication.</p>
 <h6 id='serial-and-network-interface-onconnectionstatuschanged-signature-example-available-from-1-6-0-available-from-1-6-0'>Available from 1.6.0</h6><h3 id='serial-and-network-interface-onconnectionstatuschanged-signature'>Signature</h3>
-<p><code>OnConnectionStatusChanged(idBinding, nPort, strStatus) </code></p>
+<p><code>C4:OnConnectionStatusChanged(idBinding, nPort, strStatus) </code></p>
 
 <table><thead>
 <tr>
@@ -19613,7 +19712,7 @@ When a listener is set on a variable, whenever the variable changes, the Lua <a 
 <p>This function is used in conjunction with <a href="https://snap-one.github.io/docs-driverworks-api/#get">urlGet</a> and <a href="https://snap-one.github.io/docs-driverworks-api/#post">urlPost</a>. It handles the data contained in the data ticket. As soon as data is returned from getUrl, Director will call this in the Lua code. This API should not be invoked during OnDriverInit.</p>
 
 <p><h6 id='web-service-interface-receivedasync-example-example-available-from-1-6-0-available-from-1-6-0'>Available from 1.6.0.</h6><h3 id='web-service-interface-receivedasync-signature'>Signature</h3>
-<p><code>function ReceivedAsync(ticketId, strData, responseCode, tHeaders, strError)</code></p></p>
+<p><code>C4:ReceivedAsync(ticketId, strData, responseCode, tHeaders, strError)</code></p></p>
 
 <table><thead>
 <tr>
@@ -20567,7 +20666,7 @@ drwx------    8 root     root        4.0K Aug 16 10:38 ..
 <p>This function gets called when the Online status of a Zigbee node changes.</p>
 
 <p><h6 id='zigbee-interface-onzigbeeonlinestatuschanged-signature-example-available-from-1-6-0-available-from-1-6-0'>Available from 1.6.0.</h6><h3 id='zigbee-interface-onzigbeeonlinestatuschanged-signature'>Signature</h3>
-<p><code>OnZigbeeOnlineStatusChanged (strStatus, strVersion, strSkew)</code></p></p>
+<p><code>C4:OnZigbeeOnlineStatusChanged (strStatus, strVersion, strSkew)</code></p></p>
 
 <table><thead>
 <tr>
@@ -20657,7 +20756,7 @@ drwx------    8 root     root        4.0K Aug 16 10:38 ..
 <p>Receives an unsolicited zigbee packet from the device or a response to a command that was sent.</p>
 <h6 id='zigbee-interface-onzigbeepacketin-example-example-available-from-1-6-0-available-from-1-6-0'>Available from 1.6.0.</h6><h3 id='zigbee-interface-onzigbeepacketin-signature'>Signature</h3>
 
-<p><code>OnZigbeePacketIn(strPacket,nProfileID, nClusterID, nGroupID, nSourceEndpoint, ndestinationEndpoint)</code></p>
+<p><code>C4:OnZigbeePacketIn(strPacket,nProfileID, nClusterID, nGroupID, nSourceEndpoint, ndestinationEndpoint)</code></p>
 
 <table><thead>
 <tr>
