@@ -4,7 +4,7 @@
 
 ### Signature
 
-`C4: CreatePingClient()`
+`C4:CreatePingClient()`
 
 ### Parameters
 

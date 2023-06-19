@@ -7,7 +7,7 @@ The OnBindingValidate API supports validation by a driver before Director adds a
 
 ### Signature
 
-`OnBindingValidate(idBinding, strClass) `
+`C4:OnBindingValidate(idBinding, strClass) `
 
 
 | Parameter | Description |

@@ -2,6 +2,7 @@
 
 Encrypt the input string with Corrected Block TEA (XXTEA) Algorithm, using the specified key. This API can be invoked during OnDriverInit
 
+
 ###### Available from 1.6.0
 
 
@@ -32,10 +33,12 @@ Key must be the same for encryption / decryption to function properly. The input
 
 Encrypt then Decrypt a string, then print the original string out:
 
-	local key = "1234567887654321abcdefabcabcdefa"
-	e = C4:TEAEncrypt("Control4 Rocks! ", key)
-	print(C4:TEADecrypt(e, key))
-	
-	  	-- prints "Control4 Rocks! 
+```
+local key = "1234567887654321abcdefabcabcdefa"
+e = C4:TEAEncrypt("Control4 Rocks! ", key)
+print(C4:TEADecrypt(e, key))
+
+  	-- prints "Control4 Rocks! 
+```
 
 [1]:	https://en.wikipedia.org/wiki/XXTEA

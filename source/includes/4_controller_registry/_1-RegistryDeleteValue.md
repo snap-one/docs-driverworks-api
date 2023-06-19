@@ -2,14 +2,13 @@
 
 Removes a key/value pair from the Registry.
 
-###### Available from 2.10.4
 
+###### Available from 2.10.4
 
 
 ### Signature
 
 `C4:RegistryDeleteValue(key)`
-
 
 
 | Parameter | Description |

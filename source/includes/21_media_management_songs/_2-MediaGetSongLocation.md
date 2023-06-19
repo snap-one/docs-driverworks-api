@@ -7,7 +7,7 @@ This API should not be invoked during OnDriverInit.
 
 ### Signature
 
-`C4: MediaGetSongLocation( `
+`C4:MediaGetSongLocation( `
 
 
 | Parameters | Description |

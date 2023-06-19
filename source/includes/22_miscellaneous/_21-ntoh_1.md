@@ -4,6 +4,7 @@ Function called from DriverWorks driver to get a capability from the driver’s 
 
 
 ###### Available from 1.6.0
+ 
 
 ### Signature
 

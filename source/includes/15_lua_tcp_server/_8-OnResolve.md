@@ -6,7 +6,7 @@ This method sets a callback method that will be called once the host/service has
 
 ### Signature
 
-`C4: OnResolve(func)`
+`C4:OnResolve(func)`
 
 
 | Parameters | Description |

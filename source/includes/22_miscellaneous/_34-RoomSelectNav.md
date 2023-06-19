@@ -2,6 +2,7 @@
 
 Function to force the selection of onscreen for the selected room. This API should not be invoked during OnDriverInit.
 
+
 ###### Available from 1.6.0
 
 

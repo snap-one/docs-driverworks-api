@@ -2,6 +2,7 @@
 
 Function that sends a request to another driver. It uses the proxy or protocol ID value of the driver as a means to target the driver where the request will be sent. The driver receiving the SendUIRequest must have an a UIRequest function configured which will contain the return values requested by the SendUIRequest call.
 
+
 ###### Available from 2.9.0
 
 

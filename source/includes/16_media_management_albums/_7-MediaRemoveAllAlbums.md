@@ -7,7 +7,7 @@ This API should not be invoked during OnDriverInit.
 
 ### Signature
 
-`C4: MediaRemoveAllAlbums() `
+`C4:MediaRemoveAllAlbums() `
 
 
 ### Parameter

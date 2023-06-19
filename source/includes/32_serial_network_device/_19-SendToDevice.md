@@ -7,7 +7,7 @@ Function called from DriverWorks driver to send a Control4 CommandMessage to the
 
 ### Signature
 
-`C4:SendToDevice(idDevice, strCommand, tParams, AllowEmptyValues logCommand))`
+`C4:SendToDevice(idDevice, strCommand, tParams, AllowEmptyValues logCommand)`
 
 
 | Parameter | Description |

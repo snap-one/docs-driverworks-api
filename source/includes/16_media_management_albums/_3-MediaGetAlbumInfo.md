@@ -7,7 +7,7 @@ This API should not be invoked during OnDriverInit.
 
 ### Signature
 
-`C4: MediaGetAlbumInfo`
+`C4:MediaGetAlbumInfo`
 
 
 | Parameters | Description |

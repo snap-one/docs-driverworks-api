@@ -2,6 +2,7 @@
 
 The ReNameDevice API supports the ability to rename a device that is currently in a Control4 project from a driver. This API can be also called from a driver other than that of the device's. This supports that ability to rename project devices externally. This API should not be invoked during OnDriverInit.
 
+
 ###### Available from 1.6.0
 
 

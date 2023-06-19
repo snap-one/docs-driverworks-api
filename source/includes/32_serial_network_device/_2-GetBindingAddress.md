@@ -7,7 +7,7 @@ Returns a physical (IP) address of a network binding. This API should not be inv
 
 ### Signature
 
-`C4: GetBindingAddress (idBinding)`
+`C4:GetBindingAddress (idBinding)`
 
 | Parameter | Description |
 | --- | --- |

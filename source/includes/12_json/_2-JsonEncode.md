@@ -1,14 +1,16 @@
 ## JsonEncode
 
-JSON function that takes the data in the Lua tCommand table and encodes it into a JSON formatted command string
-representing a Lua object. 
-On success, this function returns a single value which is as designed. On failure, the function returns two
-values:
+JSON function that takes the data in the Lua tCommand table and encodes it into a JSON formatted command string representing a Lua object. On success, this function returns a single value which is as designed. On failure, the function returns two values:
 
 1. nil
 2. A string describing the error.
 
 This API should not be invoked during OnDriverInit.
+
+
+### Signature
+
+`C4:JsonEncode(json)`
 
 
 | Parameter | Description |

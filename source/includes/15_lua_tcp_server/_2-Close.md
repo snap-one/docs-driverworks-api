@@ -7,7 +7,7 @@ This method stops the server socket, or cancels pending resolve or endpoint sele
 
 ### Signature
 
-`C4: Close()`
+`C4:Close()`
 
 
 ### Parameters

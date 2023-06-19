@@ -4,7 +4,7 @@ The Lua Table ‘PersistData’ is available for drivers to keep persistent data
 
 Note: we do not guarantee that binary data will be persisted correctly.  If you wish to persist binary data in the PersistData table, it is recommended that you encode it to be 7-bit safe, by using something like `C4:Base64Encode`.
 
-##### Available from 1.6.0
+###### Available from 2.10.0
 
 
 ### Signature

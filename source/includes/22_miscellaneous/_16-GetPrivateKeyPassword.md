@@ -2,7 +2,13 @@
 
 This function allows Director to request the private key password from a driver. Implementing GetPrivateKeyPassword within a driver permits a password to be returned for a connection which requires client certificate. When implemented correctly (see Usage Notes below), this function should return the string value of the SSL Certificate password. When using a protected certificate it is highly recommend that the driver be encrypted as there is no protection from this function being called by an end user. 
 
+
 ###### Available from 1.6.0
+
+
+### Signature
+
+`C4:GetPrivateKeyPassword(Binding, Port)`
 
 
 | Parameter | Description |

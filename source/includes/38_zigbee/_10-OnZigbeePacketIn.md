@@ -7,7 +7,7 @@ Receives an unsolicited zigbee packet from the device or a response to a command
 
 ### Signature
 
-`OnZigbeePacketIn(strPacket,nProfileID, nClusterID, nGroupID, nSourceEndpoint, ndestinationEndpoint)`
+`C4:OnZigbeePacketIn(strPacket,nProfileID, nClusterID, nGroupID, nSourceEndpoint, ndestinationEndpoint)`
 
 
 | Parameter | Description |

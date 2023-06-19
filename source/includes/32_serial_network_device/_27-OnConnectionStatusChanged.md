@@ -7,7 +7,7 @@ Function based on this return from the system used to process communication.
 
 ### Signature
 
-`OnConnectionStatusChanged(idBinding, nPort, strStatus) `
+`C4:OnConnectionStatusChanged(idBinding, nPort, strStatus) `
 
 
 | Parameter | Description |

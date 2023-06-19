@@ -7,7 +7,7 @@ This API should not be invoked during OnDriverInit.
 
 ### Signature
 
-`C4: MediaGetMovieLocations()`
+`C4:MediaGetMovieLocations()`
 
 
 | Parameters | Description |
