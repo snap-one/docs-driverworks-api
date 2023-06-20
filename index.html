@@ -428,7 +428,7 @@
                     <a href="#encryption-interface-generatecsr_ecc" class="toc-h2 toc-link" data-title="GenerateCSR_ECC">GenerateCSR_ECC</a>
                   </li>
                   <li>
-                    <a href="#encryption-interface-generatecsr_-rsa" class="toc-h2 toc-link" data-title="GenerateCSR_ RSA">GenerateCSR_ RSA</a>
+                    <a href="#encryption-interface-generatecsr_rsa" class="toc-h2 toc-link" data-title="GenerateCSR_RSA">GenerateCSR_RSA</a>
                   </li>
                   <li>
                     <a href="#encryption-interface-getsupportedciphers" class="toc-h2 toc-link" data-title="GetSupportedCiphers">GetSupportedCiphers</a>
@@ -2363,8 +2363,7 @@ SetOnDisconnected: Provides notification when the connection is disconnected, or
 <p>Retrieves a value from the Registry.</p>
 
 <p><h6 id='controller-registry-interface-registrygetvalue-returns-see-also-available-from-2-10-4'>Available from 2.10.4</h6><h3 id='controller-registry-interface-registrygetvalue-signature'>Signature</h3>
-<p><code>C4:RegistryGetValue(key)&#39;
-</code></p></p>
+<p><code>C4:RegistryGetValue(key)</code></p></p>
 
 <table><thead>
 <tr>
@@ -2946,11 +2945,11 @@ SetOnDisconnected: Provides notification when the connection is disconnected, or
  <span class="c1">-----END CERTIFICATE REQUEST-----</span>
 </code></pre></div>
 
-<h2 id='encryption-interface-generatecsr_-rsa'>GenerateCSR_ RSA</h2>
+<h2 id='encryption-interface-generatecsr_rsa'>GenerateCSR_RSA</h2>
 
 <p>This API will generate a certificate signing request (CSR) which, when sent to a certificate authority, will return a digital identity certificate that meets the encryption criteria defined by the Rivest–Shamir–Adleman (RSA) standard. The use of this API assumes a thorough knowledge of public-key cryptosystems and the RSA cryptosystem definition. The driver needs to send CSR off to a service that can sign and return the certificate. That step is left up to the driver writer. </p>
 
-<p><h6 id='encryption-interface-generatecsr_-rsa-examples-see-also-available-from-2-10-4-available-in-3-1-2'>Available in 3.1.2.</h6><h3 id='encryption-interface-generatecsr_-rsa-signature'>Signature</h3>
+<p><h6 id='encryption-interface-generatecsr_rsa-examples-see-also-available-from-2-10-4-available-in-3-1-2'>Available in 3.1.2.</h6><h3 id='encryption-interface-generatecsr_rsa-signature'>Signature</h3>
 <p><code>C4:GenerateCSP_RSA(digest, sizeCert, subject, tx509_exts)</code></p></p>
 
 <table><thead>
@@ -2977,7 +2976,7 @@ SetOnDisconnected: Provides notification when the connection is disconnected, or
 </tr>
 </tbody></table>
 
-<h3 id='encryption-interface-generatecsr_-rsa-returns'>Returns</h3>
+<h3 id='encryption-interface-generatecsr_rsa-returns'>Returns</h3>
 
 <table><thead>
 <tr>
@@ -3003,7 +3002,7 @@ SetOnDisconnected: Provides notification when the connection is disconnected, or
 </tr>
 </tbody></table>
 
-<h3 id='encryption-interface-generatecsr_-rsa-examples'>Examples</h3>
+<h3 id='encryption-interface-generatecsr_rsa-examples'>Examples</h3>
 
 <p>Generate a CSR using RSA requirements:</p>
 
