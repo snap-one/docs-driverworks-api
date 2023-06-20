@@ -1,6 +1,6 @@
 ## Get
 
-Starts a HTTP GET transfer. Note that the maximum amount of data that can obtained using this function is 4,194,304 bytes. For downloading larger amounts of data to storage, please see the ``[C4:DownloadFile`]`` function.
+Starts a HTTP GET transfer. Note that the maximum amount of data that can obtained using this function is 4,194,304 bytes. For downloading larger amounts of data to storage, please see the [C4:DownloadFile][1] function.
 
 ###### Available from 2.10.5
 
@@ -19,3 +19,5 @@ Starts a HTTP GET transfer. Note that the maximum amount of data that can obtain
 ### Returns
 
 A reference to itself.
+
+[1]:	https://snap-one.github.io/docs-driverworks-api/#url-interface-downloadfile
