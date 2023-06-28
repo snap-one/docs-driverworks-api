@@ -8,7 +8,7 @@ This API will generate a certificate signing request (CSR) which, when sent to a
 
 ### Signature
 
-`C4:GenerateCSP_ECC(digest, curve, subject, tx509_exts) `
+`C4:GenerateCSR_ECC(digest, curve, subject, tx509_exts) `
 
 
 | Parameter | Description |
