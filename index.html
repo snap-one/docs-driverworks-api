@@ -18278,7 +18278,7 @@ On failure, the function returns the following:</p></p>
 </thead><tbody>
 <tr>
 <td>num</td>
-<td>Server Socket handle received in <a href="https://snap-one.github.io/docs-driverworks-api/#onserverconnectionstatuschanged">OnServerConnectionStatusChanged</a>.</td>
+<td>Server Socket handle received in <a href="https://snap-one.github.io/docs-driverworks-api/#server-socket-interface-onserverconnectionstatuschanged">OnServerConnectionStatusChanged</a>.</td>
 </tr>
 </tbody></table>
 
@@ -18456,7 +18456,7 @@ See: <a href="https://en.wikipedia.org/wiki/Epoch_(computing)" title="Epoch Date
 
 <h2 id='url-interface-cancel'>Cancel</h2>
 
-<p>Cancels a transfer that has been started by a call to the <a href="https://snap-one.github.io/docs-driverworks-api/#get">Get()</a>, <a href="https://snap-one.github.io/docs-driverworks-api/#post">Post()</a>, <a href="https://snap-one.github.io/docs-driverworks-api/#put">Put(</a>), <a href="https://snap-one.github.io/docs-driverworks-api/#delete">Delete()</a>, or <a href="https://snap-one.github.io/docs-driverworks-api/#custom">Custom()</a> methods. The C4LuaUrl object cannot be re-used after canceling a transfer.  A new instance will need to be created by a call to <a href="https://snap-one.github.io/docs-driverworks-api/#url-interface">C4:url()</a>.</p>
+<p>Cancels a transfer that has been started by a call to the <a href="https://snap-one.github.io/docs-driverworks-api/#url-interface-get">Get()</a>, <a href="https://snap-one.github.io/docs-driverworks-api/#url-interface-post">Post()</a>, <a href="https://snap-one.github.io/docs-driverworks-api/#url-interface-put">Put(</a>), <a href="https://snap-one.github.io/docs-driverworks-api/#url-interface-delete">Delete()</a>, or <a href="https://snap-one.github.io/docs-driverworks-api/#url-interface-custom">Custom()</a> methods. The C4LuaUrl object cannot be re-used after canceling a transfer.  A new instance will need to be created by a call to <a href="https://snap-one.github.io/docs-driverworks-api/#url-interface">C4:url()</a>.</p>
 
 <p><h6 id='url-interface-cancel-returns-example-available-from-1-6-0-available-from-2-10-5'>Available from 2.10.5</h6><h3 id='url-interface-cancel-signature'>Signature</h3>
 <p><code>C4:Cancel()</code></p>
@@ -18632,7 +18632,7 @@ See: <a href="https://en.wikipedia.org/wiki/Epoch_(computing)" title="Epoch Date
 
 <h2 id='url-interface-onbody'>OnBody</h2>
 
-<p>Sets a callback function that will be called each time a response body has finished transferring. This function is called after the callback functions set by <a href="https://snap-one.github.io/docs-driverworks-api/#onheaders">OnHeaders()</a> and <a href="https://snap-one.github.io/docs-driverworks-api/#onbodychunk">OnBodyChunk()</a> but before the callback function set by <a href="https://snap-one.github.io/docs-driverworks-api/#ondone">OnDone()</a>. Note that this method can only be called before a transfer was started.</p>
+<p>Sets a callback function that will be called each time a response body has finished transferring. This function is called after the callback functions set by <a href="https://snap-one.github.io/docs-driverworks-api/#url-interface-onheaders">OnHeaders()</a> and <a href="https://snap-one.github.io/docs-driverworks-api/#url-interface-onbodychunk">OnBodyChunk()</a> but before the callback function set by <a href="https://snap-one.github.io/docs-driverworks-api/#url-interface-ondone">OnDone()</a>. Note that this method can only be called before a transfer was started.</p>
 
 <p><h6 id='url-interface-onbody-returns-example-available-from-1-6-0-available-from-2-10-5'>Available from 2.10.5</h6><h3 id='url-interface-onbody-signature'>Signature</h3>
 <p><code>C4:OnBody(func)</code></p></p>
@@ -18818,11 +18818,11 @@ See: <a href="https://en.wikipedia.org/wiki/Epoch_(computing)" title="Epoch Date
 
 <p>The same response table will be passed to the callbacks set by the following:</p>
 
-<p><a href="https://snap-one.github.io/docs-driverworks-api/#onbody">OnBody()</a></p>
+<p><a href="https://snap-one.github.io/docs-driverworks-api/#url-interface-onbody">OnBody()</a></p>
 
-<p><a href="https://snap-one.github.io/docs-driverworks-api/#onbodychunk">OnBodyChunk()</a></p>
+<p><a href="https://snap-one.github.io/docs-driverworks-api/#url-interface-onbodychunk">OnBodyChunk()</a></p>
 
-<p><a href="https://snap-one.github.io/docs-driverworks-api/#ondone">OnDone()</a></p>
+<p><a href="https://snap-one.github.io/docs-driverworks-api/#url-interface-ondone">OnDone()</a></p>
 
 <p>Any modifications to this table will persist but not affect the transfer in any way.</p>
 
@@ -18987,7 +18987,7 @@ table:</p>
 
 <h2 id='url-interface-setoptions'>SetOptions</h2>
 
-<p>This API is similar to the <a href="https://snap-one.github.io/docs-driverworks-api/#setoption">SetOption()</a> method, but allows the driver to pass in a table of options and their values. Note that this method can only be called before a transfer was started.</p>
+<p>This API is similar to the <a href="https://snap-one.github.io/docs-driverworks-api/#url-interface-setoption">SetOption()</a> method, but allows the driver to pass in a table of options and their values. Note that this method can only be called before a transfer was started.</p>
 
 <p><h6 id='url-interface-setoptions-returns-example-available-from-1-6-0-available-from-2-10-5'>Available from 2.10.5</h6><h3 id='url-interface-setoptions-signature'>Signature</h3>
 <p><code>C4:SetOptions(options)</code></p></p>
