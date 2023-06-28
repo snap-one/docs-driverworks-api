@@ -60,7 +60,7 @@ Finally, the [FinishedWithNotificationAttachement][4] API has been included in t
 
 To assist with implementation, please see the notification driver.c4z file in the Samples folder of this SDK.
 
-[1]:	https://snap-one.github.io/docs-driverworks-api/#getnotificationattachmenturl
-[2]:	https://snap-one.github.io/docs-driverworks-api/#getnotificationattachmentfile
-[3]:	https://snap-one.github.io/docs-driverworks-api/#getnotificationattachmentbytes
-[4]:	https://snap-one.github.io/docs-driverworks-api/#finishedwithnotificationattachment
+[1]:	https://snap-one.github.io/docs-driverworks-api/#notification-interface-getnotificationattachmenturl
+[2]:	https://snap-one.github.io/docs-driverworks-api/#notification-interface-getnotificationattachmentfile
+[3]:	https://snap-one.github.io/docs-driverworks-api/#notification-interface-getnotificationattachmentbytes
+[4]:	https://snap-one.github.io/docs-driverworks-api/#notification-interface-finishedwithnotificationattachment

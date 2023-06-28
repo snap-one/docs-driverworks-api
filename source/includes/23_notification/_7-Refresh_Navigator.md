@@ -33,7 +33,7 @@ The “data” passed to the callback function is event specific and can be prov
 
 See [Registering for System Events][4] for additional information.
 
-[1]:	https://snap-one.github.io/docs-driverworks-api/#registersystemevent
-[2]:	https://snap-one.github.io/docs-driverworks-api/#unregistersystemevent
-[3]:	https://snap-one.github.io/docs-driverworks-api/#unregisterallsystemevents
-[4]:	https://snap-one.github.io/docs-driverworks-api/#registering-for-system-events
+[1]:	https://snap-one.github.io/docs-driverworks-api/#event-interface-registersystemevent
+[2]:	https://snap-one.github.io/docs-driverworks-api/#event-interface-unregistersystemevent
+[3]:	https://snap-one.github.io/docs-driverworks-api/#event-interface-unregisterallsystemevents
+[4]:	https://snap-one.github.io/docs-driverworks-api/#event-interface-registering-for-system-events
