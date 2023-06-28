@@ -49,4 +49,4 @@ end
 ```
 
 [1]:	https://snap-one.github.io/docs-driverworks-api/#onwatchedvariablechanged
-[2]:	https://snap-one.github.io/docs-driverworks-api/#onwatchedvariablechanged
+[2]:	https://snap-one.github.io/docs-driverworks-api/#variable-interface-onwatchedvariablechanged

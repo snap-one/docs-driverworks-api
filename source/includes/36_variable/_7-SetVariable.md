@@ -29,4 +29,4 @@ Sets the value of the device variable named “Driver Variable” to 90:
 
 
 
-[1]:	https://snap-one.github.io/docs-driverworks-api/#addvariable
+[1]:	https://snap-one.github.io/docs-driverworks-api/#variable-interface-addvariable
