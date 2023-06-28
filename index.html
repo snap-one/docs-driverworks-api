@@ -20561,7 +20561,7 @@ drwx------    8 root     root        4.0K Aug 16 10:38 ..
 </tbody></table>
 
 <h2 id='zigbee-interface-updating-zigbee-device-firmware-using-driverworks'>Updating Zigbee Device firmware Using DriverWorks</h2>
-<p><em>Note: The following is applicable to operating systems 3.3.1 and earlier. 3.3.2 and later support the use of <a href="https://snap-one.github.io/docs-driverworks-api/#o-s-3-2-2-and-later-zigbee-ota-upgrade">over the air device updates</a>.</em></p>
+<p><em>Note: The following is applicable to operating systems 3.3.1 and earlier. 3.3.2 and later support the use of <a href="https://snap-one.github.io/docs-driverworks-api/#zigbee-interface-zigbee-ota-device-updates">over the air device updates</a>.</em></p>
 
 <p>The ability to use DriverWorks drivers to update firmware on ZigBee devices has been implemented using two features:</p>
 
@@ -20586,11 +20586,11 @@ drwx------    8 root     root        4.0K Aug 16 10:38 ..
 
 <p><strong>Firmware Request Functions</strong></p>
 
-<p>When a device requests a firmware update (the version of the firmware on the device is older than the firmware the driver has), the driver should request a &#39;reflash lock&#39; via <a href="https://snap-one.github.io/docs-driverworks-api/#requestreflashlock">RequestRefreshLock</a>. This allows the driver to ensure that it is the only driver updating a device at any time. This is required so that Director can manage multiple Zigbee drivers so that only one driver will be allowed to update at a time.  This ensures that device firmware updates don&#39;t overload the zigbee network.</p>
+<p>When a device requests a firmware update (the version of the firmware on the device is older than the firmware the driver has), the driver should request a &#39;reflash lock&#39; via <a href="https://snap-one.github.io/docs-driverworks-api/#zigbee-interface-requestreflashlock">RequestRefreshLock</a>. This allows the driver to ensure that it is the only driver updating a device at any time. This is required so that Director can manage multiple Zigbee drivers so that only one driver will be allowed to update at a time.  This ensures that device firmware updates don&#39;t overload the zigbee network.</p>
 
-<p>The <a href="https://snap-one.github.io/docs-driverworks-api/#onreflashlockgranted">OnReflashLockGranted</a> function is called by Director when the driver has permission to update the firmware on the device.  This function ensures that the driver is the only device using the zigbee network to flash a device. This ensures that the delivery of the firmware update won’t be slowed down due to other firmware updates from other devices.</p>
+<p>The <a href="https://snap-one.github.io/docs-driverworks-api/#zigbee-interface-onreflashlockgranted">OnReflashLockGranted</a> function is called by Director when the driver has permission to update the firmware on the device.  This function ensures that the driver is the only device using the zigbee network to flash a device. This ensures that the delivery of the firmware update won’t be slowed down due to other firmware updates from other devices.</p>
 
-<p>All reflash traffic is sent to the device using standard <a href="https://snap-one.github.io/docs-driverworks-api/#sendzigbeepacket">SendZigbeePacket</a> and <a href="https://snap-one.github.io/docs-driverworks-api/#onzigbeepacketin">OnZigbeePacketIn</a> commands/functions as described above.</p>
+<p>All reflash traffic is sent to the device using standard <a href="https://snap-one.github.io/docs-driverworks-api/#zigbee-interface-sendzigbeepacket">SendZigbeePacket</a> and <a href="https://snap-one.github.io/docs-driverworks-api/#zigbee-interface-onzigbeepacketin">OnZigbeePacketIn</a> commands/functions as described above.</p>
 
 <h2 id='zigbee-interface-getblobbyname'>GetBlobByName</h2>
 
