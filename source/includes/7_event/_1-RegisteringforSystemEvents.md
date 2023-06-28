@@ -54,5 +54,5 @@ Note that the OnProjectChanged event was deprecated in 2.10.X due to the archite
 * OnItemRemoved
 * OnItemNameChanged
 
-[1]:	https://snap-one.github.io/docs-driverworks-api/#registersystemevent
-[2]:	https://snap-one.github.io/docs-driverworks-api/#onsystemevent
+[1]:	https://snap-one.github.io/docs-driverworks-api/#event-interface-registersystemevent
+[2]:	https://snap-one.github.io/docs-driverworks-api/#event-interface-onsystemevent
