@@ -35,8 +35,8 @@ The [OnReflashLockGranted][3] function is called by Director when the driver has
 
 All reflash traffic is sent to the device using standard [SendZigbeePacket][4] and [OnZigbeePacketIn][5] commands/functions as described above.
 
-[1]:	https://snap-one.github.io/docs-driverworks-api/#o-s-3-2-2-and-later-zigbee-ota-upgrade
-[2]:	https://snap-one.github.io/docs-driverworks-api/#requestreflashlock
-[3]:	https://snap-one.github.io/docs-driverworks-api/#onreflashlockgranted
-[4]:	https://snap-one.github.io/docs-driverworks-api/#sendzigbeepacket
-[5]:	https://snap-one.github.io/docs-driverworks-api/#onzigbeepacketin
+[1]:	https://snap-one.github.io/docs-driverworks-api/#zigbee-interface-zigbee-ota-device-updates
+[2]:	https://snap-one.github.io/docs-driverworks-api/#zigbee-interface-requestreflashlock
+[3]:	https://snap-one.github.io/docs-driverworks-api/#zigbee-interface-onreflashlockgranted
+[4]:	https://snap-one.github.io/docs-driverworks-api/#zigbee-interface-sendzigbeepacket
+[5]:	https://snap-one.github.io/docs-driverworks-api/#zigbee-interface-onzigbeepacketin
