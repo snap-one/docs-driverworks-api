@@ -9197,7 +9197,7 @@ shrekMovie = {
 </thead><tbody>
 <tr>
 <td>str</td>
-<td>String to be decoded from <a href="https://snap-one.github.io/docs-driverworks-api/#base64encode">Base64 encoding</a></td>
+<td>String to be decoded from <a href="https://snap-one.github.io/docs-driverworks-api/#miscellaneous-interface-base64encode">Base64 encoding</a></td>
 </tr>
 </tbody></table>
 
@@ -10550,7 +10550,7 @@ When a driver is loaded, there are two initialization functions that are called 
 
 </code></pre></div>
 <h2 id='miscellaneous-interface-safe-usage-of-ondriverinit-and-ondriverlateinit'>Safe Usage of OnDriverInit and OnDriverLateInit</h2>
-<p>As best practice, Control4 recommends invoking certain API functions prior to <a href="https://snap-one.github.io/docs-driverworks-api/#ondriverlateinit">OnDriverLateInit</a>. The table below identifies functions that can safely be invoked during driver initialization through <a href="https://snap-one.github.io/docs-driverworks-api/#ondriverinit">OnDriverInit</a> with a designation of &quot;YES&quot;. Some API functions have significant performance impacts to Director during startup or have been proven to produce non-deterministic results when invoked in <a href="https://snap-one.github.io/docs-driverworks-api/#ondriverinit">OndriverInit</a>. The APIs are identified in the table below with a designation of &quot;NO&quot;.</p>
+<p>As best practice, Control4 recommends invoking certain API functions prior to <a href="https://snap-one.github.io/docs-driverworks-api/#miscellaneous-interface-ondriverlateinit">OnDriverLateInit</a>. The table below identifies functions that can safely be invoked during driver initialization through <a href="https://snap-one.github.io/docs-driverworks-api/#miscellaneous-interface-ondriverinit">OnDriverInit</a> with a designation of &quot;YES&quot;. Some API functions have significant performance impacts to Director during startup or have been proven to produce non-deterministic results when invoked in <a href="https://snap-one.github.io/docs-driverworks-api/#miscellaneous-interface-ondriverinit">OnDriverInit</a>. The APIs are identified in the table below with a designation of &quot;NO&quot;.</p>
 
 <table><thead>
 <tr>
