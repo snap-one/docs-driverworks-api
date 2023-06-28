@@ -56,6 +56,6 @@ OnHeaders(
 ```
 
 [1]:	https://snap-one.github.io/docs-driverworks-api/#url-interface
-[2]:	https://snap-one.github.io/docs-driverworks-api/#onbody
-[3]:	https://snap-one.github.io/docs-driverworks-api/#onbodychunk
-[4]:	https://snap-one.github.io/docs-driverworks-api/#ondone
+[2]:	https://snap-one.github.io/docs-driverworks-api/#url-interface-onbody
+[3]:	https://snap-one.github.io/docs-driverworks-api/#url-interface-onbodychunk
+[4]:	https://snap-one.github.io/docs-driverworks-api/#url-interface-ondone

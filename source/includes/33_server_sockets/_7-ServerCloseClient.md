@@ -25,4 +25,4 @@ This function closes the server socket previously received.
 
 `C4:ServerCloseClient(nHandle)`
 
-[1]:	https://snap-one.github.io/docs-driverworks-api/#onserverconnectionstatuschanged
+[1]:	https://snap-one.github.io/docs-driverworks-api/#server-socket-interface-onserverconnectionstatuschanged

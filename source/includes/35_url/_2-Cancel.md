@@ -19,9 +19,9 @@ Cancels a transfer that has been started by a call to the [Get()][1], [Post()][2
 
 Returns a reference to itself.
 
-[1]:	https://snap-one.github.io/docs-driverworks-api/#get
-[2]:	https://snap-one.github.io/docs-driverworks-api/#post
-[3]:	https://snap-one.github.io/docs-driverworks-api/#put
-[4]:	https://snap-one.github.io/docs-driverworks-api/#delete
-[5]:	https://snap-one.github.io/docs-driverworks-api/#custom
+[1]:	https://snap-one.github.io/docs-driverworks-api/#url-interface-get
+[2]:	https://snap-one.github.io/docs-driverworks-api/#url-interface-post
+[3]:	https://snap-one.github.io/docs-driverworks-api/#url-interface-put
+[4]:	https://snap-one.github.io/docs-driverworks-api/#url-interface-delete
+[5]:	https://snap-one.github.io/docs-driverworks-api/#url-interface-custom
 [6]:	https://snap-one.github.io/docs-driverworks-api/#url-interface

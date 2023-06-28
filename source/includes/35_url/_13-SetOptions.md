@@ -49,4 +49,4 @@ If set to true, clears any "session" cookies (cookies with no expiration time) f
 
 A reference to itself.
 
-[1]:	https://snap-one.github.io/docs-driverworks-api/#setoption
+[1]:	https://snap-one.github.io/docs-driverworks-api/#url-interface-setoption

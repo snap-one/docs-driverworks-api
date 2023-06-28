@@ -33,8 +33,8 @@ The response table contains the following keys:
 
 The same response table will be passed to the callback set by [OnDone()][5].  Any modifications to this table will persist, but not affect the transfer in any way.
 
-[1]:	https://snap-one.github.io/docs-driverworks-api/#onheaders
-[2]:	https://snap-one.github.io/docs-driverworks-api/#onbodychunk
-[3]:	https://snap-one.github.io/docs-driverworks-api/#ondone
+[1]:	https://snap-one.github.io/docs-driverworks-api/#url-interface-onheaders
+[2]:	https://snap-one.github.io/docs-driverworks-api/#url-interface-onbodychunk
+[3]:	https://snap-one.github.io/docs-driverworks-api/#url-interface-ondone
 [4]:	https://snap-one.github.io/docs-driverworks-api/#url-interface
 [5]:	https://snap-one.github.io/docs-driverworks-api/#ondone
