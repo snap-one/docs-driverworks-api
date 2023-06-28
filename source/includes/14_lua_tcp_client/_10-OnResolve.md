@@ -31,4 +31,4 @@ Using this closure is optional and can be used to delay making a choice. The in
 
 This method returns a reference to itself.
 
-[1]:	https://snap-one.github.io/docs-driverworks-api/#onerror
+[1]:	https://snap-one.github.io/docs-driverworks-api/#tcpclient-interface-onerror

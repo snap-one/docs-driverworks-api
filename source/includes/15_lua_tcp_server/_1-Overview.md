@@ -206,8 +206,8 @@ server:start(5, "*", 0, function(success, info)
 end)
 ```
 
-[1]:	https://snap-one.github.io/docs-driverworks-api/#close
-[2]:	https://snap-one.github.io/docs-driverworks-api/#listen
-[3]:	https://snap-one.github.io/docs-driverworks-api/#onlisten
+[1]:	https://snap-one.github.io/docs-driverworks-api/#tcpserver-interface-close
+[2]:	https://snap-one.github.io/docs-driverworks-api/#tcpserver-interface-listen
+[3]:	https://snap-one.github.io/docs-driverworks-api/#tcpserver-interface-onlisten
 [4]:	https://snap-one.github.io/docs-driverworks-api/#onresolve
-[5]:	https://snap-one.github.io/docs-driverworks-api/#onerror
+[5]:	https://snap-one.github.io/docs-driverworks-api/#tcpserver-interface-onerror

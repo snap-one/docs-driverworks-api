@@ -20,4 +20,4 @@ This method requests to read at least as many bytes as specified by the min argu
 
 This method returns a reference to itself, or nil in case of an error.
 
-[1]:	https://snap-one.github.io/docs-driverworks-api/#onread
+[1]:	https://snap-one.github.io/docs-driverworks-api/#tcpclient-interface-onread

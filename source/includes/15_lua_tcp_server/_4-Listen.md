@@ -23,5 +23,5 @@ This method starts a listen request to listen on a particular host/service.  On
 
 This method returns a reference to itself, or nil in case of an error.
 
-[1]:	https://snap-one.github.io/docs-driverworks-api/#onlisten
-[2]:	https://snap-one.github.io/docs-driverworks-api/#onerror
+[1]:	https://snap-one.github.io/docs-driverworks-api/#tcpserver-interface-onlisten
+[2]:	https://snap-one.github.io/docs-driverworks-api/#tcpserver-interface-onerror

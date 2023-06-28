@@ -112,7 +112,7 @@ PullHttpPage("example.com", "/", 5000, function(info, err)
 end)
 ```
 
-[1]:	https://snap-one.github.io/docs-driverworks-api/#connect
-[2]:	https://snap-one.github.io/docs-driverworks-api/#onconnect
-[3]:	https://snap-one.github.io/docs-driverworks-api/#onresolve
-[4]:	https://snap-one.github.io/docs-driverworks-api/#onerror
+[1]:	https://snap-one.github.io/docs-driverworks-api/#tcpclient-interface-connect
+[2]:	https://snap-one.github.io/docs-driverworks-api/#tcpclient-interface-onconnect
+[3]:	https://snap-one.github.io/docs-driverworks-api/#tcpclient-interface-onresolve
+[4]:	https://snap-one.github.io/docs-driverworks-api/#tcpclient-interface-onerror

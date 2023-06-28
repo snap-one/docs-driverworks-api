@@ -26,4 +26,4 @@ This method sets a callback method that will be called once data has been read o
 
 This method returns a reference to itself.
 
-[1]:	https://snap-one.github.io/docs-driverworks-api/#readuntil
+[1]:	https://snap-one.github.io/docs-driverworks-api/#tcpclient-interface-readuntil
