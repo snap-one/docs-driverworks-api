@@ -1704,21 +1704,21 @@ Salt Lake City, UT 84020 USA</p>
 
 <p><strong>Zigbee Over the Air Firmware Updates</strong></p>
 
-<p>Beginning with operating system 3.3.2, Control4 controllers now implement a common <a href="https://snap-one.github.io/docs-driverworks-api/#zigbee-ota-device-updates">Zigbee Over the Air</a> (OTA) server that allows third party devices to update firmware in a Zigbee standard way. The OTA server is accessible through a simple Lua driver API</p>
+<p>Beginning with operating system 3.3.2, Control4 controllers now implement a common <a href="https://snap-one.github.io/docs-driverworks-api/#zigbee-interface-zigbee-ota-device-updates">Zigbee Over the Air</a> (OTA) server that allows third party devices to update firmware in a Zigbee standard way. The OTA server is accessible through a simple Lua driver API</p>
 
 <h2 id='what-39-s-new-what-s-new-in-3-3-1'>What’s New in 3.3.1</h2>
 
 <p><strong>Encryption Interface</strong></p>
 
-<p>The <a href="https://snap-one.github.io/docs-driverworks-api/#generatecsr-ecc">GenerateCSR ECC</a> and <a href="https://snap-one.github.io/docs-driverworks-api/#generatecsr-rsa">GenerateCSR RSA</a> APIs have been modified. Upon success, they now return strings containing the CSR/ECC, public key and private key. Upon failure, nil is returned.</p>
+<p>The <a href="https://snap-one.github.io/docs-driverworks-api/#encryption-interface-generatecsr_eccc">GenerateCSR ECC</a> and <a href="https://snap-one.github.io/docs-driverworks-api/#encryption-interface-generatecsr_rsa">GenerateCSR RSA</a> APIs have been modified. Upon success, they now return strings containing the CSR/ECC, public key and private key. Upon failure, nil is returned.</p>
 
 <p><strong> Helper Interface</strong></p>
 
 <p>As part of Control4’s plan to tighten driver security, the io.popen() call is in the process of being removed. The following APIs have been added in support of this effort: </p>
 
 <ul>
-<li><a href="https://snap-one.github.io/docs-driverworks-api/#gethostname">GetHostname</a></li>
-<li><a href="https://snap-one.github.io/docs-driverworks-api/#portinuse">PortInUse</a></li>
+<li><a href="https://snap-one.github.io/docs-driverworks-api/#helper-interface-gethostname">GetHostname</a></li>
+<li><a href="https://snap-one.github.io/docs-driverworks-api/#helper-interface-portinuse">PortInUse</a></li>
 </ul>
 
 <p><strong>Ping Interface</strong></p>
@@ -1727,79 +1727,79 @@ Salt Lake City, UT 84020 USA</p>
 
 <p><strong>Server Socket Interface</strong></p>
 
-<p>The Lua C4:<a href="https://snap-one.github.io/docs-driverworks-api/#createtlsserver">CreateTLSServer</a> API and <a href="https://snap-one.github.io/docs-driverworks-api/#createserver">CreateServer</a> API have been modified to accommodate the addition of an identifier that is associated with an instance of a server. This identifier enables a Lua driver to determine which instance of a server is active.</p>
+<p>The Lua C4:<a href="https://snap-one.github.io/docs-driverworks-api/#server-socket-interface-createtlsserver">CreateTLSServer</a> API and <a href="https://snap-one.github.io/docs-driverworks-api/#server-socket-interface-createserver">CreateServer</a> API have been modified to accommodate the addition of an identifier that is associated with an instance of a server. This identifier enables a Lua driver to determine which instance of a server is active.</p>
 
 <p><strong> URL Interface</strong></p>
 
 <p>As part of Control4’s plan to tighten driver security, the io.popen() call is in the process of being removed. The following APIs have been added or modified in support of this effort: </p>
 
 <ul>
-<li><a href="https://snap-one.github.io/docs-driverworks-api/#downloadfile">DownloadFile</a></li>
-<li><a href="https://snap-one.github.io/docs-driverworks-api/#getuname">GetUname</a></li>
-<li><a href="https://snap-one.github.io/docs-driverworks-api/#getuptime">GetUptime</a></li>
+<li><a href="https://snap-one.github.io/docs-driverworks-api/#url-interface-downloadfile">DownloadFile</a></li>
+<li><a href="https://snap-one.github.io/docs-driverworks-api/#url-interface-getuname">GetUname</a></li>
+<li><a href="https://snap-one.github.io/docs-driverworks-api/#url-interface-getuptime">GetUptime</a></li>
 </ul>
 
 <h2 id='what-39-s-new-what-s-new-in-3-3-0'>What’s New in 3.3.0</h2>
 
 <p><strong>C4SSH Interface</strong></p>
 
-<p>The DriverWorks API has been expanded with the addition of the new C4SSH API. This API enables Lua drivers to establish an SSH client connection to a remote device and execute a series of commands. A driver creates an instance of a C4SSH object by calling the<a href="https://snap-one.github.io/docs-driverworks-api/#createsshclient"> C4:CreateSSHClient</a> function.</p>
+<p>The DriverWorks API has been expanded with the addition of the new C4SSH API. This API enables Lua drivers to establish an SSH client connection to a remote device and execute a series of commands. A driver creates an instance of a C4SSH object by calling the<a href="https://snap-one.github.io/docs-driverworks-api/#c4ssh-interface-createsshclient"> C4:CreateSSHClient</a> function.</p>
 
 <p><strong>File Interface</strong></p>
 
 <p>As part of Control4’s plan to tighten driver security, the io.popen() call has been removed. In doing this, driver developers need to use C4:File commands to accomplish what they previously did with io.popen (). The following APIs have been added or modified in support of this effort:</p>
 
-<p>A new API: <a href="https://snap-one.github.io/docs-driverworks-api/#filecreatedir">FileCreateDir</a> has been added. This function has been added to create a new file directory. </p>
+<p>A new API: <a href="https://snap-one.github.io/docs-driverworks-api/#file-interface-filecreatedir">FileCreateDir</a> has been added. This function has been added to create a new file directory. </p>
 
-<p>The <a href="https://snap-one.github.io/docs-driverworks-api/#filedelete">FileDelete</a> function has been modified in conjunction with O.S. release 3.3.0.  </p>
+<p>The <a href="https://snap-one.github.io/docs-driverworks-api/#file-interface-filedelete">FileDelete</a> function has been modified in conjunction with O.S. release 3.3.0.  </p>
 
-<p>A new API: <a href="https://snap-one.github.io/docs-driverworks-api/#filemove">FileMove</a> has been added. This function moves files within certain restrictions.  </p>
+<p>A new API: <a href="https://snap-one.github.io/docs-driverworks-api/#file-interface-filemove">FileMove</a> has been added. This function moves files within certain restrictions.  </p>
 
-<p>The <a href="https://snap-one.github.io/docs-driverworks-api/#filesetdir">FileSetDir</a> has been modified In conjunction with O.S. release 3.3.0. This function is being restricted to allowed locations whereas previously it had full root access.</p>
+<p>The <a href="https://snap-one.github.io/docs-driverworks-api/#file-interface-filesetdir">FileSetDir</a> has been modified In conjunction with O.S. release 3.3.0. This function is being restricted to allowed locations whereas previously it had full root access.</p>
 
-<p>Additionally, a new API: <a href="https://snap-one.github.io/docs-driverworks-api/#unzip">UnZip</a> has been added. This API enables Lua drivers to extract one, or more, files from a .zip archive.</p>
+<p>Additionally, a new API: <a href="https://snap-one.github.io/docs-driverworks-api/#file-interface-unzip">UnZip</a> has been added. This API enables Lua drivers to extract one, or more, files from a .zip archive.</p>
 
 <p><strong>Helper Interface</strong></p>
 
-<p>A new API: <a href="https://snap-one.github.io/docs-driverworks-api/#getcodeitems">GetCodeItems</a> has been added. This function returns Code Items for a specified device and event.</p>
+<p>A new API: <a href="https://snap-one.github.io/docs-driverworks-api/#helper-interface-getcodeitems">GetCodeItems</a> has been added. This function returns Code Items for a specified device and event.</p>
 
-<p>A new API: <a href="https://snap-one.github.io/docs-driverworks-api/#getallcodeitems">GetAllCodeItems</a> has been added. This function returns all Code Items within the project.</p>
+<p>A new API: <a href="https://snap-one.github.io/docs-driverworks-api/#helper-interface-getallcodeitems">GetAllCodeItems</a> has been added. This function returns all Code Items within the project.</p>
 
-<p>A new API: <a href="https://snap-one.github.io/docs-driverworks-api/#getbootid">GetBootID</a> has been added. This function returns a string that contains an ID which is unique for the current kernel instance.  When the controller is re-booted, the ID will change.</p>
+<p>A new API: <a href="https://snap-one.github.io/docs-driverworks-api/#helper-interface-getbootid">GetBootID</a> has been added. This function returns a string that contains an ID which is unique for the current kernel instance.  When the controller is re-booted, the ID will change.</p>
 
-<p>A new API: <a href="https://snap-one.github.io/docs-driverworks-api/#uuid">UUID</a> has been added. This function generates a UUID (Universally Unique IDentifier). This function has also been added to tighten driver security and support the removal of the the io.popen() call.</p>
+<p>A new API: <a href="https://snap-one.github.io/docs-driverworks-api/#helper-interface-uuid">UUID</a> has been added. This function generates a UUID (Universally Unique IDentifier). This function has also been added to tighten driver security and support the removal of the the io.popen() call.</p>
 
-<p>A new API: <a href="https://snap-one.github.io/docs-driverworks-api/#createtlsserver">CreateTLSServer</a> has been added. This function enables a Lua driver to create a new secure SSL/TLS server that listens for incoming connections on a specified port.</p>
+<p>A new API: <a href="https://snap-one.github.io/docs-driverworks-api/#server-socket-interface-createtlsserver">CreateTLSServer</a> has been added. This function enables a Lua driver to create a new secure SSL/TLS server that listens for incoming connections on a specified port.</p>
 
-<p>The <a href="https://snap-one.github.io/docs-driverworks-api/#gettimezone">GetTimeZone</a> API return values have been modified. Deprecated Time Zones are no longer supported.</p>
+<p>The <a href="https://snap-one.github.io/docs-driverworks-api/#helper-interface-gettimezone">GetTimeZone</a> API return values have been modified. Deprecated Time Zones are no longer supported.</p>
 
 <h2 id='what-39-s-new-what-s-new-in-3-2-3'>What’s New in 3.2.3</h2>
 
 <p><strong>Timer Interface</strong></p>
 
-<p>A new API: <a href="https://snap-one.github.io/docs-driverworks-api/#gettime">GetTime</a> has been added to the Timer Interface in this version of the SDK. This API enables Lua drivers to retrieve the number of milliseconds since the epoch.</p>
+<p>A new API: <a href="https://snap-one.github.io/docs-driverworks-api/#timer-interface-gettime">GetTime</a> has been added to the Timer Interface in this version of the SDK. This API enables Lua drivers to retrieve the number of milliseconds since the epoch.</p>
 
 <h2 id='what-39-s-new-what-s-new-in-3-2-2'>What’s New in 3.2.2</h2>
 
 <p><strong>Variable Interface</strong></p>
 
-<p>A new API: <a href="https://snap-one.github.io/docs-driverworks-api/#unregisteredallvariablelisteners">UnRegisterAllVariableListeners</a> has been added to this version of the SDK.</p>
+<p>A new API: <a href="https://snap-one.github.io/docs-driverworks-api/#variable-interface-unregisterallvariablelisteners">UnRegisterAllVariableListeners</a> has been added to this version of the SDK.</p>
 
 <h2 id='what-39-s-new-what-s-new-in-3-2-1'>What’s New in 3.2.1</h2>
 
 <p><strong>Variable Interface</strong></p>
 
-<p>A new API: <a href="https://snap-one.github.io/docs-driverworks-api/#unregisteredallvariablelisteners">UnRegisteredAllVariableListeners</a> has been added to this version of the SDK.</p>
+<p>A new API: <a href="https://snap-one.github.io/docs-driverworks-api/#variable-interface-unregisterallvariablelisteners">UnRegisteredAllVariableListeners</a> has been added to this version of the SDK.</p>
 
 <h2 id='what-39-s-new-what-s-new-in-3-2-0'>What’s New in 3.2.0</h2>
 
 <p><strong>Driver Initialization and Destruction</strong></p>
 
-<p>New parameters have been added to <a href="https://snap-one.github.io/docs-driverworks-api/#ondriverinit">OnDriverInit</a>, <a href="https://snap-one.github.io/docs-driverworks-api/#ondriverlateinit">OnDriverLateInit</a> and <a href="https://snap-one.github.io/docs-driverworks-api/#ondriverdestroyed">OnDriver Destroyed</a>. These parameters support instances when driver needs to know under what condition or event caused the Initialization or Destroyed functions to be called. OS Release 3.2.0 introduces a new string parameter for these functions to identify the reason for the call. This parameter, driverInitType (DIT) provides this information.</p>
+<p>New parameters have been added to <a href="https://snap-one.github.io/docs-driverworks-api/#miscellaneous-interface-ondriverinit">OnDriverInit</a>, <a href="https://snap-one.github.io/docs-driverworks-api/#miscellaneous-interface-ondriverlateinit">OnDriverLateInit</a> and <a href="https://snap-one.github.io/docs-driverworks-api/#miscellaneous-interface-ondriverdestroyed">OnDriver Destroyed</a>. These parameters support instances when driver needs to know under what condition or event caused the Initialization or Destroyed functions to be called. OS Release 3.2.0 introduces a new string parameter for these functions to identify the reason for the call. This parameter, driverInitType (DIT) provides this information.</p>
 
 <p><strong>Driver Add Driver</strong></p>
 
-<p>Two new APIs have been delivered with O.S. 3.2.0 to facilitate the ability of driver to add another driver to a project as well as the ability to add a location within the project. See the <a href="https://snap-one.github.io/docs-driverworks-api/#adddevice">AddDevice</a> and <a href="https://snap-one.github.io/docs-driverworks-api/#addlocation">AddLocation</a> APIs for more information.</p>
+<p>Two new APIs have been delivered with O.S. 3.2.0 to facilitate the ability of driver to add another driver to a project as well as the ability to add a location within the project. See the <a href="https://snap-one.github.io/docs-driverworks-api/#helper-interface-adddevice">AddDevice</a> and <a href="https://snap-one.github.io/docs-driverworks-api/#helper-interface-addlocation">AddLocation</a> APIs for more information.</p>
 
 <h2 id='what-39-s-new-what-was-new-in-3-1-0'>What was New in 3.1.0</h2>
 
