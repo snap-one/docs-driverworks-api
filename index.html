@@ -2960,7 +2960,7 @@ SetOnDisconnected: Provides notification when the connection is disconnected, or
 </thead><tbody>
 <tr>
 <td>digest</td>
-<td>The algorithm used by the certificate. For example, SHA256. See the <a href="https://snap-one.github.io/docs-driverworks-api/#getsupporteddigests">C4:GetSupportedDigests</a>()API for information on retrieving digests.</td>
+<td>The algorithm used by the certificate. For example, SHA256. See the <a href="https://snap-one.github.io/docs-driverworks-api/#encryption-interface-getsupporteddigests">C4:GetSupportedDigests</a>()API for information on retrieving digests.</td>
 </tr>
 <tr>
 <td>sizeCert</td>
@@ -3053,7 +3053,7 @@ SetOnDisconnected: Provides notification when the connection is disconnected, or
 
 <h2 id='encryption-interface-getsupportedciphers'>GetSupportedCiphers</h2>
 
-<p>Returns the list of ciphers supported by the <a href="#encrypt">Encrypt</a> and <a href="#decrypt">Decrypt</a> functions.</p>
+<p>Returns the list of ciphers supported by the <a href="https://snap-one.github.io/docs-driverworks-api/#encryption-interface-encrypt">Encrypt</a> and <a href="https://snap-one.github.io/docs-driverworks-api/#encryption-interface-decrypt">Decrypt</a> functions.</p>
 
 <p><h6 id='encryption-interface-getsupportedciphers-examples-see-also-available-from-2-10-4-available-in-1-6-0'>Available in 1.6.0.</h6><h3 id='encryption-interface-getsupportedciphers-signature'>Signature</h3>
 <p><code>C4:GetSupportedCiphers ()</code></p>
@@ -3106,7 +3106,7 @@ SetOnDisconnected: Provides notification when the connection is disconnected, or
 <span class="n">IVLength</span>    <span class="mi">16</span>
 </code></pre></div>
 <h2 id='encryption-interface-getsupporteddigests'>GetSupportedDigests</h2>
-<p>Returns the list of digests supported by the <a href="#hash">Hash</a>, <a href="#hmac">HMAC</a> and <a href="#pbkdf2">PBKDF2</a> functions.</p>
+<p>Returns the list of digests supported by the <a href="https://snap-one.github.io/docs-driverworks-api/#encryption-interface-hash">Hash</a>, <a href="https://snap-one.github.io/docs-driverworks-api/#encryption-interface-hmac">HMAC</a> and <a href="https://snap-one.github.io/docs-driverworks-api/#encryption-interface-pbkdf2">PBKDF2</a> functions.</p>
 <h6 id='encryption-interface-getsupporteddigests-example-see-also-available-from-2-10-4-available-in-1-6-0'>Available in 1.6.0.</h6><h3 id='encryption-interface-getsupporteddigests-signature'>Signature</h3>
 
 <p><code>C4:GetSupportedDigests ()</code></p>
@@ -3162,7 +3162,7 @@ SetOnDisconnected: Provides notification when the connection is disconnected, or
 </thead><tbody>
 <tr>
 <td>str</td>
-<td>digest: Valid digest (see <a href="#getsupporteddigests">GetSupportedDigests</a>).</td>
+<td>digest: Valid digest (see <a href="https://snap-one.github.io/docs-driverworks-api/#encryption-interface-getsupporteddigests">GetSupportedDigests</a>).</td>
 </tr>
 <tr>
 <td>str</td>
@@ -3226,7 +3226,7 @@ SetOnDisconnected: Provides notification when the connection is disconnected, or
 <span class="n">string</span>  <span class="mi">3</span><span class="n">fa83003c1c41282cac40d71b680d85f981f1517e5ac4941bd871955aeecbfec</span>
 </code></pre></div>
 <h2 id='encryption-interface-hmac'>HMAC</h2>
-<p>Computes a hash-based message authentication code (<a href="https://en.wikipedia.org/wiki/HMAC">HMAC</a>) for a given string using the specified key.</p>
+<p>Computes a hash-based message authentication code (<a href="https://snap-one.github.io/docs-driverworks-api/#encryption-interface-hmac">HMAC</a>) for a given string using the specified key.</p>
 <h6 id='encryption-interface-hmac-example-see-also-available-from-2-10-4-available-in-1-6-0'>Available in 1.6.0.</h6><h3 id='encryption-interface-hmac-signature'>Signature</h3>
 
 <p><code>C4:HMAC (digest, key, data, options)</code></p>
@@ -3239,7 +3239,7 @@ SetOnDisconnected: Provides notification when the connection is disconnected, or
 </thead><tbody>
 <tr>
 <td>str</td>
-<td>digest: Valid digest (see <a href="#getsupporteddigests">GetSupportedDigests</a>).</td>
+<td>digest: Valid digest (see <a href="https://snap-one.github.io/docs-driverworks-api/#encryption-interface-getsupporteddigests">GetSupportedDigests</a>).</td>
 </tr>
 <tr>
 <td>str</td>
@@ -3389,7 +3389,7 @@ SetOnDisconnected: Provides notification when the connection is disconnected, or
 <span class="k">end</span>
 </code></pre></div>
 <h2 id='encryption-interface-pbkdf2'>PBKDF2</h2>
-<p>Performs a Password-Based Key Derivation Function 2 (PKCS#5) (<a href="https://en.wikipedia.org/wiki/PBKDF2">PBKDF2</a>) for a given password using the specified digest, salt, number of iterations and desired output key length.</p>
+<p>Performs a Password-Based Key Derivation Function 2 (PKCS#5) (<a href="https://snap-one.github.io/docs-driverworks-api/#encryption-interface-pbkdf2">PBKDF2</a>) for a given password using the specified digest, salt, number of iterations and desired output key length.</p>
 <h6 id='encryption-interface-pbkdf2-example-see-also-available-from-2-10-4-available-in-1-6-0'>Available in 1.6.0.</h6><h3 id='encryption-interface-pbkdf2-signature'>Signature</h3>
 
 <p><code>C4:PBKDF2 (digest, password, salt, iterations, key_length, options)</code></p>
@@ -3402,7 +3402,7 @@ SetOnDisconnected: Provides notification when the connection is disconnected, or
 </thead><tbody>
 <tr>
 <td>str</td>
-<td>digest: Valid digest (see <a href="#getsupporteddigests">GetSupportedDigests</a>).</td>
+<td>digest: Valid digest (see <a href="https://snap-one.github.io/docs-driverworks-api/#encryption-interface-getsupporteddigests">GetSupportedDigests</a>).</td>
 </tr>
 <tr>
 <td>str</td>
