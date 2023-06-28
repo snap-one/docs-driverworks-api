@@ -6308,7 +6308,7 @@ Generates a random version 4 UUID (UUID4). The generator utilizes entropy provid
 
 <p>The functions listed below represent Lua functions that are not Control4 APIs but are however included in this documentation. The functions below are implemented within a DriverWorks driver and can be called by an API, Director or another external process.</p>
 
-<p>For example, the Lua function UIRequest isn&#39;t a Control4 API. However, it is an InBound Driver Function that needs to be implemented in your driver if you intent to use the Control4 API:<a href="https://snap-one.github.io/docs-driverworks-api/#senduirequest">SendUIRequest</a>. SendUIRequest sends a request to another driver. It uses the proxy or protocol ID value of the driver as a means to target the driver where the request will be sent. The driver receiving the SendUIRequest must have the InBound Driver Function UIRequest configured, which will contain the return values requested by the SendUIRequest call.</p>
+<p>For example, the Lua function UIRequest isn&#39;t a Control4 API. However, it is an InBound Driver Function that needs to be implemented in your driver if you intent to use the Control4 API:<a href="https://snap-one.github.io/docs-driverworks-api/#miscellaneous-interface-senduirequest">SendUIRequest</a>. SendUIRequest sends a request to another driver. It uses the proxy or protocol ID value of the driver as a means to target the driver where the request will be sent. The driver receiving the SendUIRequest must have the InBound Driver Function UIRequest configured, which will contain the return values requested by the SendUIRequest call.</p>
 
 <p>Here is an example of using SendUIRequest in a driver:</p>
 
@@ -6341,26 +6341,26 @@ Generates a random version 4 UUID (UUID4). The generator utilizes entropy provid
 <span class="o">&lt;/</span><span class="n">driver_data</span><span class="o">&gt;</span>
 </code></pre></div><h3 id='inbound-driver-interface-inbound-driver-interface-list-of-inbound-driver-functions'>List of InBound Driver Functions:</h3>
 <ul>
-<li><a href="https://snap-one.github.io/docs-driverworks-api/#onbindingchanged">OnBindingChanged</a></li>
-<li><a href="https://snap-one.github.io/docs-driverworks-api/#ondriverdestroyed">OnDriverDestroyed</a></li>
-<li><a href="https://snap-one.github.io/docs-driverworks-api/#ondriverlateinit">OnDriverLateInit</a></li>
-<li><a href="https://snap-one.github.io/docs-driverworks-api/#ondriverinit">OnDriverInit</a></li>
-<li><a href="https://snap-one.github.io/docs-driverworks-api/#onpropertychanged">OnPropertyChanged</a></li>
-<li><a href="https://snap-one.github.io/docs-driverworks-api/#senduirequest">SendUIRequest</a></li>
-<li><a href="https://snap-one.github.io/docs-driverworks-api/#executecommand">ExecuteCommand</a></li>
-<li><a href="https://snap-one.github.io/docs-driverworks-api/#receivedfromserial">ReceivedFromSerial</a></li>
-<li><a href="https://snap-one.github.io/docs-driverworks-api/#receivedfromproxy">ReceivedFromProxy</a></li>
-<li><a href="https://snap-one.github.io/docs-driverworks-api/#receivedfromnetwork">ReceivedFromNetwork</a></li>
-<li><a href="https://snap-one.github.io/docs-driverworks-api/#getprivatekeypassword">GetPrivateKeyPassword</a></li>
-<li><a href="https://snap-one.github.io/docs-driverworks-api/#onvariablechanged">OnVariableChanged</a></li>
-<li><a href="https://snap-one.github.io/docs-driverworks-api/#onwatchedvariablechanged">OnWatchedVariableChanged</a></li>
-<li><a href="https://snap-one.github.io/docs-driverworks-api/#onconnectionstatuschanged">OnConnectionStatusChanged</a></li>
-<li><a href="https://snap-one.github.io/docs-driverworks-api/#onserverconnectionstatuschanged">OnServerConnectionStatusChanged</a></li>
-<li><a href="https://snap-one.github.io/docs-driverworks-api/#onserverdatain">OnServerDataIn</a></li>
-<li><a href="https://snap-one.github.io/docs-driverworks-api/#onnetworkbindingchanged">OnNetworkBindingChanged</a></li>
-<li><a href="https://snap-one.github.io/docs-driverworks-api/#onzigbeeonlinestatuschanged">OnZigbeeOnlineStatusChanged</a></li>
-<li><a href="https://snap-one.github.io/docs-driverworks-api/#onreflashlockgranted">OnReflashLockGranted</a></li>
-<li><a href="https://snap-one.github.io/docs-driverworks-api/#onreflashlockrevoked">OnReflashLockRevoked</a></li>
+<li><a href="https://snap-one.github.io/docs-driverworks-api/#miscellaneous-interface-onbindingchanged">OnBindingChanged</a></li>
+<li><a href="https://snap-one.github.io/docs-driverworks-api/#miscellaneous-interface-ondriverdestroyed">OnDriverDestroyed</a></li>
+<li><a href="https://snap-one.github.io/docs-driverworks-api/#miscellaneous-interface-ondriverlateinit">OnDriverLateInit</a></li>
+<li><a href="https://snap-one.github.io/docs-driverworks-api/#miscellaneous-interface-ondriverinit">OnDriverInit</a></li>
+<li><a href="https://snap-one.github.io/docs-driverworks-api/#properties-interface-onpropertychanged">OnPropertyChanged</a></li>
+<li><a href="https://snap-one.github.io/docs-driverworks-api/#miscellaneous-interface-senduirequest">SendUIRequest</a></li>
+<li><a href="https://snap-one.github.io/docs-driverworks-api/#director-command-interface-executecommand">ExecuteCommand</a></li>
+<li><a href="https://snap-one.github.io/docs-driverworks-api/#serial-and-network-interface-receivedfromserial">ReceivedFromSerial</a></li>
+<li><a href="https://snap-one.github.io/docs-driverworks-api/#proxy-interface-receivedfromproxy">ReceivedFromProxy</a></li>
+<li><a href="https://snap-one.github.io/docs-driverworks-api/#serial-and-network-interface-receivedfromnetwork">ReceivedFromNetwork</a></li>
+<li><a href="https://snap-one.github.io/docs-driverworks-api/#miscellaneous-interface-getprivatekeypassword">GetPrivateKeyPassword</a></li>
+<li><a href="https://snap-one.github.io/docs-driverworks-api/#variable-interface-onvariablechanged">OnVariableChanged</a></li>
+<li><a href="https://snap-one.github.io/docs-driverworks-api/#variable-interface-onwatchedvariablechanged">OnWatchedVariableChanged</a></li>
+<li><a href="https://snap-one.github.io/docs-driverworks-api/#serial-and-network-interface-onconnectionstatuschanged">OnConnectionStatusChanged</a></li>
+<li><a href="https://snap-one.github.io/docs-driverworks-api/#server-socket-interface-onserverconnectionstatuschanged">OnServerConnectionStatusChanged</a></li>
+<li><a href="https://snap-one.github.io/docs-driverworks-api/#server-socket-interface-onserverdatain">OnServerDataIn</a></li>
+<li><a href="https://snap-one.github.io/docs-driverworks-api/#serial-and-network-interface-onnetworkbindingchanged">OnNetworkBindingChanged</a></li>
+<li><a href="https://snap-one.github.io/docs-driverworks-api/#zigbee-interface-onzigbeeonlinestatuschanged">OnZigbeeOnlineStatusChanged</a></li>
+<li><a href="https://snap-one.github.io/docs-driverworks-api/#zigbee-interface-onreflashlockgranted">OnReflashLockGranted</a></li>
+<li><a href="https://snap-one.github.io/docs-driverworks-api/#zigbee-interface-onreflashlockrevoked">OnReflashLockRevoked</a></li>
 </ul></p>
 <h1 id='ir-interface'>IR Interface</h1>
 
