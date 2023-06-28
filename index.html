@@ -3703,7 +3703,7 @@ iSpRAwom9R5BWUMFoRCn0j0TWFsTIBNSuOcMrw5n6NU=
 
 <p>Specifically the event for “Refresh Navigator” is the “OnPIP” event.  To get this event,  we make use of the following generic event registration calls:</p>
 
-<p><a href="https://snap-one.github.io/docs-driverworks-api/#registersystemevent">RegisterSystemEvent</a></p>
+<p><a href="https://snap-one.github.io/docs-driverworks-api/#event-interface-registersystemevent">RegisterSystemEvent</a></p>
 
 <p><code>C4:RegisterSystemEvent(eventId, deviceId)</code></p>
 
@@ -3731,7 +3731,7 @@ iSpRAwom9R5BWUMFoRCn0j0TWFsTIBNSuOcMrw5n6NU=
 
 <p>The C4SystemEvents variable is the array of all event name to ID’s. Use deviceId 0 to register for device specific events for all devices. Some events are system wide and will be sent regardless of the device id that was registered, others use the device id to filter who gets what events.</p>
 
-<p>Additionally, your driver will need to implement the <a href="https://snap-one.github.io/docs-driverworks-api/#onsystemevent">OnSystemEvent </a>method.</p>
+<p>Additionally, your driver will need to implement the <a href="https://snap-one.github.io/docs-driverworks-api/#event-interface-onsystemevent">OnSystemEvent </a>method.</p>
 
 <p><strong>Useful System Event ID Values</strong></p>
 
@@ -4140,7 +4140,7 @@ iSpRAwom9R5BWUMFoRCn0j0TWFsTIBNSuOcMrw5n6NU=
 
 <h2 id='event-interface-unregisteralldeviceevents'>UnregisterAllDeviceEvents</h2>
 
-<p>This API unregisters all prior event registrations created by the <a href="https://snap-one.github.io/docs-driverworks-api/#registerdeviceevent">RegisterDeviceEvent</a> API.</p>
+<p>This API unregisters all prior event registrations created by the <a href="https://snap-one.github.io/docs-driverworks-api/#event-interface-registerdeviceevent">RegisterDeviceEvent</a> API.</p>
 
 <p><h6 id='event-interface-unregisteralldeviceevents-usage-note-see-also-available-from-2-10-4-available-in-2-9-0'>Available in  2.9.0</h6><h3 id='event-interface-unregisteralldeviceevents-signature'>Signature</h3>
 <p><code>C4:UnregisterAllDeviceEvents()</code></p>
@@ -4195,7 +4195,7 @@ iSpRAwom9R5BWUMFoRCn0j0TWFsTIBNSuOcMrw5n6NU=
 
 <h2 id='event-interface-unregisterdeviceevent'>UnregisterDeviceEvent</h2>
 
-<p>This API unregisters prior event registration created by the <a href="https://snap-one.github.io/docs-driverworks-api/#registerdeviceevent">RegisterDeviceEvent</a> API. The device ID passed is the ID of the device that is firing the registered event. This is followed by the event ID.</p>
+<p>This API unregisters prior event registration created by the <a href="https://snap-one.github.io/docs-driverworks-api/#event-interface-registerdeviceevent">RegisterDeviceEvent</a> API. The device ID passed is the ID of the device that is firing the registered event. This is followed by the event ID.</p>
 
 <p><h6 id='event-interface-unregisterdeviceevent-example-see-also-available-from-2-10-4-available-in-2-9-0'>Available in  2.9.0</h6><h3 id='event-interface-unregisterdeviceevent-signature'>Signature</h3>
 <p><code>C4:UnregisterDeviceEvent(deviceId, eventId)</code></p></p>
@@ -4226,24 +4226,25 @@ iSpRAwom9R5BWUMFoRCn0j0TWFsTIBNSuOcMrw5n6NU=
 
 <p>There are two ways to implement <code>suppress_connection_event</code>. First, a driver developer can add the <code>suppress_connection_events</code> tag to the port section in the connections area of their driver. For example, to the right is an entry for an HC-250 that defines Director’s connection to Navigator:</p>
 
-<p><port>
-     <name>Navigator</name>
-     <number>5115</number>
-     <auto_connect>True</auto_connect>
-     <monitor_connection>False</monitor_connection>
-     <keep_connection>True</keep_connection>
-     <keep_alive>True</keep_alive>
-     <suppress_connection_events>True</suppress_connection_events>
-     <delimiter>0d0a</delimiter>
-    </port></p>
+<div class="highlight"><pre class="highlight plaintext"><code>&lt;port&gt;
+ &lt;name&gt;Navigator&lt;/name&gt;
+ &lt;number&gt;5115&lt;/number&gt;
+ &lt;auto_connect&gt;True&lt;/auto_connect&gt;
+ &lt;monitor_connection&gt;False&lt;/monitor_connection&gt;
+ &lt;keep_connection&gt;True&lt;/keep_connection&gt;
+ &lt;keep_alive&gt;True&lt;/keep_alive&gt;
+ &lt;suppress_connection_events&gt;True&lt;/suppress_connection_events&gt;
+ &lt;delimiter&gt;0d0a&lt;/delimiter&gt;
+&lt;/port&gt;
+</code></pre></div>
 
 <p>The second way to use the <code>suppress_connection_events</code> option is in Lua drivers. The NetConnect() function has an optional parameter that specifies whether Director should suppress OnDeviceOnline and OnDeviceOffline events for the connection. By default, Director does suppress events for all connections created this way. The events can be enabled by passing “false” for this parameter.</p>
 
 <p>See the following APIs in the Serial Network Device Interface:</p>
 
-<p><a href="https://snap-one.github.io/docs-driverworks-api/#netconnect">NetConnect</a></p>
+<p><a href="https://snap-one.github.io/docs-driverworks-api/#serial-and-network-interface-netconnect">NetConnect</a></p>
 
-<p><a href="https://snap-one.github.io/docs-driverworks-api/#onconnectionstatuschanged">OnConnectionStatusChanged</a></p>
+<p><a href="https://snap-one.github.io/docs-driverworks-api/#serial-and-network-interface-onconnectionstatuschanged">OnConnectionStatusChanged</a></p>
 <p><h1 id='geolocation-interface'>Geolocation Interface</h1><h4 id='geolocation-interface-suppressing-system-events-returns-configuring-wi-fi-with-director-s-geolocation-services'>Configuring Wi-Fi with Director’s Geolocation  Services</h4>
 <p>Director maintains two different values for location. The first is the project location which is set by the dealer. This value is maintained by the project and is stored in the project database. </p></p>
 
