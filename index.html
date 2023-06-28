@@ -12095,15 +12095,15 @@ Sets the callback that is invoked to notify a driver about the result of &quot;p
 
 <p>The following APIs have been delivered in OS 3 to support the return of the .jpeg files.</p>
 
-<p><a href="https://snap-one.github.io/docs-driverworks-api/#getnotificationattachmenturl">GetNotificationAttachmentURL</a></p>
+<p><a href="https://snap-one.github.io/docs-driverworks-api/#notification-interface-getnotificationattachmenturl">GetNotificationAttachmentURL</a></p>
 
-<p><a href="https://snap-one.github.io/docs-driverworks-api/#getnotificationattachmentfile">GetNotificationAttachmentFile</a></p>
+<p><a href="https://snap-one.github.io/docs-driverworks-api/#notification-interface-getnotificationattachmentfile">GetNotificationAttachmentFile</a></p>
 
-<p><a href="https://snap-one.github.io/docs-driverworks-api/#getnotificationattachmentbytes">GetNotificationAttachmentBytes</a></p>
+<p><a href="https://snap-one.github.io/docs-driverworks-api/#notification-interface-getnotificationattachmentbytes">GetNotificationAttachmentBytes</a></p>
 
 <p>Each API has been engineered to deliver the file based on the location of where the file is stored. They are called when the Notification is triggered. Currently, there are three options for file storage: URL, File or Memory</p>
 
-<p>Finally, the <a href="https://snap-one.github.io/docs-driverworks-api/#finishedwithnotificationattachment">FinishedWithNotificationAttachement</a> API has been included in the event that your driver needs to do any sort of clean-up with the stored .jpeg file.</p>
+<p>Finally, the <a href="https://snap-one.github.io/docs-driverworks-api/#notification-interface-finishedwithnotificationattachment">FinishedWithNotificationAttachement</a> API has been included in the event that your driver needs to do any sort of clean-up with the stored .jpeg file.</p>
 
 <p>To assist with implementation, please see the notification driver.c4z file in the Samples folder of this SDK.</p>
 
@@ -12151,9 +12151,9 @@ Sets the callback that is invoked to notify a driver about the result of &quot;p
 
 <p>Specifically the event for “Refresh Navigator” is the “OnPIP” event.  To get this event,  we make use of the generic event registration calls:</p>
 
-<p><a href="https://snap-one.github.io/docs-driverworks-api/#registersystemevent">RegisterSystemEvent</a>
-<a href="https://snap-one.github.io/docs-driverworks-api/#unregistersystemevent">UnregisterSystemEvent</a>
-<a href="https://snap-one.github.io/docs-driverworks-api/#unregisterallsystemevents">UnregisterAllSystemEvents</a></p>
+<p><a href="https://snap-one.github.io/docs-driverworks-api/#event-interface-registersystemevent">RegisterSystemEvent</a>
+<a href="https://snap-one.github.io/docs-driverworks-api/#event-interface-unregistersystemevent">UnregisterSystemEvent</a>
+<a href="https://snap-one.github.io/docs-driverworks-api/#event-interface-unregisterallsystemevents">UnregisterAllSystemEvents</a></p>
 <h3 id='notification-interface-refresh-navigator-example-example'>Example</h3>
 
 <p><code>C4:RegisterSystemEvent(C4SystemEvents[&quot;OnPIP&quot;], 0)</code></p>
@@ -12170,7 +12170,7 @@ Sets the callback that is invoked to notify a driver about the result of &quot;p
 </code></pre></div>
 <p>The “data” passed to the callback function is event specific and can be provided on an event by event basis as needed.  In most cases, it can be ignored.</p></p>
 
-<p>See <a href="https://snap-one.github.io/docs-driverworks-api/#registering-for-system-events">Registering for System Events</a> for additional information.</p>
+<p>See <a href="https://snap-one.github.io/docs-driverworks-api/#event-interface-registering-for-system-events">Registering for System Events</a> for additional information.</p>
 <h1 id='properties-interface'>Properties Interface</h1>
 
 <h2 id='properties-interface-properties-table'>Properties Table</h2>
