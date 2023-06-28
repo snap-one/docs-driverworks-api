@@ -18683,7 +18683,7 @@ See: <a href="https://en.wikipedia.org/wiki/Epoch_(computing)" title="Epoch Date
 </tr>
 </tbody></table>
 
-<p>The same response table will be passed to the callback set by <a href="https://snap-one.github.io/docs-driverworks-api/#ondone">OnDone()</a>.  Any modifications to this table will persist, but not affect the transfer in any way.</p>
+<p>The same response table will be passed to the callback set by <a href="https://snap-one.github.io/docs-driverworks-api/#url-interface-ondone">OnDone()</a>.  Any modifications to this table will persist, but not affect the transfer in any way.</p>
 
 <h2 id='url-interface-onbodychunk'>OnBodychunk</h2>
 
@@ -19416,7 +19416,7 @@ Device ID 84:</p>
 </tr>
 <tr>
 <td>strValue</td>
-<td>The value passed here is variable type dependent. See supported variable types in the <a href="https://snap-one.github.io/docs-driverworks-api/#addvariable">AddVariable</a> API.</td>
+<td>The value passed here is variable type dependent. See supported variable types in the <a href="https://snap-one.github.io/docs-driverworks-api/#variable-interface-addvariable">AddVariable</a> API.</td>
 </tr>
 </tbody></table>
 
@@ -19545,7 +19545,7 @@ When a listener is set on a variable, whenever the variable changes, the Lua <a 
 
 <h3 id='variable-interface-registervariablelistener-usage-notes'>Usage Notes</h3>
 
-<p>User Variables belong to the Variable Agent, with a DeviceID of 100001. The <a href="https://snap-one.github.io/docs-driverworks-api/#onwatchedvariablechanged">OnWatchedVariableChanged</a> function will be called immediately after the listener is successfully set.</p>
+<p>User Variables belong to the Variable Agent, with a DeviceID of 100001. The <a href="https://snap-one.github.io/docs-driverworks-api/#variable-interface-onwatchedvariablechanged">OnWatchedVariableChanged</a> function will be called immediately after the listener is successfully set.</p>
 
 <p>This API will fail if the variable does not exist.</p>
 
