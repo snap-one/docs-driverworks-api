@@ -31,4 +31,4 @@ Used to read data from a file.  Returns an empty string if no bytes are read. T
 
 `fileData = C4:FileRead(fh, 10)`
 
-[1]:	https://snap-one.github.io/docs-driverworks-api/#fileisvalid
+[1]:	https://snap-one.github.io/docs-driverworks-api/#file-interface-fileisvalid

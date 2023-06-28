@@ -58,4 +58,4 @@ if (fh ~= -1) then
 end
 ```
 
-[1]:	https://snap-one.github.io/docs-driverworks-api/#filesetpos
+[1]:	https://snap-one.github.io/docs-driverworks-api/#file-interface-filesetpos
