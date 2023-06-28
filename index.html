@@ -19709,7 +19709,7 @@ When a listener is set on a variable, whenever the variable changes, the Lua <a 
 
 <h2 id='web-service-interface-receivedasync'>ReceivedAsync</h2>
 
-<p>This function is used in conjunction with <a href="https://snap-one.github.io/docs-driverworks-api/#get">urlGet</a> and <a href="https://snap-one.github.io/docs-driverworks-api/#post">urlPost</a>. It handles the data contained in the data ticket. As soon as data is returned from getUrl, Director will call this in the Lua code. This API should not be invoked during OnDriverInit.</p>
+<p>This function is used in conjunction with <a href="https://snap-one.github.io/docs-driverworks-api/#url-interface-get">urlGet</a> and <a href="https://snap-one.github.io/docs-driverworks-api/#url-interface-post">urlPost</a>. It handles the data contained in the data ticket. As soon as data is returned from getUrl, Director will call this in the Lua code. This API should not be invoked during OnDriverInit.</p>
 
 <p><h6 id='web-service-interface-receivedasync-example-example-available-from-1-6-0-available-from-1-6-0'>Available from 1.6.0.</h6><h3 id='web-service-interface-receivedasync-signature'>Signature</h3>
 <p><code>C4:ReceivedAsync(ticketId, strData, responseCode, tHeaders, strError)</code></p></p>
@@ -19763,7 +19763,7 @@ When a listener is set on a variable, whenever the variable changes, the Lua <a 
 <span class="k">end</span>
 </code></pre></div>
 <h2 id='web-service-interface-urlcancel'>urlCancel</h2>
-<p>Function to cancel an ongoing transfer. Note that if a transfer is canceled, neither the ReceivedAsync() entry point nor the callback function specified in the <a href="https://snap-one.github.io/docs-driverworks-api/#url-interface">C4:url</a> call will be called.  Also, the ticketId is only valid from the point the C4:url function is called until either the <a href="https://snap-one.github.io/docs-driverworks-api/#receivedasync">ReceivedAsync()</a> entry point or the callback function was called. A call to C4:urlCancel() will also invalidate that ticketed. This API should not be invoked during OnDriverInit</p>
+<p>Function to cancel an ongoing transfer. Note that if a transfer is canceled, neither the ReceivedAsync() entry point nor the callback function specified in the <a href="https://snap-one.github.io/docs-driverworks-api/#url-interface">C4:url</a> call will be called.  Also, the ticketId is only valid from the point the C4:url function is called until either the <a href="https://snap-one.github.io/docs-driverworks-api/#web-service-interface-receivedasync">ReceivedAsync()</a> entry point or the callback function was called. A call to C4:urlCancel() will also invalidate that ticketed. This API should not be invoked during OnDriverInit</p>
 <h6 id='web-service-interface-urlcancel-example-example-available-from-1-6-0-available-from-2-7-0'>Available from 2.7.0.</h6><h3 id='web-service-interface-urlcancel-signature'>Signature</h3>
 
 <p><code>C4:urlCancel(ticketId)</code></p>
@@ -20153,7 +20153,7 @@ Connection: &quot;close&quot;, is suggested and
 
 <p>Note that if the concurrent transfers value is being changed to anything other than 1, the &quot;pipelining&quot; option will automatically get disabled.</p>
 
-<p>Note that If the pipelining boolean is being changed to true, the <code>max_host_connections</code> option will automatically be set. Changing this option will not have any effect until there are no active transfers running. Also, it will not apply to new transfers created until then. Once all transfers are completed, this setting will apply to any transfers created from that point on.  You can use the <a href="https://snap-one.github.io/docs-driverworks-api/#urlcancelall">C4:urlCancelAll()</a> method to cancel all transfers prior to setting this option, or you can use the <a href="https://snap-one.github.io/docs-driverworks-api/#urlgettickets">C4:urlGetTickets()</a> method to determine whether any transfers are currently pending.</p>
+<p>Note that If the pipelining boolean is being changed to true, the <code>max_host_connections</code> option will automatically be set. Changing this option will not have any effect until there are no active transfers running. Also, it will not apply to new transfers created until then. Once all transfers are completed, this setting will apply to any transfers created from that point on.  You can use the <a href="https://snap-one.github.io/docs-driverworks-api/#web-service-interface-urlcancelall">C4:urlCancelAll()</a> method to cancel all transfers prior to setting this option, or you can use the <a href="https://snap-one.github.io/docs-driverworks-api/#web-service-interface-urlgettickets">C4:urlGetTickets()</a> method to determine whether any transfers are currently pending.</p>
 
 <h3 id='web-service-interface-urlsetoption-returns'>Returns</h3>
 
