@@ -21,4 +21,4 @@ Function called in a DriverWorks driver to decode the specified string from a Ba
 | --- | --- |
 | str | Decoded from Base64 encoding. |
 
-[1]:	https://snap-one.github.io/docs-driverworks-api/#base64encode
+[1]:	https://snap-one.github.io/docs-driverworks-api/#miscellaneous-interface-base64encode
