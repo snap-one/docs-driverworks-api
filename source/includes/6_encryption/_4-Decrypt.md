@@ -61,4 +61,4 @@ A successful operation will return `nil` for *err*.  If an error occurs, then *r
 | str |  Decrypted data |
 | str | err: Description of any error that occurred |
 
-[1]:	#getsupportedciphers
+[1]:	https://snap-one.github.io/docs-driverworks-api/#encryption-interface-getsupportedciphers
