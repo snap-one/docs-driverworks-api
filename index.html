@@ -6432,7 +6432,7 @@ Generates a random version 4 UUID (UUID4). The generator utilizes entropy provid
 
 <h3 id='ir-interface-sendirstart-usage-note'>Usage Note</h3>
 
-<p>Failure to call the <a href="https://snap-one.github.io/docs-driverworks-api/#sendirstop">SendIRStop</a> function will cause the IR code to be sent continually, which (in the case of
+<p>Failure to call the <a href="https://snap-one.github.io/docs-driverworks-api/#ir-interface-sendirstop">SendIRStop</a> function will cause the IR code to be sent continually, which (in the case of
 volume ramps) could be catastrophic to equipment. The IR code to send must be declared as an <code>&lt;ircode\&gt;</code> in the
 <code>&lt;irsection\&gt;</code> of the driver file.</p>
 
@@ -6819,7 +6819,7 @@ local Foo = {
 
 <p>Generally, the class cleans up any resources associated with it.  For example, when the object is no longer referenced, it will cleans it up.  However, there are a few exceptions:  When the class is performing an asynchronous operation, e.g. a connect request, it will remain alive until the appropriate event callback function is called. This method closes an established connection, or cancels a pending resolve or connection request. If a resolve or connection request is canceled, the OnError callback function will get called. This API should not be invoked during OnDriverInit. Once you call this method, no more data will be read from the socket and you can no longer write additional data to the socket. Also, the OnWrite callback will not be called anymore, even if the flush argument is set to true.</p>
 
-<p>For instance, if you call the <a href="https://snap-one.github.io/docs-driverworks-api/#connect">Connect</a>() method, the class will remain alive until it either called the <a href="https://snap-one.github.io/docs-driverworks-api/#onconnect">OnConnect</a> (and <a href="https://snap-one.github.io/docs-driverworks-api/#onresolve">OnResolve</a>) callback function, or the <a href="https://snap-one.github.io/docs-driverworks-api/#onerror">OnError</a> callback function, even if your lua code does not have any reference to the class during that time period.  The same applies to the time period between calling one of the Read() methods and the corresponding OnRead() or OnError() callback, and in between calling the Write() method and the OnWrite() or OnError() callback. This API should not be invoked during OnDriverInit.</p>
+<p>For instance, if you call the <a href="https://snap-one.github.io/docs-driverworks-api/#tcpclient-interface-connect">Connect</a>() method, the class will remain alive until it either called the <a href="https://snap-one.github.io/docs-driverworks-api/#tcpclient-interface-onconnect">OnConnect</a> (and <a href="https://snap-one.github.io/docs-driverworks-api/#tcpclient-interface-onresolve">OnResolve</a>) callback function, or the <a href="https://snap-one.github.io/docs-driverworks-api/#tcpclient-interface-onerror">OnError</a> callback function, even if your lua code does not have any reference to the class during that time period.  The same applies to the time period between calling one of the Read() methods and the corresponding OnRead() or OnError() callback, and in between calling the Write() method and the OnWrite() or OnError() callback. This API should not be invoked during OnDriverInit.</p>
 
 <h6 id='tcpclient-interface-createtcpclient-example-director-geo-location-service-available-from-2-10-4-available-in-1-6-0'>Available in 1.6.0</h6>
 
@@ -7131,7 +7131,7 @@ local Foo = {
 
 <ul>
 <li>client is this C4LuaTCPClient instance</li>
-<li>data is a string with the data that has been read. This can also be any object if you used the <a href="https://snap-one.github.io/docs-driverworks-api/#readuntil">ReadUntil</a>() method with a custom function that returns an object (e.g. pre-parsed data).</li>
+<li>data is a string with the data that has been read. This can also be any object if you used the <a href="https://snap-one.github.io/docs-driverworks-api/#tcpclient-interface-readuntil">ReadUntil</a>() method with a custom function that returns an object (e.g. pre-parsed data).</li>
 </ul>
 
 <h3 id='tcpclient-interface-onread-returns'>Returns</h3>
@@ -7167,7 +7167,7 @@ local Foo = {
 
 <p><code>function([index])</code></p>
 
-<p>Using this closure is optional and can be used to delay making a choice. The index argument is of type number, and it is optional.  If not provided, default behavior is requested (first endpoint, if available). If the index argument is provided, it should be an index into the endpoints array.  If the index argument is 0, the listen request will be canceled and the <a href="https://snap-one.github.io/docs-driverworks-api/#onerror">OnError</a> callback will be called with an invalid argument error (code 22). func may return a number value that describes the index into the endpoints array, which will be the endpoint that the server should listen on. If this value is 0, the listen request will be canceled and the OnError callback will be called with an invalid argument error (code 22). If the function doesn&#39;t return anything, default behavior is chosen unless the choose function is being used to delay making a choice.  Note that if you call the choose function prior to returning from this callback function, that choice will be used rather than whatever the callback may return (if anything). Also, note that modifying the endpoints array (or any table in it) in any way has no effect.|</p>
+<p>Using this closure is optional and can be used to delay making a choice. The index argument is of type number, and it is optional.  If not provided, default behavior is requested (first endpoint, if available). If the index argument is provided, it should be an index into the endpoints array.  If the index argument is 0, the listen request will be canceled and the <a href="https://snap-one.github.io/docs-driverworks-api/#tcpclient-interface-onerror">OnError</a> callback will be called with an invalid argument error (code 22). func may return a number value that describes the index into the endpoints array, which will be the endpoint that the server should listen on. If this value is 0, the listen request will be canceled and the OnError callback will be called with an invalid argument error (code 22). If the function doesn&#39;t return anything, default behavior is chosen unless the choose function is being used to delay making a choice.  Note that if you call the choose function prior to returning from this callback function, that choice will be used rather than whatever the callback may return (if anything). Also, note that modifying the endpoints array (or any table in it) in any way has no effect.|</p>
 
 <h3 id='tcpclient-interface-onresolve-returns'>Returns</h3>
 
@@ -7210,7 +7210,7 @@ local Foo = {
 
 <h2 id='tcpclient-interface-readatleast'>ReadAtLeast</h2>
 
-<p>This method requests to read at least as many bytes as specified by the min argument. Once at least this amount of data is available, all available data is passed to the <a href="https://snap-one.github.io/docs-driverworks-api/#onread">OnRead</a> callback. This API should not be invoked during OnDriverInit.</p>
+<p>This method requests to read at least as many bytes as specified by the min argument. Once at least this amount of data is available, all available data is passed to the <a href="https://snap-one.github.io/docs-driverworks-api/#tcpclient-interface-onread">OnRead</a> callback. This API should not be invoked during OnDriverInit.</p>
 
 <p><h6 id='tcpclient-interface-readatleast-returns-director-geo-location-service-available-from-2-10-4-available-in-1-6-0'>Available in 1.6.0</h6><h3 id='tcpclient-interface-readatleast-signature'>Signature</h3>
 <p><code>C4:ReadAtLeast(min)</code></p></p>
@@ -7250,7 +7250,7 @@ local Foo = {
 </tr>
 <tr>
 <td>arg (str)</td>
-<td>All data until (and including) the value of this argument will be passed to the <a href="https://snap-one.github.io/docs-driverworks-api/#onread">OnRead</a>() callback.</td>
+<td>All data until (and including) the value of this argument will be passed to the <a href="https://snap-one.github.io/docs-driverworks-api/#tcpclient-interface-onread">OnRead</a>() callback.</td>
 </tr>
 <tr>
 <td>arg (function)</td>
@@ -7352,9 +7352,9 @@ local Foo = {
 
 <h2 id='tcpserver-interface-createtcpserver'>CreateTCPServer</h2>
 
-<p>This class does not in any way manage or keep track of connected clients.  If you explicitly <a href="https://snap-one.github.io/docs-driverworks-api/#close">Close</a>() the TCP server or it goes out of scope and gets cleaned up by lua&#39;s garbage collector, it does not affect any of the accepted client connections. You can keep track of connected clients by saving them into a map in the OnAccept callback, and setting up a OnDisconnect callback for the connected client connection that removes that client from that map.</p>
+<p>This class does not in any way manage or keep track of connected clients.  If you explicitly <a href="https://snap-one.github.io/docs-driverworks-api/#tcpserver-interface-close">Close</a>() the TCP server or it goes out of scope and gets cleaned up by lua&#39;s garbage collector, it does not affect any of the accepted client connections. You can keep track of connected clients by saving them into a map in the OnAccept callback, and setting up a OnDisconnect callback for the connected client connection that removes that client from that map.</p>
 
-<p>Generally, the class cleans up any resources associated with it.  For example, when the object is no longer referenced, it will clean it up.  However, there are a few exceptions:  When the class is performing an asynchronous operation, e.g. a listen request, it will remain alive until the appropriate event callback function is called.  For instance, if you call the <a href="https://snap-one.github.io/docs-driverworks-api/#listen">Listen</a>() method, the class will remain alive until it either called the <a href="https://snap-one.github.io/docs-driverworks-api/#onlisten">OnListen</a> (and <a href="https://snap-one.github.io/docs-driverworks-api/#onresolve">OnResolve</a>) callback function, or the <a href="https://snap-one.github.io/docs-driverworks-api/#onerror">OnError</a> callback function, even if your lua code does not have any reference to the class during that time period.  However, once the OnListen callback was called, the class gets cleaned up unless at that point your lua code somehow references this instance. This API should not be invoked
+<p>Generally, the class cleans up any resources associated with it.  For example, when the object is no longer referenced, it will clean it up.  However, there are a few exceptions:  When the class is performing an asynchronous operation, e.g. a listen request, it will remain alive until the appropriate event callback function is called.  For instance, if you call the <a href="https://snap-one.github.io/docs-driverworks-api/#tcpserver-interface-listen">Listen</a>() method, the class will remain alive until it either called the <a href="https://snap-one.github.io/docs-driverworks-api/#tcpserver-interface-onlisten">OnListen</a> (and <a href="https://snap-one.github.io/docs-driverworks-api/#onresolve">OnResolve</a>) callback function, or the <a href="https://snap-one.github.io/docs-driverworks-api/#tcpserver-interface-onerror">OnError</a> callback function, even if your lua code does not have any reference to the class during that time period.  However, once the OnListen callback was called, the class gets cleaned up unless at that point your lua code somehow references this instance. This API should not be invoked
 during OnDriverInit.</p>
 
 <p><h6 id='tcpserver-interface-createtcpserver-returns-director-geo-location-service-available-from-2-10-4-available-in-1-6-0'>Available in 1.6.0</h6><h3 id='tcpserver-interface-createtcpserver-example'>Example</h3>
@@ -7550,7 +7550,7 @@ during OnDriverInit.</p>
 <span class="k">end</span><span class="p">)</span>
 </code></pre></div>
 <h2 id='tcpserver-interface-close'>Close</h2>
-<p>This method stops the server socket, or cancels pending resolve or endpoint selection.  If a pending resolve or endpoint selection was canceled, the <a href="https://snap-one.github.io/docs-driverworks-api/#onerror">OnError</a> handler will be called.  However, if the server is already accepting connections, the OnError handler will NOT be called and the server simply ceases to accept further connection requests.  Note that the server does not manage accepted client connections and will not close any of these connections. it it is up to your implementation to manage client connections and how to act when you stop the TCP server.</p>
+<p>This method stops the server socket, or cancels pending resolve or endpoint selection.  If a pending resolve or endpoint selection was canceled, the <a href="https://snap-one.github.io/docs-driverworks-api/#tcpserver-interface-onerror">OnError</a> handler will be called.  However, if the server is already accepting connections, the OnError handler will NOT be called and the server simply ceases to accept further connection requests.  Note that the server does not manage accepted client connections and will not close any of these connections. it it is up to your implementation to manage client connections and how to act when you stop the TCP server.</p>
 <h6 id='tcpserver-interface-close-example-director-geo-location-service-available-from-2-10-4-available-in-1-6-0'>Available in 1.6.0</h6><h3 id='tcpserver-interface-close-signature'>Signature</h3>
 <p><code>C4:Close()</code></p>
 <h3 id='tcpserver-interface-close-parameters'>Parameters</h3>
@@ -7585,7 +7585,7 @@ during OnDriverInit.</p>
 
 <h2 id='tcpserver-interface-listen'>Listen</h2>
 
-<p>This method starts a listen request to listen on a particular host/service.  Once the host/service has been resolved and an endpoint has been chosen, the <a href="https://snap-one.github.io/docs-driverworks-api/#onlisten">OnListen</a> callback function will be called. This indicates that the server is now ready to accept incoming connections.  If errors occur, the <a href="https://snap-one.github.io/docs-driverworks-api/#onerror">OnError</a> callback function will be called instead. This API should not be invoked during OnDriverInit.</p>
+<p>This method starts a listen request to listen on a particular host/service.  Once the host/service has been resolved and an endpoint has been chosen, the <a href="https://snap-one.github.io/docs-driverworks-api/#tcpserver-interface-onlisten">OnListen</a> callback function will be called. This indicates that the server is now ready to accept incoming connections.  If errors occur, the <a href="https://snap-one.github.io/docs-driverworks-api/#tcpserver-interface-onerror">OnError</a> callback function will be called instead. This API should not be invoked during OnDriverInit.</p>
 
 <p><h6 id='tcpserver-interface-listen-returns-director-geo-location-service-available-from-2-10-4-available-in-1-6-0'>Available in 1.6.0</h6><h3 id='tcpserver-interface-listen-signature'>Signature</h3>
 <p><code>C4:Listen(host, service[, backlog])</code></p></p>
