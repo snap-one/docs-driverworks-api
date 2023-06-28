@@ -28,4 +28,4 @@ This method requests to read data until a specific condition is met. This API sh
 | | The third return value is optional, and if not nil, will be used to replace the data argument of the [OnRead][2] callback handler.  This is useful if the matching process is already rather expensive (e.g. parsing an XML document), as it allows you to transfer that information directly to the OnRead() callback handler without having to do the same work again. |
 
 [1]:	https://snap-one.github.io/docs-driverworks-api/#tcpclient-interface-onread
-[2]:	https://snap-one.github.io/docs-driverworks-api/#onread
+[2]:	https://snap-one.github.io/docs-driverworks-api/#tcpclient-interface-onread

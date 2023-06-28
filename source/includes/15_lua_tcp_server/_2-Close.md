@@ -20,4 +20,4 @@ This method stops the server socket, or cancels pending resolve or endpoint sele
 This method returns a reference to itself, or nil in case of an error.
 
 
-[1]:	https://snap-one.github.io/docs-driverworks-api/#tcpserver-interface-onerror
+[1]:	https://snap-one.github.io/docs-driverworks-api/#tcpclient-interface-onerror

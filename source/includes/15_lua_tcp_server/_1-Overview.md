@@ -209,5 +209,5 @@ end)
 [1]:	https://snap-one.github.io/docs-driverworks-api/#tcpserver-interface-close
 [2]:	https://snap-one.github.io/docs-driverworks-api/#tcpserver-interface-listen
 [3]:	https://snap-one.github.io/docs-driverworks-api/#tcpserver-interface-onlisten
-[4]:	https://snap-one.github.io/docs-driverworks-api/#onresolve
+[4]:	https://snap-one.github.io/docs-driverworks-api/#tcpclient-interface-onresolve
 [5]:	https://snap-one.github.io/docs-driverworks-api/#tcpserver-interface-onerror
