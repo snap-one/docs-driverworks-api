@@ -2537,7 +2537,7 @@ SetOnDisconnected: Provides notification when the connection is disconnected, or
 <h3 id='director-command-interface-invalidatestate-signature'>Signature</h3>
 <p><code>C4:InvalidateState()</code></p>
 <h3 id='director-command-interface-invalidatestate-usage-note'>Usage Note</h3>
-<p>Prior to Operating System 2.10, overuse of C4:InvalidateState() was an issue as persisting extraneous data through a driver had performance implications. Beginning with Operating System 2.10, it is no longer necessary to cause driver data to be persisted. Drivers should use the <a href="https://snap-one.github.io/docs-driverworks-api/#persistsetvalue">PersistSetValue</a> and <a href="https://snap-one.github.io/docs-driverworks-api/#persistgetvalue">PersistGetValue</a> functions to store data that will be required across system restarts.</p></p>
+<p>Prior to Operating System 2.10, overuse of C4:InvalidateState() was an issue as persisting extraneous data through a driver had performance implications. Beginning with Operating System 2.10, it is no longer necessary to cause driver data to be persisted. Drivers should use the <a href="https://snap-one.github.io/docs-driverworks-api/#persistence-interface-persistsetvalue">PersistSetValue</a> and <a href="https://snap-one.github.io/docs-driverworks-api/#persistence-interface-persistgetvalue">PersistGetValue</a> functions to store data that will be required across system restarts.</p></p>
 <h1 id='encryption-interface'>Encryption Interface</h1>
 
 <h2 id='encryption-interface-encode'>Encode</h2><div class="highlight"><pre class="highlight lua tab-lua"><code><span class="kd">local</span> <span class="n">data</span> <span class="o">=</span> <span class="s1">'Hello World This Is London Calling'</span>
@@ -2847,7 +2847,7 @@ SetOnDisconnected: Provides notification when the connection is disconnected, or
 <p>This API will generate a certificate signing request (CSR) which, when sent to a certificate authority, will return a digital identity certificate that meets the encryption criteria defined by Elliptic-curve cryptography (ECC) standard. The use of this API assumes a thorough knowledge of public-key cryptosystems and the ECC cryptosystem definition. The driver needs to send CSR off to a service that can sign and return the certificate. That step is left up to the driver writer. </p>
 
 <p><h6 id='encryption-interface-generatecsr_ecc-returns-see-also-available-from-2-10-4-available-in-3-1-2'>Available in 3.1.2.</h6><h3 id='encryption-interface-generatecsr_ecc-signature'>Signature</h3>
-<p><code>C4:GenerateCSP_ECC(digest, curve, subject, tx509_exts) </code></p></p>
+<p><code>C4:GenerateCSR_ECC(digest, curve, subject, tx509_exts) </code></p></p>
 
 <table><thead>
 <tr>
