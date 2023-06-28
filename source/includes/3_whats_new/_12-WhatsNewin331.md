@@ -32,13 +32,13 @@ As part of Control4’s plan to tighten driver security, the io.popen() call is 
 - [GetUname][9]
 - [GetUptime][10]
 
-[1]:	https://snap-one.github.io/docs-driverworks-api/#generatecsr-ecc
-[2]:	https://snap-one.github.io/docs-driverworks-api/#generatecsr-rsa
-[3]:	https://snap-one.github.io/docs-driverworks-api/#gethostname
-[4]:	https://snap-one.github.io/docs-driverworks-api/#portinuse
+[1]:	https://snap-one.github.io/docs-driverworks-api/#encryption-interface-generatecsr_eccc
+[2]:	https://snap-one.github.io/docs-driverworks-api/#encryption-interface-generatecsr_rsa
+[3]:	https://snap-one.github.io/docs-driverworks-api/#helper-interface-gethostname
+[4]:	https://snap-one.github.io/docs-driverworks-api/#helper-interface-portinuse
 [5]:	https://snap-one.github.io/docs-driverworks-api/#ping-interface
-[6]:	https://snap-one.github.io/docs-driverworks-api/#createtlsserver
-[7]:	https://snap-one.github.io/docs-driverworks-api/#createserver
-[8]:	https://snap-one.github.io/docs-driverworks-api/#downloadfile
-[9]:	https://snap-one.github.io/docs-driverworks-api/#getuname
-[10]:	https://snap-one.github.io/docs-driverworks-api/#getuptime
+[6]:	https://snap-one.github.io/docs-driverworks-api/#server-socket-interface-createtlsserver
+[7]:	https://snap-one.github.io/docs-driverworks-api/#server-socket-interface-createserver
+[8]:	https://snap-one.github.io/docs-driverworks-api/#url-interface-downloadfile
+[9]:	https://snap-one.github.io/docs-driverworks-api/#url-interface-getuname
+[10]:	https://snap-one.github.io/docs-driverworks-api/#url-interface-getuptime

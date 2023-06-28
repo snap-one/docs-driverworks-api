@@ -38,15 +38,15 @@ A new API: [CreateTLSServer][11] has been added. This function enables a Lua dri
 
 The [GetTimeZone][12] API return values have been modified. Deprecated Time Zones are no longer supported.
 
-[1]:	https://snap-one.github.io/docs-driverworks-api/#createsshclient
-[2]:	https://snap-one.github.io/docs-driverworks-api/#filecreatedir
-[3]:	https://snap-one.github.io/docs-driverworks-api/#filedelete
-[4]:	https://snap-one.github.io/docs-driverworks-api/#filemove
-[5]:	https://snap-one.github.io/docs-driverworks-api/#filesetdir
-[6]:	https://snap-one.github.io/docs-driverworks-api/#unzip
-[7]:	https://snap-one.github.io/docs-driverworks-api/#getcodeitems
-[8]:	https://snap-one.github.io/docs-driverworks-api/#getallcodeitems
-[9]:	https://snap-one.github.io/docs-driverworks-api/#getbootid
-[10]:	https://snap-one.github.io/docs-driverworks-api/#uuid
-[11]:	https://snap-one.github.io/docs-driverworks-api/#createtlsserver
-[12]:	https://snap-one.github.io/docs-driverworks-api/#gettimezone
+[1]:	https://snap-one.github.io/docs-driverworks-api/#c4ssh-interface-createsshclient
+[2]:	https://snap-one.github.io/docs-driverworks-api/#file-interface-filecreatedir
+[3]:	https://snap-one.github.io/docs-driverworks-api/#file-interface-filedelete
+[4]:	https://snap-one.github.io/docs-driverworks-api/#file-interface-filemove
+[5]:	https://snap-one.github.io/docs-driverworks-api/#file-interface-filesetdir
+[6]:	https://snap-one.github.io/docs-driverworks-api/#file-interface-unzip
+[7]:	https://snap-one.github.io/docs-driverworks-api/#helper-interface-getcodeitems
+[8]:	https://snap-one.github.io/docs-driverworks-api/#helper-interface-getallcodeitems
+[9]:	https://snap-one.github.io/docs-driverworks-api/#helper-interface-getbootid
+[10]:	https://snap-one.github.io/docs-driverworks-api/#helper-interface-uuid
+[11]:	https://snap-one.github.io/docs-driverworks-api/#server-socket-interface-createtlsserver
+[12]:	https://snap-one.github.io/docs-driverworks-api/#helper-interface-gettimezone

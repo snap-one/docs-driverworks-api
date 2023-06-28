@@ -9,8 +9,8 @@ New parameters have been added to [OnDriverInit][1], [OnDriverLateInit][2] and [
 
 Two new APIs have been delivered with O.S. 3.2.0 to facilitate the ability of driver to add another driver to a project as well as the ability to add a location within the project. See the [AddDevice][4] and [AddLocation][5] APIs for more information.
 
-[1]:	https://snap-one.github.io/docs-driverworks-api/#ondriverinit
-[2]:	https://snap-one.github.io/docs-driverworks-api/#ondriverlateinit
-[3]:	https://snap-one.github.io/docs-driverworks-api/#ondriverdestroyed
-[4]:	https://snap-one.github.io/docs-driverworks-api/#adddevice
-[5]:	https://snap-one.github.io/docs-driverworks-api/#addlocation
+[1]:	https://snap-one.github.io/docs-driverworks-api/#miscellaneous-interface-ondriverinit
+[2]:	https://snap-one.github.io/docs-driverworks-api/#miscellaneous-interface-ondriverlateinit
+[3]:	https://snap-one.github.io/docs-driverworks-api/#miscellaneous-interface-ondriverdestroyed
+[4]:	https://snap-one.github.io/docs-driverworks-api/#helper-interface-adddevice
+[5]:	https://snap-one.github.io/docs-driverworks-api/#helper-interface-addlocation
