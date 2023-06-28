@@ -36,6 +36,6 @@ end
 Size	32
 ```
 
-[1]:	#hash
-[2]:	#hmac
-[3]:	#pbkdf2
+[1]:	https://snap-one.github.io/docs-driverworks-api/#encryption-interface-hash
+[2]:	https://snap-one.github.io/docs-driverworks-api/#encryption-interface-hmac
+[3]:	https://snap-one.github.io/docs-driverworks-api/#encryption-interface-pbkdf2

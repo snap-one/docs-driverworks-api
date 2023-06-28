@@ -51,4 +51,4 @@ print (type (digest_output), digest_output)
 string	3fa83003c1c41282cac40d71b680d85f981f1517e5ac4941bd871955aeecbfec
 ```
 
-[1]:	#getsupporteddigests
+[1]:	https://snap-one.github.io/docs-driverworks-api/#encryption-interface-getsupporteddigests

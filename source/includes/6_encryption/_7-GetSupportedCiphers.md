@@ -44,5 +44,5 @@ IVLength	16
 
 
 
-[1]:	#encrypt
-[2]:	#decrypt
+[1]:	https://snap-one.github.io/docs-driverworks-api/#encryption-interface-encrypt
+[2]:	https://snap-one.github.io/docs-driverworks-api/#encryption-interface-decrypt

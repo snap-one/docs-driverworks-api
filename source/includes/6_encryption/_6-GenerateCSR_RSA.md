@@ -85,4 +85,4 @@ TI9W6D463RicdNwjO92RYUgSm58Q1tCpyvlQqnedzvihQw1JFRgcIGNhbqI5
  -----END CERTIFICATE REQUEST-----
 ```
 
-[1]:	https://snap-one.github.io/docs-driverworks-api/#getsupporteddigests
+[1]:	https://snap-one.github.io/docs-driverworks-api/#encryption-interface-getsupporteddigests

@@ -56,5 +56,5 @@ print (type (hmac_output), hmac_output)
 string	6402b5430d06db90c84e91a3ed605ba12964ff29e7bbd197b54109ac72aa58ce
 ```
 
-[1]:	https://en.wikipedia.org/wiki/HMAC
-[2]:	#getsupporteddigests
+[1]:	https://snap-one.github.io/docs-driverworks-api/#encryption-interface-hmac
+[2]:	https://snap-one.github.io/docs-driverworks-api/#encryption-interface-getsupporteddigests

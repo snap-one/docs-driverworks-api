@@ -59,5 +59,5 @@ print (type (pbkdf2_output), pbkdf2_output)
 string	12675672222506b342f05c0406f43e2af944bcb4ba592bf45e1c7cebad0fcdee
 ```
 
-[1]:	https://en.wikipedia.org/wiki/PBKDF2
-[2]:	#getsupporteddigests
+[1]:	https://snap-one.github.io/docs-driverworks-api/#encryption-interface-pbkdf2
+[2]:	https://snap-one.github.io/docs-driverworks-api/#encryption-interface-getsupporteddigests
