@@ -71,5 +71,5 @@ end)
 
 
 [1]:	https://snap-one.github.io/docs-driverworks-api/#url-interface
-[2]:	https://snap-one.github.io/docs-driverworks-api/#receivedasync
+[2]:	https://snap-one.github.io/docs-driverworks-api/#web-service-interface-receivedasync
 [3]:	https://snap-one.github.io/docs-driverworks-api/#url-interface

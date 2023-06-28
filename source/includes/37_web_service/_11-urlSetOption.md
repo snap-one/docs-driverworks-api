@@ -43,5 +43,5 @@ Note that If the pipelining boolean is being changed to true, the `max_host_conn
 `C4:urlSetOption("pipelining", true)`
 
 
-[1]:	https://snap-one.github.io/docs-driverworks-api/#urlcancelall
-[2]:	https://snap-one.github.io/docs-driverworks-api/#urlgettickets
+[1]:	https://snap-one.github.io/docs-driverworks-api/#web-service-interface-urlcancelall
+[2]:	https://snap-one.github.io/docs-driverworks-api/#web-service-interface-urlgettickets

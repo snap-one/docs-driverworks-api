@@ -43,5 +43,5 @@ function ReceivedAsync(ticketId, strData)
 end
 ```
 
-[1]:	https://snap-one.github.io/docs-driverworks-api/#get
-[2]:	https://snap-one.github.io/docs-driverworks-api/#post
+[1]:	https://snap-one.github.io/docs-driverworks-api/#url-interface-get
+[2]:	https://snap-one.github.io/docs-driverworks-api/#url-interface-post
