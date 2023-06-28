@@ -64,9 +64,9 @@ Finally, the connection is made using the NetConnect API The use of the [NectCon
 
  `C4:NetConnect(6001, 444)`
 
-[1]:	https://snap-one.github.io/docs-driverworks-api/#createnetworkconnection
-[2]:	https://snap-one.github.io/docs-driverworks-api/#netportoptions
-[3]:	https://snap-one.github.io/docs-driverworks-api/#netconnect
-[4]:	https://snap-one.github.io/docs-driverworks-api/#createnetworkconnection
-[5]:	https://snap-one.github.io/docs-driverworks-api/#netportoptions
-[6]:	https://snap-one.github.io/docs-driverworks-api/#netconnect
+[1]:	https://snap-one.github.io/docs-driverworks-api/#serial-and-network-interface-createnetworkconnection
+[2]:	https://snap-one.github.io/docs-driverworks-api/#serial-and-network-interface-netportoptions
+[3]:	https://snap-one.github.io/docs-driverworks-api/#serial-and-network-interface-netconnect
+[4]:	https://snap-one.github.io/docs-driverworks-api/#serial-and-network-interface-createnetworkconnection
+[5]:	https://snap-one.github.io/docs-driverworks-api/#serial-and-network-interface-netportoptions
+[6]:	https://snap-one.github.io/docs-driverworks-api/#serial-and-network-interface-netconnect

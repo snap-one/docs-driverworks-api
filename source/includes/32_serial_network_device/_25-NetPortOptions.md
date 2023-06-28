@@ -16,21 +16,21 @@ Function to configure a connection's Port settings.  The use of this API is cont
 | str | Network Connection type. For example, TCP/SSL or UDP. |
 | table | lua table of Key/Value pairs that contain all of the parameters for the specific Port. These parameters include: |
 
-- AUTO_CONNECT - Corresponds to the `<auto_connect>` setting defined in the .c4i file. Specifies that Director should automatically attempt the connectIon.
+- AUTO\_CONNECT - Corresponds to the `<auto_connect>` setting defined in the .c4i file. Specifies that Director should automatically attempt the connectIon.
 
-- MONITOR_CONNECTION - Corresponds to the `<monitor_connection>` setting defined in the .c4i file. Specifies that Director should monitor the connectIon by periodically polling. Director invokes the OnPoll method for a driver to inform the driver that it should poll the connectIon.
+- MONITOR\_CONNECTION - Corresponds to the `<monitor_connection>` setting defined in the .c4i file. Specifies that Director should monitor the connectIon by periodically polling. Director invokes the OnPoll method for a driver to inform the driver that it should poll the connectIon.
 
-- KEEP_CONNECTION - Corresponds to the `<keep_connectIon>` setting defined in the .c4i file. Specifies that Director should automatically attempt to reestablish a connectIon if it drops.
+- KEEP\_CONNECTION - Corresponds to the `<keep_connectIon>` setting defined in the .c4i file. Specifies that Director should automatically attempt to reestablish a connectIon if it drops.
 
-- KEEP_ALIVE - Corresponds to the `<keep_alive>` setting defined in the .c4i file. Specifies that Director should enable TCP keep-alive for the connectIon.
+- KEEP\_ALIVE - Corresponds to the `<keep_alive>` setting defined in the .c4i file. Specifies that Director should enable TCP keep-alive for the connectIon.
 
 - DELIMITER - String Delimiter to separate messages. If no delimiter is specified, packets are delivered as they are received.
 
 - CERTIFICATE - Path to the  certificate to use for the connection. The path is relative to the driver’s .c4z location.
 
-- PRIVATE_KEY - Path to the private key to use for the connection. The path is relative to the driver’s .c4z location.
+- PRIVATE\_KEY - Path to the private key to use for the connection. The path is relative to the driver’s .c4z location.
 
-- MIRROR_UDP_PORT - The use of the mirror udp port parameter defaults to false. Setting this to true will use the value assigned in the nPort parameter of the  NetPortOptions function (which is the destination port) as the source port value. Meaning that the data packets will be sent from and received on port  values that are the same. Note that MIRROR UPD PORT is only available through Port Options on Dynamically created connections. Statically created connection do not support he use of MIRROR UPD PORT being set to true.
+- MIRROR\_UDP\_PORT - The use of the mirror udp port parameter defaults to false. Setting this to true will use the value assigned in the nPort parameter of the  NetPortOptions function (which is the destination port) as the source port value. Meaning that the data packets will be sent from and received on port  values that are the same. Note that MIRROR UPD PORT is only available through Port Options on Dynamically created connections. Statically created connection do not support he use of MIRROR UPD PORT being set to true.
 
 - PROTECTED - If the “protected” value is “True”, then Director will invoke the following callback to retrieve the password from the driver:
 
@@ -40,9 +40,9 @@ Function to configure a connection's Port settings.  The use of this API is cont
 
 - CACERTFILE - Path to the CA (certificate authority) certificate to use for the connection. The path is relative to the driver’s C4Z location.
 
-- VERIFY_MODE - Specifies the verification mode to use for the connection. The verify mode corresponds to those supported by OpenSSL. A detailed description of the verification modes can be found here: https://www.openssl.org. Note that Control4 currently supports only the peer verification mode (SSL VERIFY PEER). Values include: none and peer. Note that if this property is omitted, then Director defaults to use no verification (“none”).
+- VERIFY\_MODE - Specifies the verification mode to use for the connection. The verify mode corresponds to those supported by OpenSSL. A detailed description of the verification modes can be found here: https://www.openssl.org. Note that Control4 currently supports only the peer verification mode (SSL VERIFY PEER). Values include: none and peer. Note that if this property is omitted, then Director defaults to use no verification (“none”).
 
-- VERIFY_METHOD - Specifies the method to use for establishing the connection. A detailed description of the various methods can be found at https://www.openssl.org Valid values include: sslv2, sslv23, sslv3, tlsv1 &  tlsv1\_1\_. Note that if this property is omitted, then Director defaults to using sslv23 (which is the OpenSSL default).
+- VERIFY\_METHOD - Specifies the method to use for establishing the connection. A detailed description of the various methods can be found at https://www.openssl.org Valid values include: sslv2, sslv23, sslv3, tlsv1 &  tlsv1\_1\_. Note that if this property is omitted, then Director defaults to using sslv23 (which is the OpenSSL default).
 
 - suppressconnectionevents - true or false to suppress connections. For more information see: [Suppressing System Events][3]
 
@@ -76,6 +76,6 @@ UDP Connection: The use of the mirror udp port parameter defaults to false. Sett
 
 `None`
 
-[1]:	https://snap-one.github.io/docs-driverworks-api/#createnetworkconnection
-[2]:	https://snap-one.github.io/docs-driverworks-api/#createnetworkconnection
-[3]:	https://snap-one.github.io/docs-driverworks-api/#suppressing-system-events
+[1]:	https://snap-one.github.io/docs-driverworks-api/#serial-and-network-interface-createnetworkconnection
+[2]:	https://snap-one.github.io/docs-driverworks-api/#serial-and-network-interface-netconnect
+[3]:	https://snap-one.github.io/docs-driverworks-api/#event-interface-suppressing-system-events

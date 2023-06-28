@@ -26,5 +26,5 @@ Function used to tell the system to make a connection (static or dynamic). Conne
 
 ` C4:NetConnect(6001, 80, UDP)`
 
-[1]:	https://snap-one.github.io/docs-driverworks-api/#createnetworkconnection
-[2]:	https://snap-one.github.io/docs-driverworks-api/#netportoptions
+[1]:	https://snap-one.github.io/docs-driverworks-api/#serial-and-network-interface-createnetworkconnection
+[2]:	https://snap-one.github.io/docs-driverworks-api/#serial-and-network-interface-netportoptions

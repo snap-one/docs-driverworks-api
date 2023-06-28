@@ -37,13 +37,13 @@ Usage Note: Return table values are based on the discovery mechanism of the devi
 - driver // SDDP     
 - manufacturer // SDDP UPNP
 - model // SDDP DDDP UPNP
-- primary_proxy // SDDP
-- proxies_ // SDDP
-- make_ // DDDP
-- sdk_class_ // DDDP
-- name_ // UPNP
-- description_ // UPNP
-- location_ // UPNP
+- primary\_proxy // SDDP
+- proxies\_ // SDDP
+- make\_ // DDDP
+- sdk\_class\_ // DDDP
+- name\_ // UPNP
+- description\_ // UPNP
+- location\_ // UPNP
 
 
 
@@ -51,4 +51,4 @@ Note that C4:GetDiscoveryInfo() is not available at the time that OnDriverLateIn
 
 SDDP is a royalty-free technology that enables your device to be automatically detected by and added into customers’ Control4 systems. SDDP greatly reduces the potential for mistakes and time required for installations. Our 3,500+ dealers much prefer (and seek out) products with SDDP. SDDP is very simple to implement and we can assist you as needed.
 
-[1]:	https://snap-one.github.io/docs-driverworks-api/#registering-for-system-events
+[1]:	https://snap-one.github.io/docs-driverworks-api/#event-interface-registering-for-system-events

@@ -42,7 +42,7 @@ This binding parameter is used for other network calls: OnNetworkStatusChanged, 
 
 `C4:CreateNetworkConnection (6000, "196.120.10.10", "SSL")`
 
-[1]:	https://snap-one.github.io/docs-driverworks-api/#netportoptions
-[2]:	https://snap-one.github.io/docs-driverworks-api/#netconnect
-[3]:	https://snap-one.github.io/docs-driverworks-api/#netconnect
-[4]:	https://snap-one.github.io/docs-driverworks-api/#netdisconnect
+[1]:	https://snap-one.github.io/docs-driverworks-api/#serial-and-network-interface-netportoptions
+[2]:	https://snap-one.github.io/docs-driverworks-api/#serial-and-network-interface-netconnect
+[3]:	https://snap-one.github.io/docs-driverworks-api/#serial-and-network-interface-netconnect
+[4]:	https://snap-one.github.io/docs-driverworks-api/#serial-and-network-interface-netdisconnect

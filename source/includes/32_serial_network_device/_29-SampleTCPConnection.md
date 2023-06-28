@@ -68,4 +68,4 @@ This connection's port parameters are sent using the NetPortOptions API:
 
 Finally, the connection is made using the [NetConnect][1] API The use of the NetConnect API is required for the new connection to be made.
 
-[1]:	https://snap-one.github.io/docs-driverworks-api/#netconnect
+[1]:	https://snap-one.github.io/docs-driverworks-api/#serial-and-network-interface-netconnect
