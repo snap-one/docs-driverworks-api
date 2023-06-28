@@ -51,5 +51,5 @@ print(Bar["Biz"])
 print(Bar["Qux"])
 ```
 
-[1]:	https://snap-one.github.io/docs-driverworks-api/#persistgetvalue
-[2]:	https://snap-one.github.io/docs-driverworks-api/#persistdeletevalue
+[1]:	https://snap-one.github.io/docs-driverworks-api/#persistence-interface-persistgetvalue
+[2]:	https://snap-one.github.io/docs-driverworks-api/#persistence-interface-persistdeletevalue

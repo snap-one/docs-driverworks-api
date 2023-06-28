@@ -47,4 +47,4 @@ function OnPropertyChanged(strProperty)
 end
 ```
 
-[1]:	https://snap-one.github.io/docs-driverworks-api/#updateproperty
+[1]:	https://snap-one.github.io/docs-driverworks-api/#properties-interface-updateproperty
