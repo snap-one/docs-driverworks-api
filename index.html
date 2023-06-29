@@ -18871,7 +18871,7 @@ See: <a href="https://en.wikipedia.org/wiki/Epoch_(computing)" title="Epoch Date
 <p>Starts a HTTP POST transfer.</p>
 
 <p><h6 id='url-interface-put-returns-example-available-from-1-6-0-available-from-3-0-0'>Available from 3.0.0</h6><h3 id='url-interface-put-signature'>Signature</h3>
-<p><code>C4:Put (url, data, headers </code></p></p>
+<p><code>C4:Put (url, data, headers)</code></p></p>
 
 <table><thead>
 <tr>
@@ -18926,7 +18926,7 @@ See: <a href="https://en.wikipedia.org/wiki/Epoch_(computing)" title="Epoch Date
 
 <p>Below is a list of valid option names and their values</p>
 
-<p><code>fail\_on\_error</code>
+<p><code>fail_on_error</code>
 boolean:</p>
 
 <p>Defaults to true.  If any response returns with an error code, the entire transfer fails with an error.  If set to false, allows the driver to e.g. read the HTTP response body of a 403 error response.</p>
@@ -18936,47 +18936,47 @@ number:</p>
 
 <p>In seconds.  Defaults to 300 or whatever value was set through C4:urlSetTimeout().  This is how many seconds, total, the entire transfer is allowed to take.</p>
 
-<p><code>connect\_timeout</code>
+<p><code>connect_timeout</code>
 number:</p>
 
 <p>In seconds. Defaults to 5.  This is how many seconds it is allowed to take to establish the connection to the host.</p>
 
-<p><code>ssl\_verify\_host</code>
+<p><code>ssl_verify_host</code>
 boolean:</p>
 
 <p>Defaults to true.  Verify the host against the system&#39;s CA bundle when using the https protocol.</p>
 
-<p><code>ssl\_verify\_peer</code>
+<p><code>ssl_verify_peer</code>
 boolean:</p>
 
 <p>Defaults to true.  Verify the peer against the system&#39;s CA bundle when using the https protocol.</p>
 
-<p><code>ssl\_cabundle</code>
+<p><code>ssl_cabundle</code>
 string:</p>
 
 <p>A filename relative to the .c4z that specifies a CA bundle to use instead of the system&#39;s.  It is not recommended to use this option except for very special use cases because CA bundles require regular updates.</p>
 
-<p><code>ssl\_cert</code>
+<p><code>ssl_cert</code>
 ssl_cert:</p>
 
 <p>A filename relative to the .c4z that specifies a SSL client certificate to use for authentication to the host.</p>
 
-<p><code>ssl\_cert\_type</code>
+<p><code>ssl_cert_type</code>
 string:</p>
 
 <p>Defaults to &quot;PEM&quot;.  The format of the SSL certificate that the file specified by the &quot;ssl_cert&quot; option is in.  Valid values are: &quot;PEM&quot; (default), &quot;DER&quot;, &quot;P12&quot;.</p>
 
-<p><code>ssl\_key</code>
+<p><code>ssl_key</code>
 string:</p>
 
 <p>A filename relative to the .c4z that specifies the private key for the client certificate specified by the &quot;ssl_cert&quot; option.</p>
 
-<p><code>ssl\_passwd</code>
+<p><code>ssl_passwd</code>
 string:</p>
 
 <p>If the private key specified by the &quot;ssl_key&quot; option is encrypted, this option specifies the password.</p>
 
-<p><code>ssl\_cacerts</code>
+<p><code>ssl_cacerts</code>
 table:</p>
 
 <p>A table of filenames relative to the .c4z that specify additional certificates to be added to the CA bundle used to verify the host and/or peer.  This allows e.g. extending the CA bundle to be able to verify against self-signed or company-signed certificates.</p>
