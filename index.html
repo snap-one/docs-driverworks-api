@@ -1341,6 +1341,9 @@
                     <a href="#serial-and-network-interface-getbindingaddress" class="toc-h2 toc-link" data-title="GetBindingAddress">GetBindingAddress</a>
                   </li>
                   <li>
+                    <a href="#serial-and-network-interface-getbindingsbydevice" class="toc-h2 toc-link" data-title="GetBindingsByDevice">GetBindingsByDevice</a>
+                  </li>
+                  <li>
                     <a href="#serial-and-network-interface-getboundconsumerdevices" class="toc-h2 toc-link" data-title="GetBoundConsumerDevices">GetBoundConsumerDevices</a>
                   </li>
                   <li>
@@ -16319,12 +16322,55 @@ print(Bar[&quot;</span><span class="n">Qux</span><span class="s2">&quot;])
 </tr>
 </tbody></table>
 
+<h2 id='serial-and-network-interface-getbindingsbydevice'>GetBindingsByDevice</h2>
+
+<p>Function that returns binding information for a device. Related: See <a href="https://snap-one.github.io/docs-driverworks-api/#serial-and-network-interface-getnetworkbindingsbydevice">GetNetworkBindingsByDevice</a></p>
+
+<p><h6 id='serial-and-network-interface-getbindingsbydevice-returns-example-available-from-1-6-0-available-from-3-0-0'>Available from 3.0.0.</h6><h3 id='serial-and-network-interface-getbindingsbydevice-signature'>Signature</h3>
+<p><code>C4:GetBindingsByDevice (deviceID)</code></p></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>num</td>
+<td>Device ID - The ID of the device returning binding information. Note that for devices with a protocol and one or more proxy devices, the device id should be that of the proxy (not the .lua protocol device id). A device id of 0 will use the current device id.</td>
+</tr>
+</tbody></table>
+
+<h3 id='serial-and-network-interface-getbindingsbydevice-returns'>Returns</h3>
+
+<table><thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>data</td>
+<td>Binding information for the device.</td>
+</tr>
+</tbody></table>
+
+<h3 id='serial-and-network-interface-getbindingsbydevice-example'>Example</h3><div class="highlight"><pre class="highlight xml tab-xml"><code>C4:GetBindingsByDevice(13)
+
+returns:
+networkbindingid: 6001
+addr: 192.168.1.52
+uuid: c4:control4_ea5-ea5-000FFF1984B0
+status: online
+ssdptype: c4:control4_ea5
+deviceid: 20
+addresstype: 1
+</code></pre></div>
 <h2 id='serial-and-network-interface-getboundconsumerdevices'>GetBoundConsumerDevices</h2>
-
 <p>Call to retrieve the devices bound to (the consumers of) a binding provided (an output binding) by this device. This API should not be invoked during OnDriverInit.</p>
+<h6 id='serial-and-network-interface-getboundconsumerdevices-example-example-available-from-1-6-0-available-from-1-6-0'>Available from 1.6.0.</h6><h3 id='serial-and-network-interface-getboundconsumerdevices-signature'>Signature</h3>
 
-<p><h6 id='serial-and-network-interface-getboundconsumerdevices-returns-example-available-from-1-6-0-available-from-1-6-0'>Available from 1.6.0.</h6><h3 id='serial-and-network-interface-getboundconsumerdevices-signature'>Signature</h3>
-<p><code>C4:GetBoundConsumerDevices ()</code></p></p>
+<p><code>C4:GetBoundConsumerDevices ()</code></p>
 
 <table><thead>
 <tr>
