@@ -655,7 +655,7 @@
                     <a href="#helper-interface-tohex" class="toc-h2 toc-link" data-title="tohex">tohex</a>
                   </li>
                   <li>
-                    <a href="#helper-interface-tonumberloc" class="toc-h2 toc-link" data-title="tonumberloc">tonumberloc</a>
+                    <a href="#helper-interface-tonumber_loc" class="toc-h2 toc-link" data-title="tonumber_loc">tonumber_loc</a>
                   </li>
                   <li>
                     <a href="#helper-interface-tostringlocalec" class="toc-h2 toc-link" data-title="ToStringLocaleC">ToStringLocaleC</a>
@@ -6079,16 +6079,16 @@ OnDriverInit.</p>
 
 <p><code>POWER_ON = tohex(&quot;DF 80 70 F8 02 00 00&quot;)</code>  </p>
 
-<h2 id='helper-interface-tonumberloc'>tonumberloc</h2>
+<h2 id='helper-interface-tonumber_loc'>tonumber_loc</h2>
 
 <p>The Lua tonumber() function included in the Lua Library is locale specific. This can cause issues where the
 Control4 system is set to a locale where the decimal separator is different from what is returned by the target device.  For example, if the target device sends the Control4 driver a string of  23.4 (23 decimal 4) but the locale expects this to be 23,4 (23 comma 4) then tonumber(&quot;23.4&quot;) will fail.  This problem often occurs in drivers where the UI uses decimal values and can occur with any proxy.</p>
 
-<p>Driver writers must ensure that their drivers will not fail in these circumstances. To assist with this, Control4 has provided a function: tonumberloc(). This function is included in the driver templates beginning OS release 2.8.0 and its use ensures this problem does not occur.  Driver writers are advised to usetonumberloc()  in place of tonumber() in their code.</p>
+<p>Driver writers must ensure that their drivers will not fail in these circumstances. To assist with this, Control4 has provided a function: tonumber_loc(). This function is included in the driver templates beginning OS release 2.8.0 and its use ensures this problem does not occur.  Driver writers are advised to use tonumber_loc()  in place of tonumber() in their code.</p>
 
-<p><h6 id='helper-interface-tonumberloc-example-director-geo-location-service-available-from-2-10-4-available-from-1-6-0'>Available from 1.6.0.</h6><h3 id='helper-interface-tonumberloc-signature'>Signature</h3>
+<p><h6 id='helper-interface-tonumber_loc-example-director-geo-location-service-available-from-2-10-4-available-from-1-6-0'>Available from 1.6.0.</h6><h3 id='helper-interface-tonumber_loc-signature'>Signature</h3>
 <p><code>tonumber_loc()</code></p>
-<h3 id='helper-interface-tonumberloc-example'>Example</h3><div class="highlight"><pre class="highlight lua tab-lua"><code>
+<h3 id='helper-interface-tonumber_loc-example'>Example</h3><div class="highlight"><pre class="highlight lua tab-lua"><code>
 <span class="k">function</span> <span class="nf">tonumber_loc</span><span class="p">(</span><span class="n">str</span><span class="p">,</span> <span class="n">base</span><span class="p">)</span>
         <span class="kd">local</span> <span class="n">s</span>
         <span class="kd">local</span> <span class="n">num</span>
