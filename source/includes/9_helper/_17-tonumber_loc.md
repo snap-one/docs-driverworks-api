@@ -10,7 +10,7 @@ Driver writers must ensure that their drivers will not fail in these circumstanc
 
 ### Signature
 
-`C4:tonumber_loc()`
+`tonumber_loc()`
 
 
 ### Example
