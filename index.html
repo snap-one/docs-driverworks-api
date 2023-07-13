@@ -6087,7 +6087,7 @@ Control4 system is set to a locale where the decimal separator is different from
 <p>Driver writers must ensure that their drivers will not fail in these circumstances. To assist with this, Control4 has provided a function: tonumberloc(). This function is included in the driver templates beginning OS release 2.8.0 and its use ensures this problem does not occur.  Driver writers are advised to usetonumberloc()  in place of tonumber() in their code.</p>
 
 <p><h6 id='helper-interface-tonumberloc-example-director-geo-location-service-available-from-2-10-4-available-from-1-6-0'>Available from 1.6.0.</h6><h3 id='helper-interface-tonumberloc-signature'>Signature</h3>
-<p><code>C4:tonumber_loc()</code></p>
+<p><code>tonumber_loc()</code></p>
 <h3 id='helper-interface-tonumberloc-example'>Example</h3><div class="highlight"><pre class="highlight lua tab-lua"><code>
 <span class="k">function</span> <span class="nf">tonumber_loc</span><span class="p">(</span><span class="n">str</span><span class="p">,</span> <span class="n">base</span><span class="p">)</span>
         <span class="kd">local</span> <span class="n">s</span>
