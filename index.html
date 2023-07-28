@@ -18505,7 +18505,7 @@ See: <a href="https://en.wikipedia.org/wiki/Epoch_(computing)" title="Epoch Date
 <p>Cancels a transfer that has been started by a call to the <a href="https://snap-one.github.io/docs-driverworks-api/#url-interface-get">Get()</a>, <a href="https://snap-one.github.io/docs-driverworks-api/#url-interface-post">Post()</a>, <a href="https://snap-one.github.io/docs-driverworks-api/#url-interface-put">Put(</a>), <a href="https://snap-one.github.io/docs-driverworks-api/#url-interface-delete">Delete()</a>, or <a href="https://snap-one.github.io/docs-driverworks-api/#url-interface-custom">Custom()</a> methods. The C4LuaUrl object cannot be re-used after canceling a transfer.  A new instance will need to be created by a call to <a href="https://snap-one.github.io/docs-driverworks-api/#url-interface">C4:url()</a>.</p>
 
 <p><h6 id='url-interface-cancel-returns-example-available-from-1-6-0-available-from-2-10-5'>Available from 2.10.5</h6><h3 id='url-interface-cancel-signature'>Signature</h3>
-<p><code>C4:Cancel()</code></p>
+<p><code>C4LuaUrl:Cancel()</code></p>
 <h3 id='url-interface-cancel-parameters'>Parameters</h3>
 <p><code>None</code></p>
 <h3 id='url-interface-cancel-returns'>Returns</h3>
@@ -18516,7 +18516,7 @@ See: <a href="https://en.wikipedia.org/wiki/Epoch_(computing)" title="Epoch Date
 <p>Starts a HTTP transfer with a custom request method as specified by the method argument.</p>
 
 <p><h6 id='url-interface-custom-returns-example-available-from-1-6-0-available-from-2-10-5'>Available from 2.10.5</h6><h3 id='url-interface-custom-signature'>Signature</h3>
-<p><code>C4:Custom(url, method data, headers)</code></p></p>
+<p><code>C4LuaUrl:Custom(url, method, data, headers)</code></p></p>
 
 <table><thead>
 <tr>
@@ -18547,7 +18547,7 @@ See: <a href="https://en.wikipedia.org/wiki/Epoch_(computing)" title="Epoch Date
 <p>Starts a HTTP DELETE transfer.</p>
 
 <p><h6 id='url-interface-delete-signature-example-available-from-1-6-0-available-from-2-10-5'>Available from 2.10.5</h6><h3 id='url-interface-delete-signature'>Signature</h3>
-<p><code>C4:Delete(url, data, headers)</code></p></p>
+<p><code>C4LuaUrl:Delete(url, data, headers)</code></p></p>
 
 <table><thead>
 <tr>
@@ -18574,7 +18574,7 @@ See: <a href="https://en.wikipedia.org/wiki/Epoch_(computing)" title="Epoch Date
 <p>Function that causes a file to be downloaded from a URL to a specified location on the file system.</p>
 
 <p><h6 id='url-interface-downloadfile-returns-example-available-from-1-6-0-available-from-3-3-1'>Available from 3.3.1</h6><h3 id='url-interface-downloadfile-signature'>Signature</h3>
-<p><code>C4:DownloadFile(url, filename, subdir, table)</code></p></p>
+<p><code>C4LuaUrl:DownloadFile(url, subdir, filename, table)</code></p></p>
 
 <table><thead>
 <tr>
@@ -18587,12 +18587,12 @@ See: <a href="https://en.wikipedia.org/wiki/Epoch_(computing)" title="Epoch Date
 <td>String of the URL to the download file.</td>
 </tr>
 <tr>
-<td>filename</td>
-<td>The file name (without path) where the file will downloaded.</td>
-</tr>
-<tr>
 <td>subdir</td>
 <td>A directory alias, such as &quot;SANDBOX&quot;, &quot;MEDIA&quot;, &quot;C4Z&quot;, etc. that the file should be downloaded to.</td>
+</tr>
+<tr>
+<td>filename</td>
+<td>The file name (without path) where the file will downloaded.</td>
 </tr>
 <tr>
 <td>table</td>
@@ -18632,7 +18632,7 @@ See: <a href="https://en.wikipedia.org/wiki/Epoch_(computing)" title="Epoch Date
 <p>Starts a HTTP GET transfer. Note that the maximum amount of data that can obtained using this function is 4,194,304 bytes. For downloading larger amounts of data to storage, please see the <a href="https://snap-one.github.io/docs-driverworks-api/#url-interface-downloadfile">C4:DownloadFile</a> function.</p>
 <h6 id='url-interface-get-example-example-available-from-1-6-0-available-from-2-10-5'>Available from 2.10.5</h6><h3 id='url-interface-get-signature'>Signature</h3>
 
-<p><code>C4:Get(url, headers)</code></p>
+<p><code>C4LuaUrl:Get(url, headers)</code></p>
 
 <table><thead>
 <tr>
@@ -18681,7 +18681,7 @@ See: <a href="https://en.wikipedia.org/wiki/Epoch_(computing)" title="Epoch Date
 <p>Sets a callback function that will be called each time a response body has finished transferring. This function is called after the callback functions set by <a href="https://snap-one.github.io/docs-driverworks-api/#url-interface-onheaders">OnHeaders()</a> and <a href="https://snap-one.github.io/docs-driverworks-api/#url-interface-onbodychunk">OnBodyChunk()</a> but before the callback function set by <a href="https://snap-one.github.io/docs-driverworks-api/#url-interface-ondone">OnDone()</a>. Note that this method can only be called before a transfer was started.</p>
 
 <p><h6 id='url-interface-onbody-returns-example-available-from-1-6-0-available-from-2-10-5'>Available from 2.10.5</h6><h3 id='url-interface-onbody-signature'>Signature</h3>
-<p><code>C4:OnBody(func)</code></p></p>
+<p><code>C4LuaUrl:OnBody(func)</code></p></p>
 
 <table><thead>
 <tr>
@@ -18736,7 +18736,7 @@ See: <a href="https://en.wikipedia.org/wiki/Epoch_(computing)" title="Epoch Date
 <p>Sets a callback function that will be called each time a chunk of the response body has transferred.  This does not necessarily correlate to chunks in the context of the HTTP &quot;chunked&quot; transfer encoding. This function may be called multiple times for each response, following the callback function set by OnHeaders() and before the callback function set by <a href="https://snap-one.github.io/docs-driverworks-api/#onbody">OnBody()</a> and <a href="https://snap-one.github.io/docs-driverworks-api/#ondone">OnDone()</a>. Note that this method can only be called before a transfer was started. This callback function is not needed for most use-cases.</p>
 
 <p><h6 id='url-interface-onbodychunk-returns-example-available-from-1-6-0-available-from-2-10-5'>Available from 2.10.5</h6><h3 id='url-interface-onbodychunk-signature'>Signature</h3>
-<p><code>C4:OnBodyChunk(func)</code></p></p>
+<p><code>C4LuaUrl:OnBodyChunk(func)</code></p></p>
 
 <table><thead>
 <tr>
@@ -18788,7 +18788,7 @@ See: <a href="https://en.wikipedia.org/wiki/Epoch_(computing)" title="Epoch Date
 <p>Sets a callback function that will be called when the entire transfer succeeded or failed.  It is only called once at the end of the entire transfer regardless of how many responses have been received. Note that this method can only be called before a transfer was started.</p>
 
 <p><h6 id='url-interface-ondone-returns-example-available-from-1-6-0-available-from-2-10-5'>Available from 2.10.5</h6><h3 id='url-interface-ondone-signature'>Signature</h3>
-<p><code>C4:OnDone(func)</code></p></p>
+<p><code>C4LuaUrl:OnDone(func)</code></p></p>
 
 <table><thead>
 <tr>
@@ -18818,8 +18818,8 @@ See: <a href="https://en.wikipedia.org/wiki/Epoch_(computing)" title="Epoch Date
 
 <p>Sets a callback function that will be called each time all of the headers of a response have been received but, before the response body has been received. This function may be called multiple times, e.g. due to redirects. Note that this method can only be called before a transfer was started.</p>
 
-<p><h6 id='url-interface-onheaders-returns-example-available-from-1-6-0-available-from-2-10-5'>Available from 2.10.5</h6><h3 id='url-interface-onheaders-signature'>Signature</h3>
-<p><code>C4:OnHeaders(func)</code></p></p>
+<p><h6 id='url-interface-onheaders-returns-example-available-from-1-6-0-available-from-3-0-0'>Available from 3.0.0</h6><h3 id='url-interface-onheaders-signature'>Signature</h3>
+<p><code>C4LuaUrl:OnHeaders(func)</code></p></p>
 
 <table><thead>
 <tr>
@@ -18884,9 +18884,9 @@ See: <a href="https://en.wikipedia.org/wiki/Epoch_(computing)" title="Epoch Date
 </code></pre></div>
 <h2 id='url-interface-post'>Post</h2>
 <p>Starts a HTTP POST transfer.</p>
-<h6 id='url-interface-post-example-example-available-from-1-6-0-available-from-2-10-5'>Available from 2.10.5</h6><h3 id='url-interface-post-signature'>Signature</h3>
+<h6 id='url-interface-post-example-example-available-from-1-6-0-available-from-3-0-0'>Available from 3.0.0</h6><h3 id='url-interface-post-signature'>Signature</h3>
 
-<p><code>C4:Post(url, data, headers </code></p>
+<p><code>C4LuaUrl:Post(url, data, headers </code></p>
 
 <table><thead>
 <tr>
@@ -18917,7 +18917,7 @@ See: <a href="https://en.wikipedia.org/wiki/Epoch_(computing)" title="Epoch Date
 <p>Starts a HTTP POST transfer.</p>
 
 <p><h6 id='url-interface-put-returns-example-available-from-1-6-0-available-from-3-0-0'>Available from 3.0.0</h6><h3 id='url-interface-put-signature'>Signature</h3>
-<p><code>C4:Put (url, data, headers)</code></p></p>
+<p><code>C4LuaUrl:Put (url, data, headers)</code></p></p>
 
 <table><thead>
 <tr>
@@ -18949,10 +18949,10 @@ See: <a href="https://en.wikipedia.org/wiki/Epoch_(computing)" title="Epoch Date
 
 <h2 id='url-interface-setoption'>SetOption</h2>
 
-<p>Sets one option specified by name to value. Note that this method can only be called before a transfer was started. </p>
+<p>Sets one option specified by name to value. Note that this method can only be called before a transfer was started.</p>
 
 <p><h6 id='url-interface-setoption-usage-note-example-available-from-1-6-0-available-from-2-10-5'>Available from 2.10.5</h6><h3 id='url-interface-setoption-signature'>Signature</h3>
-<p><code>C4:SetOption(name, value)</code></p></p>
+<p><code>C4LuaUrl:SetOption(name, value)</code></p></p>
 
 <table><thead>
 <tr>
@@ -19036,7 +19036,7 @@ table:</p>
 <p>This API is similar to the <a href="https://snap-one.github.io/docs-driverworks-api/#url-interface-setoption">SetOption()</a> method, but allows the driver to pass in a table of options and their values. Note that this method can only be called before a transfer was started.</p>
 
 <p><h6 id='url-interface-setoptions-returns-example-available-from-1-6-0-available-from-2-10-5'>Available from 2.10.5</h6><h3 id='url-interface-setoptions-signature'>Signature</h3>
-<p><code>C4:SetOptions(options)</code></p></p>
+<p><code>C4LuaUrl:SetOptions(options)</code></p></p>
 
 <table><thead>
 <tr>
