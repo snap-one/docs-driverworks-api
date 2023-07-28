@@ -7,7 +7,7 @@ Cancels a transfer that has been started by a call to the [Get()][1], [Post()][2
 
 ### Signature
 
-`C4:Cancel()`
+`C4LuaUrl:Cancel()`
 
 
 ### Parameters

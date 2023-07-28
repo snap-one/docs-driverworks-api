@@ -2,12 +2,12 @@
 
 Sets a callback function that will be called each time all of the headers of a response have been received but, before the response body has been received. This function may be called multiple times, e.g. due to redirects. Note that this method can only be called before a transfer was started.
 
-###### Available from 2.10.5
+###### Available from 3.0.0
 
 
 ### Signature
 
-`C4:OnHeaders(func)`
+`C4LuaUrl:OnHeaders(func)`
 
 
 |Parameter | Description |

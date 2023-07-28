@@ -1,13 +1,13 @@
 ## SetOption
 
-Sets one option specified by name to value. Note that this method can only be called before a transfer was started. 
+Sets one option specified by name to value. Note that this method can only be called before a transfer was started.
 
 ###### Available from 2.10.5
 
 
 ### Signature
 
-`C4:SetOption(name, value)`
+`C4LuaUrl:SetOption(name, value)`
 
 
 | Parameter | Description |

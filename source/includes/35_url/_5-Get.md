@@ -7,7 +7,7 @@ Starts a HTTP GET transfer. Note that the maximum amount of data that can obtain
 
 ### Signature
 
-`C4:Get(url, headers)`
+`C4LuaUrl:Get(url, headers)`
 
 
 | Parameter | Description |

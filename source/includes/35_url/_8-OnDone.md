@@ -7,7 +7,7 @@ Sets a callback function that will be called when the entire transfer succeeded 
 
 ### Signature
 
-`C4:OnDone(func)`
+`C4LuaUrl:OnDone(func)`
 
 
 |PArameter | Description |

@@ -7,7 +7,7 @@ Starts a HTTP DELETE transfer.
 
 ### Signature
 
-`C4:Delete(url, data, headers)`
+`C4LuaUrl:Delete(url, data, headers)`
 
 
 | Parameter | Description |

@@ -7,7 +7,7 @@ Sets a callback function that will be called each time a response body has finis
 
 ### Signature
 
-`C4:OnBody(func)`
+`C4LuaUrl:OnBody(func)`
 
 
 | Parameter | Description |

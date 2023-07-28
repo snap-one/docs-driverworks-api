@@ -7,7 +7,7 @@ Starts a HTTP transfer with a custom request method as specified by the method a
 
 ### Signature
 
-`C4:Custom(url, method data, headers)`
+`C4LuaUrl:Custom(url, method, data, headers)`
 
 
 | Parameter | Description |

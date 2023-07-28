@@ -7,7 +7,7 @@ This API is similar to the [SetOption()][1] method, but allows the driver to pas
 
 ### Signature
 
-`C4:SetOptions(options)`
+`C4LuaUrl:SetOptions(options)`
 
 
 | Parameter | Description |

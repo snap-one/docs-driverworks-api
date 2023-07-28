@@ -7,7 +7,7 @@ Sets a callback function that will be called each time a chunk of the response b
 
 ### Signature
 
-`C4:OnBodyChunk(func)`
+`C4LuaUrl:OnBodyChunk(func)`
 
 
 | Parameter | Description |
