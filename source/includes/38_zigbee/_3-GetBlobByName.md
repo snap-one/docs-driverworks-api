@@ -7,12 +7,12 @@ Returns the un-encoded string containing the firmware update data of the specifi
 
 ### Signature
 
-`C4:(GetBlobByName)`
+`C4:GetBlobByName(name)`
 
 
 | Parameter | Description |
 | --- | --- |
-| str | Name of the Binary Large Object to retrieve from the .c4i file. |
+| name | Name of the Binary Large Object to retrieve from the .c4i file. |
 
 
 ### Returns

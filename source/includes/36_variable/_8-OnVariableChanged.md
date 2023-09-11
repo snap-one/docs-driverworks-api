@@ -7,7 +7,7 @@ Function called by Director when one of this driver’s variables’ values is c
 
 ### Signature
 
-`C4:OnVariableChanged(strName)`	
+`OnVariableChanged(strName)`	
 
 
 | Parameter | Description |

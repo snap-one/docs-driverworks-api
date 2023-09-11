@@ -9,7 +9,7 @@ OnDriverInit.
 
 ### Signature
 
-`C4:print(strPrintText)`
+`print(str)`
 
 
 | Parameter  | Description |

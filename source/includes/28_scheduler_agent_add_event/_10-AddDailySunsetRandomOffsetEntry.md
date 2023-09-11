@@ -7,7 +7,7 @@ This API adds an event which occurs daily at sunset and can be randomized by a r
 
 ### Signature
 
-`C4:Scheduler:AddDailySunsetRandomOffsetEntry(name, random_range_minutes, start_time, end_date, options)`
+`C4Scheduler:AddDailySunsetRandomOffsetEntry(name, random_range_minutes, start_time, end_date, options)`
 
 
 | Parameter | Description |

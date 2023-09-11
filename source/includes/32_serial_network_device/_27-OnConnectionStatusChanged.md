@@ -1,13 +1,13 @@
 ## OnConnectionStatusChanged
 
-Function based on this return from the system used to process communication.
+Function called by director when the status of a network binding connection changes.
 
 ###### Available from 1.6.0
 
 
 ### Signature
 
-`C4:OnConnectionStatusChanged(idBinding, nPort, strStatus) `
+`OnConnectionStatusChanged(idBinding, nPort, strStatus) `
 
 
 | Parameter | Description |

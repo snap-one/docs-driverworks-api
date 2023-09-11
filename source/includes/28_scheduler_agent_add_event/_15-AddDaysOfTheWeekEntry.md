@@ -9,7 +9,7 @@ This API adds an event which occurs on defined days of the week.
 
 ### Signature
 
-`C4:Scheduler:AddDaysOfTheWeekEntry(name, days_of_the_week, start_time, end_date, options)`
+`C4Scheduler:AddDaysOfTheWeekEntry(name, days_of_the_week, start_time, end_date, options)`
 
 
 | Parameter | Description |

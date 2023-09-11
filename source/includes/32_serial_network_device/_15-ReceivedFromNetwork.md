@@ -1,13 +1,13 @@
 ## ReceivedFromNetwork
 
-Function which combines the data received from the network into a variable for processing when the connection status changes. This API should not be invoked during OnDriverInit.
+Function which is called when data is received on a network binding. It is typically used to evaluate the data for specific delimiters and extracts the necessary components which are then used to do something.
 
 ###### Available from 1.6.0
 
 
 ### Signature
 
-`C4:ReceivedFromNetwork(idBinding, nPort, strData) `
+`ReceivedFromNetwork(idBinding, nPort, strData) `
 
 
 | Parameter | Description |

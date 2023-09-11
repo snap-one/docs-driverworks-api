@@ -7,7 +7,7 @@ This API adds an event which occurs set number of months. For example, an event 
 
 ### Signature
 
-`C4:Scheduler:AddEveryXMonthsEntry(name, num_months, start_time, end_date, options`
+`C4Scheduler:AddEveryXMonthsEntry(name, num_months, start_time, end_date, options`
 
 | Parameter | Description |
 | --- | --- |

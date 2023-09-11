@@ -7,7 +7,7 @@ Function that returns all associated proxies for a device. Return values are in 
 
 ### Signature
 
-`GetProxyDevicesById()`
+`C4:GetProxyDevicesById()`
 
 
 | Parameter | Description |

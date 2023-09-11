@@ -1,4 +1,4 @@
-## ParseXML
+## ParseXml
 
 Helper function which turns a XML document into a .lua table of parsed XML data. This API can be invoked during
 OnDriverInit.

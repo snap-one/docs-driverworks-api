@@ -1,5 +1,5 @@
 ## FileDelete
-This function has been modified in conjuction with O.S. release 3.3.0.  As part of Control4’s plan to tighten driver security, the io.popen() call ihas been removed. In doing this, driver developers need to use C4:File commands to accomplish what they previously did with io.popen (). Two new parameters have been added to specify an allowed Alias and a sub path and file name to a file to delete. 
+This function has been modified in conjuction with O.S. release 3.3.0.  As part of Control4’s plan to tighten driver security, the io.popen() call has been removed. In doing this, driver developers need to use C4:File commands to accomplish what they previously did with io.popen (). Two new parameters have been added to specify an allowed Alias and a sub path and file name to a file to delete. 
 
 
 ### Signature

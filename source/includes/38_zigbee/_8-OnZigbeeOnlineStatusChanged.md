@@ -7,7 +7,7 @@ This function gets called when the Online status of a Zigbee node changes.
 
 ### Signature
 
-`C4:OnZigbeeOnlineStatusChanged (strStatus, strVersion, strSkew)`
+`OnZigbeeOnlineStatusChanged (strStatus, strVersion, strSkew)`
 
 
 | Parameter | Description |
