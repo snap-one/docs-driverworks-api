@@ -1,13 +1,13 @@
 ## ReceivedFromSerial
 
-Function which dumps the data received from serial (hex format) for inspection via print.  It then evaluates the response for specific delimiters and extracts the necessary components which are then used to do something. This API should not be invoked during OnDriverInit.
+Function which is called when serial data is received on a serial binding. It is typically used to evaluate the data for specific delimiters and extracts the necessary components which are then used to do something.
 
 ###### Available from 1.6.0
 
 
 ### Signature
 
-`C4:ReceivedFromSerial(idBinding, strData)`
+`ReceivedFromSerial(idBinding, strData)`
 
 
 | Parameter | Description |

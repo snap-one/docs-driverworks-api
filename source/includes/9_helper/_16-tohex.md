@@ -7,7 +7,7 @@ Function called from DriverWorks driver to convert a text string of hex into a s
 
 ### Signature
 
-`C4:tohex(strHex)`
+`tohex(strHex)`
 
 
 | Parameter  | Description |

@@ -8,7 +8,7 @@ This API adds an event which occurs on the same day(s) of the week over a define
 
 ### Signature
 
-`C4:Scheduler:AddSetDaysEveryXWeeksEntry(name, days_of_the_week, num_weeks, start_time, end_date, options)`
+`C4Scheduler:AddSetDaysEveryXWeeksEntry(name, days_of_the_week, num_weeks, start_time, end_date, options)`
 
 | Parameter | Description |
 | --- | --- |

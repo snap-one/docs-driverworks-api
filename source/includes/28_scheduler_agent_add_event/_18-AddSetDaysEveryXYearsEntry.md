@@ -7,7 +7,7 @@ This API adds an event which occurs set number of years. For example, an event t
 
 ### Signature
 
-`C4:Scheduler:AddEveryXYearsEntry(name, num_years, start_time, end_date, options)`
+`C4Scheduler:AddEveryXYearsEntry(name, num_years, start_time, end_date, options)`
 
 
 | Parameter | Description |

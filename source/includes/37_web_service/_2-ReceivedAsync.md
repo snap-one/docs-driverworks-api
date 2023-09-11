@@ -7,7 +7,7 @@ This function is used in conjunction with [urlGet][1] and [urlPost][2]. It handl
 
 ### Signature
 
-`C4:ReceivedAsync(ticketId, strData, responseCode, tHeaders, strError)`
+`ReceivedAsync(ticketId, strData, responseCode, tHeaders, strError)`
 
 
 | Parameter | Description |
