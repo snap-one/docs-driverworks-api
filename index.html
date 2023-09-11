@@ -640,7 +640,7 @@
                     <a href="#helper-interface-onbindingchanged" class="toc-h2 toc-link" data-title="OnBindingChanged">OnBindingChanged</a>
                   </li>
                   <li>
-                    <a href="#helper-interface-parsexml" class="toc-h2 toc-link" data-title="ParseXML">ParseXML</a>
+                    <a href="#helper-interface-parsexml" class="toc-h2 toc-link" data-title="ParseXml">ParseXml</a>
                   </li>
                   <li>
                     <a href="#helper-interface-portinuse" class="toc-h2 toc-link" data-title="PortInUse">PortInUse</a>
@@ -661,7 +661,7 @@
                     <a href="#helper-interface-tostringlocalec" class="toc-h2 toc-link" data-title="ToStringLocaleC">ToStringLocaleC</a>
                   </li>
                   <li>
-                    <a href="#helper-interface-unbind" class="toc-h2 toc-link" data-title="unbind">unbind</a>
+                    <a href="#helper-interface-unbind" class="toc-h2 toc-link" data-title="Unbind">Unbind</a>
                   </li>
                   <li>
                     <a href="#helper-interface-uuid" class="toc-h2 toc-link" data-title="UUID">UUID</a>
@@ -1880,7 +1880,7 @@ The GetProjectProperty API uses a single string parameter from a list of propert
 
 <h3 id='c4ssh-interface-createsshclient-signature'>Signature</h3>
 
-<p><code>C4:CreateSShClient ()</code></p>
+<p><code>C4:CreateSSHClient ()</code></p>
 
 <h3 id='c4ssh-interface-createsshclient-parameters'>Parameters</h3>
 
@@ -4398,7 +4398,7 @@ iSpRAwom9R5BWUMFoRCn0j0TWFsTIBNSuOcMrw5n6NU=
 
 <h2 id='file-interface-filedelete'>FileDelete</h2>
 
-<p>This function has been modified in conjuction with O.S. release 3.3.0.  As part of Control4’s plan to tighten driver security, the io.popen() call ihas been removed. In doing this, driver developers need to use C4:File commands to accomplish what they previously did with io.popen (). Two new parameters have been added to specify an allowed Alias and a sub path and file name to a file to delete. </p>
+<p>This function has been modified in conjuction with O.S. release 3.3.0.  As part of Control4’s plan to tighten driver security, the io.popen() call has been removed. In doing this, driver developers need to use C4:File commands to accomplish what they previously did with io.popen (). Two new parameters have been added to specify an allowed Alias and a sub path and file name to a file to delete. </p>
 
 <h3 id='file-interface-filedelete-signature'>Signature</h3>
 
@@ -5909,7 +5909,7 @@ Prints out the following:
 
 <p>Protocol drivers do not get OnBindingChanged notifications for AV and Room bindings being bound, only  control type bindings (Serial, IR, etc.). It is intended to be used specifically for when serial bindings are made, so the driver knows it can send initialization, etc. to the now-connected device.</p>
 
-<h2 id='helper-interface-parsexml'>ParseXML</h2>
+<h2 id='helper-interface-parsexml'>ParseXml</h2>
 
 <p>Helper function which turns a XML document into a .lua table of parsed XML data. This API can be invoked during
 OnDriverInit.</p>
@@ -5957,11 +5957,19 @@ OnDriverInit.</p>
 <p>This function returns a value indicating whether a specified network port is currently in use.</p>
 <h6 id='helper-interface-portinuse-example-director-geo-location-service-available-from-2-10-4-available-from-3-3-1'>Available from 3.3.1</h6><h3 id='helper-interface-portinuse-signature'>Signature</h3>
 
-<p><code>C4:PortInUse()</code></p>
+<p><code>C4:PortInUse(port)</code></p>
 
-<h3 id='helper-interface-portinuse-parameters'>Parameters</h3>
-
-<p><em>None</em></p>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>port</td>
+<td>Port to check (number)</td>
+</tr>
+</tbody></table>
 
 <h3 id='helper-interface-portinuse-returns'>Returns</h3>
 
@@ -5976,14 +5984,20 @@ OnDriverInit.</p>
 
 <p>Note that there is a race condition inherent in the use of this function. The network port may, or may not be in use at the moment that the function is invoked. However, it is possible for the network port to be freed or utilized by another process during the time that the function is invoked and a driver attempts to make use of the network port.</p>
 
+<h3 id='helper-interface-portinuse-example'>Example</h3><div class="highlight"><pre class="highlight lua tab-lua"><code><span class="err">    </span> <span class="k">function</span> <span class="nf">OnDriverLateInit</span><span class="p">()</span>
+       <span class="c1">-- Our driver requires port 8888.  If not available, print error</span>
+       <span class="k">if</span> <span class="p">(</span><span class="n">C4</span><span class="p">:</span><span class="n">PortInUse</span><span class="p">(</span><span class="mi">8888</span><span class="p">))</span> <span class="k">then</span>
+         <span class="nb">print</span><span class="p">(</span><span class="s2">"ERROR: Required Port 8888 is already in use by some other driver or process."</span><span class="p">)</span>
+       <span class="k">end</span>
+     <span class="k">end</span>
+</code></pre></div>
 <h2 id='helper-interface-print'>print</h2>
-
 <p>Function called from DriverWorks driver to prints items out the drivers’ properties page console. Note that for 
 convenience, the print function can be called without prefacing with &quot;C4:&quot; This API can be invoked during
 OnDriverInit.</p>
+<h6 id='helper-interface-print-example-director-geo-location-service-available-from-2-10-4-available-from-1-6-0'>Available from 1.6.0.</h6><h3 id='helper-interface-print-signature'>Signature</h3>
 
-<p><h6 id='helper-interface-print-usage-note-director-geo-location-service-available-from-2-10-4-available-from-1-6-0'>Available from 1.6.0.</h6><h3 id='helper-interface-print-signature'>Signature</h3>
-<p><code>C4:print(strPrintText)</code></p></p>
+<p><code>print(str)</code></p>
 
 <table><thead>
 <tr>
@@ -6055,7 +6069,7 @@ OnDriverInit.</p>
 <p>Function called from DriverWorks driver to convert a text string of hex into a string with hex values in it. Typically used when a protocol sends commands that are hex values. Note that for convenience, the print function can be called without prefacing with C4: This API can be invoked during OnDriverInit.</p>
 
 <p><h6 id='helper-interface-tohex-example-director-geo-location-service-available-from-2-10-4-available-from-1-6-0'>Available from 1.6.0.</h6><h3 id='helper-interface-tohex-signature'>Signature</h3>
-<p><code>C4:tohex(strHex)</code></p></p>
+<p><code>tohex(strHex)</code></p></p>
 
 <table><thead>
 <tr>
@@ -6130,7 +6144,7 @@ Lua ‘tostring’ command and string concatenation (..) with a number variable 
  
 For example, if you have a thermostat that supports an “Auto Temperature” that is not supported by the proxy that you would like displayed under “Extras” in the Thermostat UI you would need to generate the “Extras” xml to send to the UI. If the temperature represented is a floating-point number then when this number is converted to a string with ‘tostring’ or string concatenation (..), it would be converted to a number represented with a comma. In this case you would want to use the C4:ToStringLocaleC() API to convert the floating number appropriately.</p>
 
-<h2 id='helper-interface-unbind'>unbind</h2>
+<h2 id='helper-interface-unbind'>Unbind</h2>
 
 <p>This API provides the ability to unbind bound devices. The unbinding of the devices binding through this API is the same as manually unbinding two devices in ComposerPro&#39;s Connections area. Note the parameters passed in the API. Both have &quot;Consumer&quot; designation. These parameters represent the device that consumes data from the Provider device. To verify if a device driver is a Consumer, go to the driver&#39;s &lt;Connections&gt; XML. The &lt;consumer&gt; XML tag for this device&#39;s driver will be True or:  &lt;consumer&gt;True&lt;/consumer&gt;. Subsequently, the Consumer Binding ID value is the Consumer device&#39;s binding value.</p>
 
@@ -11523,7 +11537,7 @@ When a driver is loaded, there are two initialization functions that are called 
 <p>Called whenever a driver is removed or deleted from a project. This API is useful if a driver has any cleanup requirements or needs to send any final commands to a device prior to being removed or deleted from a project. If so, those should be implemented within this function.</p>
 <h6 id='miscellaneous-interface-ondriver-removedfromproject-example-director-geo-location-service-available-from-1-6-0-available-from-2-1-0'>Available from 2.1.0</h6><h3 id='miscellaneous-interface-ondriver-removedfromproject-signature'>Signature</h3>
 
-<p><code>C4:OnDriverRemovedFromProject</code></p>
+<p><code>OnDriverRemovedFromProject</code></p>
 
 <h2 id='miscellaneous-interface-parseiso8601datetime'>ParseIso8601DateTime</h2>
 
@@ -12399,7 +12413,7 @@ Sets the callback that is invoked to notify a driver about the result of &quot;p
 <p>Function that returns the proxy device id(ids if device has multiple proxies) associated with the current driver. This API should not be invoked during OnDriverInit.</p>
 
 <p><h6 id='proxy-interface-getproxydevices-example-example-available-from-1-6-0-added-in-os-1-6-0'>Added in OS 1.6.0</h6><h3 id='proxy-interface-getproxydevices-signature'>Signature</h3>
-<p><code>GetProxyDevices(strName)</code></p>
+<p><code>C4:GetProxyDevices(strName)</code></p>
 <h3 id='proxy-interface-getproxydevices-parameters'>Parameters</h3>
 <p><code>None</code></p>
 <h3 id='proxy-interface-getproxydevices-returns'>Returns</h3>
@@ -12422,7 +12436,7 @@ print(&quot;proxy is: &quot; .. proxyId)</p>
 <h2 id='proxy-interface-getproxydevicesbyid'>GetProxyDevicesById</h2>
 <p>Function that returns all associated proxies for a device. Return values are in ID format (numerical value). This API should not be invoked during OnDriverInit.</p>
 <h6 id='proxy-interface-getproxydevicesbyid-example-example-available-from-1-6-0-added-in-os-1-6-0'>Added in OS 1.6.0</h6><h3 id='proxy-interface-getproxydevicesbyid-signature'>Signature</h3>
-<p><code>GetProxyDevicesById()</code></p></p>
+<p><code>C4:GetProxyDevicesById()</code></p></p>
 
 <table><thead>
 <tr>
@@ -12962,7 +12976,7 @@ print(Bar[&quot;</span><span class="n">Qux</span><span class="s2">&quot;])
 <p>This API adds an event which occurs once.</p>
 
 <p><h6 id='schedule-agent-add-event-interface-addsingledayentry-example-example-available-from-1-6-0-available-from-3-0-0'>Available from 3.0.0</h6><h3 id='schedule-agent-add-event-interface-addsingledayentry-signature'>Signature</h3>
-<p><code>C4:Scheduler:AddSingleDayEntry(name, start_time, options)</code></p></p>
+<p><code>C4Scheduler:AddSingleDayEntry(name, start_time, options)</code></p></p>
 
 <table><thead>
 <tr>
@@ -13810,7 +13824,7 @@ print(Bar[&quot;</span><span class="n">Qux</span><span class="s2">&quot;])
 <p>This API adds an event which occurs daily at sunset and can be randomized by a range of 60 minutes. Sunset time is based data provided by Director.</p>
 <h6 id='schedule-agent-add-event-interface-adddailysunsetrandomoffsetentry-example-example-available-from-1-6-0-available-from-3-0-0'>Available from 3.0.0</h6><h3 id='schedule-agent-add-event-interface-adddailysunsetrandomoffsetentry-signature'>Signature</h3>
 
-<p><code>C4:Scheduler:AddDailySunsetRandomOffsetEntry(name, random_range_minutes, start_time, end_date, options)</code></p>
+<p><code>C4Scheduler:AddDailySunsetRandomOffsetEntry(name, random_range_minutes, start_time, end_date, options)</code></p>
 
 <table><thead>
 <tr>
@@ -14276,7 +14290,7 @@ print(Bar[&quot;</span><span class="n">Qux</span><span class="s2">&quot;])
 <p>This API adds an event which occurs on defined days of the week.</p>
 <h6 id='schedule-agent-add-event-interface-adddaysoftheweekentry-examples-example-available-from-1-6-0-available-from-3-0-0'>Available from 3.0.0</h6><h3 id='schedule-agent-add-event-interface-adddaysoftheweekentry-signature'>Signature</h3>
 
-<p><code>C4:Scheduler:AddDaysOfTheWeekEntry(name, days_of_the_week, start_time, end_date, options)</code></p>
+<p><code>C4Scheduler:AddDaysOfTheWeekEntry(name, days_of_the_week, start_time, end_date, options)</code></p>
 
 <table><thead>
 <tr>
@@ -14368,7 +14382,7 @@ print(Bar[&quot;</span><span class="n">Qux</span><span class="s2">&quot;])
 <p>This API adds an event which occurs set number of months. For example, an event that occurs every 4 months.</p>
 <h6 id='schedule-agent-add-event-interface-addeveryxmonthsentry-examples-example-available-from-1-6-0-available-from-3-0-0'>Available from 3.0.0</h6><h3 id='schedule-agent-add-event-interface-addeveryxmonthsentry-signature'>Signature</h3>
 
-<p><code>C4:Scheduler:AddEveryXMonthsEntry(name, num_months, start_time, end_date, options</code></p>
+<p><code>C4Scheduler:AddEveryXMonthsEntry(name, num_months, start_time, end_date, options</code></p>
 
 <table><thead>
 <tr>
@@ -14460,7 +14474,7 @@ print(Bar[&quot;</span><span class="n">Qux</span><span class="s2">&quot;])
 <p>This API adds an event which occurs on the same day(s) of the week over a defined period of weeks. For example, an event that occurs every Tuesday and Wednesday - every three weeks</p>
 <h6 id='schedule-agent-add-event-interface-addsetdayseveryxweeksentry-examples-example-available-from-1-6-0-available-from-3-0-0'>Available from 3.0.0</h6><h3 id='schedule-agent-add-event-interface-addsetdayseveryxweeksentry-signature'>Signature</h3>
 
-<p><code>C4:Scheduler:AddSetDaysEveryXWeeksEntry(name, days_of_the_week, num_weeks, start_time, end_date, options)</code></p>
+<p><code>C4Scheduler:AddSetDaysEveryXWeeksEntry(name, days_of_the_week, num_weeks, start_time, end_date, options)</code></p>
 
 <table><thead>
 <tr>
@@ -14557,7 +14571,7 @@ print(Bar[&quot;</span><span class="n">Qux</span><span class="s2">&quot;])
 <p>This API adds an event which occurs set number of years. For example, an event that occurs every 4 years.</p>
 <h6 id='schedule-agent-add-event-interface-addsetdayseveryxyearsentry-examples-example-available-from-1-6-0-available-from-3-0-0'>Available from 3.0.0</h6><h3 id='schedule-agent-add-event-interface-addsetdayseveryxyearsentry-signature'>Signature</h3>
 
-<p><code>C4:Scheduler:AddEveryXYearsEntry(name, num_years, start_time, end_date, options)</code></p>
+<p><code>C4Scheduler:AddEveryXYearsEntry(name, num_years, start_time, end_date, options)</code></p>
 
 <table><thead>
 <tr>
@@ -14656,7 +14670,7 @@ print(Bar[&quot;</span><span class="n">Qux</span><span class="s2">&quot;])
 <p>Deletes and Event based on the Event ID value passed. A driver can only delete events which were created by that driver.</p>
 
 <p><h6 id='schedule-agent-delete-event-interface-deleteentrybyid-examples-example-available-from-1-6-0-available-from-3-0-0'>Available from 3.0.0</h6><h3 id='schedule-agent-delete-event-interface-deleteentrybyid-signature'>Signature</h3>
-<p><code>C4:Scheduler:DeleteEntryByID (event_id)</code></p></p>
+<p><code>C4Scheduler:DeleteEntryByID (event_id)</code></p></p>
 
 <table><thead>
 <tr>
@@ -16479,7 +16493,7 @@ addresstype: 1
 <p>Function that returns the address of the master controller in a project. This API should not be invoked during OnDriverInit.</p>
 
 <p><h6 id='serial-and-network-interface-getcontrollernetworkaddress-example-example-available-from-1-6-0-available-from-1-6-0'>Available from 1.6.0.</h6><h3 id='serial-and-network-interface-getcontrollernetworkaddress-signature'>Signature</h3>
-<p><code>C4:GetBoundConsumerDevices()</code></p>
+<p><code>C4:GetControllerNetworkAddress()</code></p>
 <h3 id='serial-and-network-interface-getcontrollernetworkaddress-parameters'>Parameters</h3>
 <p><code>None</code></p>
 <h3 id='serial-and-network-interface-getcontrollernetworkaddress-returns'>Returns</h3>
@@ -16840,10 +16854,10 @@ addresstype: 1
 
 <h2 id='serial-and-network-interface-receivedfromserial'>ReceivedFromSerial</h2>
 
-<p>Function which dumps the data received from serial (hex format) for inspection via print.  It then evaluates the response for specific delimiters and extracts the necessary components which are then used to do something. This API should not be invoked during OnDriverInit.</p>
+<p>Function which is called when serial data is received on a serial binding. It is typically used to evaluate the data for specific delimiters and extracts the necessary components which are then used to do something.</p>
 
 <p><h6 id='serial-and-network-interface-receivedfromserial-returns-example-available-from-1-6-0-available-from-1-6-0'>Available from 1.6.0</h6><h3 id='serial-and-network-interface-receivedfromserial-signature'>Signature</h3>
-<p><code>C4:ReceivedFromSerial(idBinding, strData)</code></p></p>
+<p><code>ReceivedFromSerial(idBinding, strData)</code></p></p>
 
 <table><thead>
 <tr>
@@ -16885,10 +16899,10 @@ addresstype: 1
 <span class="k">end</span>
 </code></pre></div>
 <h2 id='serial-and-network-interface-receivedfromnetwork'>ReceivedFromNetwork</h2>
-<p>Function which combines the data received from the network into a variable for processing when the connection status changes. This API should not be invoked during OnDriverInit.</p>
+<p>Function which is called when data is received on a network binding. It is typically used to evaluate the data for specific delimiters and extracts the necessary components which are then used to do something.</p>
 <h6 id='serial-and-network-interface-receivedfromnetwork-example-example-available-from-1-6-0-available-from-1-6-0'>Available from 1.6.0</h6><h3 id='serial-and-network-interface-receivedfromnetwork-signature'>Signature</h3>
 
-<p><code>C4:ReceivedFromNetwork(idBinding, nPort, strData) </code></p>
+<p><code>ReceivedFromNetwork(idBinding, nPort, strData) </code></p>
 
 <table><thead>
 <tr>
@@ -17345,9 +17359,9 @@ Using no delimiter: 000a959d6816</p>
 <p><code>None</code></p>
 
 <h2 id='serial-and-network-interface-onbindingvalidate'>OnBindingValidate</h2>
-<p>The OnBindingValidate API supports validation by a driver before Director adds a new binding. This enables drivers to reject bindings that aren&#39;t valid due to some internal, dynamic state.</p>
+<p>OnBindingValidate is called on a driver before Director adds a new binding. This enables drivers to reject bindings that aren&#39;t valid due to some internal, dynamic state.</p>
 <h6 id='serial-and-network-interface-onbindingvalidate-returns-example-available-from-1-6-0-available-from-1-6-0'>Available from 1.6.0</h6><h3 id='serial-and-network-interface-onbindingvalidate-signature'>Signature</h3>
-<p><code>C4:OnBindingValidate(idBinding, strClass) </code></p>
+<p><code>OnBindingValidate(idBinding, strClass) </code></p>
 
 <table><thead>
 <tr>
@@ -17366,9 +17380,9 @@ Using no delimiter: 000a959d6816</p>
 </tbody></table>
 
 <h2 id='serial-and-network-interface-onconnectionstatuschanged'>OnConnectionStatusChanged</h2>
-<p>Function based on this return from the system used to process communication.</p>
+<p>Function called by director when the status of a network binding connection changes.</p>
 <h6 id='serial-and-network-interface-onconnectionstatuschanged-signature-example-available-from-1-6-0-available-from-1-6-0'>Available from 1.6.0</h6><h3 id='serial-and-network-interface-onconnectionstatuschanged-signature'>Signature</h3>
-<p><code>C4:OnConnectionStatusChanged(idBinding, nPort, strStatus) </code></p>
+<p><code>OnConnectionStatusChanged(idBinding, nPort, strStatus) </code></p>
 
 <table><thead>
 <tr>
@@ -17407,10 +17421,10 @@ Using no delimiter: 000a959d6816</p>
 
 <h2 id='serial-and-network-interface-onnetworkbindingchanged'>OnNetworkBindingChanged</h2>
 
-<p>Function called by Director when a network connection has been addressed (‘identified’ on Network Connections Page) or unaddressed (‘disconnect’).</p>
+<p>Function called by Director when a network connection has been addressed (‘identified’ on Network Connections Page) or unaddressed (address removed from connection).</p>
 
 <p><h6 id='serial-and-network-interface-onnetworkbindingchanged-example-example-available-from-1-6-0-available-from-1-6-0'>Available from 1.6.0</h6><h3 id='serial-and-network-interface-onnetworkbindingchanged-signature'>Signature</h3>
-<p><code>C4:OnNetworkBindingChanged(idBinding, bIsBound)</code></p></p>
+<p><code>OnNetworkBindingChanged(idBinding, bIsBound)</code></p></p>
 
 <table><thead>
 <tr>
@@ -19481,7 +19495,7 @@ Device ID 84:</p>
 <p>Function called by Director when one of this driver’s variables’ values is changed.</p>
 
 <p><h6 id='variable-interface-onvariablechanged-examples-example-available-from-1-6-0-available-from-1-6-0'>Available from 1.6.0.</h6><h3 id='variable-interface-onvariablechanged-signature'>Signature</h3>
-<p><code>C4:OnVariableChanged(strName)</code> </p></p>
+<p><code>OnVariableChanged(strName)</code>    </p></p>
 
 <table><thead>
 <tr>
@@ -19518,7 +19532,7 @@ Device ID 84:</p>
 <p>Function called by Director when a Control4 variable changes value.</p>
 
 <p><h6 id='variable-interface-onwatchedvariablechanged-example-example-available-from-1-6-0-available-from-1-6-0'>Available from 1.6.0.</h6><h3 id='variable-interface-onwatchedvariablechanged-signature'>Signature</h3>
-<p><code>C4:OnWatchedVariableChanged(idDevice, idVariable, strValue)</code>   </p></p>
+<p><code>OnWatchedVariableChanged(idDevice, idVariable, strValue)</code>  </p></p>
 
 <table><thead>
 <tr>
@@ -19758,7 +19772,7 @@ When a listener is set on a variable, whenever the variable changes, the Lua <a 
 <p>This function is used in conjunction with <a href="https://snap-one.github.io/docs-driverworks-api/#url-interface-get">urlGet</a> and <a href="https://snap-one.github.io/docs-driverworks-api/#url-interface-post">urlPost</a>. It handles the data contained in the data ticket. As soon as data is returned from getUrl, Director will call this in the Lua code. This API should not be invoked during OnDriverInit.</p>
 
 <p><h6 id='web-service-interface-receivedasync-example-example-available-from-1-6-0-available-from-1-6-0'>Available from 1.6.0.</h6><h3 id='web-service-interface-receivedasync-signature'>Signature</h3>
-<p><code>C4:ReceivedAsync(ticketId, strData, responseCode, tHeaders, strError)</code></p></p>
+<p><code>ReceivedAsync(ticketId, strData, responseCode, tHeaders, strError)</code></p></p>
 
 <table><thead>
 <tr>
@@ -20643,7 +20657,7 @@ drwx------    8 root     root        4.0K Aug 16 10:38 ..
 <p>Returns the un-encoded string containing the firmware update data of the specified BLOB (Binary Large Object). This API should not be invoked during OnDriverInit.</p>
 
 <p><h6 id='zigbee-interface-getblobbyname-zb-otaimageinfo-example-available-from-1-6-0-available-from-1-6-0'>Available from 1.6.0.</h6><h3 id='zigbee-interface-getblobbyname-signature'>Signature</h3>
-<p><code>C4:(GetBlobByName)</code></p></p>
+<p><code>C4:GetBlobByName(name)</code></p></p>
 
 <table><thead>
 <tr>
@@ -20652,7 +20666,7 @@ drwx------    8 root     root        4.0K Aug 16 10:38 ..
 </tr>
 </thead><tbody>
 <tr>
-<td>str</td>
+<td>name</td>
 <td>Name of the Binary Large Object to retrieve from the .c4i file.</td>
 </tr>
 </tbody></table>
@@ -20712,7 +20726,7 @@ drwx------    8 root     root        4.0K Aug 16 10:38 ..
 <p>This function gets called when the Online status of a Zigbee node changes.</p>
 
 <p><h6 id='zigbee-interface-onzigbeeonlinestatuschanged-signature-example-available-from-1-6-0-available-from-1-6-0'>Available from 1.6.0.</h6><h3 id='zigbee-interface-onzigbeeonlinestatuschanged-signature'>Signature</h3>
-<p><code>C4:OnZigbeeOnlineStatusChanged (strStatus, strVersion, strSkew)</code></p></p>
+<p><code>OnZigbeeOnlineStatusChanged (strStatus, strVersion, strSkew)</code></p></p>
 
 <table><thead>
 <tr>
@@ -20802,7 +20816,7 @@ drwx------    8 root     root        4.0K Aug 16 10:38 ..
 <p>Receives an unsolicited zigbee packet from the device or a response to a command that was sent.</p>
 <h6 id='zigbee-interface-onzigbeepacketin-example-example-available-from-1-6-0-available-from-1-6-0'>Available from 1.6.0.</h6><h3 id='zigbee-interface-onzigbeepacketin-signature'>Signature</h3>
 
-<p><code>C4:OnZigbeePacketIn(strPacket,nProfileID, nClusterID, nGroupID, nSourceEndpoint, ndestinationEndpoint)</code></p>
+<p><code>OnZigbeePacketIn(strPacket,nProfileID, nClusterID, nGroupID, nSourceEndpoint, ndestinationEndpoint)</code></p>
 
 <table><thead>
 <tr>
