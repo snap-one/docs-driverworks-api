@@ -7,6 +7,6 @@ Called whenever a driver is removed or deleted from a project. This API is usefu
 
 ### Signature
 
-`C4:OnDriverRemovedFromProject`
+`OnDriverRemovedFromProject`
 
 

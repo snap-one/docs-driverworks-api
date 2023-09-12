@@ -7,7 +7,7 @@ Function called by Director when a Control4 variable changes value.
 
 ### Signature
 
-`C4:OnWatchedVariableChanged(idDevice, idVariable, strValue)`	
+`OnWatchedVariableChanged(idDevice, idVariable, strValue)`	
 
 | Parameter | Description |
 | --- | --- |

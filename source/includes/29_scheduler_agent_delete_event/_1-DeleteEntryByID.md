@@ -7,7 +7,7 @@ Deletes and Event based on the Event ID value passed. A driver can only delete e
 
 ### Signature
 
-`C4:Scheduler:DeleteEntryByID (event_id)`
+`C4Scheduler:DeleteEntryByID (event_id)`
 
 
 | Parameter | Description |

@@ -7,7 +7,7 @@ Function that returns the address of the master controller in a project. This AP
 
 ### Signature
 
-`C4:GetBoundConsumerDevices()`
+`C4:GetControllerNetworkAddress()`
 
 
 ### Parameters

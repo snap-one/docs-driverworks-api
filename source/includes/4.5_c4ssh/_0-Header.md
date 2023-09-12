@@ -8,7 +8,7 @@ _This interface was released in conjunction with O.S. 3.3.0_
 
 ### Signature
 
-`C4:CreateSShClient ()`
+`C4:CreateSSHClient ()`
 
 
 ### Parameters

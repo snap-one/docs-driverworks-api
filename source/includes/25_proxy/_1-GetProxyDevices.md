@@ -7,7 +7,7 @@ Function that returns the proxy device id(ids if device has multiple proxies) as
 
 ### Signature
 
-`GetProxyDevices(strName)`
+`C4:GetProxyDevices(strName)`
 
 
 ### Parameters

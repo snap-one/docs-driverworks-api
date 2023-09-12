@@ -7,7 +7,7 @@ This API adds an event which occurs once.
 
 ### Signature
 
-`C4:Scheduler:AddSingleDayEntry(name, start_time, options)`
+`C4Scheduler:AddSingleDayEntry(name, start_time, options)`
 
 
 | Parameter | Description |
