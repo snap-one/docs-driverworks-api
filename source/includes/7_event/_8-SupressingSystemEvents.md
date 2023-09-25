@@ -4,7 +4,7 @@ The `suppress_connection_events` is an optionally used device driver property th
 
 There are two ways to implement `suppress_connection_event`. First, a driver developer can add the `suppress_connection_events` tag to the port section in the connections area of their driver. For example, to the right is an entry for an HC-250 that defines Director’s connection to Navigator:
 
-```
+```xml
 <port>
  <name>Navigator</name>
  <number>5115</number>
