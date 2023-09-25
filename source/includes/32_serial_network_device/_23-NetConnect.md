@@ -7,15 +7,15 @@ Function used to tell the system to make a connection (static or dynamic). Conne
 
 ### Signature
 
-`C4:NetConnect(idBinding, nPort, strIPType,)`
+`C4:NetConnect(idBinding, nPort, strIPType, bool)`
 
 
-| Parameter | Description                                                                                                                                                                                                                                                                                                                                            |
-| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| num       | Binding ID of the network interface                                                                                                                                                                                                                                                                                                                    |
-| num       | Network port to connect to. If NetPortOptions API is used with NetConnect, the remaining parameters are ignored.                                                                                                                                                                                                                                       |
-| str       | IP Type. Optional. TCP is assumed or UDP or MULTICAST                                                                                                                                                                                                                                                                                                  |
-| bool      | True/False.  Optional. Specifies whether Director should suppress OnDeviceOnline and OnDeviceOffline events for the connection. By default, Director does suppress events for all connections created this way. The events can be enabled by passing “false” for this parameter. For more information, please refer to:[Suppressing System Events][3]. |
+| Parameter | Description                                                                                                                                                                                                                                                                                                                                             |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| num       | Binding ID of the network interface                                                                                                                                                                                                                                                                                                                     |
+| num       | Network port to connect to. If NetPortOptions API is used with NetConnect, the remaining parameters are ignored.                                                                                                                                                                                                                                        |
+| str       | IP Type. Optional. TCP is assumed or UDP or MULTICAST                                                                                                                                                                                                                                                                                                   |
+| bool      | True/False.  Optional. Specifies whether Director should suppress OnDeviceOnline and OnDeviceOffline events for the connection. By default, Director does suppress events for all connections created this way. The events can be enabled by passing “false” for this parameter. For more information, please refer to: [Suppressing System Events][3]. |
 
 
 ### Returns
