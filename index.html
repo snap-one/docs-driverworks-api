@@ -4298,16 +4298,16 @@ iSpRAwom9R5BWUMFoRCn0j0TWFsTIBNSuOcMrw5n6NU=
 
 <p>There are two ways to implement <code>suppress_connection_event</code>. First, a driver developer can add the <code>suppress_connection_events</code> tag to the port section in the connections area of their driver. For example, to the right is an entry for an HC-250 that defines Director’s connection to Navigator:</p>
 
-<div class="highlight"><pre class="highlight plaintext"><code>&lt;port&gt;
- &lt;name&gt;Navigator&lt;/name&gt;
- &lt;number&gt;5115&lt;/number&gt;
- &lt;auto_connect&gt;True&lt;/auto_connect&gt;
- &lt;monitor_connection&gt;False&lt;/monitor_connection&gt;
- &lt;keep_connection&gt;True&lt;/keep_connection&gt;
- &lt;keep_alive&gt;True&lt;/keep_alive&gt;
- &lt;suppress_connection_events&gt;True&lt;/suppress_connection_events&gt;
- &lt;delimiter&gt;0d0a&lt;/delimiter&gt;
-&lt;/port&gt;
+<div class="highlight"><pre class="highlight xml tab-xml"><code><span class="nt">&lt;port&gt;</span>
+ <span class="nt">&lt;name&gt;</span>Navigator<span class="nt">&lt;/name&gt;</span>
+ <span class="nt">&lt;number&gt;</span>5115<span class="nt">&lt;/number&gt;</span>
+ <span class="nt">&lt;auto_connect&gt;</span>True<span class="nt">&lt;/auto_connect&gt;</span>
+ <span class="nt">&lt;monitor_connection&gt;</span>False<span class="nt">&lt;/monitor_connection&gt;</span>
+ <span class="nt">&lt;keep_connection&gt;</span>True<span class="nt">&lt;/keep_connection&gt;</span>
+ <span class="nt">&lt;keep_alive&gt;</span>True<span class="nt">&lt;/keep_alive&gt;</span>
+ <span class="nt">&lt;suppress_connection_events&gt;</span>True<span class="nt">&lt;/suppress_connection_events&gt;</span>
+ <span class="nt">&lt;delimiter&gt;</span>0d0a<span class="nt">&lt;/delimiter&gt;</span>
+<span class="nt">&lt;/port&gt;</span>
 </code></pre></div>
 
 <p>The second way to use the <code>suppress_connection_events</code> option is in Lua drivers. The NetConnect() function has an optional parameter that specifies whether Director should suppress OnDeviceOnline and OnDeviceOffline events for the connection. By default, Director does suppress events for all connections created this way. The events can be enabled by passing “false” for this parameter.</p>
