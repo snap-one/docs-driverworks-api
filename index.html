@@ -17365,7 +17365,7 @@ Using no delimiter: 000a959d6816</p>
 <p>Function used to tell the system to make a connection (static or dynamic). Connections are created using the <a href="https://snap-one.github.io/docs-driverworks-api/#serial-and-network-interface-createnetworkconnection">CreateNetworkConnection</a> API. Further, port-specific configuration can be configured for a connection through the <a href="https://snap-one.github.io/docs-driverworks-api/#serial-and-network-interface-netportoptions">NetPortOptions</a> API. This API should not be invoked during OnDriverInit.</p>
 
 <p><h6 id='serial-and-network-interface-netconnect-examples-example-available-from-1-6-0-available-from-1-6-0'>Available from 1.6.0</h6><h3 id='serial-and-network-interface-netconnect-signature'>Signature</h3>
-<p><code>C4:NetConnect(idBinding, nPort, strIPType,)</code></p></p>
+<p><code>C4:NetConnect(idBinding, nPort, strIPType, bool)</code></p></p>
 
 <table><thead>
 <tr>
@@ -17387,7 +17387,7 @@ Using no delimiter: 000a959d6816</p>
 </tr>
 <tr>
 <td>bool</td>
-<td>True/False.  Optional. Specifies whether Director should suppress OnDeviceOnline and OnDeviceOffline events for the connection. By default, Director does suppress events for all connections created this way. The events can be enabled by passing “false” for this parameter. For more information, please refer to:<a href="https://snap-one.github.io/docs-driverworks-api/#event-interface-suppressing-system-events">Suppressing System Events</a>.</td>
+<td>True/False.  Optional. Specifies whether Director should suppress OnDeviceOnline and OnDeviceOffline events for the connection. By default, Director does suppress events for all connections created this way. The events can be enabled by passing “false” for this parameter. For more information, please refer to: <a href="https://snap-one.github.io/docs-driverworks-api/#event-interface-suppressing-system-events">Suppressing System Events</a>.</td>
 </tr>
 </tbody></table>
 
