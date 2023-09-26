@@ -9,12 +9,12 @@ Function to configure a connection's Port settings.  The use of this API is cont
 `C4:NetPortOptions(idBinding, nPort, strIPType,tPortParams)`
 
 
-| Parameter | Description |
-| --- | --- |
-| num | Binding ID of the network interface to disconnect from |
-| num | Network port. |
-| str | Network Connection type. For example, TCP/SSL or UDP. |
-| table | lua table of Key/Value pairs that contain all of the parameters for the specific Port. These parameters include: |
+| Parameter | Description                                                                                                      |
+| --------- | ---------------------------------------------------------------------------------------------------------------- |
+| num       | Binding ID of the network interface to disconnect from                                                           |
+| num       | Network port.                                                                                                    |
+| str       | Network Connection type. For example, TCP/SSL or UDP.                                                            |
+| table     | lua table of Key/Value pairs that contain all of the parameters for the specific Port. These parameters include: |
 
 - AUTO\_CONNECT - Corresponds to the `<auto_connect>` setting defined in the .c4i file. Specifies that Director should automatically attempt the connectIon.
 
@@ -44,7 +44,7 @@ Function to configure a connection's Port settings.  The use of this API is cont
 
 - VERIFY\_METHOD - Specifies the method to use for establishing the connection. A detailed description of the various methods can be found at https://www.openssl.org Valid values include: sslv2, sslv23, sslv3, tlsv1 &  tlsv1\_1\_. Note that if this property is omitted, then Director defaults to using sslv23 (which is the OpenSSL default).
 
-- suppressconnectionevents - true or false to suppress connections. For more information see: [Suppressing System Events][3]
+- SUPPRESS\_CONNECTION\_EVENTS - true or false to suppress connections. By default, Director does suppress events for all connections. The events can be enabled by passing “false” for this parameter. For more information see: [Suppressing System Events][3]
 
 To the right is a sample tPortParams table using default values:
 
