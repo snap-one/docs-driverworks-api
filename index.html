@@ -17474,7 +17474,7 @@ Using no delimiter: 000a959d6816</p>
 <li><p>CACERTFILE - Path to the CA (certificate authority) certificate to use for the connection. The path is relative to the driver’s C4Z location.</p></li>
 <li><p>VERIFY_MODE - Specifies the verification mode to use for the connection. The verify mode corresponds to those supported by OpenSSL. A detailed description of the verification modes can be found here: https://www.openssl.org. Note that Control4 currently supports only the peer verification mode (SSL VERIFY PEER). Values include: none and peer. Note that if this property is omitted, then Director defaults to use no verification (“none”).</p></li>
 <li><p>VERIFY_METHOD - Specifies the method to use for establishing the connection. A detailed description of the various methods can be found at https://www.openssl.org Valid values include: sslv2, sslv23, sslv3, tlsv1 &amp;  tlsv1_1_. Note that if this property is omitted, then Director defaults to using sslv23 (which is the OpenSSL default).</p></li>
-<li><p>suppressconnectionevents - true or false to suppress connections. For more information see: <a href="https://snap-one.github.io/docs-driverworks-api/#event-interface-suppressing-system-events">Suppressing System Events</a></p></li>
+<li><p>SUPPRESS_CONNECTION_EVENTS - true or false to suppress connections. By default, Director does suppress events for all connections. The events can be enabled by passing “false” for this parameter. For more information see: <a href="https://snap-one.github.io/docs-driverworks-api/#event-interface-suppressing-system-events">Suppressing System Events</a></p></li>
 </ul>
 
 <p>To the right is a sample tPortParams table using default values:</p>
