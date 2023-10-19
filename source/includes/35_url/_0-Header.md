@@ -12,7 +12,7 @@ This API Interface replaces the following APIs:
 
 - `C4:urlCustom()`
 
-C4:url() utilizes a more flexible callback-based object interface. A call to this function returns a C4:url object that can be set up with various callback functions and options. Once set up, a call to its methods: Get(), Post(), Put(), Delete(), or Custom() initiates the transfer.
+C4:url() utilizes a more flexible callback-based object interface. A call to this function returns a C4:url object that can be set up with various callback functions and options. Once set up, a call to its methods: [Get()][1], [Post()][2], [Put()][3], [Delete()][4], or [Custom()][5] initiates the transfer.
 
 ###### Available from 2.10.5
 
@@ -48,3 +48,9 @@ print("scheduled url transfer with id " .. t:TicketId())
 ```
 
 The C4:url Object that is returned supports the APIs defined in this section.
+
+[1]:	https://snap-one.github.io/docs-driverworks-api/#url-interface-get
+[2]:	https://snap-one.github.io/docs-driverworks-api/#url-interface-post
+[3]:	https://snap-one.github.io/docs-driverworks-api/#url-interface-put
+[4]:	https://snap-one.github.io/docs-driverworks-api/#url-interface-delete
+[5]:	https://snap-one.github.io/docs-driverworks-api/#url-interface-custom
