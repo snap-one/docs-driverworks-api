@@ -18611,13 +18611,15 @@ See: <a href="https://en.wikipedia.org/wiki/Epoch_(computing)" title="Epoch Date
 
 <p>This API Interface replaces the following APIs:</p>
 
-<p><code>C4:urlGet()</code>
-<code>C4:urlPost()</code>
-<code>C4:urlPut()</code>
-<code>C4:urlDelete()</code>
-<code>C4:urlCustom()</code></p>
+<ul>
+<li><p><code>C4:urlGet()</code></p></li>
+<li><p><code>C4:urlPost()</code></p></li>
+<li><p><code>C4:urlPut()</code></p></li>
+<li><p><code>C4:urlDelete()</code></p></li>
+<li><p><code>C4:urlCustom()</code></p></li>
+</ul>
 
-<p>C4:url() utilizes a more flexible callback-based object interface. A call to this function returns a C4LuaUrl object that can be set up with various callback functions and options. Once set up, a call to its methods: Get(), Post(), Put(), Delete(), or Custom() initiates the transfer.</p>
+<p>C4:url() utilizes a more flexible callback-based object interface. A call to this function returns a C4:url object that can be set up with various callback functions and options. Once set up, a call to its methods: Get(), Post(), Put(), Delete(), or Custom() initiates the transfer.</p>
 
 <h6 id='url-interface-gettime-returns-example-available-from-1-6-0-available-from-2-10-5'>Available from 2.10.5</h6>
 
@@ -18650,7 +18652,7 @@ See: <a href="https://en.wikipedia.org/wiki/Epoch_(computing)" title="Epoch Date
 <span class="nb">print</span><span class="p">(</span><span class="s2">"scheduled url transfer with id "</span> <span class="o">..</span> <span class="n">t</span><span class="p">:</span><span class="n">TicketId</span><span class="p">())</span>
 </code></pre></div>
 
-<p>The C4LuaUrl Object that is returned supports the APIs defined in this section.</p>
+<p>The C4:url Object that is returned supports the APIs defined in this section.</p>
 
 <h2 id='url-interface-cancel'>Cancel</h2>
 
