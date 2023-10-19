@@ -2,13 +2,17 @@
 
 This API Interface replaces the following APIs:
 
-`C4:urlGet()`
-`C4:urlPost()`
-`C4:urlPut()`
-`C4:urlDelete()`
-`C4:urlCustom()`
+- `C4:urlGet()`
 
-C4:url() utilizes a more flexible callback-based object interface. A call to this function returns a C4LuaUrl object that can be set up with various callback functions and options. Once set up, a call to its methods: Get(), Post(), Put(), Delete(), or Custom() initiates the transfer.
+- `C4:urlPost()`
+
+- `C4:urlPut()`
+
+- `C4:urlDelete()`
+
+- `C4:urlCustom()`
+
+C4:url() utilizes a more flexible callback-based object interface. A call to this function returns a C4:url object that can be set up with various callback functions and options. Once set up, a call to its methods: Get(), Post(), Put(), Delete(), or Custom() initiates the transfer.
 
 ###### Available from 2.10.5
 
@@ -43,4 +47,4 @@ local t = C4:url()
 print("scheduled url transfer with id " .. t:TicketId())
 ```
 
-The C4LuaUrl Object that is returned supports the APIs defined in this section.
+The C4:url Object that is returned supports the APIs defined in this section.
