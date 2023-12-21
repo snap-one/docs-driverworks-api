@@ -32,7 +32,6 @@ Function to record a history event in the history database. Beginning with O.S. 
 
 
 ### Example
-**TODO: Need example for case with metadata and need template for metadata table format**
 
 ```xml
 print ("UUID of the event is " .. C4:RecordHistory("Info", "Motion", "Cameras", "IP Camera", "This is a test", ""))
