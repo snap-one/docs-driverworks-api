@@ -2,7 +2,7 @@
 
 Beginning with Operating System 3.4.1, a lua-openssl interface is supported through the SDK. Previously, new cryptographic functions were added to the DriverWorks API upon request. However, this approach is untenable as it is impossible to anticipate the future needs of drivers to perform cryptographic operations. Its inclusion ensures that drivers developers will have what they need without having to request new APIs in the future. 
 
-Documentation for using the included lua-openssl library can be found [here][1]:
+Documentation for using the included lua-openssl library can be found [here][1].
 
 
 
@@ -39,7 +39,7 @@ In these cases, API functions have been removed or objects have been affected.  
 | Module: **pkey**       | Functions related to managing engines were modified. This was done due to the requirement of compiling  C (native) code, which is not permitted for Lua drivers.  The following functions are affected:                                                                        |
 |                        | new (engine argument removed)                                                                                                                                                                                                                                                  |
 |                        | set\_engine   (function removed)                                                                                                                                                                                                                                               |
-| Class: **pkey**        | The engine argument was removed from the various methods. This was done due to the requirement of compiling  C (native) code, which is not permitted for Lua drivers.. The following methods are affected: pkey:derive                                                         |
+| Class: **pkey**        | The engine argument was removed from the various methods. This was done due to the requirement of compiling  C (native) code, which is not permitted for Lua drivers. The following methods are affected: pkey:derive                                                          |
 | Module: **rsa**        | The rsa module was removed. This was done because the RSA API was deprecated in OpenSSL 3 and will be removed in future versions. Use the pkey module for operations involving RSA keys.                                                                                       |
 | Module: **ssl**        | The ssl module was removed. This was done because this module is designed for use with sockets that the OpenSSL socket API blocks.                                                                                                                                             |
 | Module: **srp**        | The srp module was removed. This was done because the SRP API was deprecated in OpenSSL 3 and will be removed in future versions. There is no replacement for this API.                                                                                                        |
