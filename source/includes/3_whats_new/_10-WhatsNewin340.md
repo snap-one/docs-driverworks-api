@@ -4,7 +4,7 @@
 
 **Event Interface**
 
-A new API: [RegisterEvents][1] has been added  in support of the [History Event Notification][2] changes to support enhanced push notification functionality for end users.
+A new API: [RegisterEvents][1] has been added  in support of the [History Event Notification][2] changes which support enhanced push notification functionality for end users.
 
 
 **Helper Interface**
