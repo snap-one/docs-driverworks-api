@@ -2,9 +2,9 @@
 
 Beginning with Operating System 3.4.1, a lua-openssl interface is supported through the SDK. Previously, new cryptographic functions were added to the DriverWorks API upon request. However, this approach is untenable as it is impossible to anticipate the future needs of drivers to perform cryptographic operations. Its inclusion ensures that drivers developers will have what they need without having to request new APIs in the future. 
 
-Documentation for using the included lua-openssl library can be found here:
+Documentation for using the included lua-openssl library can be found [here][1]:
 
-[https://zhaozg.github.io/lua-openssl/][1]
+
 
 The DriverWorks included lua-openssl library works according to the documentation above, with some exceptions.  The version of lua-openssl included in DriverWorks has been modified to remove deprecated OpenSSL calls, and to ensure that all file operations (i.e., create, open, etc.) occur relative to a well-known directory alias, similar to how other DriverWorks file functions operate. (See 'Working with Files' below)
 
@@ -48,3 +48,5 @@ In these cases, API functions have been removed or objects have been affected.  
 |                        | load                                                                                                                                                                                                                                                                           |
 
 
+
+[1]:	https://zhaozg.github.io/lua-openssl/
