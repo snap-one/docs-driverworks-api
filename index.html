@@ -315,6 +315,9 @@
             <a href="#what-39-s-new" class="toc-h1 toc-link" data-title="What's New">What's New</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#what-39-s-new-what-s-new-in-3-4-1" class="toc-h2 toc-link" data-title="What’s New in 3.4.1">What’s New in 3.4.1</a>
+                  </li>
+                  <li>
                     <a href="#what-39-s-new-what-s-new-in-3-4-0" class="toc-h2 toc-link" data-title="What’s New in 3.4.0">What’s New in 3.4.0</a>
                   </li>
                   <li>
@@ -710,6 +713,17 @@
                   </li>
                   <li>
                     <a href="#json-interface-jsondecode" class="toc-h2 toc-link" data-title="JsonDecode">JsonDecode</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#lua-openssl-interface" class="toc-h1 toc-link" data-title="lua-openssl Interface">lua-openssl Interface</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#lua-openssl-interface-working-with-files" class="toc-h2 toc-link" data-title="Working with Files">Working with Files</a>
+                  </li>
+                  <li>
+                    <a href="#lua-openssl-interface-example" class="toc-h2 toc-link" data-title="Example">Example</a>
                   </li>
               </ul>
           </li>
@@ -1707,6 +1721,14 @@ Salt Lake City, UT 84020 USA</p>
 
 <p>Effective communication between your driver and Control4 System is paramount to a successful end user experience. The API Reference Guide details each of the Interfaces supported through the DriverWorksSDK. These Interfaces include numerous APIs that can be leveraged by your driver to  facilitate communication between the driver and the Control4 O.S.</p>
 <h1 id='what-39-s-new'>What&#39;s New</h1>
+
+<h2 id='what-39-s-new-what-s-new-in-3-4-1'>What’s New in 3.4.1</h2>
+
+<p><strong>lua-openssl Interface</strong></p>
+
+<p>This release incudes support of an extended <a href="https://snap-one.github.io/docs-driverworks-api-341-beta/#lua-openssl-interface">Lua OpenSSL interface</a>.  </p>
+
+<p>Historically, new cryptographic functions were added to the DriverWorks API upon request. However, this approach is untenable as it is impossible to  anticipate the future needs of drivers to perform cryptographic operations. Adding support for a more complete interface makes virtually the entire OpenSSL API available to drivers. This ensures that driver developers have what they need without having to request new APIs to be added.</p>
 
 <h2 id='what-39-s-new-what-s-new-in-3-4-0'>What’s New in 3.4.0</h2>
 
@@ -6834,6 +6856,257 @@ local Foo = {
         "Australia"
     }
 }
+</code></pre></div>
+<h1 id='lua-openssl-interface'>lua-openssl Interface</h1>
+
+<p>Beginning with Operating System 3.4.1, a lua-openssl interface is supported through the SDK. Previously, new cryptographic functions were added to the DriverWorks API upon request. However, this approach is untenable as it is impossible to anticipate the future needs of drivers to perform cryptographic operations. Its inclusion ensures that drivers developers will have what they need without having to request new APIs in the future. </p>
+
+<p>Documentation for using the included lua-openssl library can be found here:</p>
+
+<p>[https://zhaozg.github.io/lua-openssl/][1]</p>
+
+<p>The DriverWorks included lua-openssl library works according to the documentation above, with some exceptions.  The version of lua-openssl included in DriverWorks has been modified to remove deprecated OpenSSL calls, and to ensure that all file operations (i.e., create, open, etc.) occur relative to a well-known directory alias, similar to how other DriverWorks file functions operate. (See &#39;Working with Files&#39; below)</p>
+
+<p>In these cases, API functions have been removed or objects have been affected.  Affected functions and objects, along with their respective changes, are detailed in the table below.</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left"></th>
+<th style="text-align: left"></th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><strong>Class or Module</strong></td>
+<td style="text-align: left"><strong>Modifications</strong></td>
+</tr>
+<tr>
+<td style="text-align: left">Class: <strong>bio</strong></td>
+<td style="text-align: left">All methods related to sockets were removed. This includes the following:</td>
+</tr>
+<tr>
+<td style="text-align: left"></td>
+<td style="text-align: left">bio:shutdown</td>
+</tr>
+<tr>
+<td style="text-align: left"></td>
+<td style="text-align: left">bio:accept</td>
+</tr>
+<tr>
+<td style="text-align: left"></td>
+<td style="text-align: left">bio:connect</td>
+</tr>
+<tr>
+<td style="text-align: left"></td>
+<td style="text-align: left">bio:get_ssl</td>
+</tr>
+<tr>
+<td style="text-align: left"></td>
+<td style="text-align: left">bio:handshake</td>
+</tr>
+<tr>
+<td style="text-align: left">Module: <strong>dh</strong></td>
+<td style="text-align: left">The dh module was removed. This was done because the DH API was deprecated in OpenSSL 3 and will be removed in future versions. Use the pkey module  for operations involving DH keys.</td>
+</tr>
+<tr>
+<td style="text-align: left">Module: <strong>dsa</strong></td>
+<td style="text-align: left">The dsa module was removed. This was done because the DSA API was deprecated in OpenSSL 3 and will be removed in future versions. Use the pkey module  for operations involving DSA keys.</td>
+</tr>
+<tr>
+<td style="text-align: left">Module: <strong>ec</strong></td>
+<td style="text-align: left">The ec module was removed. This was done because the EC API was deprecated in OpenSSL 3 and will be removed in future versions. Use the pkey  instead for operations involving EC keys.</td>
+</tr>
+<tr>
+<td style="text-align: left">Class: <strong>evp\\\\\\\_cipher</strong></td>
+<td style="text-align: left">The engine argument was removed from the  methods listed below. This was done due to the requirement of compiling  C (native) code, which is not permitted for Lua drivers.</td>
+</tr>
+<tr>
+<td style="text-align: left"></td>
+<td style="text-align: left">evp_cipher:cipher</td>
+</tr>
+<tr>
+<td style="text-align: left"></td>
+<td style="text-align: left">evp_cipher:decrypt</td>
+</tr>
+<tr>
+<td style="text-align: left"></td>
+<td style="text-align: left">evp_cipher:decrypt_new</td>
+</tr>
+<tr>
+<td style="text-align: left"></td>
+<td style="text-align: left">evp_cipher:encrypt</td>
+</tr>
+<tr>
+<td style="text-align: left"></td>
+<td style="text-align: left">evp_cipher: encrypt_new</td>
+</tr>
+<tr>
+<td style="text-align: left"></td>
+<td style="text-align: left">evp_cipher:new</td>
+</tr>
+<tr>
+<td style="text-align: left">Module: <strong>hmac</strong></td>
+<td style="text-align: left">The engine argument was removed from the method  listed below. This was done due to the requirement of compiling  C (native) code, which is not permitted for Lua drivers. new</td>
+</tr>
+<tr>
+<td style="text-align: left">Class: <strong>lhash</strong></td>
+<td style="text-align: left">All file operations (i.e., create, open, etc.) occur relative to a well-known directory alias. See Working With Files below for more information. The following methods are affected: lhash:read</td>
+</tr>
+<tr>
+<td style="text-align: left">Module: <strong>openssl</strong></td>
+<td style="text-align: left">All file operations (i.e., create, open, etc.) occur relative to a well-known directory alias. See Working With Files below for more information. The following functions are affected:</td>
+</tr>
+<tr>
+<td style="text-align: left"></td>
+<td style="text-align: left">rand_load</td>
+</tr>
+<tr>
+<td style="text-align: left"></td>
+<td style="text-align: left">rand_write</td>
+</tr>
+<tr>
+<td style="text-align: left"></td>
+<td style="text-align: left">Functions related to managing engines were removed. This was done due to the requirement of compiling  C (native) code, which is not permitted for Lua drivers. The following function was removed: engine The following function  related to using FIPS modules were removed:</td>
+</tr>
+<tr>
+<td style="text-align: left"></td>
+<td style="text-align: left">FIPS_mode</td>
+</tr>
+<tr>
+<td style="text-align: left">Module: <strong>pkey</strong></td>
+<td style="text-align: left">Functions related to managing engines were modified. This was done due to the requirement of compiling  C (native) code, which is not permitted for Lua drivers.  The following functions are affected:</td>
+</tr>
+<tr>
+<td style="text-align: left"></td>
+<td style="text-align: left">new (engine argument removed)</td>
+</tr>
+<tr>
+<td style="text-align: left"></td>
+<td style="text-align: left">set_engine   (function removed)</td>
+</tr>
+<tr>
+<td style="text-align: left">Class: <strong>pkey</strong></td>
+<td style="text-align: left">The engine argument was removed from the various methods. This was done due to the requirement of compiling  C (native) code, which is not permitted for Lua drivers.. The following methods are affected: pkey:derive</td>
+</tr>
+<tr>
+<td style="text-align: left">Module: <strong>rsa</strong></td>
+<td style="text-align: left">The rsa module was removed. This was done because the RSA API was deprecated in OpenSSL 3 and will be removed in future versions. Use the pkey module for operations involving RSA keys.</td>
+</tr>
+<tr>
+<td style="text-align: left">Module: <strong>ssl</strong></td>
+<td style="text-align: left">The ssl module was removed. This was done because this module is designed for use with sockets that the OpenSSL socket API blocks.</td>
+</tr>
+<tr>
+<td style="text-align: left">Module: <strong>srp</strong></td>
+<td style="text-align: left">The srp module was removed. This was done because the SRP API was deprecated in OpenSSL 3 and will be removed in future versions. There is no replacement for this API.</td>
+</tr>
+<tr>
+<td style="text-align: left">Module: <strong>x509.store</strong></td>
+<td style="text-align: left">All file operations (i.e., create, open, etc.) occur relative to a well-known directory alias. See Working With Files below for more information. The following functions are affected:</td>
+</tr>
+<tr>
+<td style="text-align: left"></td>
+<td style="text-align: left">add_lookup</td>
+</tr>
+<tr>
+<td style="text-align: left"></td>
+<td style="text-align: left">load</td>
+</tr>
+</tbody></table>
+
+<h2 id='lua-openssl-interface-working-with-files'>Working with Files</h2>
+
+<p>The lua-openssl library was modified such that all file operations (i.e., create, open, etc.) occur relative to a well-known directory alias. The DriverWorks API provides the following directory aliases to drivers:</p>
+
+<p>C4Z: Points to a driver&#39;s &quot;c4z&quot; directory. This directory consists of the name of the driver file without the .c4z extension. For example, given a driver filename of my_test_driver.c4z, using this alias resolves to the following directory:
+…/drivers/c4z/my_test_driver/</p>
+
+<p>LOGGING: Points to the system logging directory. Using this alias resolves to the following directory:
+/var/log/debug/</p>
+
+<p>MEDIA: Points to the system media directory. Using this alias resolves to the following directory:
+/media/</p>
+
+<p>SANDBOX: Points to a driver&#39;s &quot;sandbox&quot; directory. This directory consists of the Device ID. For example, given a driver with a Device ID of 42, using this alias resolves to the following directory:
+.../lua/sandbox/42/</p>
+
+<p>A driver can use any of these aliases by prefixing the filename using the following syntax:
+&lt;ALIAS&gt;:/&lt;filename&gt;</p>
+
+<p>Note that using an alias is optional; the SANDBOX alias is used by default when no alias is given.</p>
+
+<p><strong>The following characters are disallowed in directory/file names:</strong></p>
+
+<ul>
+<li>Non-printable characters (ASCII values &lt; 32 / 0x20)</li>
+<li>Angle brackets: &lt;. &gt;</li>
+<li>Asterisk: * </li>
+<li> Backslash: \</li>
+<li>Colon: :</li>
+<li>Double quote: &quot;</li>
+<li>Pipe: |</li>
+<li>Question mark: ?</li>
+<li>Tilde: <code>~</code></li>
+</ul>
+
+<p>See the examples of using Aliases to the right.  </p>
+
+<div class="highlight"><pre class="highlight xml tab-xml"><code>-- Creating a file in the "sandbox". Note the the following two examples are equivalent (SANDBOX is used by default when no alias is given):
+
+local openssl = require 'openssl'
+
+local file, error_message, error_code = openssl.bio.file("cert.pem", "w+b")
+if (file == nil) then
+    error_message = "Error creating cert.pem: " .. error_message
+end
+
+
+local openssl = require 'openssl'
+
+local file, error_message, error_code = openssl.bio.file("SANDBOX:/cert.pem", "w+b")
+if (file == nil) then
+    error_message = "Error creating cert.pem: " .. error_message
+end
+</code></pre></div><div class="highlight"><pre class="highlight xml tab-xml"><code>-- Opening a file in the "sandbox":
+
+
+local openssl = require 'openssl'
+
+local file, error_message, error_code = openssl.bio.file("SANDBOX:/cert.pem", "r")
+if (file == nil) then
+    error_message = "Error opening cert.pem: " .. error_message
+end
+</code></pre></div><div class="highlight"><pre class="highlight xml tab-xml"><code>-- Opening a file in the "c4z" directory:
+
+
+local openssl = require 'openssl'
+
+local file, error_message, error_code = openssl.bio.file("C4Z:/image.jpg", "r")
+if (file == nil) then
+    error_message = "Error opening image.jpg: " .. error_message
+end
+</code></pre></div>
+
+<h2 id='lua-openssl-interface-example'>Example</h2>
+
+<p>Please see the example to the right using the  Lua opensll-pkey for public or private key processing.  </p>
+
+<p>Providing example of all of the OpenSSL functions is beyond the scope of the SDK.  For more examples, please visit the <a href="https://zhaozg.github.io/lua-openssl/modules/pkey.html">lua-openssl documentation website.</a></p>
+
+<div class="highlight"><pre class="highlight xml tab-xml"><code>pkey = require 'openssl'.pkey
+
+-- Generate Private/Public key pair
+local private_key = pkey.new('ec', 'prime256v1', 'compressed', 'explicit') -- Generate Ecliptic Curve private key, with explicit curve parameters included
+local public_key = private_key:get_public() -- Generate public key based on private key
+
+local private_key_export = private_key:export('pem', 'true') -- Export text version of key (PEM format)
+local public_key_export = public_key:export('pem', 'true')
+
+print(private_key_export)
+print(public_key_export)
+
+-- Derive a shared secret from received public key and my own private key
+local peer_key = pkey.read("-----BEGIN PUBLIC KEY-----\n" .. ReceivedPublicKey .. "\n-----END PUBLIC KEY-----\n")
+local shared_secret = pkey.derive( private_key, peer_key )
 </code></pre></div>
 <h1 id='log-interface'>Log Interface</h1>
 
