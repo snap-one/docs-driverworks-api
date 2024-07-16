@@ -2595,7 +2595,7 @@ SetOnDisconnected: Provides notification when the connection is disconnected, or
 <p>Prior to Operating System 2.10, overuse of C4:InvalidateState() was an issue as persisting extraneous data through a driver had performance implications. Beginning with Operating System 2.10, it is no longer necessary to cause driver data to be persisted. Drivers should use the <a href="https://snap-one.github.io/docs-driverworks-api/#persistence-interface-persistsetvalue">PersistSetValue</a> and <a href="https://snap-one.github.io/docs-driverworks-api/#persistence-interface-persistgetvalue">PersistGetValue</a> functions to store data that will be required across system restarts.</p></p>
 <h1 id='encryption-interface'>Encryption Interface</h1>
 
-<p>Note that beginning with Operating System 3.4.1, a<a href="https://verbose-adventure-1w92qyr.pages.github.io/#lua-openssl-interface"> lua-OpenSSL interface</a> for third party driver developers is supported through the SDK.  This DriverWorks Lua-supported interface includes the majority of the OpenSSL API. </p>
+<p>Note that beginning with Operating System 3.4.1, a<a href="https://snap-one.github.io/docs-driverworks-api/#lua-openssl-interface"> lua-OpenSSL interface</a> for third party driver developers is supported through the SDK.  This DriverWorks Lua-supported interface includes the majority of the OpenSSL API.</p>
 
 <h2 id='encryption-interface-encode'>Encode</h2><div class="highlight"><pre class="highlight lua tab-lua"><code><span class="kd">local</span> <span class="n">data</span> <span class="o">=</span> <span class="s1">'Hello World This Is London Calling'</span>
 <span class="kd">local</span> <span class="n">data_encoding</span> <span class="o">=</span> <span class="s1">'BASE64'</span>
