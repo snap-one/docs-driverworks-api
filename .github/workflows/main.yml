@@ -28,7 +28,7 @@ jobs:
     - name: Copy slate into root
       run: cp -r ./slate/* ./
     - name: Run Slate build script
-      run: ./build.sh
+      run: ./build.sh -c true
     - name: Deploy to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@v4
       with:
