@@ -10,4 +10,3 @@ The output is regenerated whenever a Markdown file changes on the `master` branc
 [1]: https://snap-one.github.io/docs-driverworks-api/#introduction
 
 [image-1]: https://github.com/snap-one/docs-driverworks-api/workflows/Build%20and%20deploy/badge.svg
-
