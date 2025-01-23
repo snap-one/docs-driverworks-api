@@ -1016,9 +1016,6 @@
                     <a href="#miscellaneous-interface-getsystemtype" class="toc-h2 toc-link" data-title="GetSystemType">GetSystemType</a>
                   </li>
                   <li>
-                    <a href="#miscellaneous-interface-gettext" class="toc-h2 toc-link" data-title="GetText">GetText</a>
-                  </li>
-                  <li>
                     <a href="#miscellaneous-interface-getuniquemac" class="toc-h2 toc-link" data-title="GetUniqueMAC">GetUniqueMAC</a>
                   </li>
                   <li>
@@ -10578,50 +10575,12 @@ Output: <code>XDT_EA5</code></p></p>
 <p><code>print(C4:GetSystemType())</code>
 Output: <code>XDT_Windows</code>_ </p>
 
-<h2 id='miscellaneous-interface-gettext'>GetText</h2>
-
-<p>Function to get a string translated into the current locale from a “C” (English) input string. This will only return translated strings if there is a corresponding input -&gt; translation match in the current translated string for the set locale. If no translation is found the input string is returned. This API can be invoked during OnDriverInit.</p>
-
-<p><h6 id='miscellaneous-interface-gettext-examples-director-geo-location-service-available-from-1-6-0-available-from-1-6-0'>Available from 1.6.0</h6><h3 id='miscellaneous-interface-gettext-signature'>Signature</h3>
-<p><code>C4:GetText()</code></p></p>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>str</td>
-<td>String to be translated</td>
-</tr>
-</tbody></table>
-
-<h3 id='miscellaneous-interface-gettext-returns'>Returns</h3>
-
-<table><thead>
-<tr>
-<th>Value</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>str</td>
-<td>Translated string</td>
-</tr>
-</tbody></table>
-
-<h3 id='miscellaneous-interface-gettext-example'>Example</h3><div class="highlight"><pre class="highlight lua tab-lua"><code><span class="nb">print</span> <span class="p">(</span><span class="s2">"Translation of stop is "</span> <span class="o">..</span> <span class="n">C4</span><span class="p">:</span><span class="n">GetText</span><span class="p">(</span><span class="s2">"stop"</span><span class="p">))</span>
-
-<span class="n">Output</span><span class="p">:</span> 
-
-<span class="n">Translation</span> <span class="n">of</span> <span class="n">stop</span> <span class="n">is</span> <span class="n">stop</span>
-</code></pre></div>
 <h2 id='miscellaneous-interface-getuniquemac'>GetUniqueMAC</h2>
-<p>Function to get the unique MAC address of the Director box. This API can be invoked during OnDriverInit.</p>
-<h6 id='miscellaneous-interface-getuniquemac-example-director-geo-location-service-available-from-1-6-0-available-from-1-6-0'>Available from 1.6.0</h6><h3 id='miscellaneous-interface-getuniquemac-signature'>Signature</h3>
 
-<p><code>C4:GetUniqueMAC()</code></p>
+<p>Function to get the unique MAC address of the Director box. This API can be invoked during OnDriverInit.</p>
+
+<p><h6 id='miscellaneous-interface-getuniquemac-examples-director-geo-location-service-available-from-1-6-0-available-from-1-6-0'>Available from 1.6.0</h6><h3 id='miscellaneous-interface-getuniquemac-signature'>Signature</h3>
+<p><code>C4:GetUniqueMAC()</code></p></p>
 
 <p>Parameter</p>
 
