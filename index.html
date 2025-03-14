@@ -2795,28 +2795,12 @@ SetOnDisconnected: Provides notification when the connection is disconnected, or
 </tr>
 </tbody></table>
 
-<h2 id='encryption-interface-decrypt'>Decrypt</h2><div class="highlight"><pre class="highlight lua tab-lua"><code><span class="kd">local</span> <span class="n">cipher</span> <span class="o">=</span> <span class="s1">'AES-256-CBC'</span>
-<span class="kd">local</span> <span class="n">key</span> <span class="o">=</span> <span class="s1">'Super Secret Key'</span>
-<span class="kd">local</span> <span class="n">iv</span> <span class="o">=</span> <span class="s1">'IV For C4'</span>
-<span class="kd">local</span> <span class="n">data</span> <span class="o">=</span> <span class="s1">'HMQ9QXyBFUBnTAXBl2zi6k6abipQYQjpc37B0nA3WaxK9vBNrqKKAEzIglxWkA46'</span>
-<span class="kd">local</span> <span class="n">options</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="n">return_encoding</span> <span class="o">=</span> <span class="s1">'NONE'</span><span class="p">,</span>
-    <span class="n">key_encoding</span> <span class="o">=</span> <span class="s1">'NONE'</span><span class="p">,</span>
-    <span class="n">iv_encoding</span> <span class="o">=</span> <span class="s1">'NONE'</span><span class="p">,</span>
-    <span class="n">data_encoding</span> <span class="o">=</span> <span class="s1">'BASE64'</span><span class="p">,</span>
-    <span class="n">padding</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span>
-<span class="p">}</span>
-<span class="kd">local</span> <span class="n">decrypted_data</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">C4</span><span class="p">:</span><span class="n">Decrypt</span> <span class="p">(</span><span class="n">cipher</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">iv</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>
-<span class="nb">print</span> <span class="p">(</span><span class="nb">type</span> <span class="p">(</span><span class="n">decrypted_data</span><span class="p">),</span> <span class="n">decrypted_data</span><span class="p">)</span>
-</code></pre></div>
-<blockquote>
-<p>Output:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight lua tab-lua"><code><span class="n">string</span>  <span class="n">Hello</span> <span class="n">World</span><span class="p">,</span> <span class="n">this</span> <span class="n">is</span> <span class="n">London</span> <span class="n">calling</span>
-</code></pre></div>
+<h2 id='encryption-interface-decrypt'>Decrypt</h2>
+
 <p>Encrypts a given string with the specified cipher, using the specified key and IV.</p>
-<h6 id='encryption-interface-decrypt-returns-see-also-available-from-2-10-4-available-in-1-6-0'>Available in 1.6.0.</h6><h3 id='encryption-interface-decrypt-signature'>Signature</h3>
-<p><code>C4:Decrypt (cipher, key, iv, data, options)</code></p>
+
+<p><h6 id='encryption-interface-decrypt-returns-see-also-available-from-2-10-4-available-in-1-6-0'>Available in 1.6.0.</h6><h3 id='encryption-interface-decrypt-signature'>Signature</h3>
+<p><code>C4:Decrypt (cipher, key, iv, data, options)</code></p></p>
 
 <table><thead>
 <tr>
@@ -2852,30 +2836,38 @@ SetOnDisconnected: Provides notification when the connection is disconnected, or
 <tr>
 <th>Key</th>
 <th>Description</th>
+<th></th>
 </tr>
 </thead><tbody>
 <tr>
 <td>str</td>
-<td>return_encoding: &#39;NONE&#39; / &#39;HEX&#39; / &#39;BASE64&#39;</td>
+<td>return\_encoding: &#39;NONE&#39; / &#39;HEX&#39; / &#39;BASE64&#39;</td>
+<td></td>
 </tr>
 <tr>
 <td>str</td>
-<td>key_encoding: &#39;NONE&#39; / &#39;HEX&#39; / &#39;BASE64&#39;</td>
+<td>key\_encoding: &#39;NONE&#39; / &#39;HEX&#39; / &#39;BASE64&#39;</td>
+<td></td>
 </tr>
 <tr>
 <td>str</td>
-<td>iv_encoding</td>
+<td>iv\_encoding</td>
+<td>iv\_encoding:  &#39;NONE&#39; / &#39;HEX&#39; / &#39;BASE64&#39;</td>
 </tr>
 <tr>
 <td>str</td>
-<td>data_encoding: &#39;NONE&#39; / &#39;HEX&#39; / &#39;BASE64&#39;</td>
+<td>data\_encoding: &#39;NONE&#39; / &#39;HEX&#39; / &#39;BASE64&#39;</td>
+<td></td>
 </tr>
 <tr>
 <td>bool</td>
 <td>padding: <code>true</code> Controls the padding requirements for the cipher used</td>
+<td></td>
 </tr>
 </tbody></table>
+
 <h3 id='encryption-interface-decrypt-returns'>Returns</h3>
+
 <p><code>result, err</code></p>
 
 <p>A successful operation will return <code>nil</code> for <em>err</em>.  If an error occurs, then <em>result</em> will be nil and <em>err</em> will contain the description of the error.</p>
@@ -2896,12 +2888,30 @@ SetOnDisconnected: Provides notification when the connection is disconnected, or
 </tr>
 </tbody></table>
 
+<h3 id='encryption-interface-decrypt-example'>Example</h3><div class="highlight"><pre class="highlight lua tab-lua"><code><span class="kd">local</span> <span class="n">cipher</span> <span class="o">=</span> <span class="s1">'AES-256-CBC'</span>
+<span class="kd">local</span> <span class="n">key</span> <span class="o">=</span> <span class="s1">'Super Secret Key'</span>
+<span class="kd">local</span> <span class="n">iv</span> <span class="o">=</span> <span class="s1">'IV For C4'</span>
+<span class="kd">local</span> <span class="n">data</span> <span class="o">=</span> <span class="s1">'HMQ9QXyBFUBnTAXBl2zi6k6abipQYQjpc37B0nA3WaxK9vBNrqKKAEzIglxWkA46'</span>
+<span class="kd">local</span> <span class="n">options</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">return_encoding</span> <span class="o">=</span> <span class="s1">'NONE'</span><span class="p">,</span>
+    <span class="n">key_encoding</span> <span class="o">=</span> <span class="s1">'NONE'</span><span class="p">,</span>
+    <span class="n">iv_encoding</span> <span class="o">=</span> <span class="s1">'NONE'</span><span class="p">,</span>
+    <span class="n">data_encoding</span> <span class="o">=</span> <span class="s1">'BASE64'</span><span class="p">,</span>
+    <span class="n">padding</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="kd">local</span> <span class="n">decrypted_data</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">C4</span><span class="p">:</span><span class="n">Decrypt</span> <span class="p">(</span><span class="n">cipher</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">iv</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="nb">type</span> <span class="p">(</span><span class="n">decrypted_data</span><span class="p">),</span> <span class="n">decrypted_data</span><span class="p">)</span>
+</code></pre></div>
+<blockquote>
+<p>Output:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight lua tab-lua"><code><span class="n">string</span>  <span class="n">Hello</span> <span class="n">World</span><span class="p">,</span> <span class="n">this</span> <span class="n">is</span> <span class="n">London</span> <span class="n">calling</span>
+</code></pre></div>
 <h2 id='encryption-interface-generatecsr_ecc'>GenerateCSR_ECC</h2>
-
 <p>This API will generate a certificate signing request (CSR) which, when sent to a certificate authority, will return a digital identity certificate that meets the encryption criteria defined by Elliptic-curve cryptography (ECC) standard. The use of this API assumes a thorough knowledge of public-key cryptosystems and the ECC cryptosystem definition. The driver needs to send CSR off to a service that can sign and return the certificate. That step is left up to the driver writer. </p>
+<h6 id='encryption-interface-generatecsr_ecc-example-see-also-available-from-2-10-4-available-in-3-1-2'>Available in 3.1.2.</h6><h3 id='encryption-interface-generatecsr_ecc-signature'>Signature</h3>
 
-<p><h6 id='encryption-interface-generatecsr_ecc-returns-see-also-available-from-2-10-4-available-in-3-1-2'>Available in 3.1.2.</h6><h3 id='encryption-interface-generatecsr_ecc-signature'>Signature</h3>
-<p><code>C4:GenerateCSR_ECC(digest, curve, subject, tx509_exts) </code></p></p>
+<p><code>C4:GenerateCSR_ECC(digest, curve, subject, tx509_exts) </code></p>
 
 <table><thead>
 <tr>
