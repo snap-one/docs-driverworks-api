@@ -5,17 +5,19 @@ Function that enables a Lua driver to send network broadcast messages. The funct
 This function must be used judiciously as there are network performance implications associated with its use. Network broadcasting requires that the router send the message to every device connected to the network. Overuse of this function can cause significant performance problems that affect the entire network.
 
 ###### Available from 2.10.0
+###### Enhanced in 4.0.0 with sourcePort param
 
 
 ### Signature
 
-`C4:SendBroadcast(payload, port))`
+`C4:SendBroadcast(payload, destinationPort, [sourcePort])`
 
 
-| Parameter | Description |
-| --- | --- |
-| str | Payload of the message to be broadcast | 
-| num | Port identifying the port to which the payload is broadcast. |
+| Parameter       | Type | Description                                                                                                                                                                                                                                                                                                                                                       |
+| --------------- | ---- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| payload         | str  | payloadA string containing the data to be broadcast. Note that there is risk of fragmentation for payloads that exceed the minimum guaranteed MTU size of 576 bytes. Nevertheless, fragmentation depends on many factor such as the configuration of networking gear, and the devices involved. We generally have no control over networking so plan accordingly. |
+| destinationPort | num  | The destination port used for the broadcast. Note that the destination port is generally ignored because broadcasts are sent to all devices connected to the network, regardless of the port.                                                                                                                                                                     |
+| sourcePort      | num  | Optional. The source port used for the broadcast. When given, the connection is bound to the "any" address (0.0.0.0) using the specified port. This ensures that the broadcast is sent from a specific port rather than an ethereal port.                                                                                                                         |
 
 
 ### Returns

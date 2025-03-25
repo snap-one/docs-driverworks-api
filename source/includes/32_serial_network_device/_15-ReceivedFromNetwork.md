@@ -3,18 +3,20 @@
 Function which is called when data is received on a network binding. It is typically used to evaluate the data for specific delimiters and extracts the necessary components which are then used to do something.
 
 ###### Available from 1.6.0
+###### Enhanced in 4.0.0 with from param
 
 
 ### Signature
 
-`ReceivedFromNetwork(idBinding, nPort, strData) `
+`ReceivedFromNetwork(binding, port, data, from) `
 
 
-| Parameter | Description |
-| --- | --- |
-| num | Binding ID of the interface the data was received from |
-| num | Network Port the data was received on |
-| str | Network data from the specified binding and port |
+| Parameter | Type | Description                                             |
+| --------- | ---- | ------------------------------------------------------- |
+| binding   | num  | The id of the binding for which the data was received.  |
+| port      | num  | he port of the binding for which the data was received. |
+| data      | str  | he data that was received.                              |
+| from      | str  | The IP address from which the message originated.       |
 
 
 ### Returns
