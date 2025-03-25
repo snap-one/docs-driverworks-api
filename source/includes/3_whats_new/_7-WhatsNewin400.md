@@ -41,13 +41,13 @@ Several Lua API's were modified in this release to provide enhanced capabilities
 
 [ReceivedFromNetwork][10]
 
-[1]:	https://snap-one.github.io/docs-driverworks-api-4.0.0-beta/#helper-interface-getboundpartner
-[2]:	https://snap-one.github.io/docs-driverworks-api-4.0.0-beta/#helper-interface-getcapabilitybyid
-[3]:	https://snap-one.github.io/docs-driverworks-api-4.0.0-beta/#helper-interface-getprotocoldevicebyid
-[4]:	https://snap-one.github.io/docs-driverworks-api-4.0.0-beta/#encryption-interface
+[1]:	https://snap-one.github.io/docs-driverworks-api/#helper-interface-getboundpartner
+[2]:	https://snap-one.github.io/docs-driverworks-api/#helper-interface-getcapabilitybyid
+[3]:	https://snap-one.github.io/docs-driverworks-api/#helper-interface-getprotocoldevicebyid
+[4]:	https://snap-one.github.io/docs-driverworks-api/#encryption-interface-encrypt
 [5]:	https://openssl-library.org/news/openssl-3.0-notes/index.html
-[6]:	https://snap-one.github.io/docs-driverworks-api-4.0.0-beta/#mqtt-lua-apis
-[7]:	https://snap-one.github.io/docs-driverworks-api-4.0.0-beta/#timer-interface-gettime
-[8]:	https://snap-one.github.io/docs-driverworks-api-4.0.0-beta/#serial-and-network-interface-sendbroadcast
-[9]:	https://snap-one.github.io/docs-driverworks-api-4.0.0-beta/#server-socket-interface-onserverdatain
-[10]:	https://snap-one.github.io/docs-driverworks-api-4.0.0-beta/#serial-and-network-interface-receivedfromnetwork
+[6]:	https://snap-one.github.io/docs-driverworks-api/#mqtt-interface
+[7]:	https://snap-one.github.io/docs-driverworks-api/#timer-interface-gettime
+[8]:	https://snap-one.github.io/docs-driverworks-api/#serial-and-network-interface-sendbroadcast
+[9]:	https://snap-one.github.io/docs-driverworks-api/#server-socket-interface-serversend
+[10]:	https://snap-one.github.io/docs-driverworks-api/#serial-and-network-interface-receivedfromnetwork
