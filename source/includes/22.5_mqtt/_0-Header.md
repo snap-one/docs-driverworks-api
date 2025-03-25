@@ -1,4 +1,4 @@
-# MQTT Lua APIs
+# MQTT Interface
 
 _Note: The Control4 hosted MQTT Server/Broker is not available to 3rd-party developers and there are no future plans to release it. This client API documentation is provided for the use of driver developers connecting to 3rd-party device(s) or service(s) that provide their own MQTT server/broker._
 
