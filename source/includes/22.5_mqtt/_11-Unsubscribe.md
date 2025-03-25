@@ -25,6 +25,6 @@ On success an error code of 0 is returned with the 2nd return value being the me
 If multiple unsubscribe requests are "in flight" at the same time, the message ID that is returned can be used with the [OnUnsubscribe][3] to determine which unsubscribe request the success or failure maps to.
 
 
-[1]:	https://snap-one.github.io/docs-driverworks-api-4.0.0-beta/#mqtt-lua-apis-onmessagehandler
-[2]:	https://snap-one.github.io/docs-driverworks-api-4.0.0-beta/#mqtt-lua-apis-onunsubscribehandler
+[1]:	https://snap-one.github.io/docs-driverworks-api/#mqtt-interface-onmessagehandler
+[2]:	https://snap-one.github.io/docs-driverworks-api/#mqtt-interface-onsubscribehandler
 [3]:	https://snap-one.github.io/docs-driverworks-api-4.0.0-beta/#mqtt-lua-apis-onunsubscribehandler

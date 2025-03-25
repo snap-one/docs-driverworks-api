@@ -33,4 +33,4 @@ Error codes are values that are returned from the individual API calls. In the M
 | 25         | Packet larger than supported by the server.                                 |
 | 26         | OCSP error.                                                                 |
 
-[1]:	https://snap-one.github.io/docs-driverworks-api-4.0.0-beta/#mqtt-lua-apis-errorcodetostring
+[1]:	https://snap-one.github.io/docs-driverworks-api/#mqtt-interface-errorcodetostring

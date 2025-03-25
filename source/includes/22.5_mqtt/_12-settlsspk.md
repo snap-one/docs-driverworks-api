@@ -27,4 +27,4 @@ On success an error code of 0 is returned with no message return value.   On e
 
 Only one of SetTlsPsk() or SetTlsCertificate() calls should be used on an MQTT object before calling connect. Using both will result in an undefined behavior.
 
-[1]:	https://snap-one.github.io/docs-driverworks-api-4.0.0-beta/#mqtt-lua-apis-connect
+[1]:	https://snap-one.github.io/docs-driverworks-api/#mqtt-interface-connect

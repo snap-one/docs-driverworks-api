@@ -21,4 +21,4 @@ When the Unsubscribe API call is called, the attempt to unsubscribe from a topic
 
 Use the `OnUnsubscribe(unsubscribeCallbackHandlerFunction)'` call to establish a callback handler to determine the result of an unsubscribe request.
 
-[1]:	https://snap-one.github.io/docs-driverworks-api-4.0.0-beta/#mqtt-lua-apis-unsubscribe
+[1]:	https://snap-one.github.io/docs-driverworks-api/#mqtt-interface-unsubscribe

@@ -23,5 +23,5 @@ When the [Connect][1] API call is called, an attempt to connect to the MQTT brok
 
 Use the `OnConnect(connectCallbackHandlerFunction)` call to establish a callback handler for connecting.
 
-[1]:	https://snap-one.github.io/docs-driverworks-api-4.0.0-beta/#mqtt-lua-apis-connect
-[2]:	https://snap-one.github.io/docs-driverworks-api-4.0.0-beta/#mqtt-lua-apis-reason-codes-and-their-meanings
+[1]:	https://snap-one.github.io/docs-driverworks-api/#mqtt-interface-connect
+[2]:	https://snap-one.github.io/docs-driverworks-api/#mqtt-interface-reason-codes-and-their-meanings

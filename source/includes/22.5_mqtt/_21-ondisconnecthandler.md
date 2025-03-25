@@ -23,5 +23,5 @@ When the session with the MQTT broker is disconnected, either by a call to the [
 
 Use the `OnDisconnect(disconnectCallbackHandlerFunction)` call to establish a callback handler for disconnecting.
 
-[1]:	https://snap-one.github.io/docs-driverworks-api-4.0.0-beta/#mqtt-lua-apis-disconnect
-[2]:	https://snap-one.github.io/docs-driverworks-api-4.0.0-beta/#mqtt-lua-apis-reconnect
+[1]:	https://snap-one.github.io/docs-driverworks-api/#mqtt-interface-disconnect
+[2]:	https://snap-one.github.io/docs-driverworks-api/#mqtt-interface-reconnect
