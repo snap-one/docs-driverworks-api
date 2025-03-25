@@ -10076,7 +10076,7 @@ one over the other.</p>
 
 <h2 id='mqtt-interface-publish'>Publish</h2>
 
-<p>The Publish API call allows a driver to send information to any other devices or programs that may be listening to the specified MQTT topic. When this call is called, an error code and message ID will be returned and the publish will happen in the background. Once the publish has completed (successfully or otherwise), the <a href="https://snap-one.github.io/docs-driverworks-api-4.0.0-beta/#mqtt-lua-apis-onpublishhandler">OnPublish </a>callback will be called with the message ID as a parameter and other status information.</p>
+<p>The Publish API call allows a driver to send information to any other devices or programs that may be listening to the specified MQTT topic. When this call is called, an error code and message ID will be returned and the publish will happen in the background. Once the publish has completed (successfully or otherwise), the <a href="https://snap-one.github.io/docs-driverworks-api/#mqtt-interface-onpublishhandler">OnPublish </a>callback will be called with the message ID as a parameter and other status information.</p>
 
 <p><h6 id='mqtt-interface-publish-returns-director-geo-location-service-available-from-2-10-4-available-from-4-0-0'>Available from 4.0.0</h6><h3 id='mqtt-interface-publish-signature'>Signature</h3>
 <p><code>Publish(topic, payload, qos, retain, mqttProps)</code></p></p>
@@ -10457,7 +10457,7 @@ one over the other.</p>
 
 <h2 id='mqtt-interface-onpublishhandler'>onPublishHandler</h2>
 
-<p>When the Publish API call is called, the attempt to publish data to the MQTT broker will start up in the background.  Once the publish attempt completes, the onPublishHandler will be called with a message ID and a reasonCode. The message ID that is provided will match the message ID returned from the <a href="https://snap-one.github.io/docs-driverworks-api-4.0.0-beta/#mqtt-lua-apis-publish">Publish</a> API call, allowing developers to match publish events against the calls that originated them. The reasonCode parameter will indicate the status of the attempt to publish the data.</p>
+<p>When the Publish API call is called, the attempt to publish data to the MQTT broker will start up in the background.  Once the publish attempt completes, the onPublishHandler will be called with a message ID and a reasonCode. The message ID that is provided will match the message ID returned from the <a href="https://snap-one.github.io/docs-driverworks-api/#mqtt-interface-publish">Publish</a> API call, allowing developers to match publish events against the calls that originated them. The reasonCode parameter will indicate the status of the attempt to publish the data.</p>
 
 <p><h6 id='mqtt-interface-onpublishhandler-event-callbacks-director-geo-location-service-available-from-2-10-4-available-from-4-0-0'>Available from 4.0.0</h6><h3 id='mqtt-interface-onpublishhandler-signature'>Signature</h3>
 <p><code>onPublishHandler(mqttObject, msgId, reasonCode, message, mqttProps)</code></p></p>
