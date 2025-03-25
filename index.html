@@ -315,6 +315,9 @@
             <a href="#what-39-s-new" class="toc-h1 toc-link" data-title="What's New">What's New</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#what-39-s-new-what-s-new-in-4-0-0" class="toc-h2 toc-link" data-title="What’s New in 4.0.0">What’s New in 4.0.0</a>
+                  </li>
+                  <li>
                     <a href="#what-39-s-new-what-s-new-in-3-4-2" class="toc-h2 toc-link" data-title="What’s New in 3.4.2">What’s New in 3.4.2</a>
                   </li>
                   <li>
@@ -1829,6 +1832,31 @@ Salt Lake City, UT 84020 USA</p>
 
 <p>Effective communication between your driver and Control4 System is paramount to a successful end user experience. The API Reference Guide details each of the Interfaces supported through the DriverWorksSDK. These Interfaces include numerous APIs that can be leveraged by your driver to  facilitate communication between the driver and the Control4 O.S.</p>
 <h1 id='what-39-s-new'>What&#39;s New</h1>
+
+<h2 id='what-39-s-new-what-s-new-in-4-0-0'>What’s New in 4.0.0</h2><h3 id='what-39-s-new-what-s-new-in-4-0-0-additions-to-the-helper-interface'>Additions to the Helper Interface</h3>
+<p>The Helper Interface has been enhanced with APIs delivered to assist with replacing older devices with newer devices or to migrate configuration settings from one device to another. These APIs include:</p>
+
+<p><a href="https://snap-one.github.io/docs-driverworks-api-4.0.0-beta/#helper-interface-getboundpartner">GetBoundPartner</a></p>
+
+<p><a href="https://snap-one.github.io/docs-driverworks-api-4.0.0-beta/#helper-interface-getcapabilitybyid">GetCapabilityById</a></p>
+
+<p><a href="https://snap-one.github.io/docs-driverworks-api-4.0.0-beta/#helper-interface-getprotocoldevicebyid">GetProtocolDeviceById</a></p>
+<h3 id='what-39-s-new-what-s-new-in-4-0-0-encryption-interface'>Encryption Interface</h3>
+<p>In conjunction with the release of O.S. 4.0.0, low level AES, Blowfish, Camellia, CAST, DES, IDEA, RC2, RC4, RC5 and SEED cipher functions have been deprecated and are no long supported with the <a href="https://snap-one.github.io/docs-driverworks-api-4.0.0-beta/#encryption-interface">C4:Encrypt</a> function. For more information, please see the release notes for OpenSSL 3.0: <a href="https://openssl-library.org/news/openssl-3.0-notes/index.html">https://openssl-library.org/news/openssl-3.0-notes/index.html</a></p>
+<h3 id='what-39-s-new-what-s-new-in-4-0-0-miscellaneous-interface'>Miscellaneous Interface</h3>
+<p>The GetText API has been deprecated in conjunction with O.S. 4.0.0</p>
+<h3 id='what-39-s-new-what-s-new-in-4-0-0-mqtt-interface'>MQTT Interface</h3>
+<p>A <a href="https://snap-one.github.io/docs-driverworks-api-4.0.0-beta/#mqtt-lua-apis">MQTT client API</a> for lua_gen has been delivered in this release. MQTT is a lightweight publish and subscribe messaging protocol that is intended to connect remote devices using small amounts of code and minimal network bandwidth. Note that the Control4 hosted MQTT Server/Broker is not available to 3rd-party developers and there are no future plans to release it. This client API documentation is provided for the use of driver developers connecting to 3rd-party device(s) or service(s) that provide their own MQTT server/broker. </p>
+<h3 id='what-39-s-new-what-s-new-in-4-0-0-timer-interface'>Timer Interface</h3>
+<p>The <a href="https://snap-one.github.io/docs-driverworks-api-4.0.0-beta/#timer-interface-gettime">GetTime </a>API was enhanced with two new parameters: units and fractional. These arguments were added to give driver developers greater control over the values that are returned.</p>
+<h3 id='what-39-s-new-what-s-new-in-4-0-0-udp-functionality'>UDP Functionality</h3>
+<p>Several Lua API&#39;s were modified in this release to provide enhanced capabilities for UDP connections. This is part of an ongoing effort to eliminate the use of LuaSocket. The following API&#39;s were modified:</p>
+
+<p><a href="https://snap-one.github.io/docs-driverworks-api-4.0.0-beta/#serial-and-network-interface-sendbroadcast">SendBroadcast</a></p>
+
+<p><a href="https://snap-one.github.io/docs-driverworks-api-4.0.0-beta/#server-socket-interface-onserverdatain">ServerSend</a></p>
+
+<p><a href="https://snap-one.github.io/docs-driverworks-api-4.0.0-beta/#serial-and-network-interface-receivedfromnetwork">ReceivedFromNetwork</a></p>
 
 <h2 id='what-39-s-new-what-s-new-in-3-4-2'>What’s New in 3.4.2</h2>
 
