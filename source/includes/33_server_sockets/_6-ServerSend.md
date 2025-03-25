@@ -3,7 +3,7 @@
 This function is used to send data over an open Server Socket connection. Note the varying parameters when using TCP vs. UDP below. This API should not be invoked during OnDriverInit.
 
 ###### Available from 2.10.0
-###### Enhanced in 4.0.0 with address param for UDP version.
+###### Enhanced in 4.0.0 with `address` param for UDP version.
 
 
 ### Signature
