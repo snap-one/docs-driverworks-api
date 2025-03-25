@@ -18768,27 +18768,36 @@ addresstype: 1
 </code></pre></div>
 <h2 id='serial-and-network-interface-receivedfromnetwork'>ReceivedFromNetwork</h2>
 <p>Function which is called when data is received on a network binding. It is typically used to evaluate the data for specific delimiters and extracts the necessary components which are then used to do something.</p>
-<h6 id='serial-and-network-interface-receivedfromnetwork-example-example-available-from-1-6-0-available-from-1-6-0'>Available from 1.6.0</h6><h3 id='serial-and-network-interface-receivedfromnetwork-signature'>Signature</h3>
+<h6 id='serial-and-network-interface-receivedfromnetwork-example-example-available-from-1-6-0-available-from-1-6-0'>Available from 1.6.0</h6><h6 id='serial-and-network-interface-receivedfromnetwork-example-example-available-from-1-6-0-enhanced-in-4-0-0-with-from-param'>Enhanced in 4.0.0 with from param</h6><h3 id='serial-and-network-interface-receivedfromnetwork-signature'>Signature</h3>
 
-<p><code>ReceivedFromNetwork(idBinding, nPort, strData) </code></p>
+<p><code>ReceivedFromNetwork(binding, port, data, from) </code></p>
 
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
+<td>binding</td>
 <td>num</td>
-<td>Binding ID of the interface the data was received from</td>
+<td>The id of the binding for which the data was received.</td>
 </tr>
 <tr>
+<td>port</td>
 <td>num</td>
-<td>Network Port the data was received on</td>
+<td>he port of the binding for which the data was received.</td>
 </tr>
 <tr>
+<td>data</td>
 <td>str</td>
-<td>Network data from the specified binding and port</td>
+<td>he data that was received.</td>
+</tr>
+<tr>
+<td>from</td>
+<td>str</td>
+<td>The IP address from which the message originated.</td>
 </tr>
 </tbody></table>
 
@@ -18877,22 +18886,30 @@ addresstype: 1
 
 <p>This function must be used judiciously as there are network performance implications associated with its use. Network broadcasting requires that the router send the message to every device connected to the network. Overuse of this function can cause significant performance problems that affect the entire network.</p>
 
-<p><h6 id='serial-and-network-interface-sendbroadcast-example-example-available-from-1-6-0-available-from-2-10-0'>Available from 2.10.0</h6><h3 id='serial-and-network-interface-sendbroadcast-signature'>Signature</h3>
-<p><code>C4:SendBroadcast(payload, port))</code></p></p>
+<p><h6 id='serial-and-network-interface-sendbroadcast-example-example-available-from-1-6-0-available-from-2-10-0'>Available from 2.10.0</h6><h6 id='serial-and-network-interface-sendbroadcast-example-example-available-from-1-6-0-enhanced-in-4-0-0-with-sourceport-param'>Enhanced in 4.0.0 with sourcePort param</h6><h3 id='serial-and-network-interface-sendbroadcast-signature'>Signature</h3>
+<p><code>C4:SendBroadcast(payload, destinationPort, [sourcePort])</code></p></p>
 
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
+<td>payload</td>
 <td>str</td>
-<td>Payload of the message to be broadcast</td>
+<td>payloadA string containing the data to be broadcast. Note that there is risk of fragmentation for payloads that exceed the minimum guaranteed MTU size of 576 bytes. Nevertheless, fragmentation depends on many factor such as the configuration of networking gear, and the devices involved. We generally have no control over networking so plan accordingly.</td>
 </tr>
 <tr>
+<td>destinationPort</td>
 <td>num</td>
-<td>Port identifying the port to which the payload is broadcast.</td>
+<td>The destination port used for the broadcast. Note that the destination port is generally ignored because broadcasts are sent to all devices connected to the network, regardless of the port.</td>
+</tr>
+<tr>
+<td>sourcePort</td>
+<td>num</td>
+<td>Optional. The source port used for the broadcast. When given, the connection is bound to the &quot;any&quot; address (0.0.0.0) using the specified port. This ensures that the broadcast is sent from a specific port rather than an ethereal port.</td>
 </tr>
 </tbody></table>
 
