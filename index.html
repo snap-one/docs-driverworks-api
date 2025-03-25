@@ -20368,7 +20368,7 @@ On failure, the function returns the following:</p></p>
 <p>This API enables Lua drivers to retrieve the number of milliseconds since the epoch (1 January 1970 00:00:00 UT). 
 See: <a href="https://en.wikipedia.org/wiki/Epoch_(computing)" title="Epoch Date in Computing">https://en.wikipedia.org/wiki/Epoch_(computing)</a></p>
 
-<p>This API was added in conjunction with O.S. 3.2.3.</p>
+<p>This API was added in conjunction with O.S. 3.2.3. The units and fractional arguments were added in conjunction with O.S. 4.0.0 to give driver developers greater control over the values that are returned.</p>
 
 <h3 id='timer-interface-gettime-signature'>Signature</h3>
 
@@ -20390,7 +20390,27 @@ See: <a href="https://en.wikipedia.org/wiki/Epoch_(computing)" title="Epoch Date
 <td>num</td>
 <td>sec: Number of milliseconds since the epoch.</td>
 </tr>
+<tr>
+<td>str</td>
+<td>units (optional) Specifies the units for the returned value. If omitted or given an invalid value, the default behavior is to return the number of milliseconds that have elapsed since the epoch. Valid values include the following:</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>us</strong>: microseconds <strong>ns</strong>: nanoseconds <strong>min</strong>: minutes <strong>s</strong>: seconds <strong>h</strong>: hours <strong>d</strong>: days <strong>w</strong>: weeks <strong>y</strong>: years dec: decades</td>
+</tr>
+<tr>
+<td>bool</td>
+<td>fractional (optional): Specifies whether the returned value includes the fractional portion of the elapsed time element.</td>
+</tr>
 </tbody></table>
+
+<h3 id='timer-interface-gettime-examples'>Examples</h3>
+
+<p><code>C4:GetTime(&quot;min&quot;, true)</code> 
+Returns the fractional number of minutes that have elapsed. This value might be something like the following: 28818247.1205</p>
+
+<p><code>C4:GetTime(&quot;min&quot;)</code> 
+Returns the whole number of minutes that have elapsed. This value might be something like the following: 28818247</p>
 <h1 id='url-interface'>URL Interface</h1>
 
 <p>This API Interface replaces the following APIs:</p>
@@ -20405,7 +20425,7 @@ See: <a href="https://en.wikipedia.org/wiki/Epoch_(computing)" title="Epoch Date
 
 <p>C4:url() utilizes a more flexible callback-based object interface. A call to this function returns a C4:url object that can be set up with various callback functions and options. Once set up, a call to its methods: <a href="https://snap-one.github.io/docs-driverworks-api/#url-interface-get">Get()</a>, <a href="https://snap-one.github.io/docs-driverworks-api/#url-interface-post">Post()</a>, <a href="https://snap-one.github.io/docs-driverworks-api/#url-interface-put">Put()</a>, <a href="https://snap-one.github.io/docs-driverworks-api/#url-interface-delete">Delete()</a>, or <a href="https://snap-one.github.io/docs-driverworks-api/#url-interface-custom">Custom()</a> initiates the transfer.</p>
 
-<h6 id='url-interface-gettime-returns-example-available-from-1-6-0-available-from-2-10-5'>Available from 2.10.5</h6>
+<h6 id='url-interface-gettime-examples-example-available-from-1-6-0-available-from-2-10-5'>Available from 2.10.5</h6>
 
 <p>To the right is a basic example of how this interface can be used:</p>
 
@@ -20442,7 +20462,7 @@ See: <a href="https://en.wikipedia.org/wiki/Epoch_(computing)" title="Epoch Date
 
 <p>Cancels a transfer that has been started by a call to the <a href="https://snap-one.github.io/docs-driverworks-api/#url-interface-get">Get()</a>, <a href="https://snap-one.github.io/docs-driverworks-api/#url-interface-post">Post()</a>, <a href="https://snap-one.github.io/docs-driverworks-api/#url-interface-put">Put(</a>), <a href="https://snap-one.github.io/docs-driverworks-api/#url-interface-delete">Delete()</a>, or <a href="https://snap-one.github.io/docs-driverworks-api/#url-interface-custom">Custom()</a> methods. The C4LuaUrl object cannot be re-used after canceling a transfer.  A new instance will need to be created by a call to <a href="https://snap-one.github.io/docs-driverworks-api/#url-interface">C4:url()</a>.</p>
 
-<p><h6 id='url-interface-cancel-returns-example-available-from-1-6-0-available-from-2-10-5'>Available from 2.10.5</h6><h3 id='url-interface-cancel-signature'>Signature</h3>
+<p><h6 id='url-interface-cancel-examples-example-available-from-1-6-0-available-from-2-10-5'>Available from 2.10.5</h6><h3 id='url-interface-cancel-signature'>Signature</h3>
 <p><code>C4LuaUrl:Cancel()</code></p>
 <h3 id='url-interface-cancel-parameters'>Parameters</h3>
 <p><code>None</code></p>
