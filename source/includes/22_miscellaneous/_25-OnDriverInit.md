@@ -47,4 +47,4 @@ function OnDriverInit(driverInitType)
 end
 ```
 
-[1]:	https://snap-one.github.io/docs-driverworks-fundamentals-4.0.0-beta/#api-specific-information-driver-initialization-and-destruction
+[1]:	https://snap-one.github.io/docs-driverworks-fundamentals/#api-specific-information-driver-initialization-and-destruction
