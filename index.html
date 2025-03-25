@@ -613,7 +613,13 @@
                     <a href="#helper-interface-getallcodeitems" class="toc-h2 toc-link" data-title="GetAllCodeItems">GetAllCodeItems</a>
                   </li>
                   <li>
+                    <a href="#helper-interface-getcapabilitybyid" class="toc-h2 toc-link" data-title="GetCapabilityById">GetCapabilityById</a>
+                  </li>
+                  <li>
                     <a href="#helper-interface-getbootid" class="toc-h2 toc-link" data-title="GetBootID">GetBootID</a>
+                  </li>
+                  <li>
+                    <a href="#helper-interface-getboundpartner" class="toc-h2 toc-link" data-title="GetBoundPartner">GetBoundPartner</a>
                   </li>
                   <li>
                     <a href="#helper-interface-getcodeitems" class="toc-h2 toc-link" data-title="GetCodeItems">GetCodeItems</a>
@@ -632,6 +638,9 @@
                   </li>
                   <li>
                     <a href="#helper-interface-getlogdir" class="toc-h2 toc-link" data-title="GetLogDir">GetLogDir</a>
+                  </li>
+                  <li>
+                    <a href="#helper-interface-getprotocoldevicebyid" class="toc-h2 toc-link" data-title="GetProtocolDeviceById">GetProtocolDeviceById</a>
                   </li>
                   <li>
                     <a href="#helper-interface-getpushsettings" class="toc-h2 toc-link" data-title="getPushSettings">getPushSettings</a>
@@ -5670,12 +5679,37 @@ OnDriverInit.</p>
 <span class="p">}</span>
 
 </code></pre></div>
+<h2 id='helper-interface-getcapabilitybyid'>GetCapabilityById</h2>
+<p>Get a capability from the specified device.</p>
+<h6 id='helper-interface-getcapabilitybyid-example-director-geo-location-service-available-from-2-10-4-available-from-4-0-0'>Available from 4.0.0.</h6><h3 id='helper-interface-getcapabilitybyid-signature'>Signature</h3>
+<p><code>C4:GetCapabilityById</code></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>num</td>
+<td>deviceId: The device id of the device containing the capability.</td>
+</tr>
+<tr>
+<td>str</td>
+<td>The name of the capability</td>
+</tr>
+</tbody></table>
+<h3 id='helper-interface-getcapabilitybyid-returns'>Returns</h3>
+<p>The value of the capability.</p>
+<h3 id='helper-interface-getcapabilitybyid-usage-note'>Usage Note</h3>
+<p>This API is the same as GetCapability except you can specify the device from which to get its capability.</p>
+
 <h2 id='helper-interface-getbootid'>GetBootID</h2>
 <p>This function returns a string that contains an ID which is unique for the current kernel instance.  When the controller is
 re-booted, the ID will change.  The returned value is the same value as the one stored on Linux at:</p>
 
 <p><code>/proc/sys/kernel/random/boot_id</code> </p>
-<h6 id='helper-interface-getbootid-example-director-geo-location-service-available-from-2-10-4-available-from-3-3-0'>Available from 3.3.0</h6><h3 id='helper-interface-getbootid-signature'>Signature</h3>
+<h6 id='helper-interface-getbootid-usage-note-director-geo-location-service-available-from-2-10-4-available-from-3-3-0'>Available from 3.3.0</h6><h3 id='helper-interface-getbootid-signature'>Signature</h3>
 <p><code>C4:GetBootID()</code></p>
 <h3 id='helper-interface-getbootid-parameters'>Parameters</h3>
 <p><code>None</code></p>
@@ -5696,9 +5730,50 @@ re-booted, the ID will change.  The returned value is the same value as the one 
 
 <p><code>1525a67e-b7bd-4a68-8919-dd65e7f3861a</code></p>
 
+<h2 id='helper-interface-getboundpartner'>GetBoundPartner</h2>
+<p>Get the device ID and Binding ID of a devices bound connection</p>
+<h6 id='helper-interface-getboundpartner-example-director-geo-location-service-available-from-2-10-4-available-from-4-0-0'>Available from 4.0.0.</h6><h3 id='helper-interface-getboundpartner-signature'>Signature</h3>
+<p><code>C4:GetBoundPartner </code></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>num</td>
+<td>idDeviceSource: The device id of the source (producer) device.</td>
+</tr>
+<tr>
+<td>num</td>
+<td>The binding id of the source device.</td>
+</tr>
+<tr>
+<td>str</td>
+<td>rsClass: Class name</td>
+</tr>
+</tbody></table>
+<h3 id='helper-interface-getboundpartner-returns'>Returns</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Param 1</td>
+<td>The device id of the bound partner.</td>
+</tr>
+<tr>
+<td>Param 2</td>
+<td>The binding id of the bound partner.</td>
+</tr>
+</tbody></table>
+
 <h2 id='helper-interface-getcodeitems'>GetCodeItems</h2>
 <p>This function returns Code Items for a specified device and event.</p>
-<h6 id='helper-interface-getcodeitems-example-director-geo-location-service-available-from-2-10-4-available-from-3-3-0'>Available from 3.3.0</h6><h3 id='helper-interface-getcodeitems-signature'>Signature</h3>
+<h6 id='helper-interface-getcodeitems-returns-director-geo-location-service-available-from-2-10-4-available-from-3-3-0'>Available from 3.3.0</h6><h3 id='helper-interface-getcodeitems-signature'>Signature</h3>
 <p><code>C4:GetCodeItems ()</code></p>
 
 <table><thead>
@@ -5939,6 +6014,35 @@ re-booted, the ID will change.  The returned value is the same value as the one 
 <tr>
 <td>str</td>
 <td>Directory path.</td>
+</tr>
+</tbody></table>
+
+<h2 id='helper-interface-getprotocoldevicebyid'>GetProtocolDeviceById</h2>
+<p>Get a proxy&#39;s protocol id.</p>
+<h6 id='helper-interface-getprotocoldevicebyid-returns-director-geo-location-service-available-from-2-10-4-available-from-4-0-0'>Available from 4.0.0.</h6><h3 id='helper-interface-getprotocoldevicebyid-signature'>Signature</h3>
+<p><code>C4: GetProtocolDeviceById </code></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>num</td>
+<td>proxyDevId: The proxy id of the device.</td>
+</tr>
+</tbody></table>
+<h3 id='helper-interface-getprotocoldevicebyid-returns'>Returns</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>num</td>
+<td>Protocol ID of the device.</td>
 </tr>
 </tbody></table>
 
