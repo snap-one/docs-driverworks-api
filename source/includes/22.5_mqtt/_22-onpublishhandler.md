@@ -23,4 +23,4 @@ When the Publish API call is called, the attempt to publish data to the MQTT bro
 
 Use the `OnPublish(publishCallbackHandlerFunction)` call to establish a callback handler for information about published messages.
 
-[1]:	https://snap-one.github.io/docs-driverworks-api-4.0.0-beta/#mqtt-lua-apis-publish
+[1]:	https://snap-one.github.io/docs-driverworks-api/#mqtt-interface-publish

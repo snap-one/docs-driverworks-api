@@ -28,5 +28,5 @@ On success an error code of 0 is returned with the 2nd return value being the me
 
 If multiple publish requests are "in flight" at the same time, the message ID that is returned can be used with the [OnPublish ][2] callback to determine which message the success or failure maps to.
 
-[1]:	https://snap-one.github.io/docs-driverworks-api-4.0.0-beta/#mqtt-lua-apis-onpublishhandler
+[1]:	https://snap-one.github.io/docs-driverworks-api/#mqtt-interface-onpublishhandler
 [2]:	https://snap-one.github.io/docs-driverworks-api-4.0.0-beta/#mqtt-lua-apis-onpublishhandler
