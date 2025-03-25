@@ -10861,7 +10861,7 @@ Output: network val is 00001234
 
 <h2 id='miscellaneous-interface-ondriverdestroyed'>OnDriverDestroyed</h2>
 
-<p>Called when a driver is deleted from a project, updated within a project or Director is shut down. All of the driver&#39;s timers will be killed within the OnDriverDestroyed function.</p>
+<p>Called when a driver is deleted from a project, updated within a project or Director is shut down. All of the driver&#39;s timers will be killed within the OnDriverDestroyed function. For further information, please see the <a href="https://snap-one.github.io/docs-driverworks-fundamentals-4.0.0-beta/#api-specific-information-driver-initialization-and-destruction">Driver Initialization and Destruction</a> best practices documentation.</p>
 
 <p><h6 id='miscellaneous-interface-ondriverdestroyed-usage-note-director-geo-location-service-available-from-1-6-0-available-from-1-6-0'>Available from 1.6.0</h6><h3 id='miscellaneous-interface-ondriverdestroyed-signature'>Signature</h3>
 <p><code>OnDriverDestroyed(strDIT) </code></p></p>
@@ -10888,49 +10888,6 @@ Output: network val is 00001234
 
 <p>The DIT parameters are available in O.S. 3.2.0 and later.</p>
 
-<h3 id='miscellaneous-interface-ondriverdestroyed-usage-note'>Usage Note</h3>
-
-<p><strong>Driver Initialization and Destruction</strong></p>
-
-<p>When a driver is loaded, there are two initialization functions that are called if those functions exist in the driver. They are OnDriverInit and OnDriverLateInit. When a driver is being removed, updated or otherwise removed from memory, OnDriverDestroyed will be called if that function has been implemented within the driver.</p>
-
-<p>Your driver will need to implement these functions in order to complete its initialization process successfully. It’s important to know when these functions are called in order to know how to properly initialize a driver.</p>
-
-<p>There are multiple instances of when a driver is loaded. Driver initialization occurs under the following conditions:</p>
-
-<p><strong>Driver Added to Project</strong> </p>
-
-<p>When a driver is added to a project, OnDriverInit will be called followed by a call to OnDriverLateInit.</p>
-
-<p><strong>Project Load </strong></p>
-
-<p>When a project is loaded, either when director starts up or a new project is loaded, the following occurs:</p>
-
-<ol>
-<li>As each driver is loaded, the OnDriverInit function is called.</li>
-<li>After all the drivers in the project have been loaded, then OnDriverLateInit is called for all the drivers in the project. This ensures that all the driver’s bindings and initialization is complete. Any initialization that requires that all the bindings be bound, or other driver initialization is complete should be done in OnDriverLateInit.</li>
-</ol>
-
-<p><strong>Driver Update</strong> </p>
-
-<p>When a driver is being updated, prior to the driver being reloaded, OnDriverDestroyed will be called. This will allow the driver to do any necessary cleanup prior to the driver being reloaded. When the driver is reloaded, OnDriverInit will be called followed by a call to OnDriverLateInit.</p>
-
-<p>There may be instances when a driver needs to know under what condition or event caused the Initialization or Destroyed functions to be called. OS Release 3.2.0 introduced a new string parameter to these functions to identify the reason for the call. This parameter, driverInitType (DIT) provides this information.</p>
-
-<p>OnDriverInit and OnDriverLateInit valid values for this parameter are as follows:</p>
-
-<p>• <code>DIT_ADDING</code>: When a driver is being added.</p>
-
-<p>• <code>DIT_STARTUP</code>: When a project is being loaded.</p>
-
-<p>• <code>DIT_UPDATING</code>: When a driver is being updated.</p>
-
-<p>OnDriverDestroyed valid values are as follows:</p>
-
-<p>• <code>DIT_LOADED</code>: When the driver is being removed or director is being shut down.</p>
-
-<p>• <code>DIT_UPDATING</code>: When a driver is being updated.</p>
-
 <h3 id='miscellaneous-interface-ondriverdestroyed-example'>Example</h3><div class="highlight"><pre class="highlight lua tab-lua"><code><span class="c1">-- Release things this driver had allocated...</span>
 
 <span class="k">function</span> <span class="nf">OnDriverDestroyed</span><span class="p">()</span>
@@ -10943,7 +10900,7 @@ Output: network val is 00001234
 <span class="k">end</span>
 </code></pre></div>
 <h2 id='miscellaneous-interface-ondriverinit'>OnDriverInit</h2>
-<p>Function invoked when a driver is loaded or being updated. This API is provided for the driver developer to initialize all of the driver objects that require initialization. </p>
+<p>Function invoked when a driver is loaded or being updated. This API is provided for the driver developer to initialize all of the driver objects that require initialization.  For further information, please see the <a href="https://snap-one.github.io/docs-driverworks-fundamentals-4.0.0-beta/#api-specific-information-driver-initialization-and-destruction">Driver Initialization and Destruction</a> best practices documentation.</p>
 <h6 id='miscellaneous-interface-ondriverinit-example-director-geo-location-service-available-from-1-6-0-available-from-2-0-0'>Available from 2.0.0</h6><h3 id='miscellaneous-interface-ondriverinit-signature'>Signature</h3>
 
 <p><code>OnDriverInit(strDIT) </code></p>
@@ -10974,47 +10931,6 @@ Output: network val is 00001234
 
 <p>The DIT parameters are available in O.S. 3.2.0 and later.</p>
 
-<h3 id='miscellaneous-interface-ondriverinit-usage-note'>Usage Note</h3>
-
-<p><strong>Driver Initialization and Destruction</strong></p>
-
-<p>When a driver is loaded, there are two initialization functions that are called if those functions exist in the driver. They are OnDriverInit and OnDriverLateInit. When a driver is being removed, updated or otherwise removed from memory, OnDriverDestroyed will be called if that function has been implemented within the driver.</p>
-
-<p>Your driver will need to implement these functions in order to complete its initialization process successfully. It’s important to know when these functions are called in order to know how to properly initialize a driver.</p>
-
-<p>There are multiple instances of when a driver is loaded. Driver initialization occurs under the following conditions:</p>
-
-<p><strong>Driver Added to Project</strong> </p>
-
-<p>When a driver is added to a project, OnDriverInit will be called followed by a call to OnDriverLateInit.</p>
-
-<p><strong>Project Load </strong></p>
-
-<p>When a project is loaded, either when director starts up or a new project is loaded, the following occurs:
-1. As each driver is loaded, the OnDriverInit function is called.
-2. After all the drivers in the project have been loaded, then OnDriverLateInit is called for all the drivers in the project. This ensures that all the driver’s bindings and initialization is complete. Any initialization that requires that all the bindings be bound, or other driver initialization is complete should be done in OnDriverLateInit.</p>
-
-<p><strong>Driver Update</strong> </p>
-
-<p>When a driver is being updated, prior to the driver being reloaded, OnDriverDestroyed will be called. This will allow the driver to do any necessary cleanup prior to the driver being reloaded. When the driver is reloaded, OnDriverInit will be called followed by a call to OnDriverLateInit.</p>
-
-<p>There may be instances when a driver needs to know under what condition or event caused the Initialization or Destroyed functions to be called. OS Release 3.2.0 introduced a new string parameter to these functions to identify the reason for the call. This parameter, driverInitType (DIT) provides this information.</p>
-
-<p>OnDriverInit and OnDriverLateInit valid values for this parameter are as follows:</p>
-
-<ul>
-<li><code>DIT_ADDING</code>: When a driver is being added.</li>
-<li><code>DIT_STARTUP</code>: When a project is being loaded.</li>
-<li><code>DIT_UPDATING</code>: When a driver is being updated.</li>
-</ul>
-
-<p>OnDriverDestroyed valid values are as follows:</p>
-
-<ul>
-<li><code>DIT_LOADED</code>: When the driver is being removed or director is being shut down.</li>
-<li><code>DIT_UPDATING</code>: When a driver is being updated.</li>
-</ul>
-
 <h3 id='miscellaneous-interface-ondriverinit-example'>Example</h3><div class="highlight"><pre class="highlight lua tab-lua"><code><span class="k">function</span> <span class="nf">OnDriverInit</span><span class="p">(</span><span class="n">driverInitType</span><span class="p">)</span>
 
     <span class="c1">-- Fire On Property Changed to set the initial Headers and other</span>
@@ -11038,7 +10954,7 @@ Output: network val is 00001234
 <span class="k">end</span>
 </code></pre></div>
 <h2 id='miscellaneous-interface-ondriverlateinit'>OnDriverLateInit</h2>
-<p>Function  that serves as a callback into a project after the project is loaded. If any initialization has to occur after the project is loaded, it must occur in OndriverLateInit. See the <a href="https://snap-one.github.io/docs-driverworks-api/#safe-usage-of-ondriverinit-and-ondriverlateinit">safe usage table</a> for a list of APIs that can be invoked before OnDriverLateInit is executed.</p>
+<p>Function  that serves as a callback into a project after the project is loaded. If any initialization has to occur after the project is loaded, it must occur in OndriverLateInit. See the <a href="https://snap-one.github.io/docs-driverworks-api/#safe-usage-of-ondriverinit-and-ondriverlateinit">safe usage table</a> for a list of APIs that can be invoked before OnDriverLateInit is executed. For further information, please see the <a href="https://snap-one.github.io/docs-driverworks-fundamentals-4.0.0-beta/#api-specific-information-driver-initialization-and-destruction">Driver Initialization and Destruction</a> best practices documentation.</p>
 <h6 id='miscellaneous-interface-ondriverlateinit-example-director-geo-location-service-available-from-1-6-0-available-from-2-5-0'>Available from 2.5.0</h6><h3 id='miscellaneous-interface-ondriverlateinit-signature'>Signature</h3>
 
 <p><code>OnDriverLateInit(strDIT) </code></p>
@@ -11068,46 +10984,6 @@ Output: network val is 00001234
 </tbody></table>
 
 <p>The DIT parameters are available in O.S. 3.2.0 and later.</p>
-
-<h3 id='miscellaneous-interface-ondriverlateinit-usage-note'>Usage Note</h3>
-
-<p><strong>Driver Initialization and Destruction</strong>
-When a driver is loaded, there are two initialization functions that are called if those functions exist in the driver. They are OnDriverInit and OnDriverLateInit. When a driver is being removed, updated or otherwise removed from memory, OnDriverDestroyed will be called if that function has been implemented within the driver.</p>
-
-<p>Your driver will need to implement these functions in order to complete its initialization process successfully. It’s important to know when these functions are called in order to know how to properly initialize a driver.</p>
-
-<p>There are multiple instances of when a driver is loaded. Driver initialization occurs under the following conditions:</p>
-
-<p><strong>Driver Added to Project</strong></p>
-
-<p>When a driver is added to a project, OnDriverInit will be called followed by a call to OnDriverLateInit.</p>
-
-<p><strong>Project Load </strong></p>
-
-<p>When a project is loaded, either when director starts up or a new project is loaded, the following occurs:
-1. As each driver is loaded, the OnDriverInit function is called.
-2. After all the drivers in the project have been loaded, then OnDriverLateInit is called for all the drivers in the project. This ensures that all the driver’s bindings and initialization is complete. Any initialization that requires that all the bindings be bound, or other driver initialization is complete should be done in OnDriverLateInit.</p>
-
-<p><strong>Driver Update</strong></p>
-
-<p>When a driver is being updated and prior to the driver being reloaded, OnDriverDestroyed will be called. This will allow the driver to do any necessary cleanup prior to the driver being reloaded. When the driver is reloaded, OnDriverInit will be called followed by a call to OnDriverLateInit.</p>
-
-<p>There may be instances when a driver needs to know under what condition or event caused the Initialization or Destroyed functions to be called. OS Release 3.2.0 introduced a new string parameter to these functions to identify the reason for the call. This parameter, driverInitType (DIT) provides this information.</p>
-
-<p>OnDriverInit and OnDriverLateInit valid values for this parameter are as follows:</p>
-
-<ul>
-<li><code>DIT_ADDING</code>: When a driver is being added.</li>
-<li><code>DIT_STARTUP</code>: When a project is being loaded.</li>
-<li><code>DIT_UPDATING</code>: When a driver is being updated.</li>
-</ul>
-
-<p>OnDriverDestroyed valid values are as follows:</p>
-
-<ul>
-<li><code>DIT_LOADED</code>: When the driver is being removed or director is being shut down.</li>
-<li><code>DIT_UPDATING</code>: When a driver is being updated.</li>
-</ul>
 
 <h3 id='miscellaneous-interface-ondriverlateinit-example'>Example</h3><div class="highlight"><pre class="highlight lua tab-lua"><code><span class="k">function</span> <span class="nf">OnDriverLateInit</span><span class="p">(</span><span class="n">driverInitType</span><span class="p">)</span>
 
