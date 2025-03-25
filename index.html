@@ -9923,7 +9923,7 @@ one over the other.</p>
 
 <h2 id='mqtt-interface-setusernameandpassword'>SetUsernameAndPassword</h2>
 
-<p>The SetUsernameAndPassword API call is used to configure the user name and password that will be used to connect to the MQTT broker. This call must be called prior to calling the <a href="https://snap-one.github.io/docs-driverworks-api-4.0.0-beta/#mqtt-lua-apis-connect">Connect</a> API, or the attempt to connect to the MQTT broker will not use a user name or password.</p>
+<p>The SetUsernameAndPassword API call is used to configure the user name and password that will be used to connect to the MQTT broker. This call must be called prior to calling the <a href="https://snap-one.github.io/docs-driverworks-api/#mqtt-interface-connect">Connect</a> API, or the attempt to connect to the MQTT broker will not use a user name or password.</p>
 
 <p><h6 id='mqtt-interface-setusernameandpassword-notes-director-geo-location-service-available-from-2-10-4-available-from-4-0-0'>Available from 4.0.0</h6><h3 id='mqtt-interface-setusernameandpassword-signature'>Signature</h3>
 <p><code>SetUsernameAndPassword(username, password)</code></p></p>
@@ -10119,7 +10119,7 @@ one over the other.</p>
 
 <h2 id='mqtt-interface-subscribe'>Subscribe</h2>
 
-<p>The Subscribe API call allows a driver to subscribe to a topic (or topics if using a wild card).  Subscribing to a topic will cause the <a href="https://snap-one.github.io/docs-driverworks-api-4.0.0-beta/#mqtt-lua-apis-onmessagehandler">OnMessage</a> callback to be called any time that a message is published to the specified topic.   The parameters of the OnMessage callback will contain the information about what was published.   When called, this call will return before the subscription has been created.   Once the subscription is created, the <a href="https://snap-one.github.io/docs-driverworks-api-4.0.0-beta/#mqtt-lua-apis-onsubscribehandler">OnSubscribe</a> callback will be called.   The OnSubscribe call back will have the message ID returned from this call to indicate which subscription call is being referenced.</p>
+<p>The Subscribe API call allows a driver to subscribe to a topic (or topics if using a wild card).  Subscribing to a topic will cause the <a href="https://snap-one.github.io/docs-driverworks-api/#mqtt-interface-onmessagehandler">OnMessage</a> callback to be called any time that a message is published to the specified topic.   The parameters of the OnMessage callback will contain the information about what was published.   When called, this call will return before the subscription has been created.   Once the subscription is created, the <a href="https://snap-one.github.io/docs-driverworks-api/#mqtt-interface-onsubscribehandler">OnSubscribe</a> callback will be called.   The OnSubscribe call back will have the message ID returned from this call to indicate which subscription call is being referenced.</p>
 
 <p><h6 id='mqtt-interface-subscribe-notes-director-geo-location-service-available-from-2-10-4-available-from-4-0-0'>Available from 4.0.0</h6><h3 id='mqtt-interface-subscribe-signature'>Signature</h3>
 <p><code>Subscribe(sub, qos)</code></p></p>
@@ -10154,7 +10154,7 @@ one over the other.</p>
 
 <h2 id='mqtt-interface-unsubscribe'>Unsubscribe</h2>
 
-<p>The Unsubscribe API call allows a driver to unsubscribe from a topic (or topics if using a wild card).   Unsubscribing from a topic will cease calling <a href="https://snap-one.github.io/docs-driverworks-api-4.0.0-beta/#mqtt-lua-apis-onmessagehandler">OnMessage</a> when new information is published to the topic.   Like other calls, this call will return before the unsubscribe has completed and will return a message ID.   When the unsubscribe has completed, the <a href="https://snap-one.github.io/docs-driverworks-api-4.0.0-beta/#mqtt-lua-apis-onunsubscribehandler">OnUnsubscribe</a> callback will be called and it will be provided with the message ID for the unsubscribe request, along with status indicating the result of the unsubscribe attempt.</p>
+<p>The Unsubscribe API call allows a driver to unsubscribe from a topic (or topics if using a wild card).   Unsubscribing from a topic will cease calling <a href="https://snap-one.github.io/docs-driverworks-api/#mqtt-interface-onmessagehandler">OnMessage</a> when new information is published to the topic.   Like other calls, this call will return before the unsubscribe has completed and will return a message ID.   When the unsubscribe has completed, the <a href="https://snap-one.github.io/docs-driverworks-api/#mqtt-interface-onsubscribehandler">OnUnsubscribe</a> callback will be called and it will be provided with the message ID for the unsubscribe request, along with status indicating the result of the unsubscribe attempt.</p>
 
 <p><h6 id='mqtt-interface-unsubscribe-notes-director-geo-location-service-available-from-2-10-4-available-from-4-0-0'>Available from 4.0.0</h6><h3 id='mqtt-interface-unsubscribe-signature'>Signature</h3>
 <p><code>Unsubscribe(sub, mqttProps)</code></p></p>
@@ -10185,7 +10185,7 @@ one over the other.</p>
 
 <h2 id='mqtt-interface-settlspsk'>SetTlsPsk</h2>
 
-<p>The SetTlsPsk API call allows a driver to use a pre-shared key (PSK) to establish an authenticated and encrypted session with the MQTT broker. This call must be called before the <a href="https://snap-one.github.io/docs-driverworks-api-4.0.0-beta/#mqtt-lua-apis-connect">Connect</a> API call in order for TLS to be used. When a PSK is set the attempt to connect to a remote MQTT broker will fail if it doesn&#39;t support TLS, and isn&#39;t using the same PSK.</p>
+<p>The SetTlsPsk API call allows a driver to use a pre-shared key (PSK) to establish an authenticated and encrypted session with the MQTT broker. This call must be called before the <a href="https://snap-one.github.io/docs-driverworks-api/#mqtt-interface-connect">Connect</a> API call in order for TLS to be used. When a PSK is set the attempt to connect to a remote MQTT broker will fail if it doesn&#39;t support TLS, and isn&#39;t using the same PSK.</p>
 
 <p><h6 id='mqtt-interface-settlspsk-notes-director-geo-location-service-available-from-2-10-4-available-from-4-0-0'>Available from 4.0.0</h6><h3 id='mqtt-interface-settlspsk-signature'>Signature</h3>
 <p><code>SetTlsPsk(psk, identity, ciphers)</code></p></p>
@@ -10383,7 +10383,7 @@ one over the other.</p>
 
 <h2 id='mqtt-interface-onconnecthandler'>onConnectHandler</h2>
 
-<p>When the <a href="https://snap-one.github.io/docs-driverworks-api-4.0.0-beta/#mqtt-lua-apis-connect">Connect</a> API call is called, an attempt to connect to the MQTT broker will start up in the background.  Once that connect attempt completes, the &quot;onConnectHandler&quot; will be called with a <a href="https://snap-one.github.io/docs-driverworks-api-4.0.0-beta/#mqtt-lua-apis-reason-codes-and-their-meanings">reasonCode</a> and flags parameter. The reasonCode parameter will indicate the status of the connection. The flags parameter should generally be ignored.</p>
+<p>When the <a href="https://snap-one.github.io/docs-driverworks-api/#mqtt-interface-connect">Connect</a> API call is called, an attempt to connect to the MQTT broker will start up in the background.  Once that connect attempt completes, the &quot;onConnectHandler&quot; will be called with a <a href="https://snap-one.github.io/docs-driverworks-api/#mqtt-interface-reason-codes-and-their-meanings">reasonCode</a> and flags parameter. The reasonCode parameter will indicate the status of the connection. The flags parameter should generally be ignored.</p>
 
 <p><h6 id='mqtt-interface-onconnecthandler-returns-director-geo-location-service-available-from-2-10-4-available-from-4-0-0'>Available from 4.0.0</h6><h3 id='mqtt-interface-onconnecthandler-signature'>Signature</h3>
 <p><code>onConnectHandler(mqttObject, reasonCode, flags, message, mqttProps)</code></p></p>
@@ -10422,7 +10422,7 @@ one over the other.</p>
 
 <h2 id='mqtt-interface-ondisconnecthandler'>onDisconnectHandler</h2>
 
-<p>When the session with the MQTT broker is disconnected, either by a call to the <a href="https://snap-one.github.io/docs-driverworks-api-4.0.0-beta/#mqtt-lua-apis-disconnect">Disconnect</a> API, or by an external event, the &quot;onDisconnectHandler&quot; will be called indicating the reason that the connection was disconnected. If your driver did not request the disconnection, it may want to start a timer to attempt to call the <a href="https://snap-one.github.io/docs-driverworks-api-4.0.0-beta/#mqtt-lua-apis-reconnect">Reconnect</a> API until a connection is established again.</p>
+<p>When the session with the MQTT broker is disconnected, either by a call to the <a href="https://snap-one.github.io/docs-driverworks-api/#mqtt-interface-disconnect">Disconnect</a> API, or by an external event, the &quot;onDisconnectHandler&quot; will be called indicating the reason that the connection was disconnected. If your driver did not request the disconnection, it may want to start a timer to attempt to call the <a href="https://snap-one.github.io/docs-driverworks-api/#mqtt-interface-reconnect">Reconnect</a> API until a connection is established again.</p>
 
 <p><h6 id='mqtt-interface-ondisconnecthandler-event-callbacks-director-geo-location-service-available-from-2-10-4-available-from-4-0-0'>Available from 4.0.0</h6><h3 id='mqtt-interface-ondisconnecthandler-signature'>Signature</h3>
 <p><code>onDisconnectHandler(mqttObject, reasonCode, message, mqttProps)</code></p></p>
@@ -10531,7 +10531,7 @@ one over the other.</p>
 
 <h2 id='mqtt-interface-onunsubscribehandler'>onUnsubscribeHandler</h2>
 
-<p>When the Unsubscribe API call is called, the attempt to unsubscribe from a topic will start up in the background. Once the unsubscribe attempt completes, the onUnsubscribeHandler will be called with the message ID that maps back to the Unsubscribe call. This indicates that the client is no longer subscribed to the topic that was provided in the <a href="https://snap-one.github.io/docs-driverworks-api-4.0.0-beta/#mqtt-lua-apis-unsubscribe">Unsubscribe</a> API call.</p>
+<p>When the Unsubscribe API call is called, the attempt to unsubscribe from a topic will start up in the background. Once the unsubscribe attempt completes, the onUnsubscribeHandler will be called with the message ID that maps back to the Unsubscribe call. This indicates that the client is no longer subscribed to the topic that was provided in the <a href="https://snap-one.github.io/docs-driverworks-api/#mqtt-interface-unsubscribe">Unsubscribe</a> API call.</p>
 
 <p><h6 id='mqtt-interface-onunsubscribehandler-event-callbacks-director-geo-location-service-available-from-2-10-4-available-from-4-0-0'>Available from 4.0.0</h6><h3 id='mqtt-interface-onunsubscribehandler-signature'>Signature</h3>
 <p><code>onUnsubscribeHandler(mqttObject, msgId, mqttProps)</code></p></p>
@@ -10678,7 +10678,7 @@ one over the other.</p>
 
 <h2 id='mqtt-interface-error-codes-and-their-meanings'>Error Codes and their Meanings</h2>
 
-<p>Error codes are values that are returned from the individual API calls. In the MQTT Lua APIs they are denoted by assigning the result of an API call to the &#39;errorCode&#39; variable. The integer value that is returned as the error code can be provided to the <a href="https://snap-one.github.io/docs-driverworks-api-4.0.0-beta/#mqtt-lua-apis-errorcodetostring">ErrorCodeToString</a> API call in order to convert it from a numeric code in to a descriptive string. The numeric codes and descriptive strings are defined below:</p>
+<p>Error codes are values that are returned from the individual API calls. In the MQTT Lua APIs they are denoted by assigning the result of an API call to the &#39;errorCode&#39; variable. The integer value that is returned as the error code can be provided to the <a href="https://snap-one.github.io/docs-driverworks-api/#mqtt-interface-errorcodetostring">ErrorCodeToString</a> API call in order to convert it from a numeric code in to a descriptive string. The numeric codes and descriptive strings are defined below:</p>
 
 <table><thead>
 <tr>
