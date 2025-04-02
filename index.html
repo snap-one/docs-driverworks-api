@@ -631,6 +631,9 @@
                     <a href="#helper-interface-getc4idir" class="toc-h2 toc-link" data-title="GetC4iDir">GetC4iDir</a>
                   </li>
                   <li>
+                    <a href="#helper-interface-getconditionals" class="toc-h2 toc-link" data-title="GetConditionals()">GetConditionals()</a>
+                  </li>
+                  <li>
                     <a href="#helper-interface-getc4zdir" class="toc-h2 toc-link" data-title="GetC4zDir">GetC4zDir</a>
                   </li>
                   <li>
@@ -6056,9 +6059,28 @@ re-booted, the ID will change.  The returned value is the same value as the one 
 </tr>
 </tbody></table>
 
+<h2 id='helper-interface-getconditionals'>GetConditionals()</h2>
+<p>Function that returns a table of information containing elements of conditionals that will be created dynamically in ComposerPro.</p>
+<h3 id='helper-interface-getconditionals-parameters'>Parameters</h3>
+<p><code>None</code></p>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>table</td>
+<td>Table containing all the configuration information for the dynamic conditionals of the driver.</td>
+</tr>
+</tbody></table>
+<h3 id='helper-interface-getconditionals-usage-note'>Usage Note</h3>
+<p>Conditionals are useful to include in your driver as they provide the opportunity for custom programming through the interface found in ComposerPro. When considering conditionals, it is recommended to review the <a href="https://snap-one.github.io/docs-driverworks-fundamentals/#conditionals">Conditionals</a> content found in the DriverWorks Fundamentals Guide prior to your driver development work.</p>
+
 <h2 id='helper-interface-getc4zdir'>GetC4zDir</h2>
 <p>Function that will return the directory path on the controller where driver.c4z files reside.</p>
-<h6 id='helper-interface-getc4zdir-returns-director-geo-location-service-available-from-2-10-4-available-from-2-10-0'>Available from 2.10.0</h6><h3 id='helper-interface-getc4zdir-signature'>Signature</h3>
+<h6 id='helper-interface-getc4zdir-usage-note-director-geo-location-service-available-from-2-10-4-available-from-2-10-0'>Available from 2.10.0</h6><h3 id='helper-interface-getc4zdir-signature'>Signature</h3>
 <p><code>C4:GetC4zDir()</code></p>
 <h3 id='helper-interface-getc4zdir-parameters'>Parameters</h3>
 <p><code>None</code></p>
