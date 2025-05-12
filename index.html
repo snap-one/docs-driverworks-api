@@ -1786,10 +1786,11 @@
           </li>
       </ul>
         <ul class="toc-footer">
+            <li><a href='https://github.com/snap-one/docs-driverworks'>DriverWorks GitHub Home</a></li>
             <li><a href='https://snap-one.github.io/docs-driverworks-introduction/'>An Introduction to DriverWorks</a></li>
             <li><a href='https://snap-one.github.io/docs-driverworks-fundamentals/'>DriverWorks Fundamentals Guide</a></li>
             <li><a href='https://snap-one.github.io/docs-driverworks-api/'>DriverWorks API Reference Guide</a></li>
-            <li><a href='https://github.com/snap-one/docs-driverworks'>DriverWorks GitHub Home</a></li>
+            <li><a href='https://snap-one.github.io/docs-driverworks-xml/'>DriverWorks XML Reference</a></li>
             <li><a href='https://github.com/lord/slate'>Documentation Powered by Slate</a></li>
         </ul>
     </div>
@@ -22422,8 +22423,24 @@ drwx------    8 root     root        4.0K Aug 16 10:38 ..
 <td>version: The version (integer) of the driver.  This number has no generic format and is specific to this manufacturer and driver type.</td>
 </tr>
 </tbody></table>
-<h3 id='zigbee-interface-zigbee-ota-device-updates-status-zb-otaremoveimage-deviceid'>status = zb:otaRemoveImage(deviceId)</h3><h6 id='zigbee-interface-zigbee-ota-device-updates-status-zb-otaremoveimage-deviceid-example-available-from-1-6-0-available-from-3-3-2'>Available from 3.3.2</h6>
+<h3 id='zigbee-interface-zigbee-ota-device-updates-status-zb-otaremoveimage-deviceid-imagetypeid'>status = zb:otaRemoveImage(deviceId, imageTypeId )</h3><h6 id='zigbee-interface-zigbee-ota-device-updates-status-zb-otaremoveimage-deviceid-imagetypeid-example-available-from-1-6-0-available-from-3-3-2'>Available from 3.3.2</h6>
 <p>This function removes an image record from the OTA server.  The deviceId (integer) is the id of the device whose image is being removed. </p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>int</td>
+<td>deviceId: The device id (integer) of the device for which the image should be applied.</td>
+</tr>
+<tr>
+<td>int</td>
+<td>imageTypeId: The image type id (integer).  A unique number associated with the image type (shared by devices of this type) of the device being upgraded.</td>
+</tr>
+</tbody></table>
 <h3 id='zigbee-interface-zigbee-ota-device-updates-status-zb-otaimageinfo-deviceid'>status = zb:otaImageInfo(deviceId)</h3>
 
 <p>This function returns information about the image associated with the device id.</p>
