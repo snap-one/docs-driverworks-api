@@ -30,8 +30,8 @@ To the extent that you create any “Derivative Work” (meaning any work that i
 
 Wirepath Home Systems, LLC dba Control4
 
-11734 S. Election Road
+1355 West Innovation Way, Suite 125
 
-Salt Lake City, UT 84020 USA
+Lehi, UT 84043 USA
 
 http://www.control4.com
