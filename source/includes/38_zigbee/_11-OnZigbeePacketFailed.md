@@ -10,14 +10,15 @@ Return function upon the unsuccessful delivery of a data packet.
 `OnZigbeePacketFailed (strPacket, nProfileID, nClusterID, nGroupID, nSourceEndpoint, ndestinationEndpoint)`
 
 
-| Parameter | Description |
-| --- | --- |
-| str | ZigBee supported command packet containing user data. |
-| num | Profile ID associated with the data packet |
-| num |Source Cluster library ID included within the Profile |
-| num | Zigbee device group ID |
-| num | Endpoint designated as the source of the data packet delivery. |
-| num |  Endpoint designated as the recipient of the data packet delivery. |
+| Parameter | Description                                                         |
+| --------- | ------------------------------------------------------------------- |
+| str       | ZigBee supported command packet containing user data.               |
+| num       | Profile ID associated with the data packet                          |
+| num       | Source Cluster library ID included within the Profile               |
+| num       | Zigbee device group ID                                              |
+| num       | Endpoint designated as the source of the data packet delivery.      |
+| num       | Endpoint designated as the recipient of the data packet delivery.   |
+| num       | EUID. Optional. Added in O.S. 4.1.0 for Control4 internal purposes. |
 
 
 ### Returns
