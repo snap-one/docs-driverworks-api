@@ -649,6 +649,12 @@
                     <a href="#helper-interface-getlogdir" class="toc-h2 toc-link" data-title="GetLogDir">GetLogDir</a>
                   </li>
                   <li>
+                    <a href="#helper-interface-getnonbindingconsumerdevices" class="toc-h2 toc-link" data-title="GetNonBindingConsumerDevices">GetNonBindingConsumerDevices</a>
+                  </li>
+                  <li>
+                    <a href="#helper-interface-getnonproviderconsumerdevices" class="toc-h2 toc-link" data-title="GetNonProviderConsumerDevices">GetNonProviderConsumerDevices</a>
+                  </li>
+                  <li>
                     <a href="#helper-interface-getprotocoldevicebyid" class="toc-h2 toc-link" data-title="GetProtocolDeviceById">GetProtocolDeviceById</a>
                   </li>
                   <li>
@@ -6201,6 +6207,82 @@ re-booted, the ID will change.  The returned value is the same value as the one 
 <tr>
 <td>str</td>
 <td>Directory path.</td>
+</tr>
+</tbody></table>
+
+<h2 id='helper-interface-getnonbindingconsumerdevices'>GetNonBindingConsumerDevices</h2>
+<p>This function returns the devices that consume the data delivered through a non-binding connection.</p>
+<h6 id='helper-interface-getnonbindingconsumerdevices-returns-director-geo-location-service-available-from-2-10-4-available-from-4-1-0'>Available from 4.1.0.</h6><h3 id='helper-interface-getnonbindingconsumerdevices-signature'>Signature</h3>
+<p><code>C4:GetNonBindingConsumerDevices(DriverProxyId,nonBindingConnectionId) </code></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>DriverProxyId</td>
+<td>NUM</td>
+<td>Proxy Identification Number</td>
+</tr>
+<tr>
+<td>nonBindingConnectionId</td>
+<td>NUM</td>
+<td>Connection Identification Number</td>
+</tr>
+</tbody></table>
+<h3 id='helper-interface-getnonbindingconsumerdevices-returns'>Returns</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>DeviceId</td>
+<td>NUM</td>
+<td>Device Identification Number</td>
+</tr>
+</tbody></table>
+
+<h2 id='helper-interface-getnonproviderconsumerdevices'>GetNonProviderConsumerDevices</h2>
+<p>This function returns the devices that deliver data through a non-binding connection.</p>
+<h6 id='helper-interface-getnonproviderconsumerdevices-returns-director-geo-location-service-available-from-2-10-4-available-from-4-1-0'>Available from 4.1.0.</h6><h3 id='helper-interface-getnonproviderconsumerdevices-signature'>Signature</h3>
+<p><code>C4:GetNonBindingProviderDevices(DriverProxyId,nonBindingConnectionId) </code></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>DriverProxyId</td>
+<td>NUM</td>
+<td>Proxy Identification Number</td>
+</tr>
+<tr>
+<td>nonBindingConnectionId</td>
+<td>NUM</td>
+<td>Connection Identification Number</td>
+</tr>
+</tbody></table>
+<h3 id='helper-interface-getnonproviderconsumerdevices-returns'>Returns</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>DeviceId</td>
+<td>NUM</td>
+<td>Device Identification Number</td>
 </tr>
 </tbody></table>
 
