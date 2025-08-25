@@ -631,6 +631,9 @@
                     <a href="#helper-interface-getc4idir" class="toc-h2 toc-link" data-title="GetC4iDir">GetC4iDir</a>
                   </li>
                   <li>
+                    <a href="#helper-interface-getcommands" class="toc-h2 toc-link" data-title="GetCommands">GetCommands</a>
+                  </li>
+                  <li>
                     <a href="#helper-interface-getconditionals" class="toc-h2 toc-link" data-title="GetConditionals()">GetConditionals()</a>
                   </li>
                   <li>
@@ -6064,6 +6067,39 @@ re-booted, the ID will change.  The returned value is the same value as the one 
 <td>Directory path.</td>
 </tr>
 </tbody></table>
+
+<h2 id='helper-interface-getcommands'>GetCommands</h2>
+<p>Function that returns a table of information containing elements of commands that will be created dynamically in ComposerPro. Dynamic Commands must be handled using the GetCommands function. Static commands are created in the driver’s XML.</p>
+<h3 id='helper-interface-getcommands-parameters'>Parameters</h3>
+<p><code>None</code></p>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>table</td>
+<td>Table containing all the configuration information for the dynamic commands of the driver. These commands will be available for use in programming in Composer Pro.</td>
+</tr>
+</tbody></table>
+<h3 id='helper-interface-getcommands-usage-note'>Usage Note</h3>
+<p>Commands are useful to include in your driver as they provide the opportunity for custom programming through the interface found in ComposerPro. When considering commands, it is recommended to review the <a href="https://snap-one.github.io/docs-driverworks-fundamentals/#commands">Commands</a> content found in the DriverWorks Fundamentals Guide prior to your driver development work.</p>
+<h3 id='helper-interface-getcommands-example'>Example</h3><div class="highlight"><pre class="highlight lua tab-lua"><code><span class="k">function</span> <span class="nf">GetCommands</span><span class="p">()</span>
+<span class="kd">local</span> <span class="n">tCommands</span> <span class="o">=</span> <span class="p">{}</span>
+
+ <span class="k">if</span> <span class="n">C4</span><span class="p">:</span><span class="n">GetCapability</span><span class="p">(</span><span class="s2">"dimmer"</span><span class="p">)</span> <span class="k">then</span>
+    <span class="n">tCommands</span><span class="p">[</span><span class="s2">"100"</span><span class="p">]</span>                <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">tCommands</span><span class="p">[</span><span class="s2">"100"</span><span class="p">][</span><span class="s2">"name"</span><span class="p">]</span>        <span class="o">=</span> <span class="s2">"SET_LEVEL"</span>
+    <span class="n">tCommands</span><span class="p">[</span><span class="s2">"100"</span><span class="p">][</span><span class="s2">"description"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"Set NAME to PARAM1"</span>
+    <span class="n">tCommands</span><span class="p">[</span><span class="s2">"100"</span><span class="p">][</span><span class="s2">"sort_order"</span><span class="p">]</span>  <span class="o">=</span> <span class="s2">"6"</span>
+ <span class="k">end</span>
+
+ <span class="k">return</span> <span class="n">tCommands</span>
+<span class="k">end</span>
+</code></pre></div>
+<p>In the example above, the GetCommands function is used to return the data for a command with an ID of 100. This command is named SET_LEVEL. SET_LEVEL is created dynamically in ComposerPro id the light has the capability of being set to a dimmer as true.  It will be displayed in ComposerPro programming as a command that can be used to set a dimmer level to a provided parameter value. </p>
 
 <h2 id='helper-interface-getconditionals'>GetConditionals()</h2>
 <p>Function that returns a table of information containing elements of conditionals that will be created dynamically in ComposerPro.</p>
