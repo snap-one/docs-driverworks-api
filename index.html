@@ -652,6 +652,9 @@
                     <a href="#helper-interface-getpushsettings" class="toc-h2 toc-link" data-title="getPushSettings">getPushSettings</a>
                   </li>
                   <li>
+                    <a href="#helper-interface-getroomid" class="toc-h2 toc-link" data-title="GetRoomID">GetRoomID</a>
+                  </li>
+                  <li>
                     <a href="#helper-interface-getsandboxdir" class="toc-h2 toc-link" data-title="GetSandboxDir">GetSandboxDir</a>
                   </li>
                   <li>
@@ -6197,6 +6200,31 @@ re-booted, the ID will change.  The returned value is the same value as the one 
 <h2 id='helper-interface-getpushsettings'>getPushSettings</h2>
 <p>A Boolean API that returns the project’s current setting for the “Push Settings from Project” checkbox in Composer Pro’s Project properties screen. True equals a populated checkbox. False equals an un-populated checkbox. This is useful for determining if a driver can push settings to a device (true) or if settings will be sent from the device to the project (false).</p>
 <h6 id='helper-interface-getpushsettings-returns-director-geo-location-service-available-from-2-10-4-available-from-2-7-0'>Available from 2.7.0.</h6>
+
+<h2 id='helper-interface-getroomid'>GetRoomID</h2>
+
+<p>This API obtains the Room ID value that contains the Driver Proxy ID passed as a parameter. The Room ID value is returned and can then be used for AV pathing purposes.</p>
+
+<p><h6 id='helper-interface-getroomid-returns-director-geo-location-service-available-from-2-10-4-available-from-4-1-0'>Available from 4.1.0</h6><h3 id='helper-interface-getroomid-signature'>Signature</h3>
+<p><code>C4:GetRoomID(DriverproxyId)</code></p></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>DriverProxyId</td>
+<td>INT</td>
+<td>Proxy ID value used by the driver.</td>
+</tr>
+</tbody></table>
+
+<h3 id='helper-interface-getroomid-returns'>Returns</h3>
+
+<p>Upon success, the API returns the Room ID value. </p>
 
 <h2 id='helper-interface-getsandboxdir'>GetSandboxDir</h2>
 
