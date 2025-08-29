@@ -16,9 +16,9 @@ The [GetNonBindingConsumerDevices][3] function has been added to return the devi
 
 A new, optional parameter has been added to the following APIs:
 
-[OnZigbeePacketIn][4]
-[OnZigbeePacketFailed][5]
-[OnZigbeePacketSuccess][6]
+- [OnZigbeePacketIn][4]
+- [OnZigbeePacketFailed][5]
+- [OnZigbeePacketSuccess][6]
 
 This parameter is the numerical value of the EUID.
 
