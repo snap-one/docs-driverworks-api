@@ -1,7 +1,6 @@
 
 ## What’s New in 4.1.0
 
-Beta Documentation.
 
 ### Additions to the Helper Interface
 
