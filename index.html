@@ -12093,7 +12093,7 @@ Protocol Drivers that have one or more proxies have an additional key-value pair
 <p>Function that returns the XML contents of a driver&#39;s config.xml file. This API should not be invoked during OnDriverInit.</p>
 
 <p><h6 id='miscellaneous-interface-getdriverconfiginfo-example-director-geo-location-service-available-from-1-6-0-available-from-2-8-0'>Available from 2.8.0</h6><h3 id='miscellaneous-interface-getdriverconfiginfo-signature'>Signature</h3>
-<p><code>C4:GetDriverConfigInfo()</code></p></p>
+<p><code>C4:GetDriverConfigInfo(str)</code></p></p>
 
 <table><thead>
 <tr>
@@ -12103,7 +12103,7 @@ Protocol Drivers that have one or more proxies have an additional key-value pair
 </thead><tbody>
 <tr>
 <td>str</td>
-<td>XML tag for the inner XML that is being requested. This is passed in a string format without the XML brackets.</td>
+<td>Required. XML tag for the inner XML that is being requested. This is passed in a string format without the XML brackets. Note that the only XML tags that can be passed here are root level tags.</td>
 </tr>
 </tbody></table>
 
