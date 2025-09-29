@@ -7,12 +7,12 @@ Function that returns a table containing all of the device connections as well a
 
 ### Signature
 
-`C4:GetNetworkBindingsByDevice()`
+`C4:GetNetworkConnections()`
 
 
-| Parameter | Description |
-| --- | --- |
-| table | Table containing connection information for the device and Information for each connection. |
+| Parameter | Description                                                                                 |
+| --------- | ------------------------------------------------------------------------------------------- |
+| table     | Table containing connection information for the device and Information for each connection. |
 
 
 ### Usage Note
