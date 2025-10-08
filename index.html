@@ -18911,22 +18911,10 @@ addresstype: 1
 <p>Returns the &lt;serialsettings&gt; string from the driver that is connected to the provided control binding. The control binding should be an RS232 provider binding. This API should not be invoked during OnDriverInit.</p>
 
 <p><h6 id='serial-and-network-interface-getserialsettings-examples-example-available-from-1-6-0-available-from-1-6-0'>Available from 1.6.0</h6><h3 id='serial-and-network-interface-getserialsettings-signature'>Signature</h3>
-<p><code>C4:GetSerialSettings (idBinding)</code></p></p>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>num</td>
-<td>Control Binding Value</td>
-</tr>
-</tbody></table>
-
+<p><code>C4:GetSerialSettings ()</code></p>
+<h3 id='serial-and-network-interface-getserialsettings-parameters'>Parameters</h3>
+<p>None</p>
 <h3 id='serial-and-network-interface-getserialsettings-returns'>Returns</h3>
-
 <table><thead>
 <tr>
 <th>Value</th>
@@ -18935,9 +18923,9 @@ addresstype: 1
 </thead><tbody>
 <tr>
 <td>str</td>
-<td>Serial Settings Data in string format.</td>
+<td>Serial Settings Data of the driver in string format.</td>
 </tr>
-</tbody></table>
+</tbody></table></p>
 
 <h2 id='serial-and-network-interface-receivedfromserial'>ReceivedFromSerial</h2>
 
