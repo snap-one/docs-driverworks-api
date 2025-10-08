@@ -7,16 +7,15 @@ Returns the \<serialsettings\> string from the driver that is connected to the p
 
 ### Signature
 
-`C4:GetSerialSettings (idBinding)`
+`C4:GetSerialSettings ()`
 
 
-| Parameter | Description |
-| --- | --- |
-| num | Control Binding Value |
+### Parameters
+None
 
 
 ### Returns
 
-| Value | Description |
-| --- | --- |
-| str | Serial Settings Data in string format. |
+| Value | Description                                          |
+| ----- | ---------------------------------------------------- |
+| str   | Serial Settings Data of the driver in string format. |
