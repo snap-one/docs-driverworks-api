@@ -1,6 +1,6 @@
 ## GetSerialSettings
 
-Returns the \<serialsettings\> string from the driver from which the API is called. ing. This API should not be invoked during OnDriverInit.
+Returns the \<serialsettings\> from the driver from which the API is called. ing. This API should not be invoked during OnDriverInit.
 
 ###### Available from 1.6.0
 
