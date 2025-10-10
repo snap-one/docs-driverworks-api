@@ -6,7 +6,6 @@ For instance, if you call the [Connect][1]() method, the class will remain alive
 
 ###### Available in 1.6.0
 
- 
 ### Example
 
 ```lua
@@ -32,6 +31,8 @@ function PullHttpPage(host, path, timeout, done)
    needBytes = nil
    response = ""
    allReceived = false
+   -- start reading data
+   client:ReadUntil("\r\n")
   end)
   :OnResolve(function(client, endpoints, choose)
    -- Implementing this callback is optional
@@ -112,7 +113,7 @@ PullHttpPage("example.com", "/", 5000, function(info, err)
 end)
 ```
 
-[1]:	https://snap-one.github.io/docs-driverworks-api/#tcpclient-interface-connect
-[2]:	https://snap-one.github.io/docs-driverworks-api/#tcpclient-interface-onconnect
-[3]:	https://snap-one.github.io/docs-driverworks-api/#tcpclient-interface-onresolve
-[4]:	https://snap-one.github.io/docs-driverworks-api/#tcpclient-interface-onerror
+[1]: https://snap-one.github.io/docs-driverworks-api/#tcpclient-interface-connect
+[2]: https://snap-one.github.io/docs-driverworks-api/#tcpclient-interface-onconnect
+[3]: https://snap-one.github.io/docs-driverworks-api/#tcpclient-interface-onresolve
+[4]: https://snap-one.github.io/docs-driverworks-api/#tcpclient-interface-onerror
