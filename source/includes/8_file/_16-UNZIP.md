@@ -1,4 +1,4 @@
-## UnZip
+## Unzip
 Function for extracting files from a .zip archive. This API enables Lua drivers to extract one, or more, files from a .zip archive. 
  
 _This API was introduced in O.S. Release 3.3.0._
@@ -6,7 +6,7 @@ _This API was introduced in O.S. Release 3.3.0._
 
 ### Signature
 
-`C4:UnZip()`
+`C4:Unzip()`
 
 
 | Parameters | Description |
