@@ -26,7 +26,7 @@ function PullHttpPage(host, path, timeout, done)
   :OnConnect(function(client)
    local remote = client:GetRemoteAddress()
    print("Connected to " .. remote.ip .. ":" .. remote.port)
-   client:Write("GET " .. path .. " HTTP/1.0\r\nHost: " .. host .. "\r\n\r\n"):ReadUntil("\r\n")
+   client:Write("GET " .. path .. " HTTP/1.0\r\nHost: " .. host .. "\r\n\r\n")
    readingHeaders = true
    needBytes = nil
    response = ""
