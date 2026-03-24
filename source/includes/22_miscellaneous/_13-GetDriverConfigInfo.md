@@ -1,6 +1,6 @@
 ## GetDriverConfigInfo
 
-Function that returns the XML contents of a driver's config.xml file. This API should not be invoked during OnDriverInit. Also, see GetDriverConfigInfoById.
+Function that returns the XML contents of a driver's config.xml file. This API should not be invoked during OnDriverInit. Also, see [GetDriverConfigInfoById][1].
 
 ###### Available from 2.8.0
 
@@ -30,3 +30,5 @@ User defined XML tags can also be returned using this function.
 ### Example
 
 `C4:GetDriverConfigInfo("version")`
+
+[1]:	https://snap-one.github.io/docs-driverworks-api/#miscellaneous-interface-getdriverconfiginfobyid
