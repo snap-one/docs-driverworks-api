@@ -1,6 +1,6 @@
 ## GetDriverConfigInfo
 
-Function that returns the XML contents of a driver's config.xml file. This API should not be invoked during OnDriverInit.
+Function that returns the XML contents of a driver's config.xml file. This API should not be invoked during OnDriverInit. Also, see GetDriverConfigInfoById.
 
 ###### Available from 2.8.0
 
