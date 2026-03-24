@@ -315,6 +315,9 @@
             <a href="#what-39-s-new" class="toc-h1 toc-link" data-title="What's New">What's New</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#what-39-s-new-what-s-new-in-4-2-0" class="toc-h2 toc-link" data-title="What’s New in 4.2.0">What’s New in 4.2.0</a>
+                  </li>
+                  <li>
                     <a href="#what-39-s-new-what-s-new-in-4-1-0" class="toc-h2 toc-link" data-title="What’s New in 4.1.0">What’s New in 4.1.0</a>
                   </li>
                   <li>
@@ -1105,6 +1108,9 @@
                     <a href="#miscellaneous-interface-getcapability" class="toc-h2 toc-link" data-title="GetCapability">GetCapability</a>
                   </li>
                   <li>
+                    <a href="#miscellaneous-interface-getdriverconfiginfobyid" class="toc-h2 toc-link" data-title="GetDriverConfigInfoById">GetDriverConfigInfoById</a>
+                  </li>
+                  <li>
                     <a href="#miscellaneous-interface-getdevicedata" class="toc-h2 toc-link" data-title="GetDeviceData">GetDeviceData</a>
                   </li>
                   <li>
@@ -1853,6 +1859,9 @@
 
 <p>Effective communication between your driver and Control4 System is paramount to a successful end user experience. The API Reference Guide details each of the Interfaces supported through the DriverWorksSDK. These Interfaces include numerous APIs that can be leveraged by your driver to  facilitate communication between the driver and the Control4 O.S.</p>
 <h1 id='what-39-s-new'>What&#39;s New</h1>
+
+<h2 id='what-39-s-new-what-s-new-in-4-2-0'>What’s New in 4.2.0</h2><h3 id='what-39-s-new-what-s-new-in-4-2-0-additions-to-the-miscellaneous-interface'>Additions to the Miscellaneous Interface</h3>
+<p>The <a href="https://ideal-couscous-5j7jw1y.pages.github.io/#miscellaneous-interface-getdriverconfiginfobyid">GetDriverConfigInfoById</a> function has been added to return XML configuration information for a specific device.</p>
 
 <h2 id='what-39-s-new-what-s-new-in-4-1-0'>What’s New in 4.1.0</h2><h3 id='what-39-s-new-what-s-new-in-4-1-0-additions-to-the-helper-interface'>Additions to the Helper Interface</h3>
 <p>The <a href="https://snap-one.github.io/docs-driverworks-api/#helper-interface-getcommands">GetCommands </a>function has been added to return a table of information containing elements of commands that will be created dynamically in ComposerPro.</p>
@@ -11587,11 +11596,51 @@ one over the other.</p>
     End
     OnBindingChanged</p>
 
+<h2 id='miscellaneous-interface-getdriverconfiginfobyid'>GetDriverConfigInfoById</h2>
+
+<p>Function that returns XML configuration information for a specific device.</p>
+
+<p><h6 id='miscellaneous-interface-getdriverconfiginfobyid-examples-director-geo-location-service-available-from-1-6-0-available-from-4-2-0'>Available from 4.2.0</h6><h3 id='miscellaneous-interface-getdriverconfiginfobyid-signature'>Signature</h3>
+<p><code>C4:GetDriverConfigInfoById(num, str)</code></p>
+<h3 id='miscellaneous-interface-getdriverconfiginfobyid-parameters'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>DeviceId</td>
+<td>NUM</td>
+<td>Required. The ID of the device for which you want to retrieve configuration information.</td>
+</tr>
+<tr>
+<td>Name</td>
+<td>STR</td>
+<td>Required. The XML tag name of the configuration item you&#39;re requesting. Note that the only XML tags that can be passed here are root level tags.</td>
+</tr>
+</tbody></table>
+<h3 id='miscellaneous-interface-getdriverconfiginfobyid-returns'>Returns</h3>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>data</td>
+<td>The value of the XML tag.</td>
+</tr>
+</tbody></table>
+<h3 id='miscellaneous-interface-getdriverconfiginfobyid-example'>Example</h3>
+<p><code>C4:GetDriverConfigInfoById(32, &quot;version&quot;)</code></p></p>
+
 <h2 id='miscellaneous-interface-getdevicedata'>GetDeviceData</h2>
 
 <p>This API returns data found in the driver&#39;s device data, &lt;devicedata&gt; XML. The Device ID of the driver value must be passed to return the XML content. An optional string value parameter can be passed to retrieve specific XML data.</p>
 
-<p><h6 id='miscellaneous-interface-getdevicedata-examples-director-geo-location-service-available-from-1-6-0-available-from-2-10-0'>Available from 2.10.0</h6><h3 id='miscellaneous-interface-getdevicedata-signature'>Signature</h3>
+<p><h6 id='miscellaneous-interface-getdevicedata-example-director-geo-location-service-available-from-1-6-0-available-from-2-10-0'>Available from 2.10.0</h6><h3 id='miscellaneous-interface-getdevicedata-signature'>Signature</h3>
 <p><code>C4:GetDeviceData()</code></p></p>
 
 <table><thead>
