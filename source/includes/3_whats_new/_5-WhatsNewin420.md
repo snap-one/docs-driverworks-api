@@ -5,4 +5,4 @@
 
 The [GetDriverConfigInfoById][1] function has been added to return XML configuration information for a specific device.
 
-[1]:	https://ideal-couscous-5j7jw1y.pages.github.io/#miscellaneous-interface-getdriverconfiginfobyid
+[1]:	https://snap-one.github.io/docs-driverworks-api/#miscellaneous-interface-getdriverconfiginfobyid
