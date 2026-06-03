@@ -4105,6 +4105,10 @@ iSpRAwom9R5BWUMFoRCn0j0TWFsTIBNSuOcMrw5n6NU=
 <td>str</td>
 <td>Event Description where NAME is replaced by the driver name. See Event Description example below.</td>
 </tr>
+<tr>
+<td>int</td>
+<td>Number reflecting the order of position this Event will appear when added dynamically.</td>
+</tr>
 </tbody></table>
 
 <h3 id='event-interface-addevent-returns'>Returns</h3>
@@ -4117,7 +4121,7 @@ iSpRAwom9R5BWUMFoRCn0j0TWFsTIBNSuOcMrw5n6NU=
 
 <p>The example below would be displayed in Composer Pro Programming as: &quot;When the Theater-&gt;AV Switch TEST DYNAMIC 3 Event Changes&quot; This example assumes a room of Theater and a driver named AV Switch. </p>
 
-<p><code>C4:AddEvent(3, &quot;TEST_DYNAMIC_3&quot;, &quot;When the NAME TEST_DYNAMIC_3 Event Changes&quot;)</code></p>
+<p><code>C4:AddEvent(3, &quot;TEST_DYNAMIC_3&quot;, &quot;When the NAME TEST_DYNAMIC_3 Event Changes&quot;, 2)</code></p>
 
 <h3 id='event-interface-addevent-usage-note'>Usage Note</h3>
 
