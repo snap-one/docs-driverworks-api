@@ -1,6 +1,6 @@
 ## GetUniqueMAC
 
-Function to get the unique MAC address of the Director box. This API can be invoked during OnDriverInit.
+Function to get the unique MAC address of the Director controller. This API can be invoked during OnDriverInit.
 
 ###### Available from 1.6.0
 
