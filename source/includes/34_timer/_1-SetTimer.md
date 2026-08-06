@@ -3,7 +3,7 @@
 Creates and starts timer. This API should not be invoked during OnDriverInit.
 
 
-###### Available from 1.6.0.
+###### C4:SetTimer available from 2.7.0. Other Timer functions available from 1.6.0.
 
 
 ### Signature
