@@ -20797,7 +20797,7 @@ Returns the whole number of minutes that have elapsed. This value might be somet
 <p>Function that causes a file to be downloaded from a URL to a specified location on the file system.</p>
 
 <p><h6 id='url-interface-downloadfile-returns-example-available-from-1-6-0-available-from-3-3-1'>Available from 3.3.1</h6><h3 id='url-interface-downloadfile-signature'>Signature</h3>
-<p><code>C4LuaUrl:DownloadFile(url, subdir, filename, table)</code></p></p>
+<p><code>C4LuaUrl:DownloadFile(url, filename, subdir, headers)</code></p></p>
 
 <table><thead>
 <tr>
@@ -20810,15 +20810,15 @@ Returns the whole number of minutes that have elapsed. This value might be somet
 <td>String of the URL to the download file.</td>
 </tr>
 <tr>
-<td>subdir</td>
-<td>A directory alias, such as &quot;SANDBOX&quot;, &quot;MEDIA&quot;, &quot;C4Z&quot;, etc. that the file should be downloaded to.</td>
-</tr>
-<tr>
 <td>filename</td>
 <td>The file name (without path) where the file will downloaded.</td>
 </tr>
 <tr>
-<td>table</td>
+<td>subdir</td>
+<td>A directory alias, such as &quot;SANDBOX&quot;, &quot;MEDIA&quot;, &quot;C4Z&quot;, etc. that the file should be downloaded to.</td>
+</tr>
+<tr>
+<td>headers</td>
 <td>A table of request headers and values to be sent.</td>
 </tr>
 </tbody></table>
