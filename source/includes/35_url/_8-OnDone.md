@@ -28,7 +28,7 @@ Once the transfer has completed (or failed), the C4LuaUrl object cannot be re-us
 A reference to itself.
 
 [1]:	https://snap-one.github.io/docs-driverworks-api/#url-interface
-[2]:	https://snap-one.github.io/docs-driverworks-api/#onheaders
-[3]:	https://snap-one.github.io/docs-driverworks-api/#onbody
-[4]:	https://snap-one.github.io/docs-driverworks-api/#onbodychunk
+[2]:	https://snap-one.github.io/docs-driverworks-api/#url-interface-onheaders
+[3]:	https://snap-one.github.io/docs-driverworks-api/#url-interface-onbody
+[4]:	https://snap-one.github.io/docs-driverworks-api/#url-interface-onbodychunk
 [5]:	https://snap-one.github.io/docs-driverworks-api/#url-interface

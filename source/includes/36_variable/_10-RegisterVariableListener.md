@@ -48,5 +48,5 @@ function OnWatchedVariableChanged(idDevice, idVariable, strValue)
 end
 ```
 
-[1]:	https://snap-one.github.io/docs-driverworks-api/#onwatchedvariablechanged
+[1]:	https://snap-one.github.io/docs-driverworks-api/#variable-interface-onwatchedvariablechanged
 [2]:	https://snap-one.github.io/docs-driverworks-api/#variable-interface-onwatchedvariablechanged

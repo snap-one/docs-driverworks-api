@@ -146,4 +146,4 @@ OnServerDataIn hash: 162938911 data: lkasjdfl ip: 192.168.200.100
 ```
 
 
-[1]:	https://snap-one.github.io/docs-driverworks-api/#onserverconnectionstatuschanged
+[1]:	https://snap-one.github.io/docs-driverworks-api/#server-socket-interface-onserverconnectionstatuschanged

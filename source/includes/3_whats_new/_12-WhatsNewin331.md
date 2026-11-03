@@ -32,7 +32,7 @@ As part of Control4’s plan to tighten driver security, the io.popen() call is 
 - [GetUname][9]
 - [GetUptime][10]
 
-[1]:	https://snap-one.github.io/docs-driverworks-api/#encryption-interface-generatecsr_eccc
+[1]:	https://snap-one.github.io/docs-driverworks-api/#encryption-interface-generatecsr_ecc
 [2]:	https://snap-one.github.io/docs-driverworks-api/#encryption-interface-generatecsr_rsa
 [3]:	https://snap-one.github.io/docs-driverworks-api/#helper-interface-gethostname
 [4]:	https://snap-one.github.io/docs-driverworks-api/#helper-interface-portinuse
