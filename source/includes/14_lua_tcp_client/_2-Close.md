@@ -15,4 +15,4 @@ This method closes an established connection, or cancels a pending resolve or co
 | --- | --- |
 | bool | flush: Value that indicates whether any queued-up write requests should be sent out prior to closing the connection. |
 
-[1]:	https://snap-one.github.io/docs-driverworks-api/#onerror
+[1]:	https://snap-one.github.io/docs-driverworks-api/#tcpclient-interface-onerror
