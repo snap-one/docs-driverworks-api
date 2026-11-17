@@ -7636,7 +7636,7 @@ local shared_secret = pkey.derive( private_key, peer_key )
 <li><code>/var/log/debug/driver_log.log</code></li>
 </ul>
 
-<p>A message is written to a log file only when that log is set to DEBUG or a more detailed level (TRACE). By default, release builds of Control4 OS log <code>director.log</code> at ERROR and <code>driver_log.log</code> at WARN, so DebugLog messages do not appear until the log level is raised.</p>
+<p>A message is written to a log file only when that log is set to DEBUG or a more detailed level (TRACE). By default, release builds of Control4 OS log both <code>director.log</code> and <code>driver_log.log</code> at ERROR, so DebugLog messages do not appear until the log level is raised.</p>
 
 <p>To raise the log level, use C4 ToolBox:</p>
 
