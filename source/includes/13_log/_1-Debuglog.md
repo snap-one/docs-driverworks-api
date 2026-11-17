@@ -5,7 +5,7 @@ Function called from DriverWorks driver to write a message at the DEBUG log leve
 - `/var/log/debug/director.log`
 - `/var/log/debug/driver_log.log`
 
-A message is written to a log file only when that log is set to DEBUG or a more detailed level (TRACE). By default, release builds of Control4 OS log `director.log` at ERROR and `driver_log.log` at WARN, so DebugLog messages do not appear until the log level is raised.
+A message is written to a log file only when that log is set to DEBUG or a more detailed level (TRACE). By default, release builds of Control4 OS log both `director.log` and `driver_log.log` at ERROR, so DebugLog messages do not appear until the log level is raised.
 
 To raise the log level, use C4 ToolBox:
 
