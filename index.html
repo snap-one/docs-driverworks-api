@@ -7629,7 +7629,31 @@ local shared_secret = pkey.derive( private_key, peer_key )
 
 <h2 id='log-interface-debuglog'>DebugLog</h2>
 
-<p>Function called from DriverWorks driver to send messages to the following log files: director.log and driver.log. This API can be invoked during OnDriverInit.</p>
+<p>Function called from DriverWorks driver to write a message at the DEBUG log level to the following log files on the controller:</p>
+
+<ul>
+<li><code>/var/log/debug/director.log</code></li>
+<li><code>/var/log/debug/driver_log.log</code></li>
+</ul>
+
+<p>A message is written to a log file only when that log is set to DEBUG or a more detailed level (TRACE). By default, release builds of Control4 OS log <code>director.log</code> at ERROR and <code>driver_log.log</code> at WARN, so DebugLog messages do not appear until the log level is raised.</p>
+
+<p>To raise the log level, use C4 ToolBox:</p>
+
+<ol>
+<li>In Composer Pro, select <strong>Tools</strong> &gt; <strong>C4 ToolBox</strong>. Under <strong>Support Functions</strong>, select <strong>Logging</strong>.</li>
+<li>In <strong>Logging Options</strong>, select <strong>Enable Debug Logs</strong>.</li>
+<li>In <strong>Choose a Control4 Device</strong>, select <strong>Search Network</strong>. If the controller isn&#39;t found, select <strong>Add IP</strong> and enter its IP address.</li>
+<li>Select the primary controller (listed in green) and select <strong>Enable Debug Logs</strong>.</li>
+</ol>
+
+<p>When testing is complete, select <strong>Reset Logs to Default Level</strong> in <strong>Logging Options</strong> and choose the same controller.</p>
+
+<p>To raise only the Director log, in Composer Pro, select <strong>Tools</strong> &gt; <strong>System Diagnostics</strong>, select the <strong>Logging</strong> tab, and set <strong>Logger</strong> to <code>director</code> and <strong>Log Level</strong> to <code>debug</code>. DebugLog messages then appear in <code>director.log</code>. <code>driver_log.log</code> is not one of the loggers listed in System Diagnostics. Because <code>director.log</code> fills and rotates quickly, use a controller snapshot rather than <strong>Start Tail</strong> to review the messages.</p>
+
+<p>To retrieve the log files, download a controller snapshot: in Composer Pro, select <strong>Tools</strong> &gt; <strong>Device Logs</strong>, then select <strong>Download</strong> for the primary controller. The download can take a few minutes. Log files in <code>/var/log/debug</code>, including <code>director.log</code> and <code>driver_log.log</code>, are stored in RAM and are cleared when the controller reboots, so download the snapshot before rebooting. The snapshot is a .zip file that mirrors the controller&#39;s log directories (for example, <code>var/log/debug/driver_log.log</code>) and includes the rotated, compressed copies of each log (<code>driver_log.log.1.gz</code> and so on).</p>
+
+<p>This API can be invoked during OnDriverInit.</p>
 
 <p><h6 id='log-interface-debuglog-examples-director-geo-location-service-available-from-2-10-4-available-from-1-6-0'>Available from 1.6.0</h6><h3 id='log-interface-debuglog-signature'>Signature</h3>
 <p><code>C4:DebugLog(strLogText)</code></p></p>
@@ -7675,7 +7699,16 @@ local shared_secret = pkey.derive( private_key, peer_key )
 <span class="k">end</span>
 </code></pre></div>
 <h2 id='log-interface-errorlog'>ErrorLog</h2>
-<p>Function called from DriverWorks driver to send messages to the following log files: director.log and driver.log.</p>
+<p>Function called from DriverWorks driver to write a message at the ERROR log level to the following log files on the controller:</p>
+
+<ul>
+<li><code>/var/log/debug/director.log</code></li>
+<li><code>/var/log/debug/driver_log.log</code></li>
+</ul>
+
+<p>The default log levels on release builds of Control4 OS capture ERROR messages, so ErrorLog messages appear in both files without changing any log level.</p>
+
+<p>To retrieve the log files, download a controller snapshot: in Composer Pro, select <strong>Tools</strong> &gt; <strong>Device Logs</strong>, then select <strong>Download</strong> for the primary controller. The download can take a few minutes. Log files in <code>/var/log/debug</code>, including <code>director.log</code> and <code>driver_log.log</code>, are stored in RAM and are cleared when the controller reboots, so download the snapshot before rebooting. The snapshot is a .zip file that mirrors the controller&#39;s log directories (for example, <code>var/log/debug/driver_log.log</code>) and includes the rotated, compressed copies of each log (<code>driver_log.log.1.gz</code> and so on).</p>
 <h6 id='log-interface-errorlog-examples-director-geo-location-service-available-from-2-10-4-available-from-1-6-0'>Available from 1.6.0</h6><h3 id='log-interface-errorlog-signature'>Signature</h3>
 
 <p><code>C4:ErrorLog(strLogText)</code></p>
@@ -7684,8 +7717,8 @@ local shared_secret = pkey.derive( private_key, peer_key )
 
 <p>Here is an example  using a variable called &quot;lightLevel&quot; to send an error log when a light level exceeds the value of 100:</p>
 
-<div class="highlight"><pre class="highlight lua tab-lua"><code><span class="n">If</span> <span class="p">(</span><span class="n">lightLevel</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">)</span> <span class="k">then</span>
-   <span class="n">C4</span><span class="p">:</span><span class="n">ErrorLog</span><span class="p">(</span><span class="err">“</span><span class="n">ERROR</span><span class="p">:</span> <span class="n">light</span> <span class="n">level</span> <span class="n">out</span> <span class="n">of</span> <span class="n">range</span><span class="err">”</span><span class="p">)</span>
+<div class="highlight"><pre class="highlight lua tab-lua"><code><span class="k">if</span> <span class="p">(</span><span class="n">lightLevel</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">)</span> <span class="k">then</span>
+   <span class="n">C4</span><span class="p">:</span><span class="n">ErrorLog</span><span class="p">(</span><span class="s2">"ERROR: light level out of range"</span><span class="p">)</span>
 <span class="k">end</span>
 </code></pre></div>
 <h1 id='tcpclient-interface'>TCPClient Interface</h1>
