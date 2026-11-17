@@ -22589,14 +22589,15 @@ Connection: "close", is suggested and
 <li><p>Drivers must packaged in the c4z mechanism.</p></li>
 <li><p>OTA upgrade image files will be accessible via the controller&#39;s on-board web server. Therefore, the image files will be located in the www directory of the driver&#39;s c4z space on the controller&#39;s file system.</p></li>
 <li><p>The name of the upgrade image SHOULD follow a sensible naming convention prescribed by the C4 Embedded Systems team. NOTE: The name of the upgrade image, managed by the Ota Upgrade Server, will be changed as necessary to ensure proper handling of multiple upgrade images. However, the bulk of the filename located in the driver repository will be preserved.</p></li>
-<li><p>The extension of the upgrade image SHOULD be .zigbee as defined in the ZigBee OTA Upgrade Cluster document. See the example to the right.</p></li>
+<li><p>The extension of the upgrade image SHOULD be .zigbee as defined in the ZigBee OTA Upgrade Cluster document. The example to the right shows an upgrade image in the www directory of a .c4z file.</p></li>
 </ul>
 
-<div class="highlight"><pre class="highlight xml tab-xml"><code>/mnt/internal/c4z/C4-V-ODIM120/www# ls -alh
-drwxrwxrwx    2 root     root        4.0K Aug 15 14:51 .
-drwx------    8 root     root        4.0K Aug 16 10:38 ..
--rwx------    1 root     root      135.0K Aug 15 14:51 Documentation.rtf
--rwx------    1 root     root      135.0K Aug 15 14:51 myAwsomeUpgradeImage.zigbee
+<div class="highlight"><pre class="highlight plaintext"><code>MyZigbeeDriver.c4z
+├── driver.xml
+├── driver.lua
+└── www
+    ├── documentation.rtf
+    └── myAwsomeUpgradeImage.zigbee
 </code></pre></div>
 
 <p>When a Lua driver passes a URL to the Ota Upgrade Server for processing, the URL will be transformed from:</p>
