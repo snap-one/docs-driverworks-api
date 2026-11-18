@@ -1,6 +1,6 @@
 ## SendDataToUI
 
-Function to send data to subscribed navigators. This API should not be invoked during OnDriverInit.
+Function to send data to subscribed navigators. This API should not be invoked during OnDriverInit. To send data as one of the driver's own proxies, see [SendDataToUIAsProxy][1].
 
 
 ###### Available from 1.6.0
@@ -45,3 +45,4 @@ Sending command with parameters:
 
 `C4:SendDataToUI("DRIVER_COMMAND", { PARAM1 = "Data1", PARAM2 = "Data1" })`
 
+[1]:	https://snap-one.github.io/docs-driverworks-api/#miscellaneous-interface-senddatatouiasproxy
