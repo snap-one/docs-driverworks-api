@@ -1941,7 +1941,7 @@
 
 <p><strong>Encryption Interface</strong></p>
 
-<p>The <a href="https://snap-one.github.io/docs-driverworks-api/#encryption-interface-generatecsr_eccc">GenerateCSR ECC</a> and <a href="https://snap-one.github.io/docs-driverworks-api/#encryption-interface-generatecsr_rsa">GenerateCSR RSA</a> APIs have been modified. Upon success, they now return strings containing the CSR/ECC, public key and private key. Upon failure, nil is returned.</p>
+<p>The <a href="https://snap-one.github.io/docs-driverworks-api/#encryption-interface-generatecsr_ecc">GenerateCSR ECC</a> and <a href="https://snap-one.github.io/docs-driverworks-api/#encryption-interface-generatecsr_rsa">GenerateCSR RSA</a> APIs have been modified. Upon success, they now return strings containing the CSR/ECC, public key and private key. Upon failure, nil is returned.</p>
 
 <p><strong> Helper Interface</strong></p>
 
@@ -7845,7 +7845,7 @@ local shared_secret = pkey.derive( private_key, peer_key )
 <span class="k">end</span><span class="p">)</span>
 </code></pre></div>
 <h2 id='tcpclient-interface-close'>Close</h2>
-<p>This method closes an established connection, or cancels a pending resolve or connection request. If a resolve or connection request is canceled, the <a href="https://snap-one.github.io/docs-driverworks-api/#onerror">OnError</a> callback function will get called. This API should not be invoked during OnDriverInit. Once you call this method, no more data will be read from the socket and you can no longer write additional data to the socket. Also, the OnWrite callback will not be called anymore, even if the flush argument is set to true.</p>
+<p>This method closes an established connection, or cancels a pending resolve or connection request. If a resolve or connection request is canceled, the <a href="https://snap-one.github.io/docs-driverworks-api/#tcpclient-interface-onerror">OnError</a> callback function will get called. This API should not be invoked during OnDriverInit. Once you call this method, no more data will be read from the socket and you can no longer write additional data to the socket. Also, the OnWrite callback will not be called anymore, even if the flush argument is set to true.</p>
 <h6 id='tcpclient-interface-close-example-director-geo-location-service-available-from-2-10-4-available-in-1-6-0'>Available in 1.6.0</h6><h3 id='tcpclient-interface-close-signature'>Signature</h3>
 <p><code>C4:Close(flush)</code></p></p>
 
@@ -11545,7 +11545,7 @@ one over the other.</p>
 <p><h6 id='miscellaneous-interface-persistdata-returns-director-geo-location-service-available-from-2-10-4-available-from-2-10-0'>Available from 2.10.0</h6><h3 id='miscellaneous-interface-persistdata-signature'>Signature</h3>
 <p><code>PersistData = {}</code></p>
 <h3 id='miscellaneous-interface-persistdata-usage-note'>Usage Note</h3>
-<p>It is recommended to use the <a href="https://snap-one.github.io/docs-driverworks-api/#persistsetvalue">PersistSetValue</a> and <a href="https://snap-one.github.io/docs-driverworks-api/#persistgetvalue">PersistGetValue</a> calls if they&#39;re supported in your O.S. These calls were introduced with OS 2.10.0. They immediately write to the state database.The PersistData table only is only written out when Director cycles through each driver to save its state. Because of this, latency issues can occur when using PersistData.</p></p>
+<p>It is recommended to use the <a href="https://snap-one.github.io/docs-driverworks-api/#persistence-interface-persistsetvalue">PersistSetValue</a> and <a href="https://snap-one.github.io/docs-driverworks-api/#persistence-interface-persistgetvalue">PersistGetValue</a> calls if they&#39;re supported in your O.S. These calls were introduced with OS 2.10.0. They immediately write to the state database.The PersistData table only is only written out when Director cycles through each driver to save its state. Because of this, latency issues can occur when using PersistData.</p></p>
 
 <h2 id='miscellaneous-interface-exit-navigation'>Exit Navigation</h2>
 
@@ -19961,7 +19961,7 @@ On failure, the function returns the following:</p></p>
 <span class="k">end</span>
 </code></pre></div>
 
-<p>Next, <a href="https://snap-one.github.io/docs-driverworks-api/#onserverconnectionstatuschanged">OnServerConnectionStatusChanged</a> now Reports Client IP:</p>
+<p>Next, <a href="https://snap-one.github.io/docs-driverworks-api/#server-socket-interface-onserverconnectionstatuschanged">OnServerConnectionStatusChanged</a> now Reports Client IP:</p>
 
 <div class="highlight"><pre class="highlight lua tab-lua"><code><span class="k">function</span> <span class="nf">OnServerConnectionStatusChanged</span><span class="p">(</span><span class="n">nHash</span><span class="p">,</span> <span class="n">nPort</span><span class="p">,</span> <span class="n">strStatus</span><span class="p">,</span> <span class="n">strIP</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">"OnServerConnectionStatusChanged hash: "</span> <span class="o">..</span> <span class="n">nHash</span> <span class="o">..</span> <span class="s2">" port: "</span> <span class="o">..</span> <span class="n">nPort</span> <span class="o">..</span> <span class="s2">" status: "</span> <span class="o">..</span> <span class="n">strStatus</span> <span class="o">..</span> <span class="s2">" ip: "</span> <span class="o">..</span> <span class="n">strIP</span><span class="p">)</span>
@@ -20001,7 +20001,7 @@ On failure, the function returns the following:</p></p>
 </tr>
 <tr>
 <td>int</td>
-<td>options. A numeric value that specifies the TLS options to be applied to the server. The various bits in the number identify the options that are set for the server. This number can be constructed by bitwise ORing values together. The <a href="https://snap-one.github.io/docs-driverworks-fundamentals/#operating-system-3-and-binary-data">BitOp library</a> (which is available to drivers) can perform these operations. Alternatively, if the options are known beforehand, then this value can be computed ahead of time and hardcoded. The following table identifies the options that can be set:</td>
+<td>options. A numeric value that specifies the TLS options to be applied to the server. The various bits in the number identify the options that are set for the server. This number can be constructed by bitwise ORing values together. The <a href="https://snap-one.github.io/docs-driverworks-fundamentals/#handling-binary-data-operating-system-3-and-binary-data">BitOp library</a> (which is available to drivers) can perform these operations. Alternatively, if the options are known beforehand, then this value can be computed ahead of time and hardcoded. The following table identifies the options that can be set:</td>
 </tr>
 </tbody></table>
 
@@ -20086,7 +20086,7 @@ On failure, the function returns the following:</p></p>
 </thead><tbody>
 <tr>
 <td>num</td>
-<td>verifyMode. A numeric value that specifies the peer verification mode. The various bits in the number identify options that are set for the server. This number can be constructed by bitwise ORing values together. The <a href="https://snap-one.github.io/docs-driverworks-fundamentals/#operating-system-3-and-binary-data">BitOp library</a> (which is available to drivers) can perform these operations. Alternatively, if the options are known beforehand, then this value can be computed ahead of time and hardcoded. The following table identifies the options that can be set:</td>
+<td>verifyMode. A numeric value that specifies the peer verification mode. The various bits in the number identify options that are set for the server. This number can be constructed by bitwise ORing values together. The <a href="https://snap-one.github.io/docs-driverworks-fundamentals/#handling-binary-data-operating-system-3-and-binary-data">BitOp library</a> (which is available to drivers) can perform these operations. Alternatively, if the options are known beforehand, then this value can be computed ahead of time and hardcoded. The following table identifies the options that can be set:</td>
 </tr>
 </tbody></table>
 
@@ -20993,7 +20993,7 @@ Returns the whole number of minutes that have elapsed. This value might be somet
 
 <h2 id='url-interface-onbodychunk'>OnBodychunk</h2>
 
-<p>Sets a callback function that will be called each time a chunk of the response body has transferred.  This does not necessarily correlate to chunks in the context of the HTTP &quot;chunked&quot; transfer encoding. This function may be called multiple times for each response, following the callback function set by OnHeaders() and before the callback function set by <a href="https://snap-one.github.io/docs-driverworks-api/#onbody">OnBody()</a> and <a href="https://snap-one.github.io/docs-driverworks-api/#ondone">OnDone()</a>. Note that this method can only be called before a transfer was started. This callback function is not needed for most use-cases.</p>
+<p>Sets a callback function that will be called each time a chunk of the response body has transferred.  This does not necessarily correlate to chunks in the context of the HTTP &quot;chunked&quot; transfer encoding. This function may be called multiple times for each response, following the callback function set by OnHeaders() and before the callback function set by <a href="https://snap-one.github.io/docs-driverworks-api/#url-interface-onbody">OnBody()</a> and <a href="https://snap-one.github.io/docs-driverworks-api/#url-interface-ondone">OnDone()</a>. Note that this method can only be called before a transfer was started. This callback function is not needed for most use-cases.</p>
 
 <p><h6 id='url-interface-onbodychunk-returns-example-available-from-1-6-0-available-from-2-10-5'>Available from 2.10.5</h6><h3 id='url-interface-onbodychunk-signature'>Signature</h3>
 <p><code>C4LuaUrl:OnBodyChunk(func)</code></p></p>
@@ -21039,9 +21039,9 @@ Returns the whole number of minutes that have elapsed. This value might be somet
 </tr>
 </tbody></table>
 
-<p>The same response table will be passed to the callbacks set by <a href="https://snap-one.github.io/docs-driverworks-api/#onbody">OnBody()</a> and <a href="https://snap-one.github.io/docs-driverworks-api/#ondone">OnDone()</a>. Any modifications to this table will persist, but not affect the transfer in any way.</p>
+<p>The same response table will be passed to the callbacks set by <a href="https://snap-one.github.io/docs-driverworks-api/#url-interface-onbody">OnBody()</a> and <a href="https://snap-one.github.io/docs-driverworks-api/#url-interface-ondone">OnDone()</a>. Any modifications to this table will persist, but not affect the transfer in any way.</p>
 
-<p>The chunk argument is a string of the received chunk of the response body.  By using the <a href="https://snap-one.github.io/docs-driverworks-api/#onbodychunk">OnBodyChunk()</a> callback, it is up to the driver process and/or store the data as needed.  In this case, the interface does not aggregate the response body, and it is not stored in the body key of the response table.</p>
+<p>The chunk argument is a string of the received chunk of the response body.  By using the <a href="https://snap-one.github.io/docs-driverworks-api/#url-interface-onbodychunk">OnBodyChunk()</a> callback, it is up to the driver process and/or store the data as needed.  In this case, the interface does not aggregate the response body, and it is not stored in the body key of the response table.</p>
 
 <h2 id='url-interface-ondone'>OnDone</h2>
 
@@ -21064,7 +21064,7 @@ Returns the whole number of minutes that have elapsed. This value might be somet
 
 <h3 id='url-interface-ondone-usage-note'>Usage Note</h3>
 
-<p>The transfer argument is the C4LuaUrl object that was created by the call to <a href="https://snap-one.github.io/docs-driverworks-api/#url-interface">C4:url()</a>. The responses argument receives a table (array) of the response tables in the order that they were received.  These response tables are the same ones that were passed to the callback functions set by <a href="https://snap-one.github.io/docs-driverworks-api/#onheaders">OnHeaders()</a>, <a href="https://snap-one.github.io/docs-driverworks-api/#onbody">OnBody()</a>, and <a href="https://snap-one.github.io/docs-driverworks-api/#onbodychunk">OnBodyChunk()</a>.</p>
+<p>The transfer argument is the C4LuaUrl object that was created by the call to <a href="https://snap-one.github.io/docs-driverworks-api/#url-interface">C4:url()</a>. The responses argument receives a table (array) of the response tables in the order that they were received.  These response tables are the same ones that were passed to the callback functions set by <a href="https://snap-one.github.io/docs-driverworks-api/#url-interface-onheaders">OnHeaders()</a>, <a href="https://snap-one.github.io/docs-driverworks-api/#url-interface-onbody">OnBody()</a>, and <a href="https://snap-one.github.io/docs-driverworks-api/#url-interface-onbodychunk">OnBodyChunk()</a>.</p>
 
 <p>If the transfer succeeded, the errCode argument will be 0 and errMsg will be nil.  If the transfer was aborted by one of the callback functions the errCode argument will be -1.  Otherwise, errCode will hold a number with an error code and the errMsg argument will contain a string with details.</p>
 
@@ -21824,7 +21824,7 @@ Device ID 84:</p>
 <h2 id='variable-interface-registervariablelistener'>RegisterVariableListener</h2>
 
 <p>Function called from a DriverWorks driver to set a listener on a particular device’s variable.
-When a listener is set on a variable, whenever the variable changes, the Lua <a href="https://snap-one.github.io/docs-driverworks-api/#onwatchedvariablechanged">OnWatchedVariableChanged</a> call is called.</p>
+When a listener is set on a variable, whenever the variable changes, the Lua <a href="https://snap-one.github.io/docs-driverworks-api/#variable-interface-onwatchedvariablechanged">OnWatchedVariableChanged</a> call is called.</p>
 
 <p><h6 id='variable-interface-registervariablelistener-example-example-available-from-1-6-0-available-from-1-6-0'>Available from 1.6.0.</h6><h3 id='variable-interface-registervariablelistener-signature'>Signature</h3>
 <p><code>C4:RegisterVariableListener(idDevice, idVariable) </code></p></p>
