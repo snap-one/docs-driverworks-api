@@ -15,7 +15,8 @@ EvaluateConditional evaluates the expression and returns a Boolean result. This 
 | logic | Operator used in the conditionals. The following strings are accepted:
 | | EQUAL |
 | | NOT\_EQUAL |
-| | LESS\_THAN | | LESS\_THAN\_OR\_EQUAL |
+| | LESS\_THAN |
+| | LESS\_THAN\_OR\_EQUAL |
 | | GREATER\_THAN |
 | | GREATER\_THAN\_OR\_EQUAL |
 | value 1 | Left operand of the expression |
