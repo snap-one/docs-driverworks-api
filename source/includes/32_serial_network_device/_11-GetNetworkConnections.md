@@ -73,7 +73,7 @@ Control4 Configurable Keypad using a **Zigbee** connection:
 ```lua
 Zigbee
 firmware:  4.1.22
-address:  000fff000077f532
+address:  000fffxxxxxxxxxx
 type:  3
 bindingid:  6001
 deviceid:  75

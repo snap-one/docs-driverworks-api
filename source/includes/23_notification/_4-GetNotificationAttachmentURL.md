@@ -8,7 +8,7 @@ If the .jpeg file from the device is stored on the web or in a cloud, the GetNot
 
 ```lua
 function GetNotificationAttachmentURL()
-  return "http://10.12.80.4:80/snap1vga"
+  return "http://192.168.1.100:80/snapshot"
 end
 ```
 
