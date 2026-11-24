@@ -3830,20 +3830,9 @@ SetOnDisconnected: Provides notification when the connection is disconnected, or
 <h3 id='encryption-interface-sign-examples'>Examples</h3><div class="highlight"><pre class="highlight lua tab-lua"><code><span class="n">options</span> <span class="o">=</span> <span class="p">{}</span>
 <span class="n">options</span><span class="p">[</span><span class="s2">"key_encoding"</span><span class="p">]</span> <span class="o">=</span><span class="err"> </span><span class="s2">"PEM"</span>
 <span class="n">options</span><span class="p">[</span><span class="s2">"return_encoding"</span><span class="p">]</span> <span class="o">=</span><span class="err"> </span><span class="s2">"BASE64"</span>
+<span class="c1">-- Load your own RSA private key in PEM format. Never hardcode a real private key in a driver.</span>
 <span class="n">key</span> <span class="o">=</span> <span class="s">[[-----BEGIN RSA PRIVATE KEY-----
-MIICXAIBAAKBgQC8cDObD4DjL3TnUR7JxObq+pwb4XX6UYjXuM1zzl/4gvQ8KzA4
-CDl8S5FQeaPe4vdrLHEJudxSJc7JWehMwcS+jP6xO1pRA68SBphq9I5G/itBw5zx
-RSGi26NDTiu7XczTRTPGRyBRNxBiln4hWg3ordY5gn0PYe30Fem9vTyZ1QIDAQAB
-AoGAPTNfv1uwq5iNKleRXUyjBuwv6Wo3a/4xKIbvy03ao5a8hhIszfX13aWZY36u
-N0SVwOwlJliD8vYui/y0UsGYCRCKrBFh5iBlL4bd4bOg/3uD9EXqiZQiT/BeYAD5
-TYozqtsBU8DhZytdX3OcmLlKwhX+fzKMC2/UWPkEQ2TlSX0CQQDd/DgdI6WbCn3f
-sIJo6yEA98ZivayuoePfRP8CHaIAOVO6KOa1wYwR/nmrUmPSFZDUpvwB7mvel4WN
-3VqNO9sXAkEA2VAKopLmgdL+KNZdpg2BB3eVMMDefhXC04tBmUpWX6qaFEVsw+gl
-DYnDel3gv43iq3xqszaKEJy+1T+bR9tV8wJAc4ecvK2ctsATGqQGewxENPi/KwyE
-Hq7qpXyHK1a4xV0QkkZPLDD68TJ7qApNIT1QDxyI84heY46AV4Doa7DHKQJBAMj0
-l6EXL0nGj3m8IgW4XyVElBXthNIb1XpCQHs8nvsAjFNKj/Xp6rnGN5okzfzVfFMQ
-TqtDOBF8oYwZscKVNbkCQFolrfE1I7DMTuQNHmF6kMXr/0gjhDTbUOOP3kzCSK14
-iSpRAwom9R5BWUMFoRCn0j0TWFsTIBNSuOcMrw5n6NU=
+&lt;your PEM-encoded RSA private key&gt;
 -----END RSA PRIVATE KEY-----]]</span>
 <span class="n">signature</span><span class="o">=</span><span class="n">C4</span><span class="p">:</span><span class="n">Sign</span><span class="p">(</span><span class="s2">"RSA"</span><span class="p">,</span><span class="err"> </span><span class="s2">"SHA256"</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span><span class="err"> </span><span class="s2">"Walla Walla Washington"</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">signature</span><span class="p">)</span>
@@ -12472,7 +12461,7 @@ Output: <code>XDT_Windows</code>_ </p>
 <h3 id='miscellaneous-interface-getuniquemac-example'>Example</h3>
 
 <p><code>print(&quot;Unique mac is &quot; .. C4:GetUniqueMAC())</code>
-Output: <code>Unique mac is 000FFF102F73</code></p>
+Output: <code>Unique mac is 000FFFXXXXXX</code></p>
 
 <h2 id='miscellaneous-interface-ntoh-1'>ntoh  1</h2>
 
@@ -14340,7 +14329,7 @@ Sets the callback that is invoked to notify a driver about the result of &quot;p
 <h2 id='notification-interface-getnotificationattachmenturl'>GetNotificationAttachmentURL</h2>
 <p>If the .jpeg file from the device is stored on the web or in a cloud, the GetNotificationAttachmentURL API should be included in your driver to return the URL of the file.</p>
 <h3 id='notification-interface-getnotificationattachmenturl-example'>Example</h3><div class="highlight"><pre class="highlight lua tab-lua"><code><span class="k">function</span> <span class="nf">GetNotificationAttachmentURL</span><span class="p">()</span>
-  <span class="k">return</span> <span class="s2">"http://10.12.80.4:80/snap1vga"</span>
+  <span class="k">return</span> <span class="s2">"http://192.168.1.100:80/snapshot"</span>
 <span class="k">end</span>
 </code></pre></div>
 <p>To assist with implementation, please see the notification driver.c4z file in the Samples folder of this SDK.</p>
@@ -18556,7 +18545,7 @@ print(Bar[&quot;</span><span class="n">Qux</span><span class="s2">&quot;])
 returns:
 networkbindingid: 6001
 addr: 192.168.1.52
-uuid: c4:control4_ea5-ea5-000FFF1984B0
+uuid: c4:control4_ea5-ea5-000FFFXXXXXX
 status: online
 ssdptype: c4:control4_ea5
 deviceid: 20
@@ -18948,7 +18937,7 @@ addresstype: 1
 
 <div class="highlight"><pre class="highlight lua tab-lua"><code><span class="n">Zigbee</span>
 <span class="n">firmware</span><span class="p">:</span><span class="err"> </span> <span class="mi">4</span><span class="p">.</span><span class="mi">1</span><span class="p">.</span><span class="mi">22</span>
-<span class="n">address</span><span class="p">:</span><span class="err"> </span> <span class="mi">000</span><span class="n">fff000077f532</span>
+<span class="n">address</span><span class="p">:</span><span class="err"> </span> <span class="mi">000</span><span class="n">fffxxxxxxxxxx</span>
 <span class="nb">type</span><span class="p">:</span><span class="err"> </span> <span class="mi">3</span>
 <span class="n">bindingid</span><span class="p">:</span><span class="err"> </span> <span class="mi">6001</span>
 <span class="n">deviceid</span><span class="p">:</span><span class="err"> </span> <span class="mi">75</span>
