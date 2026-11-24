@@ -28,4 +28,4 @@ The unique MAC may not be the active MAC if multiple NICs are present. For examp
 ### Example
 
 `print("Unique mac is " .. C4:GetUniqueMAC())`
-Output: `Unique mac is 000FFF102F73`
+Output: `Unique mac is 000FFFXXXXXX`
